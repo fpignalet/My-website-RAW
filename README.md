@@ -34,7 +34,7 @@ To use a test BD:
 
 ## Credit
 
-[**W3 Schools**](https://www.w3schools.com/) is a ...
+[**W3 Schools**](https://www.w3schools.com/) contains tutorials and materials which allows easy web development.
 
 ## Contact
 
