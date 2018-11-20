@@ -30,7 +30,7 @@ $data_BNcontent12 = array(
             "Source code is available there: "
         ]],
         [ "ul", [
-            [ "https://github.com/fpignalet/My-website-RAW-", "sources on GitHub" ]
+            [ "https://github.com/fpignalet/My-website-RAW", "sources on GitHub" ]
         ]],
 
     ]
