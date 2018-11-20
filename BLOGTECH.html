@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <title>
+        Technical BLOG
+    </title>
+
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="pragma" content="no-cache" />
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <link rel="stylesheet" href="clientside/clientside.css">
+        <style>
+            body, h1, h2, h3, h4, h5 {
+                font-family: "Raleway", sans-serif
+            }
+
+        </style>
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+        </script>
+
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin>
+        </script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin>
+        </script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js">
+        </script>
+
+        <script type="text/javascript" src="clientside/data/BLOGdata.js">
+        </script>
+        <script type="text/javascript" src="clientside/clientside.js">
+        </script>
+        <script type="text/javascript" src="clientside/clientsideBLOG.js">
+        </script>
+        <script type="text/babel" src="clientside/clientsideREACT.js">
+        </script>
+
+    </head>
+
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <body class="w3-light-grey" onload="cliside_BLOGTECHpageload()">
+
+        <!-- w3-content defines a container for fixed size centered content,
+        and is wrapped around the whole page content, except for the footer in this example -->
+        <div class="w3-content" style="max-width:1400px">
+
+            <!-- ---------------------------------------------------------------------------------------------------------------------->
+            <!-- ---------------------------------------------------------------------------------------------------------------------->
+            <!-- BLOG HEADER -->
+            <header class="w3-container w3-center w3-padding-32">
+
+                <!-- BLOG TITLE -->
+                <h1>
+                    <b><i>Irgendwo in Bayern</i></b>
+                    <br>
+                    <i>Technical part</i>
+                </h1>
+
+                <!-- BLOG SUBTITLE -->
+                <p>
+                    Welcome to the blog of
+                    <span class="w3-tag">
+                        Francois Pignalet
+                    </span>
+                </p>
+
+            </header>
+
+            <!-- ---------------------------------------------------------------------------------------------------------------------->
+            <!-- ---------------------------------------------------------------------------------------------------------------------->
+            <!-- Grid -->
+            <div class="w3-row">
+
+                <div class="w3-col l8 s12">
+
+                    <script>
+                        try {
+                            var testslocal = new CLISIDE_BTECHDOM();
+                            var testsremote = new CLISIDE_BTECHLOADER();
+                        }
+                        catch (e) {
+                            console.log(e.name)
+                        }
+                        finally {
+                            //...
+                        }
+                    </script>
+
+                    <!-- ------------------------------------------------------------------ -->
+                    <!-- Blog entry -->
+                    <!-- ------------------------------------------------------------------ -->
+                    <div id="blog_entry11" class="w3-card-4 w3-margin w3-white">
+                        <img id="blog_entry11PHOTO" src="images/macro-1452987_640.jpg" alt="img" style="width:100%">
+                        <div class="w3-container">
+                            <h3 id="blog_entry11TITLE">
+                            </h3>
+                            <h5 id="blog_entry11DATE">
+                            </h5>
+                        </div>
+                        <div id="blog_entry11CONTENT" class="w3-container">
+
+                            <div id="reactbuttonjsx"></div>
+                            <br>
+                            <div id="reacttablejsx"></div>
+                            <br>
+                            <div id="reacttodojsx"></div>
+                            <br>
+
+                            <script type="text/babel">
+
+                                var contener = null;
+
+                                var button = React.createElement(ReactButtonJSX, { data: document });
+                                contener = document.querySelector('#' + "reactbuttonjsx");
+                                ReactDOM.render(button, contener);
+
+                                contener = document.querySelector('#' + "reacttodojsx");
+                                ReactDOM.render(<TodoApp />, contener);
+
+                            </script>
+                        </div>
+
+                    </div>
+                    <!-- ------------------------------------------------------------------ -->
+                    <!-- Blog entry -->
+                    <!-- ------------------------------------------------------------------ -->
+                    <script>
+                        try {
+                            document.write(
+                                testslocal.testdyn(
+                                    'blog_entry8',
+                                    'images/gears-686316_640.jpg',
+                                    'Today\'s sandbox',
+                                    'August 25, 2018',
+                                    'Dynamic test',
+                                    <!-- CONTENU -->
+                                    '<ul>\n' +
+                                    '    <li>dynamic blog entry: generating html with javascript\n' +
+                                    '        <ul>\n' +
+                                    '            <li>sub item 1</li>\n' +
+                                    '            <li>sub item 2</li>\n' +
+                                    '        </ul>\n' +
+                                    '    </li>\n' +
+                                    '</ul>\n'
+                                )
+                            );
+                        }
+                        catch (e) {
+                            console.log(e.name)
+                        }
+                        finally {
+                            //...
+                        }
+
+                    </script>
+                    <!-- ------------------------------------------------------------------ -->
+                    <!-- Blog entry -->
+                    <!-- ------------------------------------------------------------------ -->
+                    <div id="blog_entry7" class="w3-card-4 w3-margin w3-white">
+                        <img id="blog_entry7PHOTO" src="images/macro-1452987_640.jpg" alt="img" style="width:100%">
+                        <div class="w3-container">
+                            <h3 id="blog_entry7TITLE">
+                            </h3>
+                            <h5 id="blog_entry7DATE">
+                            </h5>
+                        </div>
+                        <div id="blog_entry7CONTENT" class="w3-container">
+
+                            <!-- Specific sandbox content is not dynamically processed -->
+
+                            <script>
+                                try {
+                                    testslocal.testangular("testapp", "testctrl");
+                                }
+                                catch (e) {
+                                    console.log(e.name)
+                                }
+                                finally {
+                                    //...
+                                }
+                            </script>
+                            <div class="w3-container"
+                                 ng-app="testapp"
+                                 ng-controller="testctrl"
+                                 ng-init="
+                                        person={ firstName: 'John', lastName: 'Doe' };
+                                        points=[ 1, 15, 19, 2, 40 ]">
+
+                                <!-- ---------------------------------->
+                                <p>
+                                    [TEST WITH ng-init data:] The name in data is
+                                    <span ng-bind="person.lastName"></span>
+                                </p>
+                                <p>
+                                    [TEST WITH ng-init data:] The third item in array in data is
+                                    {{ points[2] }}
+                                </p>
+                                <!-- ---------------------------------->
+                                <p>
+                                    [TEST input:] Name: <input type="text" ng-model="name">
+                                    <br>
+                                    Hello {{name}}
+                                </p>
+                                <p>
+                                    <form>
+                                        <b>First Name: </b><input type="text" ng-model="ifirstName">
+                                        <b>Last Name: </b><input type="text" ng-model="ilastName">
+                                    </form>
+                                    [TEST with form:] Full Name: {{ifirstName + " " + ilastName}}
+                                </p>
+                                <!-- ---------------------------------->
+                                <p>
+                                    [[TEST with dynamic list: ] ]
+                                    <ul>
+                                        <li ng-repeat="x in products">{{x}}
+                                            <span ng-click="removeItem($index)"> X </span>
+                                        </li>
+                                    </ul>
+                                    <input ng-model="addMe">
+                                    <button ng-click="addItem()">Add</button>
+                                </p>
+                                <p>
+                                    {{errortext}}
+                                </p>
+                                <p>
+                                    <h1 ng-mousemove="mouseoverfunc($event)">Mouse Over Me!</h1>
+                                    <p>[TEST mouse:] Coordinates: {{x + ', ' + y}}</p>
+                                </p>
+                                <!-- ---------------------------------->
+                                <!-- p>
+                                    <a href="#/!">Main</a>
+                                    <a href="#!banana">Banana</a>
+                                    <a href="#!tomato">Tomato</a>
+                                    <p>Click on the links to change the content.</p>
+                                    <p>Use the "otherwise" method to define what to display when none of the links are clicked.</p>
+                                </p -->
+                                <!-- div ng-view></div -->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- ------------------------------------------------------------------ -->
+                    <!-- Blog entry -->
+                    <!-- ------------------------------------------------------------------ -->
+                    <div id="blog_entry5" class="w3-card-4 w3-margin w3-white">
+                        <!-- TITRE: PHOTO -->
+                        <img id="blog_entry5PHOTO" src="images/gears-1236578_640.jpg" alt="img" style="width:100%">
+                        <div class="w3-container">
+                            <h3 id="blog_entry5TITLE">
+                            </h3>
+                            <h5 id="blog_entry5DATE">
+                            </h5>
+                        </div>
+                        <div id="blog_entry5CONTENT" class="w3-container">
+
+                            <!---------------- TESTS 1 ------------------>
+                            <p>
+                                <div><b>Locally obtained data:</b></div>
+                                <div id="hello_area">This text should be replaced.</div>
+                                <div id="count_area">This text should be replaced.</div>
+
+                            </p>
+                            <script>
+                                try {
+                                    testslocal.testhello(document, "hello_area");
+                                    testslocal.testcount(document, "count_area");
+                                }
+                                catch (e) {
+                                    console.log(e.name)
+                                }
+                                finally {
+                                    //...
+                                }
+                            </script>
+
+                            <!------------------ TESTS 2 ------------------>
+                            <p>
+                                <div>
+                                    <b>Remotely obtained data: start typing a name in the input field below to get an answer from the server</b>
+                                </div>
+                                <form>
+                                    <b>First try: </b>
+                                    <input type="text" onkeyup="testsremote.testphp1(document, this.value, 'txtHint')">
+                                    <br>
+                                    <b>Second try: </b>
+                                    <input type="text" onkeyup="testsremote.testphp1(document, this.value, 'txtHint')">
+                                </form>
+                                <div>
+                                    <b>Suggestions: </b>
+                                    <span id="txtHint"></span>
+                                </div>
+
+                            </p>
+
+                            <!------------------ TESTS 3 ------------------>
+                            <p>
+                                <div><b>parameters 1: </b><span id="params_area1"></span></div>
+                                <div><b>parameters 2: </b><span id="params_area2"></span></div>
+                                <div><b>parameters 3: </b><span id="params_area3"></span></div>
+
+                            </p>
+                            <script>
+                                try {
+                                    testsremote.testphp3(document, null, "params_area1");
+                                    testsremote.testphp4(document, null, "params_area2");
+                                    testsremote.testphp5(document, null, "params_area3");
+                                }
+                                catch (e) {
+                                    console.log(e.name)
+                                }
+                                finally {
+                                    //...
+                                }
+                            </script>
+
+                            <!------------------ TESTS 4 ------------------>
+                            <p>
+                                <div><b>BD Contents: </b><span id="bdResult"></span></div>
+
+                            </p>
+                            <script>
+                                try {
+                                    testsremote.testphp2(document, null, "bdResult");
+                                }
+                                catch (e) {
+                                    console.log(e.name)
+                                }
+                                finally {
+                                    //...
+                                }
+                            </script>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- END BLOG ENTRIES -->
+
+                <!-- ---------------------------------------------------------------------------------------------------------------------->
+                <!-- right info menu -->
+                <!-- ---------------------------------------------------------------------------------------------------------------------->
+                <div class="w3-col l4">
+
+                    <!-- ------------------------------------------------------------------ -->
+                    <!-- About card -->
+                    <!-- ------------------------------------------------------------------ -->
+                    <div class="w3-card w3-margin w3-margin-top">
+
+                        <img id="blog_infoPHOTO" src="images/P_20160208_183649_BF.jpg" style="width:100%">
+                        <div id="blog_infoDESC" class="w3-container w3-white">
+                            <h4>
+                                <b>Francois Pignalet</b>
+                            </h4>
+                            <p>
+                                Mein berufliche Situation <br>
+                                My professional situation <br>
+                                Ma situation professionnelle <br>
+
+                                <a href="CV.html">Resume / CV</a>
+                            </p>
+                        </div>
+
+                    </div>
+                    <hr>
+
+                </div>
+                <!-- END right info menu -->
+
+            </div>
+            <!-- END GRID -->
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+            <!-- button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button -->
+            <!-- button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button -->
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>
+
+    </body>
+
+</html>

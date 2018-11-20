@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <title>
+        RESUME
+    </title>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="pragma" content="no-cache" />
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- EXTERNAL RESSOURCES -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- STYLE SHEETS -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <link rel="stylesheet" href="clientside/clientside.css">
+        <style>
+            html, body, h1, h2, h3, h4, h5, h6 {
+                font-family: "Roboto", sans-serif;
+                /* font-family: "Raleway", sans-serif */
+            }
+
+        </style>
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- JS IMPLEMENTATION -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <script type="text/javascript" src="clientside/data/CVdata.js">
+        </script>
+        <script type="text/javascript" src="clientside/clientside.js">
+        </script>
+        <script type="text/javascript" src="clientside/clientsideCV.js">
+        </script>
+
+    </head>
+
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <!-- Page Container -->
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <body class="w3-light-grey" onload="cliside_CVpageload(document)">
+
+        <div class="w3-content w3-margin-top" style="max-width:1300px;">
+
+            <div class="w3-row-padding">
+
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- DEBUT Left Column -->
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- -------------------------------------------------------------------------- -->
+                <div class="w3-third">
+
+                    <div class="w3-white w3-text-grey w3-card-4">
+
+                        <!-- RUBRIQUE MOI -->
+                        <div class="w3-display-container">
+                            <img id="moi_photo" style="width:33%" alt="Avatar">
+                            <div class="w3-display-bottomright w3-container w3-text-black">
+                                <h2 id="moi_name"></h2>
+                            </div>
+                        </div>
+
+                        <!-- RUBRIQUE INFO -->
+                        <div class="w3-container">
+
+                            <!-- ----------------------------------------------------------------------------------------->
+                            <!-- INFO -->
+                            <div id="cvpresentation" class="w3-large">
+                                <p id="info_raisonsociale">
+                                    <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                                </p>
+                                <p id="info_adresse">
+                                    <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                                </p>
+                                <p id="info_email">
+                                    <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                                </p>
+                                <p id="info_phonenum">
+                                    <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                                </p>
+
+                            </div>
+
+                            <input type="button" class="w3-button w3-block w3-theme-l1 w3-left-align" value="Print (under construction...)" onclick="cliside_CVpageprint(document)" />
+
+                            <hr>
+
+                            <!-- ----------------------------------------------------------------------------------------->
+                            <!-- AREASOFEXPERTISE -->
+                            <p class="w3-large">
+                                <b id="exp_title">
+                                    <i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>
+                                </b>
+                                <ul id="exp_content"></ul>
+
+                            </p>
+
+                            <!-- ----------------------------------------------------------------------------------------->
+                            <!-- MAINSKILLS -->
+                            <p id="skills" class="w3-large">
+                                <b id="mskills_title" >
+                                    <i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>
+                                </b>
+
+                                <!-- ----------------------->
+                                <p id="mskills_f1desc">
+                                </p>
+                                <div class="w3-light-grey w3-round-xlarge w3-small">
+                                    <div id="mskills_f1level" class="w3-container w3-center w3-round-xlarge w3-teal" style="width:100%">
+                                        <div id="mskills_f1text" class="w3-center w3-text-white">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ----------------------->
+                                <p id="mskills_f2desc">
+                                </p>
+                                <div class="w3-light-grey w3-round-xlarge w3-small">
+                                    <div id="mskills_f2level" class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">
+                                        <div id="mskills_f2text" class="w3-center w3-text-white">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ----------------------->
+                                <p id="mskills_f3desc">
+                                </p>
+                                <div class="w3-light-grey w3-round-xlarge w3-small">
+                                    <div id="mskills_f3level" class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">
+                                        <div id="mskills_f3text" class="w3-center w3-text-white">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ----------------------->
+                                <p id="mskills_f4desc">
+                                </p>
+                                <div class="w3-light-grey w3-round-xlarge w3-small">
+                                    <div id="mskills_f4level" class="w3-container w3-center w3-round-xlarge w3-teal" style="width:25%">
+                                        <div id="mskills_f4text" class="w3-center w3-text-white">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </p>
+
+                            <!-- ----------------------------------------------------------------------------------------->
+                            <!-- SPRACHE -->
+                            <!-- liste des langues causees -->
+                            <p id="lang" class="w3-large w3-text-theme">
+
+                                <b id="lang_title" >
+                                    <i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>
+                                </b>
+
+                                <!-- ----------------------->
+                                <p id="lang_f1desc">
+                                </p>
+                                <div class="w3-light-grey w3-round-xlarge">
+                                    <div id="lang_f1level" class="w3-round-xlarge w3-teal" style="width:100%">
+                                        <div id="lang_f1text" class="w3-center w3-text-white">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ----------------------->
+                                <p id="lang_f2desc">
+                                </p>
+                                <div class="w3-light-grey w3-round-xlarge">
+                                    <div id="lang_f2level" class="w3-round-xlarge w3-teal" style="width:80%">
+                                        <div id="lang_f2text" class="w3-center w3-text-white">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ----------------------->
+                                <p id="lang_f3desc">
+                                </p>
+                                <div class="w3-light-grey w3-round-xlarge">
+                                    <div id="lang_f3level" class="w3-round-xlarge w3-teal" style="width:60%">
+                                        <div id="lang_f3text" class="w3-center w3-text-white">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- FIN Left Column -->
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- -------------------------------------------------------------------------- -->
+
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- DEBUT Right Column -->
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- -------------------------------------------------------------------------- -->
+                <div class="w3-twothird">
+
+                    <!-- ---------------------------------------------------------------------------------------------------------------------->
+                    <!-- historique des boulots -->
+                    <!-- ---------------------------------------------------------------------------------------------------------------------->
+                    <div class="w3-container w3-card w3-white w3-margin-bottom">
+                        <h2 class="w3-text-grey w3-padding-16">
+                            <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+                            Work Experience
+                        </h2>
+
+                        <!-- ----------------------->
+                        <!-- BOITE ITEM -->
+                        <div class="w3-container">
+                            <h6 id="boulotentry0date" class="w3-text-teal">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+                            </h6>
+                            <h5 class="w3-opacity">
+                                <a id="boulotentry0boite"></a>
+                            </h5>
+                            <!-- ASYNC PROGRESS DISPLAY -->
+                            <div id="boulotentry0wait">
+                                <div class="myProgress" id="boulotentry0progress">
+                                    <div class="myBar" id="boulotentry0bar">Loading...</div>
+                                </div>
+                            </div>
+                            <table id="boulotentry0desc" class="w3-table"></table>
+
+                            <hr>
+
+                        </div>
+                        <!-- ----------------------->
+                        <!-- BOITE ITEM -->
+                        <div class="w3-container">
+                            <h6 id="boulotentry1date" class="w3-text-teal">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+                            </h6>
+                            <h5 class="w3-opacity">
+                                <a id="boulotentry1boite"></a>
+                            </h5>
+                            <!-- ASYNC PROGRESS DISPLAY -->
+                            <div id="boulotentry1wait">
+                                <div class="myProgress" id="boulotentry1progress">
+                                    <div class="myBar" id="boulotentry1bar">Loading...</div>
+                                </div>
+                            </div>
+                            <table id="boulotentry1desc" class="w3-table"></table>
+
+                            <hr>
+
+                        </div>
+                        <!-- ----------------------->
+                        <!-- BOITE ITEM -->
+                        <div class="w3-container">
+                            <h6 id="boulotentry8date" class="w3-text-teal">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+                            </h6>
+                            <h5 class="w3-opacity">
+                                <a id="boulotentry8boite"></a>
+                            </h5>
+                            <!-- ASYNC PROGRESS DISPLAY -->
+                            <div id="boulotentry8wait">
+                                <div class="myProgress" id="boulotentry8progress">
+                                    <div class="myBar" id="boulotentry8bar">Loading...</div>
+                                </div>
+                            </div>
+                            <table id="boulotentry8desc" class="w3-table"></table>
+
+                            <hr>
+
+                        </div>
+                        <!-- ----------------------->
+                        <!-- BOITE ITEM -->
+                        <div class="w3-container">
+                            <h6 id="boulotentry10date" class="w3-text-teal">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+                            </h6>
+                            <h5 class="w3-opacity">
+                                <a id="boulotentry10boite"></a>
+                            </h5>
+                            <!-- ASYNC PROGRESS DISPLAY -->
+                            <div id="boulotentry10wait">
+                                <div class="myProgress" id="boulotentry10progress">
+                                    <div class="myBar" id="boulotentry10bar">Loading...</div>
+                                </div>
+                            </div>
+                            <table id="boulotentry10desc" class="w3-table"></table>
+
+                            <hr>
+
+                        </div>
+                        <!-- ----------------------->
+                        <!-- BOITE ITEM -->
+                        <div class="w3-container">
+                            <h6 id="boulotentry11date" class="w3-text-teal">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+                            </h6>
+                            <h5 id="boulotentry11boite" class="w3-opacity">
+                            </h5>
+                            <!-- ASYNC PROGRESS DISPLAY -->
+                            <div id="boulotentry11wait">
+                                <div class="myProgress" id="boulotentry11progress">
+                                    <div class="myBar" id="boulotentry11bar">Loading...</div>
+                                </div>
+                            </div>
+                            <table id="boulotentry11desc" class="w3-table"></table>
+
+                            <hr>
+
+                        </div>
+                        <!-- ----------------------->
+                        <!-- BOITE ITEM -->
+                        <div class="w3-container">
+                            <h6 id="boulotentry14date" class="w3-text-teal">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+                            </h6>
+                            <h5 class="w3-opacity">
+                                <a id="boulotentry14boite"></a>
+                            </h5>
+                            <!-- ASYNC PROGRESS DISPLAY -->
+                            <div id="boulotentry14wait">
+                                <div class="myProgress" id="boulotentry14progress">
+                                    <div class="myBar" id="boulotentry14bar">Loading...</div>
+                                </div>
+                            </div>
+                            <table id="boulotentry14desc" class="w3-table"></table>
+
+                            <hr>
+
+                        </div>
+                        <!-- ----------------------->
+                        <!-- BOITE ITEM -->
+                        <div class="w3-container">
+                            <h6 id="boulotentry16date" class="w3-text-teal">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+                            </h6>
+                            <h5 class="w3-opacity">
+                                <b id="boulotentry16boite"></b>
+                            </h5>
+                            <!-- ASYNC PROGRESS DISPLAY -->
+                            <div id="boulotentry16wait">
+                                <div class="myProgress" id="boulotentry16progress">
+                                    <div class="myBar" id="boulotentry16bar">Loading...</div>
+                                </div>
+                            </div>
+                            <table id="boulotentry16desc" class="w3-table"></table>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ---------------------------------------------------------------------------------------------------------------------->
+                    <!-- historique des formations -->
+                    <!-- ---------------------------------------------------------------------------------------------------------------------->
+                    <div class="w3-container w3-card w3-white w3-margin-bottom">
+
+                        <!-- BILDUNG TITLE -->
+                        <h2 id="edu_title" class="w3-text-grey w3-padding-16">
+                            <i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+                            Education
+                        </h2>
+
+                        <!-- BILDUNG ITEM -->
+                        <div class="w3-container">
+                            <h6 id="edu_f1date" class="w3-text-teal">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+                            </h6>
+                            <h5 class="w3-opacity">
+                                <b id="edu_f1title"></b>
+                            </h5>
+                            <!-- ASYNC PROGRESS DISPLAY -->
+                            <div id="edu_f1wait">
+                                <div class="myProgress" id="edu_f1progress">
+                                    <div class="myBar" id="edu_f1bar">Loading...</div>
+                                </div>
+                            </div>
+                            <table id="edu_f1desc" class="w3-table"></table>
+
+                            <hr>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ---------------------------------------------------------------------------------------------------------------------->
+                    <!-- Loisirs -->
+                    <!-- ---------------------------------------------------------------------------------------------------------------------->
+                    <div class="w3-container w3-card w3-white">
+
+                        <!-- HOBBIES TITLE-->
+                        <h2 id="loisirs_title" class="w3-text-grey w3-padding-16">
+                            <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+                            Activities and interests
+                        </h2>
+
+                        <!-- HOBBY ITEM -->
+                        <div class="w3-container">
+                            <h6 id="loisirs_f1date" class="w3-text-teal">
+                                <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+                            </h6>
+                            <h5 class="w3-opacity">
+                                <b id="loisirs_f1title"></b>
+                            </h5>
+                            <!-- ASYNC PROGRESS DISPLAY -->
+                            <div id="loisirs_f1wait">
+                                <div class="myProgress" id="loisirs_f1progress">
+                                    <div class="myBar" id="loisirs_f1bar">Loading...</div>
+                                </div>
+                            </div>
+                            <table id="loisirs_f1desc" class="w3-table"></table>
+
+                            <hr>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- FIN Right Column -->
+                <!-- -------------------------------------------------------------------------- -->
+                <!-- -------------------------------------------------------------------------- -->
+
+                <!-- End Grid -->
+            </div>
+
+        </div>
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- Footer -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <footer class="w3-container w3-teal w3-center w3-margin-top">
+
+            <p>
+                Powered by
+                <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+            </p>
+
+        </footer>
+
+    </body>
+    <!-- End Page Container -->
+
+</html>
