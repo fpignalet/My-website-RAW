@@ -10,6 +10,7 @@ class CLISIDE_DOM {
     }
 
     getFuncName() {
+        if(true == clientside_checkbrowser("Firefox")) return;
         return (new Error()).stack.match(/at (\S+)/g)[1].slice(3);
     }
 
@@ -214,7 +215,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
 
         this.incrbar = 20;
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
 
     //-----------------------------------------------
@@ -230,7 +231,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
             if (this.readyState == 4 && this.status == 200) {
                 cbk(this.responseText);
 
-                console.log(local.getFuncName() + "OK");
+//                console.log(local.getFuncName() + "OK");
             }
         };
 
@@ -249,7 +250,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
                 var jsonRes = JSON.parse(this.responseText);
                 cbk(jsonRes);
 
-                console.log(local.getFuncName() + "OK");
+//                console.log(local.getFuncName() + "OK");
             }
         };
 
@@ -301,7 +302,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
 
                     cbk(creator, results);
 
-                    console.log(this.getFuncName() + "OK");
+//                    console.log(this.getFuncName() + "OK");
                 });
             })
         }
@@ -469,4 +470,30 @@ function clientside_ENTRYscroll(contener, barid) {
     finally {
         //...
     }
+}
+
+/// @brief ...
+function clientside_checkbrowser(select) {
+    if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 )
+    {
+        if("Opera" == select) return true;
+    }
+    else if(navigator.userAgent.indexOf("Chrome") != -1 )
+    {
+        if("Chrome" == select) return true;
+    }
+    else if(navigator.userAgent.indexOf("Safari") != -1)
+    {
+        if("Safari" == select) return true;
+    }
+    else if(navigator.userAgent.indexOf("Firefox") != -1 )
+    {
+        if("Firefox" == select) return true;
+    }
+    else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+    {
+        if("MSIE" == select) return true;
+    }
+
+    return false;
 }

@@ -130,7 +130,7 @@ function cliside_BLOGNEWSpageload(contener) {
             lloader.filldesc(contener, data[0]);
             lloader.fillcontent(contener, data[1]);
 
-            console.log(lloader.getFuncName() + "OK");
+//            console.log(lloader.getFuncName() + "OK");
         }
 
         var rloader = new CLISIDE_BLOGLOADER();
@@ -174,7 +174,7 @@ class CLISIDE_BTECHDOM extends CLISIDE_BLOGDOM {
         var message = "Hello, World";
         this.updatefield(contener, fieldid, message);
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
 
     /// @brief Put the current count on the page
@@ -190,7 +190,7 @@ class CLISIDE_BTECHDOM extends CLISIDE_BLOGDOM {
         var local = this;
         setTimeout(function() { local.testcount(contener, fieldid); }, 500);
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
 
     /// @brief desc
@@ -221,7 +221,7 @@ class CLISIDE_BTECHDOM extends CLISIDE_BLOGDOM {
 
         ].join('\n');
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
 
     /// @brief desc
@@ -281,7 +281,7 @@ class CLISIDE_BTECHDOM extends CLISIDE_BLOGDOM {
         });
         */
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
 
 }
@@ -313,7 +313,7 @@ class CLISIDE_BTECHLOADER extends CLISIDE_LOADER {
         this.getdatadirect(params, (result) => {
             local.updatefield(contener, fieldid, result);
 
-            console.log(local.getFuncName() + "OK");
+//            console.log(local.getFuncName() + "OK");
         });
     }
 
@@ -329,7 +329,7 @@ class CLISIDE_BTECHLOADER extends CLISIDE_LOADER {
         this.getdatadirect(params, (result) => {
             local.updatefield(contener, fieldid, result);
 
-            console.log(local.getFuncName() + "OK");
+//            console.log(local.getFuncName() + "OK");
         });
     }
 
@@ -345,7 +345,7 @@ class CLISIDE_BTECHLOADER extends CLISIDE_LOADER {
         this.getdatadirect(params, (result) => {
             local.updatefield(contener, fieldid, result);
 
-            console.log(local.getFuncName() + "OK");
+//            console.log(local.getFuncName() + "OK");
         });
     }
 
@@ -364,7 +364,7 @@ class CLISIDE_BTECHLOADER extends CLISIDE_LOADER {
         this.getdatajson(params, (result) => {
             local.updatefield(contener, fieldid, result.object_id + "," + result.object_title);
 
-            console.log(local.getFuncName() + "OK");
+//            console.log(local.getFuncName() + "OK");
         });
     }
 
@@ -381,7 +381,7 @@ class CLISIDE_BTECHLOADER extends CLISIDE_LOADER {
         this.getdatajson(params, (result) => {
             local.updatefield(contener, fieldid, result.object_id + "," + result.object_title);
 
-            console.log(local.getFuncName() + "OK");
+//            console.log(local.getFuncName() + "OK");
         });
     }
 
@@ -399,7 +399,7 @@ function cliside_BLOGTECHpageload() {
         function cbkload(data) {
             lloader.filldesc(document, data[0]);
 
-            console.log(lloader.getFuncName() + "OK");
+//            console.log(lloader.getFuncName() + "OK");
         }
 
         var rloader = new CLISIDE_BLOGLOADER();

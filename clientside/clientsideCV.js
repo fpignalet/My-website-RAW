@@ -60,7 +60,7 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
 
         }
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
 
     }
 
@@ -119,7 +119,7 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
             th.appendChild(contener.createTextNode(valueboulot));
         }
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
 
     }
 
@@ -749,7 +749,7 @@ function cliside_CVpageprint(contener)
         printWin.print();
         printWin.close();
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
     catch (e) {
         console.log(e.name)

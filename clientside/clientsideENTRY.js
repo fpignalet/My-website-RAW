@@ -41,7 +41,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
             contener.getElementById(item).appendChild(contener.createTextNode(cliside_ENTRYmenubars[index]));
         });
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
 
     /// @brief prepare title
@@ -52,7 +52,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
             contener.getElementById(item).appendChild(contener.createTextNode(cliside_ENTRYtitledata[index]));
         });
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
 
     /// @brief prepare about part
@@ -64,7 +64,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
             contener.getElementById(item[0]).appendChild(contener.createTextNode(cliside_ENTRYaboutdata[index][1]));
         });
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
 
     /// @brief prepare presentation part
@@ -73,7 +73,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
         this.loadpres(contener, cliside_ENTRYfiles[0], cliside_ENTRYitemspres);
         this.addbutton(contener, cliside_ENTRYpresbutton, cliside_ENTRYfiles[0]);
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
 
     /// @brief prepare blog news part
@@ -82,7 +82,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
         this.loadnews(contener, cliside_ENTRYfiles[1], cliside_ENTRYitemsnews);
         this.addbutton(contener, cliside_ENTRYnewsbutton, cliside_ENTRYfiles[1]);
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
 
     /// @brief prepare blog tech part
@@ -91,7 +91,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
         this.loadtech(contener, cliside_ENTRYfiles[2], cliside_ENTRYitemstech);
         this.addbutton(contener, cliside_ENTRYtechbutton, cliside_ENTRYfiles[2]);
 
-        console.log(this.getFuncName() + "OK");
+//        console.log(this.getFuncName() + "OK");
     }
 
     /*******************************************
