@@ -1,3 +1,4 @@
+/* ------------------ */
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -36,6 +37,7 @@
     cursor: pointer;
 }
 
+/* --------- PARALLAX --------- */
 /* Create a Parallax Effect */
 .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
     background-attachment: fixed;
@@ -100,6 +102,7 @@
     100% { transform: rotate(360deg); }
 }
 
+/* --------- PROGRESSBARS --------- */
 .myProgress {
     width: 100%;
     background-color: #ddd;
@@ -109,4 +112,43 @@
     width: 1%;
     height: 30px;
     background-color: #68B4FF;
+}
+
+/* --------- TREEVIEW --------- */
+ul, #myUL {
+    list-style-type: none;
+}
+
+#myUL {
+    margin: 0;
+    padding: 0;
+}
+
+.caret {
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+}
+
+.caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.caret-down::before {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari */'
+transform: rotate(90deg);
+}
+
+.nested {
+    display: none;
+}
+
+.active {
+    display: block;
 }

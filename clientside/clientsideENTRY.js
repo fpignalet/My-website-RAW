@@ -1,8 +1,9 @@
-var cliside_ENTRYloader = null;
+let cliside_ENTRYloader = null;
 
 /*************************************************************************************
  * IMPLEMENTATION: DYNAMIC
  *************************************************************************************/
+/// @brief specific loader for ENTRY page
 class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
 
     /// @brief ctor
@@ -12,23 +13,23 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
 
         this.parser = new DOMParser();
 
-        this.pf2title = data[0][0];
-        this.pf2text = data[0][1];
+        this.aboutname = data[0][0];
+        this.aboutphoto = data[0][1];
+        this.pf2title = data[1][0];
+        this.pf2text = data[1][1];
+        this.pf1title = data[2][0];
+        this.pf1text = data[2][1];
 
-        this.pf1title = data[1][0];
-        this.pf1text = data[1][1];
-
-        this.aboutname = data[2][0];
-        this.aboutphoto = data[2][1];
-
-        this.newsphoto1 = data[3][0];
-        this.newsphoto2 = data[3][1];
-
-        this.techphoto1 = data[4][0];
-        this.techphoto2 = data[4][1];
+        this.newsphoto1 = data_BNEWSlasts[0];
+        this.newsphoto2 = data_BNEWSlasts[1];
+        this.techphoto1 = data_BTECHlasts[0];
+        this.techphoto2 = data_BTECHlasts[1];
 
     }
 
+    /*******************************************
+     * Page construction
+     *******************************************/
     /// @brief prepare navigation menu/bar
     /// @param contener is the target DOM
     updatenavbars(contener) {
@@ -95,7 +96,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     }
 
     /*******************************************
-     *
+     * Loading layer
      *******************************************/
     /// @brief loading presentation data
     /// @param contener is the destination DOM
@@ -103,16 +104,16 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param desc desc
     loadpres(contener, file, desc) {
         //----------------------
-        var nameid = desc[0];
+        const nameid = desc[0];
         contener.getElementById(nameid).appendChild(contener.createTextNode(this.aboutname));
 
-        var photoid = desc[1];
+        const photoid = desc[1];
         contener.getElementById(photoid).setAttribute("src", this.aboutphoto);
 
         //----------------------
-        var srcpresid = desc[2];
-        var dstpresid = desc[3];
-        var local = this;
+        const srcpresid = desc[2];
+        const dstpresid = desc[3];
+        const local = this;
         new CLISIDE_CVLOADER().remotegetdata(null,
             data_CVmap[1]["data"],
             (CV, d) => {
@@ -127,17 +128,17 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param desc desc
     loadnews(contener, file, desc) {
         //----------------------
-        var titleid = desc[0];
+        const titleid = desc[0];
         contener.getElementById(titleid).appendChild(contener.createTextNode(this.pf2title));
 
-        var textid = desc[1];
+        const textid = desc[1];
         contener.getElementById(textid).appendChild(contener.createTextNode(this.pf2text[0]));
         contener.getElementById(textid).appendChild(contener.createElement("br"));
         contener.getElementById(textid).appendChild(contener.createTextNode(this.pf2text[1]));
 
         //----------------------
-        var img1id = desc[2];
-        var img2id = desc[3];
+        const img1id = desc[2];
+        const img2id = desc[3];
         this.loaditem(contener, file, this.newsphoto1, null, img1id, this.cbkBLOGsprite);
         this.loaditem(contener, file, this.newsphoto2, null, img2id, this.cbkBLOGsprite);
     }
@@ -148,17 +149,17 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param desc desc
     loadtech(contener, file, desc) {
         //----------------------
-        var titleid = desc[0];
+        const titleid = desc[0];
         contener.getElementById(titleid).appendChild(contener.createTextNode(this.pf1title));
 
-        var textid = desc[1];
+        const textid = desc[1];
         contener.getElementById(textid).appendChild(contener.createTextNode(this.pf1text[0]));
         contener.getElementById(textid).appendChild(contener.createElement("br"));
         contener.getElementById(textid).appendChild(contener.createTextNode(this.pf1text[1]));
 
         //----------------------
-        var img1id = desc[2];
-        var img2id = desc[3];
+        const img1id = desc[2];
+        const img2id = desc[3];
         this.loaditem(contener, file, this.techphoto1, null, img1id, this.cbkBLOGsprite);
         this.loaditem(contener, file, this.techphoto2, null, img2id, this.cbkBLOGsprite);
     }
@@ -173,7 +174,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
         contener.getElementById("modalimg").src = element.src;
 
         //----------------------
-        var local = this;
+        const local = this;
         new CLISIDE_BLOGLOADER().remotegetdata(null,
             data,
             (CV, d) => {
@@ -183,11 +184,9 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     }
 
     /*******************************************
-     *
+     * Loading wrapper
      *******************************************/
-    /// @brief
-    ///     calls serverside with cliside_BLOGphptest1 selector
-    ///     updates txtHint html item
+    /// @brief calls serverside with cliside_BLOGphptest1 selector then updates txtHint html item
     /// @param contener is the destination DOM
     /// @param file desc
     /// @param data says which source data shall be fetched
@@ -195,17 +194,17 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param iddst desc
     /// @param cbk desc
     loaditem(contener, file, data, idsrc, itdst, cbk) {
-        var inst = this;
+        const inst = this;
 
         this.target = file;
         this.getdatadirect(null, (result) => {
-            var dom = inst.parser.parseFromString(result, "text/html");
+            const dom = inst.parser.parseFromString(result, "text/html");
             cbk(contener, dom, data, idsrc, itdst);
         });
     }
 
     /*******************************************
-     *
+     * Loading completion
      *******************************************/
     /// @brief
     /// @param contener is the destination DOM
@@ -215,18 +214,18 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param iddst desc
     cbkCVpres (contener, dom, data, idsrc, iddst){
         //SRC side --------------------
-        var CV = new CLISIDE_CVCREATE();
+        const CV = new CLISIDE_CVCREATE();
         CV.addinfo(dom, data);
 
         //DST side --------------------
-        var itdst = contener.getElementById(iddst);
-        for(var content = itdst.firstChild; null != content; content = itdst.firstChild) {
+        const itdst = contener.getElementById(iddst);
+        for(let content = itdst.firstChild; null != content; content = itdst.firstChild) {
             //target cleanup
             itdst.removeChild(content);
         }
 
         //target update
-        var itsrc = dom.getElementById(idsrc);
+        const itsrc = dom.getElementById(idsrc);
         contener.getElementById(iddst).appendChild(itsrc);
     }
 
@@ -237,8 +236,8 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param idsrc desc
     /// @param iddst desc
     cbkBLOGsprite (contener, dom, data, idsrc, iddst){
-        var it = dom.getElementById(data);
-        var img = it.getAttribute("src");
+        const it = dom.getElementById(data);
+        const img = it.getAttribute("src");
         contener.getElementById(iddst).setAttribute("src", img);
     }
 
@@ -250,20 +249,20 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param iddst desc
     cbkBLOGmodal (contener, dom, data, idsrc, iddst){
         //SRC side --------------------
-        var idtitle = Object.keys(data)[0];
-        var itsrc = dom.getElementById(idtitle);
+        const idtitle = Object.keys(data)[0];
+        const itsrc = dom.getElementById(idtitle);
 
-        var datatitle = data[idtitle];
-        var iddate = Object.keys(data)[1];
-        var datadate1 = data[iddate][0];
-        var datadate2 = data[iddate][1];
+        const datatitle = data[idtitle];
+        const iddate = Object.keys(data)[1];
+        const datadate1 = data[iddate][0];
+        const datadate2 = data[iddate][1];
 
         itsrc.innerHTML = datatitle + ": " +
             datadate1 + " / " + datadate2;
 
         //DST side --------------------
         function getcontent(){ return contener.getElementById(iddst).firstChild; }
-        for(var content = getcontent(); null != content; content = getcontent()) {
+        for(let content = getcontent(); null != content; content = getcontent()) {
             //target cleanup
             contener.getElementById(iddst).removeChild(content);
         }
@@ -277,16 +276,20 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
 /*************************************************************************************
  * IMPLEMENTATION: PAGE ENTRYPOINTs
  *************************************************************************************/
-/// @brief desc
+/// @brief fills the page with required data
 /// @param contener is the target DOM
 function cliside_ENTRYpageload(contener) {
     try {
         cliside_ENTRYloader = new CLISIDE_ENTRYLOADER(cliside_ENTRYcontentdata);
 
         cliside_ENTRYloader.updatenavbars(contener);
+
         cliside_ENTRYloader.updatetitle(contener);
+
         cliside_ENTRYloader.updateabout(contener);
+
         cliside_ENTRYloader.updatepres(contener);
+
         cliside_ENTRYloader.updatenews(contener);
         cliside_ENTRYloader.updatetech(contener);
 
@@ -299,51 +302,125 @@ function cliside_ENTRYpageload(contener) {
     }
 }
 
-/// @brief ...
-/// @param inst ...
-/// @param index ...
-function cliside_ENTRYwrapnews(inst, index) {
+/// @brief wrapper function to diaplay a sprite
+/// @param contener is the target DOM
+/// @param inst is the item which requests the load
+/// @param index selects the data_BNEWSmap item
+function cliside_ENTRYwrapnews(contener, inst, index) {
     cliside_ENTRYloader.loadmodal(
-        document,
-        inst,
-        cliside_ENTRYfiles[1],
-        data_BNEWSmap[index][0]
+        contener, inst,
+        cliside_ENTRYfiles[1], data_BNEWSmap[index][0]
     );
 }
 
-/// @brief ...
-/// @param inst ...
-/// @param index ...
-function cliside_ENTRYwraptech(inst, index) {
+/// @brief wrapper function to diaplay a sprite
+/// @param contener is the target DOM
+/// @param inst is the item which requests the load
+/// @param index selects the data_BTECHmap item
+function cliside_ENTRYwraptech(contener, inst, index) {
     cliside_ENTRYloader.loadmodal(
-        document,
-        inst,
-        cliside_ENTRYfiles[2],
-        data_BTECHmap[index][0]
+        contener, inst,
+        cliside_ENTRYfiles[2], data_BTECHmap[index][0]
     );
 }
 
-/// @brief
+/// @brief sends a feedback message
 /// @param contener is the target DOM
 function cliside_ENTRYpagefbk(contener) {
     try {
-        var basename = "cliside_ENTRYphpmail";
-        var params = [
+        const basename = "cliside_ENTRYphpmail";
+        const loader = new CLISIDE_LOADER(basename);
+
+        const params = [
+            basename,
             contener.getElementById(cliside_ENTRYitemsmail[0]).value,
             contener.getElementById(cliside_ENTRYitemsmail[1]).value,
             contener.getElementById(cliside_ENTRYitemsmail[2]).value
         ];
-        var loader = new CLISIDE_LOADER(basename);
         loader.getdatadirect(
             params,
             (result) => {
-                alert("Mail has been sent");
-                //alert("GOT ANSWER: " + this.responseText);
+//                alert("Mail has been sent");
+                alert("GOT ANSWER: " + result);
 
             }
 
         );
 
+    }
+    catch (e) {
+        console.log(e.name)
+    }
+    finally {
+        //...
+    }
+}
+
+/*************************************************************************************
+ * IMPLEMENTATION: NAVBAR UTILS
+ *************************************************************************************/
+/// @brief Used to toggle the menu on small screens when clicking on the menu button
+/// @param contener is the target DOM
+function clientside_ENTRYnavtoggle(contener, navid) {
+    try {
+        const x = contener.getElementById(navid);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        }
+        else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+    catch (e) {
+        console.log(e.name)
+    }
+    finally {
+        //...
+    }
+}
+
+/// @brief Change style of navbar on scroll
+/// @param contener is the target DOM
+function clientside_ENTRYnavscroll(contener, barid) {
+    try {
+        const navbar = contener.getElementById(barid);
+        if (contener.body.scrollTop > 100 || contener.documentElement.scrollTop > 100) {
+            navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+        }
+        else {
+            navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+        }
+    }
+    catch (e) {
+        console.log(e.name)
+    }
+    finally {
+        //...
+    }
+}
+
+/*************************************************************************************
+ * IMPLEMENTATION: GOOGLE MAPS INTEGRATION
+ *************************************************************************************/
+const clientside_ENTRYlat = 41.878114;
+const clientside_ENTRYlong = -87.629798;
+
+function clientside_ENTRYgmapshow(contener, mapid/*"googleMap"*/) {
+    try {
+        const myCenter = new google.maps.LatLng(clientside_ENTRYlat, clientside_ENTRYlong);
+
+        const options = {
+            center: myCenter,
+            zoom: 12,
+            scrollwheel: false,
+            draggable: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        const map = new google.maps.Map(contener.getElementById(mapid), options);
+
+        const marker = new google.maps.Marker({position: myCenter});
+        marker.setMap(map);
     }
     catch (e) {
         console.log(e.name)

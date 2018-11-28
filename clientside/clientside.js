@@ -1,25 +1,35 @@
-/*************************************************************************************
- * IMPLEMENTATION: BASIC PAGE CREATION UTILITIES
- *************************************************************************************/
-/// @brief class to make items adding easy
-class CLISIDE_DOM {
+class CLISIDE_BASE {
 
     /// ctor
     constructor() {
         this.id = null;
     }
 
+    /// debug
     getFuncName() {
         if(true == clientside_checkbrowser("Firefox")) return;
         return (new Error()).stack.match(/at (\S+)/g)[1].slice(3);
     }
 
+}
+
+/*************************************************************************************
+ * IMPLEMENTATION: BASIC PAGE CREATION UTILITIES
+ *************************************************************************************/
+/// @brief class to make items adding easy
+class CLISIDE_DOM extends CLISIDE_BASE {
+
+    /// ctor
+    constructor() {
+        super();
+    }
+
     //------------------------------------------------------------------
     // SINGLE ITEMS THROUGH ID
     //------------------------------------------------------------------
-    /// @brief html element update
+    /// @brief html single element update
     /// @param contener is the target DOM
-    /// @param id contains the name of the field to be updated
+    /// @param id is the ID attribute of the element to be updated
     /// @param name contains the value to be used
     updatefield(contener, id, str) {
         contener.getElementById(id).innerHTML = str;
@@ -27,22 +37,37 @@ class CLISIDE_DOM {
 
     /// @brief add text inside the "id" element
     /// @param contener is the target DOM
-    /// @param id designs the element which receives text
+    /// @param id is the ID attribute of the element which receives text
     /// @param value contains the text to add
     addtext(contener, id, value) {
-        var it = contener.getElementById(id);
+        const it = contener.getElementById(id);
         it.appendChild(contener.createTextNode(value));
     }
 
-    /// @brief desc
+    /// @brief creates a button described as [ id, name ]
     /// @param contener is the target DOM
-    /// @param presbutton describes the button with [id,name]
+    /// @param presbutton describes the button with [ id, name ]
     /// @param file tells which page should be opened
     addbutton(contener, presbutton, file) {
-        var id = presbutton[0];
-        var name = presbutton[1];
-        contener.getElementById(id).setAttribute("formaction", file);
-        contener.getElementById(id).appendChild(contener.createTextNode(name));
+        let it = null;
+
+        const id = presbutton[0];
+
+        it = contener.getElementById(id);
+        it.setAttribute("formaction", file);
+
+        const name = presbutton[1];
+        it = contener.getElementById(id);
+        it.appendChild(contener.createTextNode(name));
+    }
+
+    /// @brief add photo inside the "id" element
+    /// @param contener is the target DOM
+    /// @param id is the ID attribute of the element which receives text
+    /// @param value contains the path to the photo to add
+    addphoto(contener, id, value) {
+        const it = contener.getElementById(id);
+        it.setAttribute("src", value);
     }
 
     //------------------------------------------------------------------
@@ -54,7 +79,7 @@ class CLISIDE_DOM {
     /// @param attr contains the value of the href attribute
     /// @param val contains the text of the "a" contener
     addhref(contener, it, attr, val) {
-        var a = it.appendChild(contener.createElement("a"));
+        const a = it.appendChild(contener.createElement("a"));
         a.setAttribute("href", attr);
         if(null == val) {
             return a;
@@ -62,6 +87,15 @@ class CLISIDE_DOM {
 
         a.innerHTML = val + "<br>";
         return a;
+    }
+
+    /// @brief add href element inside the it element
+    /// @param contener is the target DOM
+    /// @param it is the element which receives the list item
+    /// @param text contains the text of the list item
+    addlistitem(contener, it, text) {
+        const li = it.appendChild(contener.createElement("li"));
+        li.appendChild(contener.createTextNode(text));
     }
 
     //------------------------------------------------------------------
@@ -79,7 +113,7 @@ class CLISIDE_DOM {
         }
         //-----------------------------------
         else {
-            var it = null;
+            let it = null;
             if(true == bold) {
                 it = tr.appendChild(contener.createElement("b"));
             }
@@ -97,9 +131,9 @@ class CLISIDE_DOM {
     /// @param tr is the current contener element
     /// @param data contains sub-item data. It can be an array.
     addtrsubs(contener, tr, data) {
-        var ul = tr.appendChild(contener.createElement("ul"));
+        const ul = tr.appendChild(contener.createElement("ul"));
 
-        var inst = this;
+        const inst = this;
         data.forEach((item, index) => {
             if(true == Array.isArray(item)) {
                 if(true == item[0].startsWith("http")) {
@@ -123,16 +157,16 @@ class CLISIDE_DOM {
     }
 
     //------------------------------------------------------------------
-    // DISCLOSURE / ACCORDION ITEMS
+    // DISCLOSURE / ACCORDION ITEMS (THROUGH INSTANCE)
     //------------------------------------------------------------------
     /// @brief create the divs contener tree inside the right column
     /// @param contener is the target DOM
     /// @param td is the current element which receives the button
     adddisclosdivs(contener, td) {
-        var div = td.appendChild(contener.createElement("div"));
+        const div = td.appendChild(contener.createElement("div"));
         div.setAttribute("class", "w3-card w3-round");
 
-        var _div = div.appendChild(contener.createElement("div"));
+        const _div = div.appendChild(contener.createElement("div"));
         _div.setAttribute("class", "w3-white");
         return _div;
     }
@@ -145,15 +179,15 @@ class CLISIDE_DOM {
     //      data[1] -> title,
     //      data[2] -> onclick callback
     adddisclosbutton(contener, div, data) {
-        var btid = data[0];
-        var btcbk = data[2];
-        var button = div.appendChild(contener.createElement("button"));
+        const btid = data[0];
+        const btcbk = data[2];
+        const button = div.appendChild(contener.createElement("button"));
         button.setAttribute("id", btid);
         button.setAttribute("onclick", "CLISIDE_DOM.cbkdisclose('" + btcbk + "')");
         button.setAttribute("class", "w3-button w3-block w3-theme-l1 w3-left-align");
 
-        var bttxt = data[1];
-        var i = button.appendChild(contener.createElement("i"));
+        const bttxt = data[1];
+        const i = button.appendChild(contener.createElement("i"));
         i.setAttribute("class", "fa fa-angle-double-down fa-fw w3-margin-right");
         button.appendChild(contener.createTextNode(bttxt));
 
@@ -165,13 +199,13 @@ class CLISIDE_DOM {
     /// @param div is the current element which receives the content
     /// @param data contains the data to be displayed
     adddiscloscontent(contener, div, data) {
-        var _div = div.appendChild(contener.createElement("div"));
+        const _div = div.appendChild(contener.createElement("div"));
 
-        var idcontent = data[2];
+        const idcontent = data[2];
         _div.setAttribute("id", idcontent);
         _div.setAttribute("class", "w3-hide w3-container");
 
-        var table = _div.appendChild(contener.createElement("table"));
+        const table = _div.appendChild(contener.createElement("table"));
         table.setAttribute("class", "w3-table");
         return table;
     }
@@ -179,9 +213,10 @@ class CLISIDE_DOM {
     /// @brief function to disclose an html item
     /// @param id index of the disclosable item
     static cbkdisclose(id) {
-        var contener = document;
+        // noinspection UnnecessaryLocalVariableJS
+        const contener = document;
 
-        var x = contener.getElementById(id);
+        const x = contener.getElementById(id);
         if (-1 == x.className.indexOf("w3-show")) {
             x.className += " w3-show";
             x.previousElementSibling.className += " w3-theme-d1";
@@ -202,12 +237,12 @@ class CLISIDE_DOM {
 class CLISIDE_LOADER extends CLISIDE_DOM {
 
     /// @brief ctor
-    /// @param basename ...
-    constructor(basename) {
+    /// @param cmdname ...
+    constructor(cmdname) {
         super();
 
         this.target = "serverside/serverside.php";
-        this.basename = basename;
+        this.cmdname = cmdname;
 
         this.progressbars = {};
         this.progressvals = {};
@@ -225,12 +260,10 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
     /// @param params ...
     /// @param cbk ...
     getdatadirect(params, cbk) {
-        var local = this;
-        var xmlhttp = new XMLHttpRequest();
+        const xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 cbk(this.responseText);
-
 //                console.log(local.getFuncName() + "OK");
             }
         };
@@ -243,13 +276,11 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
     /// @param params ...
     /// @param cbk ...
     getdatajson(params, cbk) {
-        var local = this;
-        var xmlhttp = new XMLHttpRequest();
+        const xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var jsonRes = JSON.parse(this.responseText);
+                const jsonRes = JSON.parse(this.responseText);
                 cbk(jsonRes);
-
 //                console.log(local.getFuncName() + "OK");
             }
         };
@@ -261,20 +292,19 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
     //-----------------------------------------------------
     // ACCESS
     //-----------------------------------------------------
-    /// @brief
-    ///     calls serverside with cliside_BLOGphptest1 selector
-    ///     updates txtHint html item
+    /// @brief calls serverside with cliside_BLOGphptest1 selector then updates txtHint html item
     /// @param creator is th instance of the creator
     /// @param data desc...
     /// @param cbk will be executed
     remotegetdata(creator, data, cbk) {
-        var inst = this;
+        const inst = this;
 
+        // with many data to be loaded
         if(true == Array.isArray(data)) {
             /**********************************
              * 1ST: PREPARE DATA FOR UPDATE
              **********************************/
-            var datamap = {};
+            const datamap = {};
             inst.mapinit(data, datamap);
 
             /**********************************
@@ -283,7 +313,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
              * @type {XMLHttpRequest}
              **********************************/
             data.forEach((item, index) => {
-                var params = [ inst.basename, item ];
+                const params = [inst.cmdname, item];
                 inst.getdatajson(params, (result) => {
                     // ---------------------------------------------------
                     // store result and survey: we need to be sure that all results are there:
@@ -295,19 +325,19 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
 
                     // ---------------------------------------------------
                     /// OK we got every result for the current boulot list
-                    var results = [];
+                    const results = [];
                     Object.keys(datamap).forEach((key, _index) => {
                         results.push(datamap[key]);
                     });
 
                     cbk(creator, results);
-
 //                    console.log(this.getFuncName() + "OK");
                 });
             })
         }
+        // with just one item to be loaded
         else {
-            var params = [ inst.basename, data ];
+            var params = [ inst.cmdname, data ];
             inst.getdatajson(params, (result) => {
                 cbk(creator, result);
             });
@@ -321,8 +351,9 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
     /// @param contener is the target DOM
     /// @param progress is the bar to be updated
     showprogress(contener, progress) {
-        var barid = progress[2];
+        const barid = progress[2];
         if(null != this.progressbars[barid]) {
+            //there is no progress bar?
             return;
         }
 
@@ -340,8 +371,9 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
     /// @param contener is the target DOM
     /// @param progress is the bar to be updated
     hideprogress(contener, progress) {
-        var barid = progress[2];
+        const barid = progress[2];
         if(null == this.progressbars[barid]) {
+            //there is no progress bar?
             return;
         }
 
@@ -350,9 +382,9 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
             clearInterval(this.progressitvs[barid]);
         }
 
-        var waitid = progress[1];
-        var progid = progress[0];
-        var it = contener.getElementById(waitid);
+        const waitid = progress[1];
+        const progid = progress[0];
+        const it = contener.getElementById(waitid);
         contener.getElementById(progid).removeChild(it);
 
         this.progressbars[barid] = null;
@@ -365,7 +397,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
     /// @param name params is an array which may contain up to 2 parameters
     /// @returns the formatted GET request
     createGETstr(params) {
-        var cmd = this.target;
+        let cmd = this.target;
         if(null != params){
             params.forEach((item, index) => {
                 cmd +=
@@ -387,7 +419,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
 
     /// @brief to be called each time a data item has been received
     mapisfull(datamap) {
-        var isfull = true;
+        let isfull = true;
         Object.keys(datamap).forEach((key, _index) => {
             if(null == datamap[key]) {
                 isfull = false;
@@ -402,95 +434,34 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
 /*************************************************************************************
  * IMPLEMENTATION: OTHERS, NOT CLASSES YET
  *************************************************************************************/
-/// @brief Used to toggle the menu on small screens when clicking on the menu button
-/// @param contener is the target DOM
-function clientside_ENTRYtoggle(contener, navid) {
-    try {
-        var x = contener.getElementById(navid);
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-        }
-        else {
-            x.className = x.className.replace(" w3-show", "");
-        }
-    }
-    catch (e) {
-        console.log(e.name)
-    }
-    finally {
-        //...
-    }
-}
-
-var clientside_ENTRYlat = 41.878114;
-var clientside_ENTRYlong = -87.629798;
-
-/// @brief Add Google Maps
-/// @param contener is the target DOM
-function clientside_ENTRYshowgmap(contener, mapid/*"googleMap"*/) {
-    try {
-        var myCenter = new google.maps.LatLng(clientside_ENTRYlat, clientside_ENTRYlong);
-
-        var options = {
-            center: myCenter,
-            zoom: 12,
-            scrollwheel: false,
-            draggable: false,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
-        var map = new google.maps.Map(contener.getElementById(mapid), options);
-
-        var marker = new google.maps.Marker({ position: myCenter });
-        marker.setMap(map);
-    }
-    catch (e) {
-        console.log(e.name)
-    }
-    finally {
-        //...
-    }
-}
-
-/// @brief Change style of navbar on scroll
-/// @param contener is the target DOM
-function clientside_ENTRYscroll(contener, barid) {
-    try {
-        var navbar = contener.getElementById(barid);
-        if (contener.body.scrollTop > 100 || contener.documentElement.scrollTop > 100) {
-            navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-        }
-        else {
-            navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-        }
-    }
-    catch (e) {
-        console.log(e.name)
-    }
-    finally {
-        //...
-    }
-}
-
 /// @brief ...
+/// @param select ...
 function clientside_checkbrowser(select) {
-    if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 )
+    if(-1 != navigator.userAgent.indexOf("Opera") )
     {
         if("Opera" == select) return true;
     }
-    else if(navigator.userAgent.indexOf("Chrome") != -1 )
+    else if(-1 != navigator.userAgent.indexOf('OPR') )
+    {
+        if("Opera" == select) return true;
+    }
+    else if(-1 != navigator.userAgent.indexOf("Chrome") )
     {
         if("Chrome" == select) return true;
     }
-    else if(navigator.userAgent.indexOf("Safari") != -1)
+    else if(-1 != navigator.userAgent.indexOf("Safari") )
     {
         if("Safari" == select) return true;
     }
-    else if(navigator.userAgent.indexOf("Firefox") != -1 )
+    else if(-1 != navigator.userAgent.indexOf("Firefox") )
     {
         if("Firefox" == select) return true;
     }
-    else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+    else if(-1 != navigator.userAgent.indexOf("MSIE") ) //IF IE > 10
+    {
+        if("MSIE" == select) return true;
+    }
+    else if( false == document.documentMode ) //IF IE > 10
     {
         if("MSIE" == select) return true;
     }

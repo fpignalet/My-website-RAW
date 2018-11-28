@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------------------------------
 class ReactButtonJSX extends React.Component {
 
-    ///
+    ///ctor
     constructor(props) {
         super(props);
 
@@ -32,7 +32,7 @@ class ReactButtonJSX extends React.Component {
     //set the clicked status
     onClick (e) { this.setState({ clicked: true }) }
 
-    ///
+    /// display button
     render() {
         if (this.state.clicked) {
             this.createtable();
@@ -56,10 +56,10 @@ class ReactButtonJSX extends React.Component {
         }
     }
 
-    ///
+    /// diaplay a table when button is clicked
     createtable() {
-        var table = React.createElement(ReactTableJSX, { data: this.testdata });
-        var container = this.contener.querySelector('#' + "reacttablejsx");
+        const table = React.createElement(ReactTableJSX, {data: this.testdata});
+        const container = this.contener.querySelector('#' + "reacttablejsx");
         ReactDOM.render(table, container);
     }
 
@@ -68,7 +68,7 @@ class ReactButtonJSX extends React.Component {
 //-----------------------------------------------------------------------------------------------------------
 class ReactTableJSX extends React.Component {
 
-    ///
+    ///ctor
     constructor(props) {
         super(props);
 
@@ -77,17 +77,22 @@ class ReactTableJSX extends React.Component {
         };
     }
 
-    ///
+    /// display table
     render() {
 
-        var namesList = this.state.data.map(
-            function(item, index){
+        // 1st parse the map to generate table items
+        const namesList = this.state.data.map(
+            (item, index) => {
                 return (
-                    <tr key={ index+1 }><td>{ item }</td><td>{ index }</td></tr>
+                    <tr key={index + 1}>
+                        <td>{item}</td>
+                        <td>{index}</td>
+                    </tr>
                 );
             }
         );
 
+        // 2nd insert table items
         return (
             <table>
                 <tbody>
@@ -102,7 +107,10 @@ class ReactTableJSX extends React.Component {
 }
 
 //-----------------------------------------------------------------------------------------------------------
-class TodoApp extends React.Component {
+/// desc
+class ReactApp extends React.Component {
+
+    /// ctor
     constructor(props) {
         super(props);
 
@@ -116,32 +124,39 @@ class TodoApp extends React.Component {
 
     }
 
+    /// display 'application', in fact a dynamic list
     render() {
         return (
             <div>
                 <h3>LIST</h3>
-                <TodoList items={this.state.items} />
+                <ReactList items={this.state.items} />
                 <form onSubmit={this.handleSubmit}>
+
                     <label htmlFor="new-todo">
                         What needs to be added?
                     </label>
+
                     <input
                         id="new-todo"
                         onChange={this.handleChange}
                         value={this.state.text}
                     />
+
                     <button>
                         Add #{this.state.items.length + 1}
                     </button>
+
                 </form>
             </div>
         );
     }
 
+    /// desc
     handleChange(e) {
         this.setState({ text: e.target.value });
     }
 
+    /// desc
     handleSubmit(e) {
         e.preventDefault();
 
@@ -161,7 +176,9 @@ class TodoApp extends React.Component {
     }
 }
 
-class TodoList extends React.Component {
+/// desc
+class ReactList extends React.Component {
+    /// desc
     render() {
         return (
             <ul>

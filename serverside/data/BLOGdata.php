@@ -10,6 +10,28 @@
 $data_BNloadsleep = 100000;
 
 //-----------------------------------------------------------------------------------------------------------
+$data_BTdesc13 = array(
+
+    "blog_entry13TITLE" =>
+        "Today's sandbox",
+
+    "blog_entry13DATE" => [
+        "November 28, 2018",
+        "Have a little fun with Treeviews"
+    ]
+
+);
+
+$data_BTcontent13 = array(
+
+    "blog_entry13CONTENT" => [
+        //TECH BLOG, no dynamic content
+
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
 $data_BNdesc12 = array(
 
     "blog_entry12TITLE" =>
@@ -390,6 +412,9 @@ $data_BNcontent1 = array(
 //-----------------------------------------------------------------------------------------------------------
 $data_BLOGdatamap = array(
 
+    "data_BTdesc13" => $data_BTdesc13,
+    "data_BTcontent13" => $data_BTcontent13,
+
     "data_BNdesc12" => $data_BNdesc12,
     "data_BNcontent12" => $data_BNcontent12,
 
@@ -439,7 +464,7 @@ $data_BTtestarray = [
     "Gunda",
     "Hege",
     "Inga",
-    "Johanna",
+    "Johanna", "Jenny",
     "Kitty",
     "Linda", "Liza",
     "Nina",
@@ -453,4 +478,4 @@ $data_BTtestarray = [
     "Wenche"
 ];
 
-?>
+

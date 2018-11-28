@@ -61,8 +61,7 @@ class SERVERSIDE {
     }
 
     /// @brief receives and handles commands from clientside
-    public function execute()
-    {
+    public function execute() {
         try {
             switch ($this->param[0]) {
                 //----------------------------------------------------------------
@@ -77,7 +76,7 @@ class SERVERSIDE {
 
                     $mail = new SRVSIDE_ENTRY;
                     $nachricht = $mail->ENTRYsendmail($this->param[1], $this->param[2], $this->param[3]);
-                    echo "SEND MAIL SUCCESSFULL with parameters " . $nachricht;
+                    echo "SEND MAIL SUCCESSFULL with parameters\n" . $nachricht;
                     break;
 
                 //----------------------------------------------------------------
@@ -88,7 +87,7 @@ class SERVERSIDE {
                 // SEND CV CONTENT
                 // return json data
                 case $this->triggers[6]:
-                    $debug = true;
+                    $debug = false;
 
                     $CV = new SRVSIDE_CV;
                     $data = $CV->CVsend($this->param[1], $debug);
@@ -104,7 +103,7 @@ class SERVERSIDE {
                 // SEND BLOG CONTENT
                 // return json data
                 case $this->triggers[7]:
-                    $debug = true;
+                    $debug = false;
 
                     $blog = new SRVSIDE_BLOG;
                     $data = $blog->BLOGsend($this->param[1], $debug);
@@ -161,7 +160,7 @@ class SERVERSIDE {
                 // others / Not yet implemented
                 //----------------------------------------------------------------
                 default:
-                    //...
+                    echo "? Unknown command...\n";
                     break;
 
             }
@@ -180,4 +179,4 @@ class SERVERSIDE {
 $entry = new SERVERSIDE;
 $entry->execute();
 
-?>
+

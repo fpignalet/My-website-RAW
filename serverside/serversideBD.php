@@ -58,12 +58,10 @@ class SRVSIDE_BD {
         echo "<br>Connected successfully";
     }
 
-    /// @brief
-    ///     fetch the query content
-    ///     udpates $srvside_result globale variable with the content of the query
+    /// @brief fetch the query content then udpates $srvside_result globale variable with the content of the query
     /// @uses $srvside_BDfields;
     /// @param $query which contains the query result
-    /// @returns
+    /// @returns fills BDresult field
     public function BDFetch($query) {
         global $srvside_BDfields;
 
@@ -71,9 +69,9 @@ class SRVSIDE_BD {
             // output data of each row
             for ($row = $query->fetch_assoc(); NULL != $row; $row = $query->fetch_assoc()) {
                 $this->BDresult .= "<br>fetch...";
-                $this->BDresult .= " * field1: [ " . $row[$srvside_BDfields[0]] . " ]";
-                $this->BDresult .= " - field2: [ " . $row[$srvside_BDfields[1]] . " ]";
-                $this->BDresult .= " - field3: [ " . $row[$srvside_BDfields[2]] . " ]";
+                for ($index = 0; NULL != $srvside_BDfields[$index]; $index++) {
+                    $this->BDresult .= " * field" . $index . ": [ " . $row[$srvside_BDfields[$index]] . " ]";
+                }
             }
         }
         else {
@@ -82,23 +80,34 @@ class SRVSIDE_BD {
 
     }
 
+    /*************************************************************************************
+     * BD CHANGE/MODIF FUNCTIONS
+     *************************************************************************************/
     /// @brief makes a test select on the whole database
     /// @uses $srvside_BDtables, $srvside_BDfields;
-    /// @returns $query which contains the query result
+    /// @returns the query and fills BDresult field
     public function BDSelect() {
         global $srvside_BDtables, $srvside_BDfields;
 
         //-------------------------------
+        //QUERY create: find the entries containing the following values in a tabe
         $sql = "SELECT ";
-        $sql .= $srvside_BDfields[0] . ", ";
-        $sql .= $srvside_BDfields[1] . ", ";
-        $sql .= $srvside_BDfields[2] . " ";
+        for ($index = 0; NULL != $srvside_BDfields[$index]; $index++) {
+            if(NULL != $srvside_BDfields[$index+1]) {
+                $sql .= $srvside_BDfields[$index] . ", ";
+            }
+            else {
+                $sql .= $srvside_BDfields[$index] . " ";
+            }
+        }
         $sql .= "FROM $srvside_BDtables[0]";
-        //-------------------------------
 
+        //-------------------------------
+        //QUERY use
         $query = $this->BDconn->query($sql);
         if (NULL == $query) {
-            die("<br>QUERY FAILED");
+            $this->BDresult .= "<br>Error: " . $sql . "<br>" . $this->BDconn->error;
+            return NULL;
         }
 
         $this->BDresult = "<br>query fertig!";
@@ -107,61 +116,67 @@ class SRVSIDE_BD {
         return $query;
     }
 
-    /// @brief
-    ///     insert something in the database
-    ///     udpates $srvside_result globale variable with success/error message
+    /// @brief insert something in the database then udpates $srvside_result globale variable with success/error message
     /// @uses $srvside_BDtestvalues, $srvside_BDtables, $srvside_BDfields;
-    /// @returns
-    public function BDInsert()
-    {
+    /// @returns the query and fills BDresult field
+    public function BDInsert() {
         global $srvside_BDtestvalues, $srvside_BDtables, $srvside_BDfields;
 
         //-------------------------------
+        //QUERY create: insert into a table with the given fields the following values
         $sql = "INSERT INTO $srvside_BDtables[0] (";
-        $sql .= $srvside_BDfields[0] . ", ";
-        $sql .= $srvside_BDfields[1] . ", ";
-        $sql .= $srvside_BDfields[2] . " ";
+        for ($index = 0; NULL != $srvside_BDfields[$index]; $index++) {
+            if(NULL != $srvside_BDfields[$index+1]) {
+                $sql .= $srvside_BDfields[$index] . ", ";
+            }
+            else {
+                $sql .= $srvside_BDfields[$index] . " ";
+            }
+        }
         $sql .= ") ";
         $sql .= "VALUES ($srvside_BDtestvalues[0], $srvside_BDtestvalues[1], '$srvside_BDtestvalues[2]')";
+
         //-------------------------------
-
+        //QUERY use
         $query = $this->BDconn->query($sql);
-        if (NULL != $query) {
-            $this->BDresult .= "<br>New record created successfully";
-        }
-        else {
+        if (NULL == $query) {
             $this->BDresult .= "<br>Error: " . $sql . "<br>" . $this->BDconn->error;
+            return NULL;
         }
 
+        $this->BDresult .= "<br>New record created successfully";
         return $query;
     }
 
-    /// @brief
-    ///     delete something in the database
-    ///     udpates $srvside_result globale variable with success/error message
-    ///     @uses $srvside_BDtestvalues, $srvside_BDtables, $srvside_BDfields
-    /// @returns
-    public function BDDelete()
-    {
+    /// @brief delete something in the database then udpates $srvside_result globale variable with success/error message
+    /// @uses $srvside_BDtestvalues, $srvside_BDtables, $srvside_BDfields
+    /// @returns the query and fills BDresult field
+    public function BDDelete() {
         global $srvside_BDtestvalues, $srvside_BDtables, $srvside_BDfields;
 
         //-------------------------------
+        //QUERY create: delete in a table the entries which contains the following values
         $sql = "DELETE FROM `$srvside_BDtables[0]` ";
-        $sql .= "WHERE `$srvside_BDfields[0]` = $srvside_BDtestvalues[0] ";
-        $sql .= "AND `$srvside_BDfields[1]` = $srvside_BDtestvalues[1] ";
-        $sql .= "AND `$srvside_BDfields[2]` = '$srvside_BDtestvalues[2]'";
+        for ($index = 0; NULL != $srvside_BDfields[$index]; $index++) {
+            if(0 == $index) {
+                $sql .= "WHERE `$srvside_BDfields[$index]` = $srvside_BDtestvalues[$index] ";
+            }
+            else {
+                $sql .= "AND `$srvside_BDfields[$index]` = '$srvside_BDtestvalues[$index]'";
+            }
+        }
+
         //-------------------------------
-
+        //QUERY use
         $query = $this->BDconn->query($sql);
-        if (NULL != $query) {
-            $this->BDresult .= "<br>Record deleted successfully";
-        }
-        else {
+        if (NULL == $query) {
             $this->BDresult .= "<br>Error: " . $sql . "<br>" . $this->BDconn->error;
+            return NULL;
         }
 
+        $this->BDresult .= "<br>Record deleted successfully";
         return $query;
     }
 
 }
-?>
+

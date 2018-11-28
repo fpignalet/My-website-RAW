@@ -14,16 +14,16 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
     //------------------------------------------------------------------
     /// @brief add boite info
     /// @param contener is the destination DOM
-    /// @param data...
-    addheader(contener, data) {
-        var keys = Object.keys(data);
+    /// @param data contains data_CVboulotXX
+    addentry(contener, data) {
+        const keys = Object.keys(data);
 
         // -------------------------------------
         // boulotentryXXdate => [
         //      data    -> data[iddate][0]
         // ]
-        var iddate = keys[0];
-        var valuedate = data[iddate][0];
+        const iddate = keys[0];
+        const valuedate = data[iddate][0];
         this.addtext(contener, iddate, valuedate);
 
         // -------------------------------------
@@ -31,14 +31,14 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
         //      null | href,       -> data[idboite][0]
         //      [ data ]           -> data[idboite][1]
         // ]
-        var idboite = keys[1];
-        var it = contener.getElementById(idboite);
+        const idboite = keys[1];
+        const it = contener.getElementById(idboite);
         if(null == it) {
             //sometimes boulotentryXXboite is null
             return;
         }
 
-        var valueboite = null;
+        let valueboite = null;
 
         valueboite = data[idboite][0];
         if(null != valueboite) {
@@ -75,11 +75,11 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
     addLcol(contener, tr, data) {
         //---------------------------
         //then tr left part with th containing title
-        var th = tr.appendChild(contener.createElement("th"));
+        const th = tr.appendChild(contener.createElement("th"));
 
         // -------------------------------------
         // boulotentryXXitem,            ->  data[0]
-        var idboulot = data[0];
+        const idboulot = data[0];
         th.setAttribute("id", idboulot);
         // [
         //     Project / Product / ...,  ->  data[1][0]
@@ -92,7 +92,7 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
             return;
         }
 
-        var valueboulot = null;
+        let valueboulot = null;
 
         valueboulot = data[1][0];
         if(null != valueboulot) {
@@ -101,7 +101,7 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
 
         valueboulot = data[1][1];
         if(null != valueboulot) {
-            var span = contener.createElement("span");
+            const span = contener.createElement("span");
             span.className = "w3-tag w3-teal w3-round";
             span.innerHTML = valueboulot;
             th.appendChild(span);
@@ -132,8 +132,8 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
     /// @param data contains what is to be added
     /// @returns [ the new column, the table created inside the new column ]
     addRcol(contener, tr, data) {
-        var td = tr.appendChild(contener.createElement("td"));
-        var table = this.fillRcol(contener, td, data);
+        const td = tr.appendChild(contener.createElement("td"));
+        const table = this.fillRcol(contener, td, data);
         return [ td, table ];
     }
 
@@ -144,14 +144,14 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
     fillRcol(contener, td, data) {
         //-------------------------------
         //inside the right td there is 2 divs
-        var div = this.adddisclosdivs(contener, td);
+        const div = this.adddisclosdivs(contener, td);
         //then there is the disclosure button
         this.adddisclosbutton(contener, div, data);
 
         //-------------------------------
         //then one more div which contains the details table
         // which will be disclosed when clicking disclosure button
-        var table = this.adddiscloscontent(contener, div, data);
+        const table = this.adddiscloscontent(contener, div, data);
         return table;
     }
 
@@ -164,7 +164,7 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
     /// @param item
     /// @param index
     rcolinit(contener, rcol, item, index) {
-        var tr = null;
+        let tr = null;
 
         // boulotentryXXtitle
         tr = rcol[1].appendChild(contener.createElement("tr"));
@@ -184,7 +184,7 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
     /// @param item
     /// @param index
     rcolappend(contener, table, item, index) {
-        var tr = null;
+        let tr = null;
 
         // boulotentryXXtitle
         tr = table.appendChild(contener.createElement("tr"));
@@ -206,11 +206,14 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
 /// CV creator helper
 ///
 ///
-class CLISIDE_CVCREATE {
+class CLISIDE_CVCREATE extends CLISIDE_BASE {
 
     /// ctor
     constructor() {
-        this.histcreator = new CLISIDE_CVCREATEHISTORY();
+        super();
+
+        this.leftcreator = new CLISIDE_DOM();
+        this.rightcreator = new CLISIDE_CVCREATEHISTORY();
     }
 
     //------------------------------------------------------------------
@@ -220,17 +223,16 @@ class CLISIDE_CVCREATE {
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
     addtitle(contener, data) {
-        var keys = Object.keys(data);
+        const keys = Object.keys(data);
 
         //data_CVtitle
-        var idphoto = keys[0];
-        var valuephoto = data[idphoto];
-        var it = contener.getElementById(idphoto);
-        it.setAttribute("src", valuephoto);
+        const idphoto = keys[0];
+        const valuephoto = data[idphoto];
+        this.leftcreator.addphoto(contener, idphoto, valuephoto);
 
-        var idname = keys[1];
-        var valuename = data[idname];
-        this.histcreator.addtext(contener, idname, valuename);
+        const idname = keys[1];
+        const valuename = data[idname];
+        this.rightcreator.addtext(contener, idname, valuename);
 
     }
 
@@ -244,23 +246,21 @@ class CLISIDE_CVCREATE {
         Object.keys(data).forEach((item, index) => {
 
             //data_CVinfo
-            var idinfo = item;
-            var valueinfo = data[idinfo];
-            var it = contener.getElementById(idinfo);
+            const idinfo = item;
+            const valueinfo = data[idinfo];
             //--------------------------
             if(true == Array.isArray(valueinfo)) {
                 if(1 < valueinfo.length){
-                    var a = it.appendChild(contener.createElement("a"));
-                    a.setAttribute("href", valueinfo[0]);
-                    a.appendChild(contener.createTextNode(valueinfo[1]));
+                    const it = contener.getElementById(idinfo);
+                    this.leftcreator.addhref(contener, it, valueinfo[0], valueinfo[1]);
                 }
                 else {
-                    it.appendChild(contener.createTextNode(valueinfo[0]));
+                    this.leftcreator.addtext(contener, idinfo, valueinfo[0]);
                 }
             }
             //--------------------------
             else {
-                it.appendChild(contener.createTextNode(valueinfo));
+                this.leftcreator.addtext(contener, idinfo, valueinfo[0]);
             }
 
         });
@@ -276,19 +276,18 @@ class CLISIDE_CVCREATE {
         Object.keys(data).forEach((item, index) => {
 
             //data_CVexperience
-            var id = item;
-            var value = data[id];
-            var it = contener.getElementById(id);
+            const id = item;
+            const value = data[id];
             //--------------------------
             if(true == Array.isArray(value)) {
                 value.forEach((_item, index) => {
-                    var li = it.appendChild(contener.createElement("li"));
-                    li.appendChild(contener.createTextNode(_item));
+                    const it = contener.getElementById(id);
+                    this.leftcreator.addlistitem(contener, it, _item);
                 });
             }
             //--------------------------
             else {
-                it.appendChild(contener.createTextNode(value));
+                this.leftcreator.addtext(contener, id, value);
             }
 
         });
@@ -301,20 +300,19 @@ class CLISIDE_CVCREATE {
     /// @param contener is the destination DOM
     /// @param adata is an array which contains details
     adddetails(contener, adata) {
-        var keys = null;
+        let keys = null;
 
         //--------------------------
-        var head = adata[0];
+        const head = adata[0];
 
         //data_CVskillshead / data_CVlanghead
         keys = Object.keys(head);
-        var id = keys[0];
-        var value = head[id];
-        var it = contener.getElementById(id);
-        it.appendChild(contener.createTextNode(value));
+        const id = keys[0];
+        const value = head[id];
+        this.leftcreator.addtext(contener, id, value);
 
         //--------------------------
-        var data = adata[1];
+        const data = adata[1];
         if(null == data) {
             return;
         }
@@ -323,18 +321,18 @@ class CLISIDE_CVCREATE {
         data.forEach((item, index) => {
             keys = Object.keys(item);
 
-            var iddesc = keys[0];
-            var valuedesc = item[iddesc];
-            this.histcreator.addtext(contener, iddesc, valuedesc);
+            const iddesc = keys[0];
+            const valuedesc = item[iddesc];
+            this.rightcreator.addtext(contener, iddesc, valuedesc);
 
-            var idlevel = keys[1];
-            var valueevel = item[idlevel];
-            var it = contener.getElementById(idlevel);
+            const idlevel = keys[1];
+            const valueevel = item[idlevel];
+            const it = contener.getElementById(idlevel);
             it.setAttribute("style", "width:" + valueevel);
 
-            var idtext = keys[2];
-            var valuetext = item[idtext];
-            this.histcreator.addtext(contener, idtext, valuetext);
+            const idtext = keys[2];
+            const valuetext = item[idtext];
+            this.rightcreator.addtext(contener, idtext, valuetext);
 
         });
     }
@@ -342,16 +340,26 @@ class CLISIDE_CVCREATE {
     //------------------------------------------------------------------
     // RIGHT SIDE: CV BOITE & BOULOTS & BILDUNG & HOBBIES ENTRIES
     //------------------------------------------------------------------
+    fillrightside(contener, CV, boite, boulots, progress) {
+        const table = CV.addhistoryentry(contener, boite);
+        Object.keys(boulots).forEach((key, _index) => {
+            CV.addhistorysubentry(contener, table, boulots[key]);
+        });
+    }
+
+    //------------------------------------------------------------------
+    // RIGHT SIDE: INTERNAL IMPLEMENTATION
+    //------------------------------------------------------------------
     /// @brief function to add ... item
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
     addhistoryentry(contener, data) {
-        this.histcreator.addheader(contener, data);
+        this.rightcreator.addentry(contener, data);
 
         //table containing boulotentries
         // desc = boulotentryXXdesc
-        var desc = Object.keys(data)[2];
-        var table = contener.getElementById(desc);
+        const desc = Object.keys(data)[2];
+        const table = contener.getElementById(desc);
         return table;
     }
 
@@ -361,18 +369,18 @@ class CLISIDE_CVCREATE {
     /// @param data is an array which contains details
     addhistorysubentry(contener, table, data) {
         //MAIN ROW
-        var tr = table.appendChild(contener.createElement("tr"));
+        const tr = table.appendChild(contener.createElement("tr"));
 
-        var keys = Object.keys(data);
+        const keys = Object.keys(data);
 
         // LEFT COLUMN ----------
         // boulotentryXXitem
-        var iditem = keys[0];
-        var valueitem = data[iditem];
-        this.histcreator.addLcol(contener, tr, [ iditem, valueitem ]);
+        const iditem = keys[0];
+        const valueitem = data[iditem];
+        this.rightcreator.addLcol(contener, tr, [ iditem, valueitem ]);
 
         // RIGHT COLUMN ----------
-        var rcol = null;
+        let rcol = null;
         var table = null;
         [
             //                N * boulotentryXXtitle, boulotentryXXcontent
@@ -384,27 +392,27 @@ class CLISIDE_CVCREATE {
             }
 
             // boulotentryXXtitle
-            var idtitle = pair[0];
-            var valuetitle = data[idtitle];
+            const idtitle = pair[0];
+            const valuetitle = data[idtitle];
             // boulotentryXXcontent
-            var idcontent = pair[1];
-            var valuecontent = data[idcontent];
+            const idcontent = pair[1];
+            const valuecontent = data[idcontent];
 
             if(null == rcol) {
                 //this is the first item, there is nothing yet, rcol must be created
-                rcol = this.histcreator.addRcol(contener, tr,  [ idtitle, valuetitle, idcontent ]);
+                rcol = this.rightcreator.addRcol(contener, tr,  [ idtitle, valuetitle, idcontent ]);
                 if(null != valuecontent) {
                     valuecontent.forEach((item, index) => {
-                        this.histcreator.rcolinit(contener, rcol, item, index);
+                        this.rightcreator.rcolinit(contener, rcol, item, index);
                     });
                 }
             }
             else {
                 //this is additional item, there is already something in rcol
-                table = this.histcreator.fillRcol(contener, rcol[0], [ idtitle, valuetitle, idcontent ]);
+                table = this.rightcreator.fillRcol(contener, rcol[0], [ idtitle, valuetitle, idcontent ]);
                 if(null != valuecontent) {
                     valuecontent.forEach((item, index) => {
-                        this.histcreator.rcolappend(contener, table, item, index);
+                        this.rightcreator.rcolappend(contener, table, item, index);
                     });
                 }
             }
@@ -415,8 +423,13 @@ class CLISIDE_CVCREATE {
 
 }
 
-/// brief printer utility
-class CLISIDE_CVPRINT {
+/// brief CV printer helper
+class CLISIDE_CVPRINT extends CLISIDE_BASE {
+
+    /// ctor
+    constructor() {
+        super();
+    }
 
     //------------------------------------------------------------------
     // CV TITLE
@@ -470,8 +483,8 @@ class CLISIDE_CVPRINT {
     /// @param html
     /// @param adata
     printdetails(html, adata){
-        var datah = adata[0];
-        var datae = adata[1];
+        const datah = adata[0];
+        const datae = adata[1];
 
         html+= document.getElementById(Object.keys(datah)[0]).innerHTML;
         html+= "<br>";
@@ -491,7 +504,7 @@ class CLISIDE_CVPRINT {
     /// @brief desc
     /// @param entry
     /// @param cbk
-    printhistoryentry(html, entry, cbk) {
+    printrightside(html, entry, cbk) {
         if(null != document.getElementById(Object.keys(entry["boite"])[0])) {
             html+= document.getElementById(Object.keys(entry["boite"])[0]).innerHTML;
             html+= ": ";
@@ -506,10 +519,55 @@ class CLISIDE_CVPRINT {
                 html = cbk(html, key, index);
             });
 
-        })
+        });
 
         html+= "____________________________________________________________________<br>";
         html+= "____________________________________________________________________<br>";
+
+        return html;
+    }
+
+    printhistoryentry(contener, html, key, index) {
+        const text = contener.getElementById(key).innerHTML;
+
+        let done = false;
+        data_CVprintindexes.forEach((item, index) => {
+            item[1] = text.indexOf(item[0]);
+            if(-1 != item[1]) {
+                done = true;
+            }
+        });
+
+        if(false == done) {
+            //it's just text
+            html+= text + " ";
+
+        }
+        else {
+            data_CVprintindexes.forEach((item, index) => {
+                if(-1 == item[1]) {
+                    return;
+                }
+
+                function substr_getstart() {
+                    return item[1] + item[0].length;
+                }
+                function substr_getend() {
+                    if(index < (data_CVprintindexes.length - 1)) {
+                        if(-1 != data_CVprintindexes[index + 1][1]) {
+                            return data_CVprintindexes[index + 1][1] - 1;
+                        }
+                    }
+
+                    return text.length;
+                }
+
+                html+= "<br>";
+                html+= item[0] + ": ";
+                html+= text.substring(substr_getstart(), substr_getend()) + "<br>";
+            });
+
+        }
 
         return html;
     }
@@ -519,6 +577,8 @@ class CLISIDE_CVPRINT {
 /*************************************************************************************
  * IMPLEMENTATION: COMMUNICATION WITH SERVER
  *************************************************************************************/
+
+///@brief CV asynchronous loader
 class CLISIDE_CVLOADER extends CLISIDE_LOADER {
 
     /// @brief ctor
@@ -548,7 +608,7 @@ class CLISIDE_CVLOADER extends CLISIDE_LOADER {
     /// @param progress contains the DOM items required to display progress
     /// @param cbk will be executed
     remotegetrightside(contener, CV, boite, boulots, progress, cbk) {
-        var inst = this;
+        const inst = this;
 
         /**********************************
          * 1ST: PREPARE DATA FOR UPDATE
@@ -561,8 +621,8 @@ class CLISIDE_CVLOADER extends CLISIDE_LOADER {
         it is there to be sure that they are correctl sorted:
         everything is fully asynchrone, and CV.addhistorysubentry fills the table in a total random way
         */
-        var boitedata = null;
-        var boulotsmap = {};
+        let boitedata = null;
+        const boulotsmap = {};
         inst.mapinit(boulots, boulotsmap);
 
         /**********************************
@@ -570,8 +630,7 @@ class CLISIDE_CVLOADER extends CLISIDE_LOADER {
          * the main request, to get the boite item contents
          * @type {XMLHttpRequest}
          **********************************/
-        /// 1st get the boite data result, then get boulot data resultst
-        var params = [ inst.basename, boite ];
+        const params = [inst.cmdname, boite];
         inst.getdatajson(params, (result) => {
             //store result
             boitedata = result;
@@ -581,7 +640,7 @@ class CLISIDE_CVLOADER extends CLISIDE_LOADER {
                  * the sub request, to get a boulot item contents
                  * @type {XMLHttpRequest}
                  **********************************/
-                var _params = [ inst.basename, item ];
+                const _params = [inst.cmdname, item];
                 inst.getdatajson(_params, (_result) => {
                     // ---------------------------------------------------
                     // store result and survey: we need to be sure that all results are there:
@@ -607,18 +666,19 @@ class CLISIDE_CVLOADER extends CLISIDE_LOADER {
  *************************************************************************************/
 /// @brief main entry function which fills the CV.html page. Called during page load
 /// @returns 1 desc
-/// @brief
 function cliside_CVpageload(contener) {
     try {
-        var CV = new CLISIDE_CVCREATE();
-        var loader = new CLISIDE_CVLOADER();
+        const CVcr = new CLISIDE_CVCREATE();
+        const loader = new CLISIDE_CVLOADER();
 
         data_CVmap.forEach((entry, index) => {
             //-----------------------------------------------------
-            // parse LEFT side
+            // parse LEFT side using schema:
+            //  entry["data"],
+            //  entry["cbk"],
             //-----------------------------------------------------
             if("left" == entry["side"]) {
-                loader.remotegetleftside(CV,
+                loader.remotegetleftside(CVcr,
                     entry["data"],
                     (CV, d) => {
                         entry["cbk"](CV, d);
@@ -626,23 +686,19 @@ function cliside_CVpageload(contener) {
                 );
             }
             //-----------------------------------------------------
-            // parse RIGHT side
+            // parse RIGHT side using schema:
+            //  entry["boite"],
+            //  entry["boulots"],
+            //  entry["progress"],
             //-----------------------------------------------------
             else {
-                function cbkright(contener, CV, boite, boulots, progress) {
-                    var table = CV.addhistoryentry(contener, boite);
-                    Object.keys(boulots).forEach((key, _index) => {
-                        CV.addhistorysubentry(contener, table, boulots[key]);
-                    });
-                }
-
                 loader.remotegetrightside(contener,
-                    CV,
+                    CVcr,
                     entry["boite"],
                     entry["boulots"],
                     entry["progress"],
                     (CV, boite, boulots, progress) => {
-                        cbkright(contener, CV, boite, boulots, progress);
+                        CV.fillrightside(contener, CV, boite, boulots, progress);
                     }
                 );
             }
@@ -662,78 +718,33 @@ function cliside_CVpageload(contener) {
 function cliside_CVpageprint(contener)
 {
     try {
-        var printer = new CLISIDE_CVPRINT();
+        const CVpr = new CLISIDE_CVPRINT();
 
-        var html= "<html>";
+        let html = "<html>";
 
         //-----------------------------------------------------
         // parse LEFT side
         //-----------------------------------------------------
         html+= "____________________________________________________________________<br>";
         html+= "____________________________________________________________________<br>";
-        html = printer.printtitle(html, data_CVstructleft[0][0]);
-        html = printer.printinfo(html, data_CVstructleft[1][0]);
+        html = CVpr.printtitle(html, data_CVstructleft[0][0]);
+        html = CVpr.printinfo(html, data_CVstructleft[1][0]);
         html+= "<br>";
-        html = printer.printexperience(html, data_CVstructleft[2][0]);
+        html = CVpr.printexperience(html, data_CVstructleft[2][0]);
         html+= "<br>";
-        html = printer.printdetails(html, data_CVstructleft[3]);
+        html = CVpr.printdetails(html, data_CVstructleft[3]);
         html+= "<br>";
-        html = printer.printdetails(html, data_CVstructleft[4]);
+        html = CVpr.printdetails(html, data_CVstructleft[4]);
 
         //-----------------------------------------------------
         // parse RIGHT side
         //-----------------------------------------------------
         html+= "____________________________________________________________________<br>";
         html+= "____________________________________________________________________<br>";
-        function cbkprint(html, key, index) {
-            var text = contener.getElementById(key).innerHTML;
-
-            var done = false;
-            data_CVprintindexes.forEach((item, index) => {
-                item[1] = text.indexOf(item[0]);
-                if(-1 != item[1]) {
-                    done = true;
-                }
-            });
-
-            if(false == done) {
-                //it's just text
-                html+= text + " ";
-
-            }
-            else {
-                data_CVprintindexes.forEach((item, index) => {
-                    if(-1 == item[1]) {
-                        return;
-                    }
-
-                    function getstart() {
-                        return item[1] + item[0].length;
-                    }
-                    function getend() {
-                        if(index < (data_CVprintindexes.length - 1)) {
-                            if(-1 != data_CVprintindexes[index + 1][1]) {
-                                return data_CVprintindexes[index + 1][1] - 1;
-                            }
-                        }
-
-                        return text.length;
-                    }
-
-                    html+= "<br>";
-                    html+= item[0] + ": ";
-                    html+= text.substring(getstart(), getend()) + "<br>";
-                });
-
-            }
-
-            return html;
-        }
-
         data_CVstructright.forEach((entry, index) => {
-            html = printer.printhistoryentry(html,
+            html = CVpr.printrightside(html,
                 entry,
-                (html, key, index) => { return cbkprint(html, key, index); }
+                (html, key, index) => { return CVpr.printhistoryentry(contener, html, key, index); }
             );
         });
 
@@ -742,7 +753,7 @@ function cliside_CVpageprint(contener)
         //-----------------------------------------------------
         html+= "</html>";
 
-        var printWin = window.open('','','left=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status  =0');
+        const printWin = window.open('', '', 'left=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status  =0');
         printWin.document.write(html);
         printWin.document.close();
         printWin.focus();

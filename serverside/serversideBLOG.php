@@ -31,7 +31,11 @@ class SRVSIDE_BLOG {
 
     /*************************************************************************************
      * IMPLEMENTATION: BLOG NEWS TEST FUNCTIONS
-     *************************************************************************************/
+     ************************************************************************************
+     * @param $param
+     * @param $debug
+     * @return
+     */
     /// @brief desc
     /// @param param desc
     /// @param debug desc
@@ -48,13 +52,14 @@ class SRVSIDE_BLOG {
 
     /*************************************************************************************
      * IMPLEMENTATION: BLOG TECH TEST FUNCTIONS
-     *************************************************************************************/
-    /// @brief lookup all hints from array if $q is different from ""
-    ///     udpates $srvside_resultA globale variable with success/error message
+     ************************************************************************************
+     * @param $param
+     */
+    /// @brief lookup all hints from array if $q is different from "" then udpates
+    ///     $srvside_resultA globale variable with success/error message
     /// @param param desc
     /// @returns 1 desc
-    public function BTtest1($param)
-    {
+    public function BTtest1($param) {
         global $data_BTtestarray;
 
         $param = strtolower($param);
@@ -77,8 +82,7 @@ class SRVSIDE_BLOG {
 
     /// @brief desc
     /// @returns 1 desc
-    public function BTtest2()
-    {
+    public function BTtest2() {
         $bd = new SRVSIDE_BD;
         if (NULL == $bd->BDconn) {
             $bd->BDConnect();
@@ -95,8 +99,7 @@ class SRVSIDE_BLOG {
 
     /// @brief desc
     /// @returns 1 desc
-    public function BTtest3()
-    {
+    public function BTtest3() {
         $adata = array("object_id" => 1, "object_title" => "PhP_Testobject1");
         return $adata;
     }
@@ -104,8 +107,7 @@ class SRVSIDE_BLOG {
     /// @brief desc
     /// @param param
     /// @returns 1 desc
-    public function BTtest4($param)
-    {
+    public function BTtest4($param) {
         $jsdata = json_decode($param, true);
         $adata = array("object_id" => $jsdata[0], "object_title" => $jsdata[1]);
         return $adata;
@@ -113,8 +115,7 @@ class SRVSIDE_BLOG {
 
     /// @brief desc
     /// @returns 1 desc
-    public function BTtest5()
-    {
+    public function BTtest5() {
         $adata = array();
 
         $adata[] = $_SERVER['PHP_SELF'];//Returns the filename of the currently executing script
@@ -166,4 +167,4 @@ class SRVSIDE_BLOG {
 
 }
 
-?>
+

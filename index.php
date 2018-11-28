@@ -42,15 +42,16 @@
         <!-- -------------------------------------------------------------------------------------------------------------->
         <script type="text/javascript" src="clientside/data/ENTRYdata.js">
         </script>
-        <script type="text/javascript" src="clientside/data/CVdata.js">
-        </script>
         <script type="text/javascript" src="clientside/data/BLOGdata.js">
         </script>
+        <script type="text/javascript" src="clientside/data/CVdata.js">
+        </script>
+
         <script type="text/javascript" src="clientside/clientside.js">
         </script>
-        <script type="text/javascript" src="clientside/clientsideCV.js">
-        </script>
         <script type="text/javascript" src="clientside/clientsideBLOG.js">
+        </script>
+        <script type="text/javascript" src="clientside/clientsideCV.js">
         </script>
         <script type="text/javascript" src="clientside/clientsideENTRY.js">
         </script>
@@ -65,12 +66,12 @@
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- NAVBARS / MENUS -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- sit on top -->
         <div class="w3-top">
+            <!-- sit on top -->
             <div class="w3-bar" id="entry_navbar">
                 <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
                    href="javascript:void(0);"
-                   onclick="clientside_ENTRYtoggle(document, "navDemo")"
+                   onclick="clientside_ENTRYnavtoggle(document, " navDemo")"
                    title="Toggle Navigation Menu">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -96,11 +97,11 @@
             </div>
             <!-- on small screens -->
             <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-                <a id="navDemo2" href="#about" class="w3-bar-item w3-button" onclick="clientside_ENTRYtoggle(document, "navDemo")"></a>
-                <a id="navDemo3" href="#portfolio2" class="w3-bar-item w3-button" onclick="clientside_ENTRYtoggle(document, "navDemo")"></a>
-                <a id="navDemo4" href="#portfolio1" class="w3-bar-item w3-button" onclick="clientside_ENTRYtoggle(document, "navDemo")"></a>
-                <a id="navDemo5" href="#contact" class="w3-bar-item w3-button" onclick="clientside_ENTRYtoggle(document, "navDemo")"></a>
-                <a id="navDemo6" href="impressum.html" class="w3-bar-item w3-button" onclick="clientside_ENTRYtoggle(document, "navDemo")"></a>
+                <a id="navDemo2" href="#about" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, " navDemo")"></a>
+                <a id="navDemo3" href="#portfolio2" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, " navDemo")"></a>
+                <a id="navDemo4" href="#portfolio1" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, " navDemo")"></a>
+                <a id="navDemo5" href="#contact" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, " navDemo")"></a>
+                <a id="navDemo6" href="impressum.html" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, " navDemo")"></a>
 
             </div>
         </div>
@@ -137,7 +138,6 @@
             <h3 class="w3-center">
                 ABOUT ME
             </h3>
-
             <div class="w3-row">
                 <div class="column">
                     <!-- ------------------------->
@@ -184,20 +184,19 @@
                 <em id="pf2text"></em>
             </p>
             <br>
-
             <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
             <div class="w3-card w3-margin">
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
                         <img id="pf2img1" style="width:100%"
-                             onclick="cliside_ENTRYwrapnews(this, 0)"
-                             class="w3-hover-opacity" alt="München Marathon">
+                             onclick="cliside_ENTRYwrapnews(document, this, 0)"
+                             class="w3-hover-opacity" alt="BLOGNEWS entry 0">
                     </div>
 
                     <div class="w3-col m6">
                         <img id="pf2img2" style="width:100%"
-                             onclick="cliside_ENTRYwrapnews(this, 1)"
-                             class="w3-hover-opacity" alt="Some triathlon">
+                             onclick="cliside_ENTRYwrapnews(document, this, 1)"
+                             class="w3-hover-opacity" alt="BLOGNEWS entry 1">
                     </div>
 
                 </div>
@@ -235,14 +234,14 @@
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
                         <img id="pf1img1" style="width:100%"
-                             onclick="cliside_ENTRYwraptech(this, 0)"
-                             class="w3-hover-opacity" alt="Some kind of dynamic entry">
+                             onclick="cliside_ENTRYwraptech(document, this, 0)"
+                             class="w3-hover-opacity" alt="BLOGTECH entry 0">
                     </div>
 
                     <div class="w3-col m6">
                         <img id="pf1img2" style="width:100%"
-                             onclick="cliside_ENTRYwraptech(this, 2)"
-                             class="w3-hover-opacity" alt="Learnin' Angular.js">
+                             onclick="cliside_ENTRYwraptech(document, this, 1)"
+                             class="w3-hover-opacity" alt="BLOGTECH entry 1">
                     </div>
 
                 </div>
@@ -274,7 +273,6 @@
                 <h3 class="w3-center">
                     I'D LOVE YOUR FEEDBACK
                 </h3>
-
                 <div class="w3-container w3-padding">
 
                     <p>
@@ -282,7 +280,8 @@
                         Please don't hesitate to leave a note:
                     </p>
 
-                    <form action="javascript:cliside_ENTRYpagefbk(document).value)">
+                    <!-- Feedback fields. Will send an email on submit (SEND MESSAGE button) -->
+                    <form action="javascript:cliside_ENTRYpagefbk(document)">
 
                         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
                             <div class="w3-half">
@@ -306,7 +305,7 @@
 
                 </div>
 
-                <!-- Add Google Maps -->
+                <!-- Für später: add Google Maps -->
                 <!-- div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;">
                 </div -->
                 <!-- div class="w3-col m4 w3-container">
@@ -385,7 +384,7 @@
         <!-- -------------------------------------------------------------------------------------------------------------->
         <script>
             window.onscroll = function() {
-                clientside_ENTRYscroll(document, "entry_navbar")
+                clientside_ENTRYnavscroll(document, "entry_navbar")
             };
 
         </script>

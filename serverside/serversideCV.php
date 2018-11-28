@@ -24,8 +24,9 @@ class SRVSIDE_CV {
 
     }
 
-    /// @brief desc
-    /// @param name desc
+    /// @brief sends back CV data
+    /// @param param
+    /// @param debug
     /// @returns 1 desc
     public function CVsend($param, $debug) {
         global $data_CVdatamap, $data_CVloadsleep;
@@ -38,4 +39,4 @@ class SRVSIDE_CV {
     }
 
 }
-?>
+

@@ -16,11 +16,13 @@
         <meta http-equiv="pragma" content="no-cache" />
 
         <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- EXTERNAL RESSOURCES -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
         <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- STYLE SHEETS -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <link rel="stylesheet" href="clientside/clientside.css">
         <style>
@@ -31,6 +33,7 @@
         </style>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- JS IMPLEMENTATION -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
         </script>
@@ -44,11 +47,12 @@
 
         <script type="text/javascript" src="clientside/data/BLOGdata.js">
         </script>
+
         <script type="text/javascript" src="clientside/clientside.js">
         </script>
-        <script type="text/javascript" src="clientside/clientsideBLOG.js">
-        </script>
         <script type="text/babel" src="clientside/clientsideREACT.js">
+        </script>
+        <script type="text/javascript" src="clientside/clientsideBLOG.js">
         </script>
 
     </head>
@@ -88,21 +92,53 @@
             <!-- Grid -->
             <div class="w3-row">
 
+                <script>
+                    const cliside_BTECHtestslocal = new CLISIDE_BTECHLOCAL();
+                    const cliside_BTECHtestsremote = new CLISIDE_BTECHREMOTE();
+                </script>
+
                 <div class="w3-col l8 s12">
 
-                    <script>
-                        try {
-                            var testslocal = new CLISIDE_BTECHDOM();
-                            var testsremote = new CLISIDE_BTECHLOADER();
-                        }
-                        catch (e) {
-                            console.log(e.name)
-                        }
-                        finally {
-                            //...
-                        }
-                    </script>
+                    <!-- ------------------------------------------------------------------ -->
+                    <!-- Blog entry -->
+                    <!-- ------------------------------------------------------------------ -->
+                    <div id="blog_entry13" class="w3-card-4 w3-margin w3-white">
+                        <img id="blog_entry13PHOTO" src="images/gears-1059756_640.png" alt="img" style="width:100%">
+                        <div class="w3-container">
+                            <h3 id="blog_entry13TITLE">
+                            </h3>
+                            <h5 id="blog_entry13DATE">
+                            </h5>
+                        </div>
+                        <div id="blog_entry13CONTENT" class="w3-container">
 
+                            <ul id="myUL">
+                            </ul>
+                            <script>
+                                const ul = document.getElementById("myUL");
+                                    const li = ul.appendChild(document.createElement("li"));
+                                        const span = li.appendChild(document.createElement("span"));
+                                            span.setAttribute("class", "caret");
+                                            span.appendChild(document.createTextNode("Hierarchical"));
+                                        const ul1 = li.appendChild(document.createElement("ul"));
+                                        ul1.setAttribute("class", "nested");
+                                            const li11 = ul1.appendChild(document.createElement("li"));
+                                                li11.appendChild(document.createTextNode("Item 1"));
+                                            const li12 = ul1.appendChild(document.createElement("li"));
+                                                li12.appendChild(document.createTextNode("Item 2"));
+
+                                const toggler = document.getElementsByClassName("caret");
+                                for (let i = 0; i < toggler.length; i++) {
+                                    toggler[i].addEventListener("click", function() {
+                                        this.parentElement.querySelector(".nested").classList.toggle("active");
+                                        this.classList.toggle("caret-down");
+                                    });
+                                }
+                            </script>
+
+                        </div>
+
+                    </div>
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
                     <!-- ------------------------------------------------------------------ -->
@@ -124,15 +160,15 @@
                             <br>
 
                             <script type="text/babel">
+                                // Specific sandbox content is not outside processed
+                                let contener = null;
 
-                                var contener = null;
-
-                                var button = React.createElement(ReactButtonJSX, { data: document });
+                                const button = React.createElement(ReactButtonJSX, {data: document});
                                 contener = document.querySelector('#' + "reactbuttonjsx");
                                 ReactDOM.render(button, contener);
 
                                 contener = document.querySelector('#' + "reacttodojsx");
-                                ReactDOM.render(<TodoApp />, contener);
+                                ReactDOM.render(<ReactApp />, contener);
 
                             </script>
                         </div>
@@ -143,8 +179,9 @@
                     <!-- ------------------------------------------------------------------ -->
                     <script>
                         try {
+                            // Specific sandbox content is not outside processed
                             document.write(
-                                testslocal.testdyn(
+                                cliside_BTECHtestslocal.testdyn(
                                     'blog_entry8',
                                     'images/gears-686316_640.jpg',
                                     'Today\'s sandbox',
@@ -183,11 +220,10 @@
                         </div>
                         <div id="blog_entry7CONTENT" class="w3-container">
 
-                            <!-- Specific sandbox content is not dynamically processed -->
-
                             <script>
+                                // Specific sandbox content is not outside processed
                                 try {
-                                    testslocal.testangular("testapp", "testctrl");
+                                    cliside_BTECHtestslocal.testangular("testapp", "testctrl");
                                 }
                                 catch (e) {
                                     console.log(e.name)
@@ -272,7 +308,7 @@
                         </div>
                         <div id="blog_entry5CONTENT" class="w3-container">
 
-                            <!---------------- TESTS 1 ------------------>
+                            <!---------------- TESTS LOCAL ------------------>
                             <p>
                                 <div><b>Locally obtained data:</b></div>
                                 <div id="hello_area">This text should be replaced.</div>
@@ -280,9 +316,10 @@
 
                             </p>
                             <script>
+                                // Specific sandbox content is not outside processed
                                 try {
-                                    testslocal.testhello(document, "hello_area");
-                                    testslocal.testcount(document, "count_area");
+                                    cliside_BTECHtestslocal.testhello(document, "hello_area");
+                                    cliside_BTECHtestslocal.testcount(document, "count_area");
                                 }
                                 catch (e) {
                                     console.log(e.name)
@@ -292,17 +329,17 @@
                                 }
                             </script>
 
-                            <!------------------ TESTS 2 ------------------>
+                            <!------------------ TESTS REMOTE DIRECT ------------------>
                             <p>
                                 <div>
                                     <b>Remotely obtained data: start typing a name in the input field below to get an answer from the server</b>
                                 </div>
                                 <form>
                                     <b>First try: </b>
-                                    <input type="text" onkeyup="testsremote.testphp1(document, this.value, 'txtHint')">
+                                    <input type="text" onkeyup="cliside_BTECHtestsremote.testphp1(document, this.value, 'txtHint')">
                                     <br>
                                     <b>Second try: </b>
-                                    <input type="text" onkeyup="testsremote.testphp1(document, this.value, 'txtHint')">
+                                    <input type="text" onkeyup="cliside_BTECHtestsremote.testphp1(document, this.value, 'txtHint')">
                                 </form>
                                 <div>
                                     <b>Suggestions: </b>
@@ -311,7 +348,7 @@
 
                             </p>
 
-                            <!------------------ TESTS 3 ------------------>
+                            <!------------------ TESTS REMOTE PHP ------------------>
                             <p>
                                 <div><b>parameters 1: </b><span id="params_area1"></span></div>
                                 <div><b>parameters 2: </b><span id="params_area2"></span></div>
@@ -319,10 +356,11 @@
 
                             </p>
                             <script>
+                                // Specific sandbox content is not outside processed
                                 try {
-                                    testsremote.testphp3(document, null, "params_area1");
-                                    testsremote.testphp4(document, null, "params_area2");
-                                    testsremote.testphp5(document, null, "params_area3");
+                                    cliside_BTECHtestsremote.testphp3(document, null, "params_area1");
+                                    cliside_BTECHtestsremote.testphp4(document, null, "params_area2");
+                                    cliside_BTECHtestsremote.testphp5(document, null, "params_area3");
                                 }
                                 catch (e) {
                                     console.log(e.name)
@@ -332,14 +370,15 @@
                                 }
                             </script>
 
-                            <!------------------ TESTS 4 ------------------>
+                            <!------------------ TESTS REMOTE BD ------------------>
                             <p>
                                 <div><b>BD Contents: </b><span id="bdResult"></span></div>
 
                             </p>
                             <script>
                                 try {
-                                    testsremote.testphp2(document, null, "bdResult");
+                                    // Specific sandbox content is not outside processed
+                                    cliside_BTECHtestsremote.testphp2(document, null, "bdResult");
                                 }
                                 catch (e) {
                                     console.log(e.name)

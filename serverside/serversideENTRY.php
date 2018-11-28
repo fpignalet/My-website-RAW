@@ -22,10 +22,11 @@ class SRVSIDE_ENTRY {
 
     }
 
-    /// @brief desc
-    /// @param name
-    /// @param email
-    /// @param text
+    /// @brief send a feedback email when requested by user
+    /// @param name field from HTML page
+    /// @param email field from HTML page
+    /// @param text field from HTML page
+    /// @return email content
     public function ENTRYsendmail($name, $mail, $text) {
         global $dataENTRY_mail, $dataENTRY_subject;
 
@@ -39,4 +40,3 @@ class SRVSIDE_ENTRY {
     }
 
 }
-?>
