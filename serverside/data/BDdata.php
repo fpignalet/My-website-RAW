@@ -19,13 +19,15 @@ $srvside_BDtables = [
 $srvside_BDfields = [
     "testtable1field1",
     "testtable1field2",
-    "testtable1field3"
+    "testtable1field3",
+    NULL
 ];
 
 $srvside_BDtestvalues = [
     21,
     22,
-    'toto23'
+    'toto23',
+    NULL
 ];
 
-?>
+
