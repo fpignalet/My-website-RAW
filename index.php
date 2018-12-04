@@ -2,12 +2,8 @@
 <html>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <!-- -------------------------------------------------------------------------------------------------------------->
-    <title>
-        FPIGNALETDE
-    </title>
-
     <head>
+    <!-- -------------------------------------------------------------------------------------------------------------->
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,12 +52,18 @@
         <script type="text/javascript" src="clientside/clientsideENTRY.js">
         </script>
 
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- OTHERS -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <title>
+            FPIGNALETDE
+        </title>
+
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <!-- Page Container -->
-    <!-- -------------------------------------------------------------------------------------------------------------->
     <body onload="cliside_ENTRYpageload(document)">
+    <!-- -------------------------------------------------------------------------------------------------------------->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- NAVBARS / MENUS -->
@@ -71,7 +73,7 @@
             <div class="w3-bar" id="entry_navbar">
                 <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
                    href="javascript:void(0);"
-                   onclick="clientside_ENTRYnavtoggle(document, " navDemo")"
+                   onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"
                    title="Toggle Navigation Menu">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -97,11 +99,11 @@
             </div>
             <!-- on small screens -->
             <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-                <a id="navDemo2" href="#about" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, " navDemo")"></a>
-                <a id="navDemo3" href="#portfolio2" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, " navDemo")"></a>
-                <a id="navDemo4" href="#portfolio1" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, " navDemo")"></a>
-                <a id="navDemo5" href="#contact" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, " navDemo")"></a>
-                <a id="navDemo6" href="impressum.html" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, " navDemo")"></a>
+                <a id="navDemo2" href="#about" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"></a>
+                <a id="navDemo3" href="#portfolio2" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"></a>
+                <a id="navDemo4" href="#portfolio1" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"></a>
+                <a id="navDemo5" href="#contact" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"></a>
+                <a id="navDemo6" href="impressum.html" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"></a>
 
             </div>
         </div>
@@ -305,7 +307,12 @@
 
                 </div>
 
-                <!-- Für später: add Google Maps -->
+                <!-- -------------------------------------------------------------------------------------------------------------->
+                <!-- -------------------------------------------------------------------------------------------------------------->
+                <!-- Für später: add Google Maps
+                To use this code on your website, get a free API key from Google.
+                Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+                -->
                 <!-- div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;">
                 </div -->
                 <!-- div class="w3-col m4 w3-container">
@@ -317,6 +324,8 @@
                             allowfullscreen>
                     </iframe>
                 </div -->
+                <!-- script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA4Ast8z4S1oRDkopGSpOIa5kVEHfhN2g&callback=clientside_ENTRYshowgmap">
+                </script -->
 
             </div>
 
@@ -360,6 +369,7 @@
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- Modal utility for full size images on click-->
+        <!-- not visible: will display a modal dialog when a "latest entry sprite" is clicked -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <div id="modaldiv" class="w3-modal w3-black" onclick="this.style.display='none'">
             <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image">
@@ -370,15 +380,6 @@
                 <p id="modalcaption" class="w3-opacity w3-large"></p>
             </div>
         </div>
-
-        <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- -------------------------------------------------------------------------------------------------------------->
-        <!--
-        To use this code on your website, get a free API key from Google.
-        Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
-        -->
-        <!-- script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA4Ast8z4S1oRDkopGSpOIa5kVEHfhN2g&callback=clientside_ENTRYshowgmap">
-        </script -->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- -------------------------------------------------------------------------------------------------------------->

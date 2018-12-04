@@ -10,6 +10,54 @@
 $data_BNloadsleep = 100000;
 
 //-----------------------------------------------------------------------------------------------------------
+$data_BTdesc15 = array(
+
+    "blog_entry15TITLE" =>
+        "Today's sandbox",
+
+    "blog_entry15DATE" => [
+        "December 3, 2018",
+        "\"A little break\""
+    ]
+
+);
+
+$data_BTcontent15 = array(
+
+    "blog_entry15CONTENT" => [
+        //TECH BLOG, no dynamic content
+
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
+$data_BNdesc14 = array(
+
+    "blog_entry14TITLE" =>
+        "Current status of this website project",
+
+    "blog_entry14DATE" => [
+        "November 30, 2018",
+        "An important step"
+    ]
+
+);
+
+$data_BNcontent14 = array(
+
+    "blog_entry14CONTENT" => [
+        [ "ul", [
+            "I master now remote communication with server. Almost all data are delivered to the client through XMLHttpRequest",
+            "(\"almost\" because there is still some exceptions in some places, like blog entries photos which are still hard coded in html",
+            "I know that it's possible to optimize client/server communication by asking for the whole data stuff only once, but I want to show something which uses total asynchronous loading, displaying progress bars and getting everything in the right order at the end"
+        ]],
+
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
 $data_BTdesc13 = array(
 
     "blog_entry13TITLE" =>
@@ -17,7 +65,7 @@ $data_BTdesc13 = array(
 
     "blog_entry13DATE" => [
         "November 28, 2018",
-        "Have a little fun with Treeviews"
+        "Foolin' around with Treeviews"
     ]
 
 );
@@ -411,6 +459,12 @@ $data_BNcontent1 = array(
 
 //-----------------------------------------------------------------------------------------------------------
 $data_BLOGdatamap = array(
+
+    "data_BTdesc15" => $data_BTdesc15,
+    "data_BTcontent15" => $data_BTcontent15,
+
+    "data_BNdesc14" => $data_BNdesc14,
+    "data_BNcontent14" => $data_BNcontent14,
 
     "data_BTdesc13" => $data_BTdesc13,
     "data_BTcontent13" => $data_BTcontent13,

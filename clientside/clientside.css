@@ -115,15 +115,6 @@
 }
 
 /* --------- TREEVIEW --------- */
-ul, #myUL {
-    list-style-type: none;
-}
-
-#myUL {
-    margin: 0;
-    padding: 0;
-}
-
 .caret {
     cursor: pointer;
     -webkit-user-select: none; /* Safari 3.1+ */

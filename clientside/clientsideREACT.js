@@ -1,7 +1,8 @@
 //-----------------------------------------------------------------------------------------------------------
 class ReactButtonJSX extends React.Component {
 
-    ///ctor
+    /// @brief ctor
+    /// @param props
     constructor(props) {
         super(props);
 

@@ -12,6 +12,61 @@ include 'serversideBLOG.php';
 include 'serversideCV.php';
 include 'serversideENTRY.php';
 
+class SRVSIDE_ANALYSER {
+
+    public function parserepo($cbk, $file){
+        $files = array();
+
+        $filters = [ ".js", ".php" ];
+        foreach($this->scanrepo('..') as $line){
+            foreach($filters as $filter){
+                if(FALSE != strpos($line, $filter)){
+                    $files[$filter][] = $line;
+                }
+            }
+        }
+
+        if(null != $file) {
+            $stream = fopen($file, "w");
+
+            foreach($files[$filters[0]] as $item){
+                call_user_func_array(array($this, $cbk), array([ "JAVASCRIPT: ", $stream, $item ]));
+            }
+            foreach($files[$filters[1]] as $item){
+                call_user_func_array(array($this, $cbk), array([ "PHP: ", $stream, $item ]));
+            }
+
+            fclose($stream);
+        }
+
+        return $files;
+    }
+
+    private function callbackparse($params) {
+        fwrite($params[1], $params[0]);
+        fwrite($params[1], $params[2]);
+        fwrite($params[1], "\r\n");
+    }
+
+    private function scanrepo($dir, &$results = array()){
+        $files = scandir($dir);
+
+        foreach($files as $key => $value){
+            $path = realpath($dir.DIRECTORY_SEPARATOR.$value);
+            if(!is_dir($path)) {
+                $results[] = $path;
+            }
+            else if($value != "." && $value != "..") {
+                $this->scanrepo($path, $results);
+                $results[] = $path;
+            }
+        }
+
+        return $results;
+    }
+
+}
+
 /*************************************************************************************
  * IMPLEMENTATION: SITE MAIN ENTRYPOINT
  *************************************************************************************/
@@ -31,7 +86,11 @@ class SERVERSIDE {
 
         /*6*/"cliside_CVphpgetdata",
 
-        /*7*/"cliside_BLOGphpgetdata"
+        /*7*/"cliside_BLOGphpgetdata",
+
+        /*8*/"cliside_BLOGphptest6",
+
+        /*9*/"cliside_BLOGphptest7"
 
     ];
 
@@ -50,6 +109,25 @@ class SERVERSIDE {
             $this->param[] = $_REQUEST["p1"];
             $this->param[] = $_REQUEST["p2"];
 
+            if(false) {
+                //debug only
+                $analyser = new SRVSIDE_ANALYSER();
+                $analyser->parserepo("callbackparse", "../listfile.txt");
+            }
+        }
+        catch(Exception $e) {
+            echo 'Exception abgefangen: ',  $e->getMessage(), "\n";
+        }
+        finally {
+            //...
+        }
+
+    }
+
+    /// @brief ctor
+    public function __destruct() {
+        try {
+            //...
         }
         catch(Exception $e) {
             echo 'Exception abgefangen: ',  $e->getMessage(), "\n";
@@ -100,6 +178,12 @@ class SERVERSIDE {
                 //----------------------------------------------------------------
 
                 //----------------------------------
+                // UTILITY
+                case $this->triggers[9]:
+                    echo php_uname();
+                    break;
+
+                //----------------------------------
                 // SEND BLOG CONTENT
                 // return json data
                 case $this->triggers[7]:
@@ -120,21 +204,21 @@ class SERVERSIDE {
                 // fill and return $srvside_BDresult
                 case $this->triggers[1]:
                     $blog = new SRVSIDE_BLOG;
-                    $data = $blog->BTtest1($this->param[1]);
+                    $blog->BTtest1($this->param[1]);
                     // Output "no suggestion" if no hint was found or output correct values
                     echo $blog->BLOGresult === "" ? "no suggestion" : $blog->BLOGresult;
                     break;
 
                 case $this->triggers[2]:
                     $blog = new SRVSIDE_BLOG;
-                    $data = $blog->BTtest2();
+                    $blog->BTtest2();
                     // Output "no suggestion" if no hint was found or output correct values
                     echo $blog->BLOGresult === "" ? "no suggestion" : $blog->BLOGresult;
                     break;
 
                 case $this->triggers[3]:
                     $blog = new SRVSIDE_BLOG;
-                    $data = $blog->BTtest5();
+                    $blog->BTtest5();
                     // Output "no suggestion" if no hint was found or output correct values
                     echo $blog->BLOGresult === "" ? "no suggestion" : $blog->BLOGresult;
                     break;
@@ -156,6 +240,15 @@ class SERVERSIDE {
                     echo json_encode($data);
                     break;
 
+                //----------------------------------
+                // SEND DIRECTORY CONTENT
+                // return json data
+                case $this->triggers[8]:
+                    $analyser = new SRVSIDE_ANALYSER();
+                    $data = $analyser->parserepo(null, null);
+                    echo json_encode($data);
+                    break;
+
                 //----------------------------------------------------------------
                 // others / Not yet implemented
                 //----------------------------------------------------------------
@@ -172,11 +265,10 @@ class SERVERSIDE {
         finally {
             //...
         }
+
     }
 
 }
 
 $entry = new SERVERSIDE;
 $entry->execute();
-
-

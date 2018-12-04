@@ -1,4 +1,14 @@
 //-----------------------------------------------------------------------------------------------------------
+const data_BLOGdesc14 = {
+    "blog_entry14TITLE": "",
+    "blog_entry14DATE": []
+};
+
+const data_BLOGcontent14 = {
+    "blog_entry14CONTENT": []
+};
+
+//-----------------------------------------------------------------------------------------------------------
 const data_BLOGdesc13 = {
     "blog_entry13TITLE": "",
     "blog_entry13DATE": []
@@ -119,6 +129,7 @@ const data_BLOGcontent1 = {
 //-----------------------------------------------------------------------------------------------------------
 // structs are there to navigate page contents
 const data_BNEWSstruct = [
+    [data_BLOGdesc14, data_BLOGcontent14],
     [data_BLOGdesc12, data_BLOGcontent12],
     [data_BLOGdesc10, data_BLOGcontent10],
     [data_BLOGdesc9, data_BLOGcontent91],
@@ -139,6 +150,7 @@ const data_BTECHstruct = [
 
 // maps are there to fetch remote data
 const data_BNEWSmap = [
+    ["data_BNdesc14", "data_BNcontent14"],
     ["data_BNdesc12", "data_BNcontent12"],
     ["data_BNdesc10", "data_BNcontent10"],
     ["data_BNdesc9", "data_BNcontent91"],
@@ -149,7 +161,13 @@ const data_BNEWSmap = [
     ["data_BNdesc1", "data_BNcontent1"]
 ];
 
+const data_BNEWSlasts = [
+    "blog_entry14PHOTO",
+    "blog_entry12PHOTO"
+];
+
 const data_BTECHmap = [
+    ["data_BTdesc15", "data_BTcontent15"],
     ["data_BTdesc13", "data_BTcontent13"],
     ["data_BTdesc11", "data_BTcontent11"],
 //    [ "data_BTdesc8", "data_BTcontent8" ],
@@ -157,12 +175,7 @@ const data_BTECHmap = [
     ["data_BTdesc5", "data_BTcontent5"],
 ];
 
-const data_BNEWSlasts = [
-    "blog_entry12PHOTO",
-    "blog_entry10PHOTO"
-];
-
 const data_BTECHlasts = [
-    "blog_entry13PHOTO",
-    "blog_entry11PHOTO"
+    "blog_entry15PHOTO",
+    "blog_entry13PHOTO"
 ];

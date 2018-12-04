@@ -5,10 +5,45 @@ class CLISIDE_BASE {
         this.id = null;
     }
 
-    /// debug
+    /// @brief ...
+    /// @param select ...
     getFuncName() {
-        if(true == clientside_checkbrowser("Firefox")) return;
+        if(true === CLISIDE_BASE.clientside_checkbrowser("Firefox")) {
+            return "";
+        }
+
         return (new Error()).stack.match(/at (\S+)/g)[1].slice(3);
+    }
+
+    /// @brief ...
+    /// @param select ...
+    static isLinux() {
+        return /Linux/.test(window.navigator.platform);
+    }
+
+    /// @brief ...
+    /// @param select ...
+    static clientside_checkbrowser(select) {
+
+        if(-1 !== navigator.userAgent.indexOf(select) ) {
+            return true;
+        }
+
+        //---------------
+        else if("Opera" === select) {
+            if(-1 !== navigator.userAgent.indexOf('OPR') ) {
+                return true;
+            }
+        }
+
+        //---------------
+        else if("MSIE" === select) {
+            if( false === document.documentMode ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }
@@ -49,7 +84,7 @@ class CLISIDE_DOM extends CLISIDE_BASE {
     /// @param presbutton describes the button with [ id, name ]
     /// @param file tells which page should be opened
     addbutton(contener, presbutton, file) {
-        let it = null;
+        let it;
 
         const id = presbutton[0];
 
@@ -108,13 +143,13 @@ class CLISIDE_DOM extends CLISIDE_BASE {
     /// @param bold can be true when it is a left column "title"
     /// @param bold can be false when it is a right column "content"
     filltr(contener, tr, data, bold) {
-        if(true == Array.isArray(data)) {
+        if(true === Array.isArray(data)) {
             this.addtrsubs(contener, tr, data);
         }
         //-----------------------------------
         else {
             let it = null;
-            if(true == bold) {
+            if(true === bold) {
                 it = tr.appendChild(contener.createElement("b"));
             }
             else {
@@ -135,9 +170,9 @@ class CLISIDE_DOM extends CLISIDE_BASE {
 
         const inst = this;
         data.forEach((item, index) => {
-            if(true == Array.isArray(item)) {
-                if(true == item[0].startsWith("http")) {
-                    var li = ul.appendChild(contener.createElement("li"));
+            if(true === Array.isArray(item)) {
+                if(true === item[0].startsWith("http")) {
+                    const li = ul.appendChild(contener.createElement("li"));
                     inst.addhref(contener, li, item[0], item[1]);
                 }
                 else {
@@ -146,12 +181,83 @@ class CLISIDE_DOM extends CLISIDE_BASE {
             }
             //-----------------------------------
             else {
-                var li = ul.appendChild(contener.createElement("li"));
+                const li = ul.appendChild(contener.createElement("li"));
                 li.appendChild(contener.createTextNode(item));
 
             }
 
         });
+
+        return ul;
+    }
+
+    //------------------------------------------------------------------
+    // TREE ITEMS(THROUGH INSTANCE)
+    //------------------------------------------------------------------
+    /// @brief html single element update
+    /// @param contener is the target DOM
+    /// @param id is the ID attribute of the element to be updated
+    /// @param name contains the value to be used
+    /// @param islinux ...
+    filltree(contener, id, data, islinux) {
+        const root = contener.getElementById(id);
+        root.setAttribute("style", "list-style-type: none; margin: 0; padding: 0;");
+
+        let last = root;
+        let id_ = "htid";
+
+        const local = this;
+        Object.keys(data).forEach((key, index) => {
+            data[key].forEach((item, index) => {
+                const hnames = item.split(islinux? "/": "\\");
+                hnames.forEach((item, index) => {
+                    const li = last.appendChild(contener.createElement("li"));
+
+                    if((hnames.length - 1) === index){
+                        li.appendChild(contener.createTextNode(item));
+                    }
+                    else {
+                        id_ += item;
+                        last = contener.getElementById(id_);
+                        if(null == last){
+                            last = this.addtreenested(contener, li, item, id_);
+                        }
+
+                    }
+
+                });
+
+                last = root;
+                id_ = "htid";
+            });
+        });
+
+    }
+
+    /// @brief
+    /// @param li_
+    /// @param item
+    /// @param id
+    addtreenested(contener, li, item, id) {
+        const span = li.appendChild(contener.createElement("span"));
+        span.setAttribute("class", "caret");
+        span.addEventListener("click", function() {
+            this.parentElement.querySelector(".nested").classList.toggle("active");
+            this.classList.toggle("caret-down");
+        });
+
+        if("" !== item) {
+            span.appendChild(contener.createTextNode(item));
+        }
+        else {
+            //qnd fix to avoid empty 1st item on Linux
+            span.appendChild(contener.createTextNode("root"));
+        }
+
+        const ul = li.appendChild(contener.createElement("ul"));
+        ul.setAttribute("class", "nested");
+        ul.setAttribute("id", id);
+        ul.setAttribute("style", "list-style-type: none;");
 
         return ul;
     }
@@ -217,7 +323,7 @@ class CLISIDE_DOM extends CLISIDE_BASE {
         const contener = document;
 
         const x = contener.getElementById(id);
-        if (-1 == x.className.indexOf("w3-show")) {
+        if (-1 === x.className.indexOf("w3-show")) {
             x.className += " w3-show";
             x.previousElementSibling.className += " w3-theme-d1";
         }
@@ -259,10 +365,10 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
     /// @brief desc...
     /// @param params ...
     /// @param cbk ...
-    getdatadirect(params, cbk) {
+    getdataraw(params, cbk) {
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
+            if (this.readyState === 4 && this.status === 200) {
                 cbk(this.responseText);
 //                console.log(local.getFuncName() + "OK");
             }
@@ -278,7 +384,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
     getdatajson(params, cbk) {
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
+            if (this.readyState === 4 && this.status === 200) {
                 const jsonRes = JSON.parse(this.responseText);
                 cbk(jsonRes);
 //                console.log(local.getFuncName() + "OK");
@@ -300,7 +406,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
         const inst = this;
 
         // with many data to be loaded
-        if(true == Array.isArray(data)) {
+        if(true === Array.isArray(data)) {
             /**********************************
              * 1ST: PREPARE DATA FOR UPDATE
              **********************************/
@@ -318,7 +424,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
                     // ---------------------------------------------------
                     // store result and survey: we need to be sure that all results are there:
                     datamap[item] = result;
-                    if(false == inst.mapisfull(datamap)) {
+                    if(false === inst.mapisfull(datamap)) {
                         /// not everything is there, we need to keep on waiting
                         return;
                     }
@@ -401,7 +507,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
         if(null != params){
             params.forEach((item, index) => {
                 cmd +=
-                    ((0 == index)? "?": "&") +
+                    ((0 === index)? "?": "&") +
                     "p" + (index+1) + "=" + item;
             })
         }
@@ -429,42 +535,4 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
         return isfull;
     }
 
-}
-
-/*************************************************************************************
- * IMPLEMENTATION: OTHERS, NOT CLASSES YET
- *************************************************************************************/
-/// @brief ...
-/// @param select ...
-function clientside_checkbrowser(select) {
-    if(-1 != navigator.userAgent.indexOf("Opera") )
-    {
-        if("Opera" == select) return true;
-    }
-    else if(-1 != navigator.userAgent.indexOf('OPR') )
-    {
-        if("Opera" == select) return true;
-    }
-    else if(-1 != navigator.userAgent.indexOf("Chrome") )
-    {
-        if("Chrome" == select) return true;
-    }
-    else if(-1 != navigator.userAgent.indexOf("Safari") )
-    {
-        if("Safari" == select) return true;
-    }
-    else if(-1 != navigator.userAgent.indexOf("Firefox") )
-    {
-        if("Firefox" == select) return true;
-    }
-    else if(-1 != navigator.userAgent.indexOf("MSIE") ) //IF IE > 10
-    {
-        if("MSIE" == select) return true;
-    }
-    else if( false == document.documentMode ) //IF IE > 10
-    {
-        if("MSIE" == select) return true;
-    }
-
-    return false;
 }

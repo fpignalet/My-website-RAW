@@ -8,8 +8,8 @@
 
 /// --------------------------------------------------------
 /// @brief stupid temp connection info stowage
-$srvside_BDconnect = "use your credentials [login:pass:bdname]";
-$srvside_BDsrvname = "use your credentials [IP addr]";
+$srvside_BDconnect = "fpi:01g6A264d40:fpitest:";
+$srvside_BDsrvname = "localhost";
 
 /// --------------------------------------------------------
 $srvside_BDtables = [

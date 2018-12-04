@@ -34,11 +34,11 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param contener is the target DOM
     updatenavbars(contener) {
         cliside_ENTRYitemsnav1.forEach((item, index) => {
-            if("" == item) return;
+            if("" === item) return;
             contener.getElementById(item).appendChild(contener.createTextNode(cliside_ENTRYmenubars[index]));
         });
         cliside_ENTRYitemsnav2.forEach((item, index) => {
-            if("" == item) return;
+            if("" === item) return;
             contener.getElementById(item).appendChild(contener.createTextNode(cliside_ENTRYmenubars[index]));
         });
 
@@ -49,7 +49,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param contener is the target DOM
     updatetitle(contener) {
         cliside_ENTRYitemstitle.forEach((item, index) => {
-            if("" == item) return;
+            if("" === item) return;
             contener.getElementById(item).appendChild(contener.createTextNode(cliside_ENTRYtitledata[index]));
         });
 
@@ -60,7 +60,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param contener is the target DOM
     updateabout(contener) {
         cliside_ENTRYitemsabout.forEach((item, index) => {
-            if("" == item) return;
+            if("" === item) return;
             contener.getElementById(item[1]).appendChild(contener.createTextNode(cliside_ENTRYaboutdata[index][0]));
             contener.getElementById(item[0]).appendChild(contener.createTextNode(cliside_ENTRYaboutdata[index][1]));
         });
@@ -72,7 +72,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param contener is the target DOM
     updatepres(contener) {
         this.loadpres(contener, cliside_ENTRYfiles[0], cliside_ENTRYitemspres);
-        this.addbutton(contener, cliside_ENTRYpresbutton, cliside_ENTRYfiles[0]);
+        this.addbutton(contener, cliside_ENTRYbuttonpres, cliside_ENTRYfiles[0]);
 
 //        console.log(this.getFuncName() + "OK");
     }
@@ -81,7 +81,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param contener is the target DOM
     updatenews(contener) {
         this.loadnews(contener, cliside_ENTRYfiles[1], cliside_ENTRYitemsnews);
-        this.addbutton(contener, cliside_ENTRYnewsbutton, cliside_ENTRYfiles[1]);
+        this.addbutton(contener, cliside_ENTRYbuttonnews, cliside_ENTRYfiles[1]);
 
 //        console.log(this.getFuncName() + "OK");
     }
@@ -90,7 +90,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param contener is the target DOM
     updatetech(contener) {
         this.loadtech(contener, cliside_ENTRYfiles[2], cliside_ENTRYitemstech);
-        this.addbutton(contener, cliside_ENTRYtechbutton, cliside_ENTRYfiles[2]);
+        this.addbutton(contener, cliside_ENTRYbuttontech, cliside_ENTRYfiles[2]);
 
 //        console.log(this.getFuncName() + "OK");
     }
@@ -197,7 +197,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
         const inst = this;
 
         this.target = file;
-        this.getdatadirect(null, (result) => {
+        this.getdataraw(null, (result) => {
             const dom = inst.parser.parseFromString(result, "text/html");
             cbk(contener, dom, data, idsrc, itdst);
         });
@@ -337,7 +337,7 @@ function cliside_ENTRYpagefbk(contener) {
             contener.getElementById(cliside_ENTRYitemsmail[1]).value,
             contener.getElementById(cliside_ENTRYitemsmail[2]).value
         ];
-        loader.getdatadirect(
+        loader.getdataraw(
             params,
             (result) => {
 //                alert("Mail has been sent");
@@ -364,7 +364,7 @@ function cliside_ENTRYpagefbk(contener) {
 function clientside_ENTRYnavtoggle(contener, navid) {
     try {
         const x = contener.getElementById(navid);
-        if (x.className.indexOf("w3-show") == -1) {
+        if (x.className.indexOf("w3-show") === -1) {
             x.className += " w3-show";
         }
         else {

@@ -12,16 +12,7 @@ class SRVSIDE_CV {
 
     /// @brief ctor
     public function __construct() {
-        try {
-            //...
-        }
-        catch(Exception $e) {
-            echo 'Exception abgefangen: ',  $e->getMessage(), "\n";
-        }
-        finally {
-            //...
-        }
-
+        //...
     }
 
     /// @brief sends back CV data

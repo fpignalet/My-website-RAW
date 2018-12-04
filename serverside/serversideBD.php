@@ -17,16 +17,7 @@ class SRVSIDE_BD {
 
     /// @brief ctor
     public function __construct() {
-        try {
-            //...
-        }
-        catch(Exception $e) {
-            echo 'Exception abgefangen: ',  $e->getMessage(), "\n";
-        }
-        finally {
-            //...
-        }
-
+        //...
     }
 
     /*************************************************************************************

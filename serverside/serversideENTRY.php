@@ -10,16 +10,7 @@ class SRVSIDE_ENTRY {
 
     /// @brief ctor
     public function __construct() {
-        try {
-            //...
-        }
-        catch(Exception $e) {
-            echo 'Exception abgefangen: ',  $e->getMessage(), "\n";
-        }
-        finally {
-            //...
-        }
-
+        //...
     }
 
     /// @brief send a feedback email when requested by user

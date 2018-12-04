@@ -1,14 +1,26 @@
+//-----------------------------------------------------------------------------------------------------------
 const cliside_ENTRYfiles = [
     "CV.html",
     "BLOGNEWS.html",
     "BLOGTECH.html"
 ];
 
+//-----------------------------------------------------------------------------------------------------------
 const cliside_ENTRYitemsnav1 = [
-    "entry_navbar1", "entry_navbar2", "entry_navbar3", "entry_navbar4", "entry_navbar5", "entry_navbar6"
+    "entry_navbar1",
+    "entry_navbar2",
+    "entry_navbar3",
+    "entry_navbar4",
+    "entry_navbar5",
+    "entry_navbar6"
 ];
 const cliside_ENTRYitemsnav2 = [
-    "", "navDemo2", "navDemo3", "navDemo4", "navDemo5", "navDemo6"
+    "",
+    "navDemo2",
+    "navDemo3",
+    "navDemo4",
+    "navDemo5",
+    "navDemo6"
 ];
 const cliside_ENTRYmenubars = [
     "HOME",
@@ -19,14 +31,17 @@ const cliside_ENTRYmenubars = [
     "IMPRESSUM"
 ];
 
+//-----------------------------------------------------------------------------------------------------------
 const cliside_ENTRYitemstitle = [
-    "entry_mtitlesub", "entry_mtitlename"
+    "entry_mtitlesub",
+    "entry_mtitlename"
 ];
 const cliside_ENTRYtitledata = [
     "FRANCOIS PIGNALET'S",
     "WEBSITE"
 ];
 
+//-----------------------------------------------------------------------------------------------------------
 const cliside_ENTRYitemsabout = [
     ["aboutyearstext", "aboutyearsnum"],
     ["aboutprojectstext", "aboutprojectsnum"],
@@ -40,25 +55,43 @@ const cliside_ENTRYaboutdata = [
     ["Many, many...", "...lines of code & hours of debugging"],
 ];
 
-const cliside_ENTRYitemsnews = [
-    "pf2title", "pf2text", "pf2img1", "pf2img2"
-];
-const cliside_ENTRYitemstech = [
-    "pf1title", "pf1text", "pf1img1", "pf1img2"
-];
+//-----------------------------------------------------------------------------------------------------------
 const cliside_ENTRYitemspres = [
-    "entryname", "entryphoto",
-    "cvpresentation", "entrypresentation"
+    "entryname",
+    "entryphoto",
+    "cvpresentation",
+    "entrypresentation"
 ];
-const cliside_ENTRYpresbutton = [
-    "entrycvbutton", "Click to read/print my RESUME..."
+const cliside_ENTRYbuttonpres = [
+    "entrycvbutton",
+    "Click to read/print my RESUME..."
 ];
-const cliside_ENTRYnewsbutton = [
-    "pf2button", "Read more..."
+
+//-----------------------------------------------------------------------------------------------------------
+const cliside_ENTRYitemsnews = [
+    "pf2title",
+    "pf2text",
+    "pf2img1",
+    "pf2img2"
 ];
-const cliside_ENTRYtechbutton = [
-    "pf1button", "Read more..."
+const cliside_ENTRYbuttonnews = [
+    "pf2button",
+    "Read more..."
 ];
+
+//-----------------------------------------------------------------------------------------------------------
+const cliside_ENTRYitemstech = [
+    "pf1title",
+    "pf1text",
+    "pf1img1",
+    "pf1img2"
+];
+const cliside_ENTRYbuttontech = [
+    "pf1button",
+    "Read more..."
+];
+
+//-----------------------------------------------------------------------------------------------------------
 const cliside_ENTRYcontentdata = [
     [
         "Francois Pignalet",
@@ -76,6 +109,7 @@ const cliside_ENTRYcontentdata = [
     ]
 ];
 
+//-----------------------------------------------------------------------------------------------------------
 const cliside_ENTRYitemsmail = [
     "feedbackname",
     "feedbackmail",

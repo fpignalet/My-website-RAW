@@ -2,14 +2,8 @@
 <html>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <!-- -------------------------------------------------------------------------------------------------------------->
-    <title>
-        Technical BLOG
-    </title>
-
-    <!-- -------------------------------------------------------------------------------------------------------------->
-    <!-- -------------------------------------------------------------------------------------------------------------->
     <head>
+    <!-- -------------------------------------------------------------------------------------------------------------->
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +23,6 @@
             body, h1, h2, h3, h4, h5 {
                 font-family: "Raleway", sans-serif
             }
-
         </style>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
@@ -55,19 +48,26 @@
         <script type="text/javascript" src="clientside/clientsideBLOG.js">
         </script>
 
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- OTHERS -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <title>
+            Technical BLOG
+        </title>
+
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <!-- -------------------------------------------------------------------------------------------------------------->
     <body class="w3-light-grey" onload="cliside_BLOGTECHpageload()">
+    <!-- -------------------------------------------------------------------------------------------------------------->
 
         <!-- w3-content defines a container for fixed size centered content,
         and is wrapped around the whole page content, except for the footer in this example -->
         <div class="w3-content" style="max-width:1400px">
 
             <!-- ---------------------------------------------------------------------------------------------------------------------->
-            <!-- ---------------------------------------------------------------------------------------------------------------------->
             <!-- BLOG HEADER -->
+            <!-- ---------------------------------------------------------------------------------------------------------------------->
             <header class="w3-container w3-center w3-padding-32">
 
                 <!-- BLOG TITLE -->
@@ -88,8 +88,8 @@
             </header>
 
             <!-- ---------------------------------------------------------------------------------------------------------------------->
-            <!-- ---------------------------------------------------------------------------------------------------------------------->
             <!-- Grid -->
+            <!-- ---------------------------------------------------------------------------------------------------------------------->
             <div class="w3-row">
 
                 <script>
@@ -101,9 +101,100 @@
 
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
+                    <!-- Embed a canves -->
+                    <!-- ------------------------------------------------------------------ -->
+                    <div id="blog_entry15" class="w3-card-4 w3-margin w3-white">
+                        <img id="blog_entry15PHOTO" src="images/gears-1236578_640.jpg" alt="img" style="width:100%">
+                        <div class="w3-container">
+                            <h3 id="blog_entry15TITLE">
+                            </h3>
+                            <h5 id="blog_entry15DATE">
+                            </h5>
+                        </div>
+
+                        <div id="blog_entry15CONTENT" class="w3-container">
+                            <p>
+                                Just to have fun (and to learn at the same time how to embed a "sub application" somewhere in my page),
+                                I did a fork
+                                <ul>
+                                    <li>from <a href="https://github.com/jlongster/canvas-game-bootstrap">
+                                        https://github.com/jlongster/canvas-game-bootstrap
+                                        </a>
+                                        <br>
+                                        (check <a href="https://github.com/jlongster/canvas-game-bootstrap/blob/master/LICENSE">
+                                            LICENSE
+                                        </a> there)
+                                    </li>
+                                    <li>to <a href="https://github.com/fpignalet/canvas-game-bootstrap">
+                                        https://github.com/fpignalet/canvas-game-bootstrap
+                                    </a>
+                                    </li>
+                                </ul>
+                                , then:
+                                <ul>
+                                    <li>I did a big refactoring, putting everything into classes
+                                    </li>
+                                    <li>I started to add new features such as a lifebar
+                                    </li>
+                                </ul>
+                            </p>
+
+                            <link rel="stylesheet" href="clientside/game/css/emb.css">
+
+                            <div id="game-over-overlay">
+                            </div>
+                            <div id="game-over">
+                                <h1>GAME OVER</h1>
+                                <button id="play-again">Play Again</button>
+
+                            </div>
+
+                            <div class="wrapper" style="background-color: black;">
+
+                                <div id="instructions">
+                                    <ul>
+                                        <li>move with <span class="key">arrows</span> or <span class="key">wasd</span>
+                                        </li>
+                                        <li>shoot with <span class="key">space</span>
+                                        </li>
+                                        <li>loose 20 life pts (progress bar) each time an ennemy reach left side
+                                        </li>
+                                        <li>win 1 life pt (progress bar) each time an ennemy is killed
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div id="score"></div>
+                                <br><br><br><br><br><br>
+                                <div class="myProgress">
+                                    <div class="myBar" id="lifebar"></div>
+                                </div>
+                                <br><br>
+
+                            </div>
+
+                            <canvas id="myCanvas" width="800" height="600" style="background-color: black;"/>
+
+                        </div>
+
+                        <script type="text/javascript" src="clientside/game/js/lib/resources.js"></script>
+                        <script type="text/javascript" src="clientside/game/js/lib/input.js"></script>
+                        <script type="text/javascript" src="clientside/game/js/lib/engine.js"></script>
+                        <script type="text/javascript" src="clientside/game/js/lib/render.js"></script>
+
+                        <script type="text/javascript" src="clientside/game/js/impl/sprite.js"></script>
+                        <script type="text/javascript" src="clientside/game/js/impl/core.js"></script>
+                        <script type="text/javascript" src="clientside/game/js/impl/factory.js"></script>
+
+                        <script type="text/javascript" src="clientside/game/js/emb.js"></script>
+
+                    </div>
+                    <!-- ------------------------------------------------------------------ -->
+                    <!-- Blog entry -->
+                    <!-- Dynamic trees -->
                     <!-- ------------------------------------------------------------------ -->
                     <div id="blog_entry13" class="w3-card-4 w3-margin w3-white">
-                        <img id="blog_entry13PHOTO" src="images/gears-1059756_640.png" alt="img" style="width:100%">
+                        <img id="blog_entry13PHOTO" src="images/screw-1924173_640.jpg" alt="img" style="width:100%">
                         <div class="w3-container">
                             <h3 id="blog_entry13TITLE">
                             </h3>
@@ -112,38 +203,48 @@
                         </div>
                         <div id="blog_entry13CONTENT" class="w3-container">
 
-                            <ul id="myUL">
+                            <p>
+                                Preparing something for next version...
+                            </p>
+                            <p>
+                                For now this sample asks the server for an implementation files list,
+                                and display the result hierarchicaly
+                            </p>
+                            <p>
+                                something interessant that I have discovered:
+                            </p>
+                            <ul>
+                                <li>
+                                    if I try to use a style entry directly in the style sheet like
+                                    <p>
+                                        <strong>ul, #htreedemo { list-style-type: none; }</strong><br>
+                                        <strong>#htreedemo { margin: 0; padding: 0; }</strong>
+                                    </p>
+                                    Obviously it removes the list dots everywhere. OK, it's logic
+                                </li>
+                                <li>
+                                    <p>
+                                        So the correct approach is to do setAttribute on every tree ul elements.
+                                    </p>
+                                    <p>
+                                        This way it'll concern only this demo items.
+                                    </p>
+                                </li>
                             </ul>
+                            <ul id="htreedemo"></ul>
                             <script>
-                                const ul = document.getElementById("myUL");
-                                    const li = ul.appendChild(document.createElement("li"));
-                                        const span = li.appendChild(document.createElement("span"));
-                                            span.setAttribute("class", "caret");
-                                            span.appendChild(document.createTextNode("Hierarchical"));
-                                        const ul1 = li.appendChild(document.createElement("ul"));
-                                        ul1.setAttribute("class", "nested");
-                                            const li11 = ul1.appendChild(document.createElement("li"));
-                                                li11.appendChild(document.createTextNode("Item 1"));
-                                            const li12 = ul1.appendChild(document.createElement("li"));
-                                                li12.appendChild(document.createTextNode("Item 2"));
-
-                                const toggler = document.getElementsByClassName("caret");
-                                for (let i = 0; i < toggler.length; i++) {
-                                    toggler[i].addEventListener("click", function() {
-                                        this.parentElement.querySelector(".nested").classList.toggle("active");
-                                        this.classList.toggle("caret-down");
-                                    });
-                                }
+                                cliside_BTECHtestsremote.checkos();
+                                cliside_BTECHtestsremote.testphp6(document, null, "htreedemo");
                             </script>
-
                         </div>
 
                     </div>
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
+                    <!-- REACT -->
                     <!-- ------------------------------------------------------------------ -->
                     <div id="blog_entry11" class="w3-card-4 w3-margin w3-white">
-                        <img id="blog_entry11PHOTO" src="images/macro-1452987_640.jpg" alt="img" style="width:100%">
+                        <img id="blog_entry11PHOTO" src="images/gears-1059756_640.png" alt="img" style="width:80%">
                         <div class="w3-container">
                             <h3 id="blog_entry11TITLE">
                             </h3>
@@ -161,7 +262,7 @@
 
                             <script type="text/babel">
                                 // Specific sandbox content is not outside processed
-                                let contener = null;
+                                let contener;
 
                                 const button = React.createElement(ReactButtonJSX, {data: document});
                                 contener = document.querySelector('#' + "reactbuttonjsx");
@@ -176,6 +277,7 @@
                     </div>
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
+                    <!-- Javascript generated HTML -->
                     <!-- ------------------------------------------------------------------ -->
                     <script>
                         try {
@@ -209,6 +311,7 @@
                     </script>
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
+                    <!-- Angular.js -->
                     <!-- ------------------------------------------------------------------ -->
                     <div id="blog_entry7" class="w3-card-4 w3-margin w3-white">
                         <img id="blog_entry7PHOTO" src="images/macro-1452987_640.jpg" alt="img" style="width:100%">
@@ -296,6 +399,7 @@
                     </div>
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
+                    <!-- Basic tests local & remote -->
                     <!-- ------------------------------------------------------------------ -->
                     <div id="blog_entry5" class="w3-card-4 w3-margin w3-white">
                         <!-- TITRE: PHOTO -->
@@ -426,7 +530,6 @@
                 <!-- END right info menu -->
 
             </div>
-            <!-- END GRID -->
 
         </div>
 

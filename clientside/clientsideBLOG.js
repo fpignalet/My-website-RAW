@@ -18,7 +18,7 @@ class CLISIDE_BLOGDOM extends CLISIDE_DOM {
     ///     "blog_entryXXTITLE": "...",
     ///     "blog_entryXXDATE": [ "..." ]
     filldesc(contener, data) {
-        let key = null;
+        let key;
 
         //-------------------
         //"blog_entryXXTITLE"
@@ -91,8 +91,8 @@ class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
 
             item[1].forEach((d, i) => {
                 // triggin' on fieldtype: let's create a list
-                if("ul" == fieldtype) {
-                    if(true == Array.isArray(d)) {
+                if("ul" === fieldtype) {
+                    if(true === Array.isArray(d)) {
                         this.addhref(contener, it, d[0], d[1])
                     }
                     else {
@@ -102,7 +102,7 @@ class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
                     }
                 }
                 // triggin' on fieldtype: let's add a link in the list (lastLI)
-                else if("a" == fieldtype) {
+                else if("a" === fieldtype) {
                     if(null == lastA) {
 //                      var br = lastLI.appendChild(contener.createElement("br"));
                         const a = this.addhref(contener, lastLI, d, null);
@@ -115,7 +115,7 @@ class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
                 }
                 // triggin' on fieldtype: simple cases
                 else {
-                    if(true == Array.isArray(d)) {
+                    if(true === Array.isArray(d)) {
                         this.addhref(contener, it, d[0], d[1])
                     }
                     else {
@@ -218,7 +218,7 @@ class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
 
             '<div id=\"' + entryname + '\" class=\"w3-card-4 w3-margin w3-white\">\n' +
 
-            '    <img id=\"' + entryname + 'PHOTO' + '\" src=\"' + photo + '\" alt=\"img\" style=\"width:100%\">\n' +
+            '    <img id=\"' + entryname + 'PHOTO' + '\" src=\"' + photo + '\" alt=\"img\" style=\"width:80%\">\n' +
             '    <div class=\"w3-container\">\n' +
             '        <h3 id=\"' + entryname + 'TITLE' + '\">\n' +
             '           <b>' + title + '</b>\n' +
@@ -241,12 +241,12 @@ class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
     }
 
     /// @brief desc
-    testangular(app, ctrl) {
+    testangular(name, ctrl) {
         const ifirstName = "Firstname";
         const ilastName = "Lastname";
         const products = ["Item 1", "Item 2", "Item 3"];
 
-        var app = angular.module(app, []);
+        const app = angular.module(name, []);
         app.controller(ctrl, function($scope) {
 
             // -------------------------------------
@@ -260,7 +260,7 @@ class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
                 if (!$scope.addMe) {
                     return;
                 }
-                if ($scope.products.indexOf($scope.addMe) == -1) {
+                if ($scope.products.indexOf($scope.addMe) === -1) {
                     $scope.products.push($scope.addMe);
                 }
                 else {
@@ -311,6 +311,9 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
 
     constructor() {
         super("cliside_BLOGphptest");
+
+        this.islinux = false;
+
     }
     
     //-----------------------------------------------
@@ -326,7 +329,7 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
         }
 
         const local = this;
-        this.getdatadirect(params, (result) => {
+        this.getdataraw(params, (result) => {
             local.updatefield(contener, fieldid, result);
 //            console.log(local.getFuncName() + "OK");
         });
@@ -339,7 +342,7 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
         const params = [this.cmdname + 2, ""];
 
         const local = this;
-        this.getdatadirect(params, (result) => {
+        this.getdataraw(params, (result) => {
             local.updatefield(contener, fieldid, result);
 //            console.log(local.getFuncName() + "OK");
         });
@@ -352,9 +355,21 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
         const params = [this.cmdname + 5, ""];
 
         const local = this;
-        this.getdatadirect(params, (result) => {
+        this.getdataraw(params, (result) => {
             local.updatefield(contener, fieldid, result);
 //            console.log(local.getFuncName() + "OK");
+        });
+    }
+
+    /// @brief calls serverside with cliside_BLOGphptest4 selector then updates ...
+    /// @param contener is the target DOM
+    /// @param data contains the parameter waited by cliside_BLOGphptest4 selector
+    checkos() {
+        const params = [this.cmdname + 7, ""];
+
+        const local = this;
+        this.getdataraw(params, (result) => {
+            this.islinux = /Linux/.test(result);
         });
     }
 
@@ -384,6 +399,19 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
         const local = this;
         this.getdatajson(params, (result) => {
             local.updatefield(contener, fieldid, result.object_id + "," + result.object_title);
+//            console.log(local.getFuncName() + "OK");
+        });
+    }
+
+    /// @brief calls serverside with cliside_BLOGphptest4 selector then updates ...
+    /// @param contener is the target DOM
+    /// @param data contains the parameter waited by cliside_BLOGphptest4 selector
+    testphp6(contener, data, fieldid) {
+        const params = [this.cmdname + 6, ""];
+
+        const local = this;
+        this.getdatajson(params, (result) => {
+            local.filltree(contener, fieldid, result, this.islinux);
 //            console.log(local.getFuncName() + "OK");
         });
     }

@@ -460,22 +460,22 @@ const data_CVmap = [
 const data_CVprintindexes = [
 //  item[0], item[1]
 
-    ["Training", -1],
-    ["Diploma", -1],
-    ["Activity", -1],
-    ["Sport", -1],
-    ["Martial arts", -1],
-    ["Running", -1],
-    ["Triathlon", -1],
-    ["Music", -1],
-    ["Guitar", -1],
-    ["Bass guitar", -1],
-    ["Interests", -1],
-    ["Various", -1],
+    [ "Training", -1 ],
+    [ "Diploma", -1 ],
+    [ "Activity", -1 ],
+    [ "Sport", -1 ],
+    [ "Martial arts", -1 ],
+    [ "Running", -1 ],
+    [ "Triathlon", -1 ],
+    [ "Music", -1 ],
+    [ "Guitar", -1 ],
+    [ "Bass guitar", -1 ],
+    [ "Interests", -1 ],
+    [ "Various", -1 ],
 
-    ["<b>Description</b>", -1],
-    ["<b>Environment</b>", -1],
-    ["<b>Keypoints</b>", -1],
-    ["<b>Methodology</b>", -1]
+    [ "<b>Description</b>", -1 ],
+    [ "<b>Environment</b>", -1 ],
+    [ "<b>Keypoints</b>", -1 ],
+    [ "<b>Methodology</b>", -1 ]
 
 ];

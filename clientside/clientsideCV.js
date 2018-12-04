@@ -38,7 +38,7 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
             return;
         }
 
-        let valueboite = null;
+        let valueboite;
 
         valueboite = data[idboite][0];
         if(null != valueboite) {
@@ -92,7 +92,7 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
             return;
         }
 
-        let valueboulot = null;
+        let valueboulot;
 
         valueboulot = data[1][0];
         if(null != valueboulot) {
@@ -164,7 +164,7 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
     /// @param item
     /// @param index
     rcolinit(contener, rcol, item, index) {
-        let tr = null;
+        let tr;
 
         // boulotentryXXtitle
         tr = rcol[1].appendChild(contener.createElement("tr"));
@@ -184,7 +184,7 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
     /// @param item
     /// @param index
     rcolappend(contener, table, item, index) {
-        let tr = null;
+        let tr;
 
         // boulotentryXXtitle
         tr = table.appendChild(contener.createElement("tr"));
@@ -249,7 +249,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
             const idinfo = item;
             const valueinfo = data[idinfo];
             //--------------------------
-            if(true == Array.isArray(valueinfo)) {
+            if(true === Array.isArray(valueinfo)) {
                 if(1 < valueinfo.length){
                     const it = contener.getElementById(idinfo);
                     this.leftcreator.addhref(contener, it, valueinfo[0], valueinfo[1]);
@@ -279,7 +279,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
             const id = item;
             const value = data[id];
             //--------------------------
-            if(true == Array.isArray(value)) {
+            if(true === Array.isArray(value)) {
                 value.forEach((_item, index) => {
                     const it = contener.getElementById(id);
                     this.leftcreator.addlistitem(contener, it, _item);
@@ -381,7 +381,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
 
         // RIGHT COLUMN ----------
         let rcol = null;
-        var table = null;
+        let table_ = null;
         [
             //                N * boulotentryXXtitle, boulotentryXXcontent
             /*pair[0, 1]*/[       keys[1],            keys[2] ],
@@ -409,10 +409,10 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
             }
             else {
                 //this is additional item, there is already something in rcol
-                table = this.rightcreator.fillRcol(contener, rcol[0], [ idtitle, valuetitle, idcontent ]);
+                table_ = this.rightcreator.fillRcol(contener, rcol[0], [ idtitle, valuetitle, idcontent ]);
                 if(null != valuecontent) {
                     valuecontent.forEach((item, index) => {
-                        this.rightcreator.rcolappend(contener, table, item, index);
+                        this.rightcreator.rcolappend(contener, table_, item, index);
                     });
                 }
             }
@@ -533,19 +533,19 @@ class CLISIDE_CVPRINT extends CLISIDE_BASE {
         let done = false;
         data_CVprintindexes.forEach((item, index) => {
             item[1] = text.indexOf(item[0]);
-            if(-1 != item[1]) {
+            if(-1 !== item[1]) {
                 done = true;
             }
         });
 
-        if(false == done) {
+        if(false === done) {
             //it's just text
             html+= text + " ";
 
         }
         else {
             data_CVprintindexes.forEach((item, index) => {
-                if(-1 == item[1]) {
+                if(-1 === item[1]) {
                     return;
                 }
 
@@ -554,7 +554,7 @@ class CLISIDE_CVPRINT extends CLISIDE_BASE {
                 }
                 function substr_getend() {
                     if(index < (data_CVprintindexes.length - 1)) {
-                        if(-1 != data_CVprintindexes[index + 1][1]) {
+                        if(-1 !== data_CVprintindexes[index + 1][1]) {
                             return data_CVprintindexes[index + 1][1] - 1;
                         }
                     }
@@ -645,7 +645,7 @@ class CLISIDE_CVLOADER extends CLISIDE_LOADER {
                     // ---------------------------------------------------
                     // store result and survey: we need to be sure that all results are there:
                     boulotsmap[item] = _result;
-                    if(false == inst.mapisfull(boulotsmap)) {
+                    if(false === inst.mapisfull(boulotsmap)) {
                         /// not everything is there, we need to keep on waiting
                         return;
                     }
@@ -677,7 +677,7 @@ function cliside_CVpageload(contener) {
             //  entry["data"],
             //  entry["cbk"],
             //-----------------------------------------------------
-            if("left" == entry["side"]) {
+            if("left" === entry["side"]) {
                 loader.remotegetleftside(CVcr,
                     entry["data"],
                     (CV, d) => {
