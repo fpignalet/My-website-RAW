@@ -93,12 +93,38 @@
             <div class="w3-row">
 
                 <script>
+                    //to avoid re-entrance issues
                     const cliside_BTECHtestslocal = new CLISIDE_BTECHLOCAL();
                     const cliside_BTECHtestsremote = new CLISIDE_BTECHREMOTE();
                 </script>
 
                 <div class="w3-col l8 s12">
 
+                    <!-- ------------------------------------------------------------------ -->
+                    <!-- Blog entry -->
+                    <!-- REACT -->
+                    <!-- ------------------------------------------------------------------ -->
+                    <!-- div id="blog_entry16" class="w3-card-4 w3-margin w3-white">
+                        <img id="blog_entry16PHOTO" src="images/gears-1059756_640.png" alt="img" style="width:80%">
+                        <div class="w3-container">
+                            <h3 id="blog_entry16TITLE">
+                            </h3>
+                            <h5 id="blog_entry16DATE">
+                            </h5>
+                        </div>
+                        <div id="blog_entry16CONTENT" class="w3-container">
+                            <script type="module">
+                                import { go } from "../../wspace/GoJS-master/release/go";
+                                var diagram = new go.Diagram("myDiagramDiv");
+                                diagram.model = new go.GraphLinksModel(
+                                    [{ key: "Hello" },   // two node data, in an Array
+                                        { key: "World!" }],
+                                    [{ from: "Hello", to: "World!"}]  // one link data, in an Array
+                                );
+                            </script>
+                        </div>
+
+                    </1div -->
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
                     <!-- Embed a canves -->
@@ -413,28 +439,31 @@
                         <div id="blog_entry5CONTENT" class="w3-container">
 
                             <!---------------- TESTS LOCAL ------------------>
-                            <p>
+                            <div>
+                                <p>
                                 <div><b>Locally obtained data:</b></div>
                                 <div id="hello_area">This text should be replaced.</div>
                                 <div id="count_area">This text should be replaced.</div>
 
-                            </p>
-                            <script>
-                                // Specific sandbox content is not outside processed
-                                try {
-                                    cliside_BTECHtestslocal.testhello(document, "hello_area");
-                                    cliside_BTECHtestslocal.testcount(document, "count_area");
-                                }
-                                catch (e) {
-                                    console.log(e.name)
-                                }
-                                finally {
-                                    //...
-                                }
-                            </script>
+                                </p>
+                                <script>
+                                    // Specific sandbox content is not outside processed
+                                    try {
+                                        cliside_BTECHtestslocal.testhello(document, "hello_area");
+                                        cliside_BTECHtestslocal.testcount(document, "count_area");
+                                    }
+                                    catch (e) {
+                                        console.log(e.name)
+                                    }
+                                    finally {
+                                        //...
+                                    }
+                                </script>
+                            </div>
 
                             <!------------------ TESTS REMOTE DIRECT ------------------>
-                            <p>
+                            <div>
+                                <p>
                                 <div>
                                     <b>Remotely obtained data: start typing a name in the input field below to get an answer from the server</b>
                                 </div>
@@ -450,47 +479,52 @@
                                     <span id="txtHint"></span>
                                 </div>
 
-                            </p>
+                                </p>
+                            </div>
 
                             <!------------------ TESTS REMOTE PHP ------------------>
-                            <p>
+                            <div>
+                                <p>
                                 <div><b>parameters 1: </b><span id="params_area1"></span></div>
                                 <div><b>parameters 2: </b><span id="params_area2"></span></div>
                                 <div><b>parameters 3: </b><span id="params_area3"></span></div>
 
-                            </p>
-                            <script>
-                                // Specific sandbox content is not outside processed
-                                try {
-                                    cliside_BTECHtestsremote.testphp3(document, null, "params_area1");
-                                    cliside_BTECHtestsremote.testphp4(document, null, "params_area2");
-                                    cliside_BTECHtestsremote.testphp5(document, null, "params_area3");
-                                }
-                                catch (e) {
-                                    console.log(e.name)
-                                }
-                                finally {
-                                    //...
-                                }
-                            </script>
+                                </p>
+                                <script>
+                                    // Specific sandbox content is not outside processed
+                                    try {
+                                        cliside_BTECHtestsremote.testphp3(document, null, "params_area1");
+                                        cliside_BTECHtestsremote.testphp4(document, null, "params_area2");
+                                        cliside_BTECHtestsremote.testphp5(document, null, "params_area3");
+                                    }
+                                    catch (e) {
+                                        console.log(e.name)
+                                    }
+                                    finally {
+                                        //...
+                                    }
+                                </script>
+                            </div>
 
                             <!------------------ TESTS REMOTE BD ------------------>
-                            <p>
+                            <div>
+                                <p>
                                 <div><b>BD Contents: </b><span id="bdResult"></span></div>
 
-                            </p>
-                            <script>
-                                try {
-                                    // Specific sandbox content is not outside processed
-                                    cliside_BTECHtestsremote.testphp2(document, null, "bdResult");
-                                }
-                                catch (e) {
-                                    console.log(e.name)
-                                }
-                                finally {
-                                    //...
-                                }
-                            </script>
+                                </p>
+                                <script>
+                                    try {
+                                        // Specific sandbox content is not outside processed
+                                        cliside_BTECHtestsremote.testphp2(document, null, "bdResult");
+                                    }
+                                    catch (e) {
+                                        console.log(e.name)
+                                    }
+                                    finally {
+                                        //...
+                                    }
+                                </script>
+                            </div>
 
                         </div>
 
