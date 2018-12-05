@@ -1,4 +1,24 @@
 //-----------------------------------------------------------------------------------------------------------
+const data_BLOGdesc16 = {
+    "blog_entry16TITLE": "",
+    "blog_entry16DATE": []
+};
+
+const data_BLOGcontent16 = {
+    "blog_entry16CONTENT": []
+};
+
+//-----------------------------------------------------------------------------------------------------------
+const data_BLOGdesc15 = {
+    "blog_entry15TITLE": "",
+    "blog_entry15DATE": []
+};
+
+const data_BLOGcontent15 = {
+    "blog_entry15CONTENT": []
+};
+
+//-----------------------------------------------------------------------------------------------------------
 const data_BLOGdesc14 = {
     "blog_entry14TITLE": "",
     "blog_entry14DATE": []
@@ -141,6 +161,7 @@ const data_BNEWSstruct = [
 ];
 
 const data_BTECHstruct = [
+    [data_BLOGdesc15, data_BLOGcontent15],
     [data_BLOGdesc13, data_BLOGcontent13],
     [data_BLOGdesc11, data_BLOGcontent11],
 //    [ data_BLOGdesc8, data_BLOGcontent8 ],
@@ -150,15 +171,52 @@ const data_BTECHstruct = [
 
 // maps are there to fetch remote data
 const data_BNEWSmap = [
-    ["data_BNdesc14", "data_BNcontent14"],
-    ["data_BNdesc12", "data_BNcontent12"],
-    ["data_BNdesc10", "data_BNcontent10"],
-    ["data_BNdesc9", "data_BNcontent91"],
-    ["data_BNdesc6", "data_BNcontent6"],
-    ["data_BNdesc4", "data_BNcontent4"],
-    ["data_BNdesc3", "data_BNcontent3"],
-    ["data_BNdesc2", "data_BNcontent2"],
-    ["data_BNdesc1", "data_BNcontent1"]
+    //---------------------------------------
+    {
+        desc: "data_BNdesc14",
+        content: [ "data_BNcontent14" ],
+        progress: ["blog_entry14wait", "blog_entry14progress", "blog_entry14bar"],
+    },
+    {
+        desc: "data_BNdesc12",
+        content: [ "data_BNcontent12" ],
+        progress: ["blog_entry12wait", "blog_entry12progress", "blog_entry12bar"],
+    },
+    {
+        desc: "data_BNdesc10",
+        content: [ "data_BNcontent10" ],
+        progress: ["blog_entry10wait", "blog_entry10progress", "blog_entry10bar"],
+    },
+    {
+        desc: "data_BNdesc9",
+        content: [ "data_BNcontent91" ],
+        progress: ["blog_entry9wait", "blog_entry9progress", "blog_entry9bar"],
+    },
+    {
+        desc: "data_BNdesc6",
+        content: [ "data_BNcontent6" ],
+        progress: ["blog_entry6wait", "blog_entry6progress", "blog_entry6bar"],
+    },
+    {
+        desc: "data_BNdesc4",
+        content: [ "data_BNcontent4" ],
+        progress: ["blog_entry4wait", "blog_entry4progress", "blog_entry4bar"],
+    },
+    {
+        desc: "data_BNdesc3",
+        content: [ "data_BNcontent3" ],
+        progress: ["blog_entry3wait", "blog_entry3progress", "blog_entry3bar"],
+    },
+    {
+        desc: "data_BNdesc2",
+        content: [ "data_BNcontent2" ],
+        progress: ["blog_entry2wait", "blog_entry2progress", "blog_entry2bar"],
+    },
+    {
+        desc: "data_BNdesc1",
+        content: [ "data_BNcontent1" ],
+        progress: ["blog_entry1wait", "blog_entry1progress", "blog_entry1bar"],
+    }
 ];
 
 const data_BNEWSlasts = [
@@ -167,6 +225,8 @@ const data_BNEWSlasts = [
 ];
 
 const data_BTECHmap = [
+    //not a real hashmap, because the TECH blog contents get no remote contents
+//    ["data_BTdesc16", "data_BTcontent16"],
     ["data_BTdesc15", "data_BTcontent15"],
     ["data_BTdesc13", "data_BTcontent13"],
     ["data_BTdesc11", "data_BTcontent11"],
@@ -176,6 +236,7 @@ const data_BTECHmap = [
 ];
 
 const data_BTECHlasts = [
+//    "blog_entry16PHOTO",
     "blog_entry15PHOTO",
     "blog_entry13PHOTO"
 ];

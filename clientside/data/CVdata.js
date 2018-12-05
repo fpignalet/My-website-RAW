@@ -323,8 +323,8 @@ const data_CVmap = [
         boulots: null,
         progress: null,
         // for left side "cbk" item must provide a CLISIDE_CVCREATE function
-        cbk: (CV, d) => {
-            CV.addtitle(document, d);
+        cbk: (CV, detail) => {
+            CV.addtitle(document, detail);
         }
     },
     {
@@ -334,8 +334,8 @@ const data_CVmap = [
         boulots: null,
         progress: null,
         // for left side "cbk" item must provide a CLISIDE_CVCREATE function
-        cbk: (CV, d) => {
-            CV.addinfo(document, d);
+        cbk: (CV, detail) => {
+            CV.addinfo(document, detail);
         }
     },
     {
@@ -345,8 +345,8 @@ const data_CVmap = [
         boulots: null,
         progress: null,
         // for left side "cbk" item must provide a CLISIDE_CVCREATE function
-        cbk: (CV, d) => {
-            CV.addexperience(document, d);
+        cbk: (CV, detail) => {
+            CV.addexperience(document, detail);
         }
     },
     {
@@ -356,8 +356,8 @@ const data_CVmap = [
         boulots: null,
         progress: null,
         // for left side "cbk" item must provide a CLISIDE_CVCREATE function
-        cbk: (CV, d) => {
-            CV.adddetails(document, d);
+        cbk: (CV, detail) => {
+            CV.adddetails(document, detail);
         }
     },
     {
@@ -367,8 +367,8 @@ const data_CVmap = [
         boulots: null,
         progress: null,
         // for left side "cbk" item must provide a CLISIDE_CVCREATE function
-        cbk: (CV, d) => {
-            CV.adddetails(document, d);
+        cbk: (CV, detail) => {
+            CV.adddetails(document, detail);
         }
     },
     //---------------------------------------
