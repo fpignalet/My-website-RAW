@@ -191,13 +191,13 @@
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
                         <img id="pf2img1" style="width:100%"
-                             onclick="cliside_ENTRYwrapnews(document, this, 0)"
+                             onclick="cliside_ENTRYmodalnews(document, this, 0)"
                              class="w3-hover-opacity" alt="BLOGNEWS entry 0">
                     </div>
 
                     <div class="w3-col m6">
                         <img id="pf2img2" style="width:100%"
-                             onclick="cliside_ENTRYwrapnews(document, this, 1)"
+                             onclick="cliside_ENTRYmodalnews(document, this, 1)"
                              class="w3-hover-opacity" alt="BLOGNEWS entry 1">
                     </div>
 
@@ -236,13 +236,13 @@
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
                         <img id="pf1img1" style="width:100%"
-                             onclick="cliside_ENTRYwraptech(document, this, 0)"
+                             onclick="cliside_ENTRYmodaltech(document, this, 0)"
                              class="w3-hover-opacity" alt="BLOGTECH entry 0">
                     </div>
 
                     <div class="w3-col m6">
                         <img id="pf1img2" style="width:100%"
-                             onclick="cliside_ENTRYwraptech(document, this, 1)"
+                             onclick="cliside_ENTRYmodaltech(document, this, 1)"
                              class="w3-hover-opacity" alt="BLOGTECH entry 1">
                     </div>
 
