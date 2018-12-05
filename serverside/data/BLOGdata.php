@@ -10,6 +10,28 @@
 $data_BNloadsleep = 100000;
 
 //-----------------------------------------------------------------------------------------------------------
+$data_BTdesc16 = array(
+
+    "blog_entry16TITLE" =>
+        "Today's sandbox",
+
+    "blog_entry16DATE" => [
+        "December 5, 2018",
+        "Tryin' GoJS"
+    ]
+
+);
+
+$data_BTcontent16 = array(
+
+    "blog_entry16CONTENT" => [
+        //TECH BLOG, no dynamic content
+
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
 $data_BTdesc15 = array(
 
     "blog_entry15TITLE" =>
@@ -459,6 +481,9 @@ $data_BNcontent1 = array(
 
 //-----------------------------------------------------------------------------------------------------------
 $data_BLOGdatamap = array(
+
+    "data_BTdesc16" => $data_BTdesc16,
+    "data_BTcontent16" => $data_BTcontent16,
 
     "data_BTdesc15" => $data_BTdesc15,
     "data_BTcontent15" => $data_BTcontent15,
