@@ -67,6 +67,17 @@ class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
         super();
     }
 
+    fillentry(contener, desc, content) {
+        const local = this;
+
+        local.filldesc(contener, desc);
+        Object.keys(content).forEach((key, _index) => {
+            local.fillcontent(contener, content[key]);
+        });
+
+//      console.log(lloader.getFuncName() + "OK");
+    }
+
     /// @brief fills a blog entry content (with entry data)
     /// @param contener is the target DOM
     /// @param data is a BLOGdata.js::data_BLOGcontentXX formatted as follow
@@ -137,20 +148,18 @@ class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
 /// @param contener is the target DOM
 function cliside_BLOGNEWSpageload(contener) {
     try {
-        const local = new CLISIDE_BNEWSDOM();
-
-        function cbkload(data) {
-            local.filldesc(contener, data[0]);
-            local.fillcontent(contener, data[1]);
-
-//            console.log(lloader.getFuncName() + "OK");
-        }
-
+        const BLcr = new CLISIDE_BNEWSDOM();
         const loader = new CLISIDE_BLOGLOADER();
-        data_BNEWSmap.forEach((item, index) => {
-            loader.remotegetdata(null,
-                item,
-                (unused, d) => { cbkload(d); }
+
+        data_BNEWSmap.forEach((entry, index) => {
+            loader.remotegetentry(contener,
+                BLcr,
+                entry["desc"],
+                entry["content"],
+                entry["progress"],
+                (BL, desc, content) => {
+                    BL.fillentry(contener, desc, content);
+                }
             );
         })
 
@@ -367,7 +376,6 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     checkos() {
         const params = [this.cmdname + 7, ""];
 
-        const local = this;
         this.getdataraw(params, (result) => {
             this.islinux = /Linux/.test(result);
         });
@@ -425,17 +433,14 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
 function cliside_BLOGTECHpageload() {
     try {
         const local = new CLISIDE_BTECHLOCAL();
-
-        function cbkload(data) {
-            local.filldesc(document, data[0]);
-//            console.log(lloader.getFuncName() + "OK");
-        }
-
         const loader = new CLISIDE_BLOGLOADER();
+
         data_BTECHmap.forEach((item, index) => {
             loader.remotegetdata(null,
                 item,
-                (unused, d) => { cbkload(d); }
+                (unused, d) => {
+                    local.filldesc(document, d[0]);
+                }
             );
         })
 

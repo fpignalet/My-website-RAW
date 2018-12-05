@@ -180,8 +180,8 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
 
     /// @brief desc
     /// @param contener is the destination DOM
-    /// @param table
-    /// @param item
+    /// @param table is the table to be filled
+    /// @param item contains the data boulotentryXXtitle / boulotentryXXcontent
     /// @param index
     rcolappend(contener, table, item, index) {
         let tr;
@@ -204,8 +204,9 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
  * IMPLEMENTATION: PRESENTATION
  *************************************************************************************/
 /// CV creator helper
-///
-///
+/// wrapper above CLISIDE_DOM and CLISIDE_CVCREATEHISTORY
+/// uses CLISIDE_DOM to fill left side column
+/// uses CLISIDE_CVCREATEHISTORY to fill right side column
 class CLISIDE_CVCREATE extends CLISIDE_BASE {
 
     /// ctor
@@ -219,7 +220,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     //------------------------------------------------------------------
     // LEFT SIDE: CV TITLE
     //------------------------------------------------------------------
-    /// @brief to add CV title
+    /// @brief display CVtitle in CV left column
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
     addtitle(contener, data) {
@@ -239,7 +240,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     //------------------------------------------------------------------
     // LEFT SIDE: CV PERSONAL INFO
     //------------------------------------------------------------------
-    /// @brief to add info entry
+    /// @brief display CVInfo in CV left column
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
     addinfo(contener, data) {
@@ -269,7 +270,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     //------------------------------------------------------------------
     // LEFT SIDE: CV PERSONAL XP
     //------------------------------------------------------------------
-    /// @brief to add experience entry
+    /// @brief display CVexperience in CV left column
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
     addexperience(contener, data) {
@@ -296,7 +297,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     //------------------------------------------------------------------
     // LEFT SIDE: CV MAIN SKILLS AND SPOKEN LANGUAGES
     //------------------------------------------------------------------
-    /// @brief to add skills and langages entries
+    /// @brief display CVskill / CVlangh in CV left column
     /// @param contener is the destination DOM
     /// @param adata is an array which contains details
     adddetails(contener, adata) {
@@ -340,17 +341,23 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     //------------------------------------------------------------------
     // RIGHT SIDE: CV BOITE & BOULOTS & BILDUNG & HOBBIES ENTRIES
     //------------------------------------------------------------------
-    fillrightside(contener, CV, boite, boulots, progress) {
-        const table = CV.addhistoryentry(contener, boite);
+    /// @brief handles right side contents with history entries (CVboulot) and extra info (CVbildung, CVhobby)
+    /// @param contener is the destination DOM
+    /// @param boite ...
+    /// @param boulots ...
+    fillrightside(contener, boite, boulots) {
+        const local = this;
+
+        const table = local.addhistoryentry(contener, boite);
         Object.keys(boulots).forEach((key, _index) => {
-            CV.addhistorysubentry(contener, table, boulots[key]);
+            local.addhistorysubentry(contener, table, boulots[key]);
         });
     }
 
     //------------------------------------------------------------------
     // RIGHT SIDE: INTERNAL IMPLEMENTATION
     //------------------------------------------------------------------
-    /// @brief function to add ... item
+    /// @brief function to add boite/boulot item
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
     addhistoryentry(contener, data) {
@@ -586,79 +593,6 @@ class CLISIDE_CVLOADER extends CLISIDE_LOADER {
         super("cliside_CVphpgetdata");
     }
 
-    //-----------------------------------------------------
-    // ACCESS
-    //-----------------------------------------------------
-    /// @brief
-    ///     calls serverside with cliside_BLOGphptest1 selector
-    ///     updates txtHint html item
-    /// @param CV is th instance of the CV creator
-    /// @param data desc...
-    /// @param cbk will be executed
-    remotegetleftside(CV, data, cbk) {
-        this.remotegetdata(CV, data, cbk);
-    }
-
-    /// @brief
-    ///     calls serverside with cliside_BLOGphptest1 selector
-    ///     updates txtHint html item
-    /// @param CV is th instance of the CV creator
-    /// @param boite is the name of the desired boite data
-    /// @param boulots is the name of the desired boulots data
-    /// @param progress contains the DOM items required to display progress
-    /// @param cbk will be executed
-    remotegetrightside(contener, CV, boite, boulots, progress, cbk) {
-        const inst = this;
-
-        /**********************************
-         * 1ST: PREPARE DATA FOR UPDATE
-         **********************************/
-        inst.showprogress(contener, progress);
-
-        /*
-        boite contains result for boite item
-        bmap contains result for each boulot item.
-        it is there to be sure that they are correctl sorted:
-        everything is fully asynchrone, and CV.addhistorysubentry fills the table in a total random way
-        */
-        let boitedata = null;
-        const boulotsmap = {};
-        inst.mapinit(boulots, boulotsmap);
-
-        /**********************************
-         * 2ND: RETRIEVE DATA
-         * the main request, to get the boite item contents
-         * @type {XMLHttpRequest}
-         **********************************/
-        const params = [inst.cmdname, boite];
-        inst.getdatajson(params, (result) => {
-            //store result
-            boitedata = result;
-
-            boulots.forEach((item, index) => {
-                /**********************************
-                 * the sub request, to get a boulot item contents
-                 * @type {XMLHttpRequest}
-                 **********************************/
-                const _params = [inst.cmdname, item];
-                inst.getdatajson(_params, (_result) => {
-                    // ---------------------------------------------------
-                    // store result and survey: we need to be sure that all results are there:
-                    boulotsmap[item] = _result;
-                    if(false === inst.mapisfull(boulotsmap)) {
-                        /// not everything is there, we need to keep on waiting
-                        return;
-                    }
-
-                    // ---------------------------------------------------
-                    /// OK we got all boulots results
-                    inst.hideprogress(contener, progress);
-                    cbk(CV, boitedata, boulotsmap, progress);
-                });
-            })
-        });
-    }
-
 }
 
 /*************************************************************************************
@@ -678,10 +612,10 @@ function cliside_CVpageload(contener) {
             //  entry["cbk"],
             //-----------------------------------------------------
             if("left" === entry["side"]) {
-                loader.remotegetleftside(CVcr,
+                loader.remotegetdata(CVcr,
                     entry["data"],
-                    (CV, d) => {
-                        entry["cbk"](CV, d);
+                    (CV, detail) => {
+                        entry["cbk"](CV, detail);
                     }
                 );
             }
@@ -692,13 +626,13 @@ function cliside_CVpageload(contener) {
             //  entry["progress"],
             //-----------------------------------------------------
             else {
-                loader.remotegetrightside(contener,
+                loader.remotegetentry(contener,
                     CVcr,
                     entry["boite"],
                     entry["boulots"],
                     entry["progress"],
-                    (CV, boite, boulots, progress) => {
-                        CV.fillrightside(contener, CV, boite, boulots, progress);
+                    (CV, boite, boulots) => {
+                        CV.fillrightside(contener, boite, boulots);
                     }
                 );
             }
@@ -715,6 +649,7 @@ function cliside_CVpageload(contener) {
 }
 
 /// @brief print function
+/// @param contener
 function cliside_CVpageprint(contener)
 {
     try {

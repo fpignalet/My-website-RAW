@@ -117,7 +117,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
         new CLISIDE_CVLOADER().remotegetdata(null,
             data_CVmap[1]["data"],
             (CV, d) => {
-                local.loaditem(contener, file, d, srcpresid, dstpresid, local.cbkCVpres);
+                local.loaditem(contener, file, d, srcpresid, dstpresid, local.cbkloadpres);
             }
         );
     }
@@ -139,8 +139,8 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
         //----------------------
         const img1id = desc[2];
         const img2id = desc[3];
-        this.loaditem(contener, file, this.newsphoto1, null, img1id, this.cbkBLOGsprite);
-        this.loaditem(contener, file, this.newsphoto2, null, img2id, this.cbkBLOGsprite);
+        this.loaditem(contener, file, this.newsphoto1, null, img1id, this.cbkloadsprite);
+        this.loaditem(contener, file, this.newsphoto2, null, img2id, this.cbkloadsprite);
     }
 
     /// @brief loading blog tech data
@@ -160,8 +160,8 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
         //----------------------
         const img1id = desc[2];
         const img2id = desc[3];
-        this.loaditem(contener, file, this.techphoto1, null, img1id, this.cbkBLOGsprite);
-        this.loaditem(contener, file, this.techphoto2, null, img2id, this.cbkBLOGsprite);
+        this.loaditem(contener, file, this.techphoto1, null, img1id, this.cbkloadsprite);
+        this.loaditem(contener, file, this.techphoto2, null, img2id, this.cbkloadsprite);
     }
 
     /// @brief Modal Image Gallery handling
@@ -178,7 +178,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
         new CLISIDE_BLOGLOADER().remotegetdata(null,
             data,
             (CV, d) => {
-                local.loaditem(contener, file, d, null, "modalcaption", this.cbkBLOGmodal);
+                local.loaditem(contener, file, d, null, "modalcaption", this.cbkloadmodal);
             }
         );
     }
@@ -212,7 +212,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param data says which source data shall be fetched
     /// @param idsrc desc
     /// @param iddst desc
-    cbkCVpres (contener, dom, data, idsrc, iddst){
+    cbkloadpres (contener, dom, data, idsrc, iddst){
         //SRC side --------------------
         const CV = new CLISIDE_CVCREATE();
         CV.addinfo(dom, data);
@@ -235,7 +235,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param data says which source data shall be fetched
     /// @param idsrc desc
     /// @param iddst desc
-    cbkBLOGsprite (contener, dom, data, idsrc, iddst){
+    cbkloadsprite (contener, dom, data, idsrc, iddst){
         const it = dom.getElementById(data);
         const img = it.getAttribute("src");
         contener.getElementById(iddst).setAttribute("src", img);
@@ -247,7 +247,7 @@ class CLISIDE_ENTRYLOADER extends CLISIDE_LOADER {
     /// @param data says which source data shall be fetched
     /// @param idsrc desc
     /// @param iddst desc
-    cbkBLOGmodal (contener, dom, data, idsrc, iddst){
+    cbkloadmodal (contener, dom, data, idsrc, iddst){
         //SRC side --------------------
         const idtitle = Object.keys(data)[0];
         const itsrc = dom.getElementById(idtitle);
@@ -306,10 +306,10 @@ function cliside_ENTRYpageload(contener) {
 /// @param contener is the target DOM
 /// @param inst is the item which requests the load
 /// @param index selects the data_BNEWSmap item
-function cliside_ENTRYwrapnews(contener, inst, index) {
+function cliside_ENTRYmodalnews(contener, inst, index) {
     cliside_ENTRYloader.loadmodal(
         contener, inst,
-        cliside_ENTRYfiles[1], data_BNEWSmap[index][0]
+        cliside_ENTRYfiles[1], data_BNEWSmap[index]["desc"]
     );
 }
 
@@ -317,7 +317,7 @@ function cliside_ENTRYwrapnews(contener, inst, index) {
 /// @param contener is the target DOM
 /// @param inst is the item which requests the load
 /// @param index selects the data_BTECHmap item
-function cliside_ENTRYwraptech(contener, inst, index) {
+function cliside_ENTRYmodaltech(contener, inst, index) {
     cliside_ENTRYloader.loadmodal(
         contener, inst,
         cliside_ENTRYfiles[2], data_BTECHmap[index][0]

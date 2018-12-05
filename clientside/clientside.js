@@ -6,8 +6,7 @@ class CLISIDE_BASE {
     }
 
     /// @brief ...
-    /// @param select ...
-    getFuncName() {
+    static getFuncName() {
         if(true === CLISIDE_BASE.clientside_checkbrowser("Firefox")) {
             return "";
         }
@@ -16,7 +15,6 @@ class CLISIDE_BASE {
     }
 
     /// @brief ...
-    /// @param select ...
     static isLinux() {
         return /Linux/.test(window.navigator.platform);
     }
@@ -30,6 +28,7 @@ class CLISIDE_BASE {
         }
 
         //---------------
+        // special case
         else if("Opera" === select) {
             if(-1 !== navigator.userAgent.indexOf('OPR') ) {
                 return true;
@@ -37,6 +36,7 @@ class CLISIDE_BASE {
         }
 
         //---------------
+        // special case
         else if("MSIE" === select) {
             if( false === document.documentMode ) {
                 return true;
@@ -206,7 +206,6 @@ class CLISIDE_DOM extends CLISIDE_BASE {
         let last = root;
         let id_ = "htid";
 
-        const local = this;
         Object.keys(data).forEach((key, index) => {
             data[key].forEach((item, index) => {
                 const hnames = item.split(islinux? "/": "\\");
@@ -359,6 +358,119 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
 //        console.log(this.getFuncName() + "OK");
     }
 
+    //-----------------------------------------------------
+    // ACCESS
+    //-----------------------------------------------------
+    /// @brief calls serverside with cliside_BLOGphptest1 selector then updates txtHint html item
+    /// @param creator is th instance of the creator
+    /// @param data desc...
+    /// @param cbk will be executed
+    remotegetdata(creator, data, cbk) {
+        const inst = this;
+
+        // with many data to be loaded
+        if(true === Array.isArray(data)) {
+            /**********************************
+             * 1ST: PREPARE DATA FOR UPDATE
+             **********************************/
+            const datamap = {};
+            inst.mapinit(data, datamap);
+
+            /**********************************
+             * 2ND: RETRIEVE DATA
+             * the main request, to get the data item contents
+             * @type {XMLHttpRequest}
+             **********************************/
+            data.forEach((item, index) => {
+                const params = [inst.cmdname, item];
+                inst.getdatajson(params, (result) => {
+                    // ---------------------------------------------------
+                    // store result and survey: we need to be sure that all results are there:
+                    datamap[item] = result;
+                    if(false === inst.mapisfull(datamap)) {
+                        /// not everything is there, we need to keep on waiting
+                        return;
+                    }
+
+                    // ---------------------------------------------------
+                    /// OK we got every result for the current data list
+                    const results = [];
+                    Object.keys(datamap).forEach((key, _index) => {
+                        results.push(datamap[key]);
+                    });
+
+                    cbk(creator, results);
+//                    console.log(this.getFuncName() + "OK");
+                });
+            })
+        }
+        // with just one item to be loaded
+        else {
+            var params = [ inst.cmdname, data ];
+            inst.getdatajson(params, (result) => {
+                cbk(creator, result);
+            });
+        }
+    }
+
+    /// @brief calls serverside with cliside_BLOGphptest1 selector then updates ...
+    /// @param CV is th instance of the CV creator
+    /// @param boite is the name of the desired boite data
+    /// @param boulots is the name of the desired boulots data
+    /// @param progress contains the DOM items required to display progress
+    /// @param cbk will be executed
+    remotegetentry(contener, loader, desc, content, progress, cbk) {
+        const inst = this;
+
+        /**********************************
+         * 1ST: PREPARE DATA FOR UPDATE
+         **********************************/
+        inst.showprogress(contener, progress);
+
+        /*
+        desc contains result for desc item
+        contentmap contains result for each content item.
+        it is there to be sure that they are correctl sorted:
+        everything is fully asynchrone, so getdatajson may fill the table in a total random way
+        */
+        let descdata = null;
+        const contentmap = {};
+        inst.mapinit(content, contentmap);
+
+        /**********************************
+         * 2ND: RETRIEVE DATA
+         * the main request, to get the desc item contents
+         * @type {XMLHttpRequest}
+         **********************************/
+        const params = [inst.cmdname, desc];
+        inst.getdatajson(params, (result) => {
+            //store result
+            descdata = result;
+
+            content.forEach((item, index) => {
+                /**********************************
+                 * the sub request, to get a "content item contents" :)
+                 * @type {XMLHttpRequest}
+                 **********************************/
+                const _params = [inst.cmdname, item];
+                inst.getdatajson(_params, (_result) => {
+                    // ---------------------------------------------------
+                    // store result and survey: we need to be sure that all results are there:
+                    contentmap[item] = _result;
+                    if(false === inst.mapisfull(contentmap)) {
+                        /// not everything is there, we need to keep on waiting
+                        return;
+                    }
+
+                    // ---------------------------------------------------
+                    /// OK we got all content results
+                    inst.hideprogress(contener, progress);
+                    cbk(loader, descdata, contentmap);
+                });
+            })
+        });
+    }
+
     //-----------------------------------------------
     // CORE
     //-----------------------------------------------
@@ -393,61 +505,6 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
 
         xmlhttp.open("GET", this.createGETstr(params), true);
         xmlhttp.send();
-    }
-
-    //-----------------------------------------------------
-    // ACCESS
-    //-----------------------------------------------------
-    /// @brief calls serverside with cliside_BLOGphptest1 selector then updates txtHint html item
-    /// @param creator is th instance of the creator
-    /// @param data desc...
-    /// @param cbk will be executed
-    remotegetdata(creator, data, cbk) {
-        const inst = this;
-
-        // with many data to be loaded
-        if(true === Array.isArray(data)) {
-            /**********************************
-             * 1ST: PREPARE DATA FOR UPDATE
-             **********************************/
-            const datamap = {};
-            inst.mapinit(data, datamap);
-
-            /**********************************
-             * 2ND: RETRIEVE DATA
-             * the main request, to get the boite item contents
-             * @type {XMLHttpRequest}
-             **********************************/
-            data.forEach((item, index) => {
-                const params = [inst.cmdname, item];
-                inst.getdatajson(params, (result) => {
-                    // ---------------------------------------------------
-                    // store result and survey: we need to be sure that all results are there:
-                    datamap[item] = result;
-                    if(false === inst.mapisfull(datamap)) {
-                        /// not everything is there, we need to keep on waiting
-                        return;
-                    }
-
-                    // ---------------------------------------------------
-                    /// OK we got every result for the current boulot list
-                    const results = [];
-                    Object.keys(datamap).forEach((key, _index) => {
-                        results.push(datamap[key]);
-                    });
-
-                    cbk(creator, results);
-//                    console.log(this.getFuncName() + "OK");
-                });
-            })
-        }
-        // with just one item to be loaded
-        else {
-            var params = [ inst.cmdname, data ];
-            inst.getdatajson(params, (result) => {
-                cbk(creator, result);
-            });
-        }
     }
 
     //-----------------------------------------------
