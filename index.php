@@ -34,27 +34,6 @@
         </style>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- JS IMPLEMENTATION -->
-        <!-- -------------------------------------------------------------------------------------------------------------->
-        <script type="module">
-            import {
-                clientside_navscroll
-            } from "./clientside/clientside.js";
-            window.clientside_navscroll = clientside_navscroll;
-
-            import {
-                cliside_ENTRYpageload,
-                cliside_ENTRYmodalnews,
-                cliside_ENTRYmodaltech,
-                cliside_ENTRYpagefbk
-            } from "./clientside/clientsideENTRY.js";
-            window.cliside_ENTRYpageload = cliside_ENTRYpageload;
-            window.cliside_ENTRYmodalnews = cliside_ENTRYmodalnews;
-            window.cliside_ENTRYmodaltech = cliside_ENTRYmodaltech;
-            window.cliside_ENTRYpagefbk = cliside_ENTRYpagefbk;
-        </script>
-
-        <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- OTHERS -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <title>
@@ -385,6 +364,27 @@
                 window.clientside_navscroll(document, "entry_navbar")
             };
 
+        </script>
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- JS IMPLEMENTATION -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <script type="module">
+            import {
+                clientside_navscroll
+            } from "./clientside/clientside.js";
+            window.clientside_navscroll = clientside_navscroll;
+
+            import {
+                cliside_ENTRYpageload,
+                cliside_ENTRYmodalnews,
+                cliside_ENTRYmodaltech,
+                cliside_ENTRYpagefbk
+            } from "./clientside/clientsideENTRY.js";
+            window.cliside_ENTRYpageload = cliside_ENTRYpageload;
+            window.cliside_ENTRYmodalnews = cliside_ENTRYmodalnews;
+            window.cliside_ENTRYmodaltech = cliside_ENTRYmodaltech;
+            window.cliside_ENTRYpagefbk = cliside_ENTRYpagefbk;
         </script>
 
     </body>
