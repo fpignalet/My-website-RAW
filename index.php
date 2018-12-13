@@ -19,7 +19,7 @@
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- STYLE SHEETS -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <link rel="stylesheet" href="clientside/clientside.css">
+        <link rel="stylesheet" href="./clientside/clientside.css">
         <style>
             body,h1,h2,h3,h4,h5,h6 {
                 font-family: "Lato", sans-serif;
@@ -36,20 +36,22 @@
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- JS IMPLEMENTATION -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <script type="text/javascript" src="clientside/data/ENTRYdata.js">
-        </script>
-        <script type="text/javascript" src="clientside/data/BLOGdata.js">
-        </script>
-        <script type="text/javascript" src="clientside/data/CVdata.js">
-        </script>
+        <script type="module">
+            import {
+                clientside_navscroll
+            } from "./clientside/clientside.js";
+            window.clientside_navscroll = clientside_navscroll;
 
-        <script type="text/javascript" src="clientside/clientside.js">
-        </script>
-        <script type="text/javascript" src="clientside/clientsideBLOG.js">
-        </script>
-        <script type="text/javascript" src="clientside/clientsideCV.js">
-        </script>
-        <script type="text/javascript" src="clientside/clientsideENTRY.js">
+            import {
+                cliside_ENTRYpageload,
+                cliside_ENTRYmodalnews,
+                cliside_ENTRYmodaltech,
+                cliside_ENTRYpagefbk
+            } from "./clientside/clientsideENTRY.js";
+            window.cliside_ENTRYpageload = cliside_ENTRYpageload;
+            window.cliside_ENTRYmodalnews = cliside_ENTRYmodalnews;
+            window.cliside_ENTRYmodaltech = cliside_ENTRYmodaltech;
+            window.cliside_ENTRYpagefbk = cliside_ENTRYpagefbk;
         </script>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
@@ -62,7 +64,7 @@
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <body onload="cliside_ENTRYpageload(document)">
+    <body onload="window.cliside_ENTRYpageload(document)">
     <!-- -------------------------------------------------------------------------------------------------------------->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
@@ -73,7 +75,7 @@
             <div class="w3-bar" id="entry_navbar">
                 <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
                    href="javascript:void(0);"
-                   onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"
+                   onclick="clientside_navtoggle(document, 'navDemo')"
                    title="Toggle Navigation Menu">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -93,17 +95,17 @@
                     <i class="fa fa-envelope"></i>
                 </a>
                 <a id="entry_navbar6" href="impressum.html" class="w3-bar-item w3-button w3-hide-small">
-                    <i class="fa fa-envelope"></i>
+                    <i class="fa fa-user"></i>
                 </a>
 
             </div>
             <!-- on small screens -->
             <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-                <a id="navDemo2" href="#about" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"></a>
-                <a id="navDemo3" href="#portfolio2" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"></a>
-                <a id="navDemo4" href="#portfolio1" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"></a>
-                <a id="navDemo5" href="#contact" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"></a>
-                <a id="navDemo6" href="impressum.html" class="w3-bar-item w3-button" onclick="clientside_ENTRYnavtoggle(document, ' navDemo')"></a>
+                <a id="navDemo2" href="#about" class="w3-bar-item w3-button" onclick="clientside_navtoggle(document, 'navDemo')"></a>
+                <a id="navDemo3" href="#portfolio2" class="w3-bar-item w3-button" onclick="clientside_navtoggle(document, 'navDemo')"></a>
+                <a id="navDemo4" href="#portfolio1" class="w3-bar-item w3-button" onclick="clientside_navtoggle(document, 'navDemo')"></a>
+                <a id="navDemo5" href="#contact" class="w3-bar-item w3-button" onclick="clientside_navtoggle(document, 'navDemo')"></a>
+                <a id="navDemo6" href="impressum.html" class="w3-bar-item w3-button" onclick="clientside_navtoggle(document, 'navDemo')"></a>
 
             </div>
         </div>
@@ -141,27 +143,22 @@
                 ABOUT ME
             </h3>
             <div class="w3-row">
-                <div class="column">
-                    <!-- ------------------------->
-                    <div class="w3-col m6 w3-center w3-padding-large">
-                        <p>
-                            <h3 id="entryname" class="w3-center">
-                                <i class="fa fa-user w3-margin-right"></i>
-                            </h3>
-                        </p>
-                        <br>
-                        <img id="entryphoto" class="w3-round w3-image" width="500" height="333" alt="Photo of Me">
-
-                    </div>
+                <div class="w3-col m6 w3-center w3-padding-large">
+                    <p>
+                    <h3 id="entryname" class="w3-center">
+                        <i class="fa fa-user w3-margin-right"></i>
+                    </h3>
+                    </p>
+                    <br>
+                    <img id="entryphoto" class="w3-round w3-image" alt="Photo of Me">
                 </div>
-                <div class="column">
+                <div class="w3-col m6 w3-padding-large">
                     <div id="entrypresentation">
                     </div>
 
                     <form>
                         <button id="entrycvbutton"></button>
                     </form>
-
                 </div>
 
             </div>
@@ -191,13 +188,13 @@
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
                         <img id="pf2img1" style="width:100%"
-                             onclick="cliside_ENTRYmodalnews(document, this, 0)"
+                             onclick="window.cliside_ENTRYmodalnews(document, this, 0)"
                              class="w3-hover-opacity" alt="BLOGNEWS entry 0">
                     </div>
 
                     <div class="w3-col m6">
                         <img id="pf2img2" style="width:100%"
-                             onclick="cliside_ENTRYmodalnews(document, this, 1)"
+                             onclick="window.cliside_ENTRYmodalnews(document, this, 1)"
                              class="w3-hover-opacity" alt="BLOGNEWS entry 1">
                     </div>
 
@@ -236,13 +233,13 @@
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
                         <img id="pf1img1" style="width:100%"
-                             onclick="cliside_ENTRYmodaltech(document, this, 0)"
+                             onclick="window.cliside_ENTRYmodaltech(document, this, 0)"
                              class="w3-hover-opacity" alt="BLOGTECH entry 0">
                     </div>
 
                     <div class="w3-col m6">
                         <img id="pf1img2" style="width:100%"
-                             onclick="cliside_ENTRYmodaltech(document, this, 1)"
+                             onclick="window.cliside_ENTRYmodaltech(document, this, 1)"
                              class="w3-hover-opacity" alt="BLOGTECH entry 1">
                     </div>
 
@@ -283,7 +280,7 @@
                     </p>
 
                     <!-- Feedback fields. Will send an email on submit (SEND MESSAGE button) -->
-                    <form action="javascript:cliside_ENTRYpagefbk(document)">
+                    <form action="javascript:window.cliside_ENTRYpagefbk(document)">
 
                         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
                             <div class="w3-half">
@@ -383,9 +380,9 @@
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <script>
+        <script type="module">
             window.onscroll = function() {
-                clientside_ENTRYnavscroll(document, "entry_navbar")
+                window.clientside_navscroll(document, "entry_navbar")
             };
 
         </script>

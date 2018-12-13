@@ -29,12 +29,11 @@
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- JS IMPLEMENTATION -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <script type="text/javascript" src="clientside/data/BLOGdata.js">
-        </script>
-
-        <script type="text/javascript" src="clientside/clientside.js">
-        </script>
-        <script type="text/javascript" src="clientside/clientsideBLOG.js">
+        <script type="module">
+            import {
+                cliside_BLOGNEWSpageload
+            } from "./clientside/clientsideBLOG.js";
+            window.cliside_BLOGNEWSpageload = cliside_BLOGNEWSpageload;
         </script>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
@@ -47,12 +46,12 @@
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <body class="w3-light-grey" onload="cliside_BLOGNEWSpageload(document)">
+    <body class="w3-light-grey" onload="window.cliside_BLOGNEWSpageload(document)">
     <!-- -------------------------------------------------------------------------------------------------------------->
 
-    <!-- w3-content defines a container for fixed size centered content,
-    and is wrapped around the whole page content, except for the footer in this example -->
-        <div class="w3-content" style="max-width:1400px">
+        <!-- w3-content defines a container for fixed size centered content,
+        and is wrapped around the whole page content, except for the footer in this example -->
+        <div class="w3-content" style="max-width:1800px">
 
             <!-- ---------------------------------------------------------------------------------------------------------------------->
             <!-- BLOG HEADER -->
@@ -83,6 +82,27 @@
 
                 <div class="w3-col l8 s12">
 
+                    <!-- ------------------------------------------------------------------ -->
+                    <!-- Blog entry -->
+                    <!-- ------------------------------------------------------------------ -->
+                    <div id="blog_entry17" class="w3-card-4 w3-margin w3-white">
+                        <img id="blog_entry17PHOTO" src="images/WP_20180822_10_50_54_Pro.jpg" alt="img" style="width:100%">
+                        <div class="w3-container">
+                            <h3 id="blog_entry17TITLE">
+                            </h3>
+                            <h5 id="blog_entry17DATE">
+                            </h5>
+                        </div>
+                        <!-- ASYNC PROGRESS DISPLAY -->
+                        <div id="blog_entry17wait">
+                            <div class="myProgress" id="blog_entry17progress">
+                                <div class="myBar" id="blog_entry17bar">Loading...</div>
+                            </div>
+                        </div>
+                        <div id="blog_entry17CONTENT" class="w3-container">
+                        </div>
+
+                    </div>
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
                     <!-- ------------------------------------------------------------------ -->

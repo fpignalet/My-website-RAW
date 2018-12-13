@@ -21,17 +21,13 @@ class SRVSIDE_BLOG {
     }
 
     /*************************************************************************************
-     * IMPLEMENTATION: BLOG NEWS TEST FUNCTIONS
-     ************************************************************************************
-     * @param $param
-     * @param $debug
-     * @return
-     */
+     * VISIBLE IMPLEMENTATION: BLOG NEWS TEST FUNCTIONS
+     ************************************************************************************/
     /// @brief desc
-    /// @param param desc
-    /// @param debug desc
+    /// @param $param
+    /// @param $debug
     /// @returns 1 desc
-    public function BLOGsend($param, $debug) {
+    public function BNtest1($param, $debug) {
         global $data_BLOGdatamap, $data_BNloadsleep;
 
         if(true == $debug) {
@@ -42,13 +38,11 @@ class SRVSIDE_BLOG {
     }
 
     /*************************************************************************************
-     * IMPLEMENTATION: BLOG TECH TEST FUNCTIONS
-     ************************************************************************************
-     * @param $param
-     */
+     * VISIBLE IMPLEMENTATION: BLOG TECH TEST FUNCTIONS
+     ************************************************************************************/
     /// @brief lookup all hints from array if $q is different from "" then udpates
     ///     $srvside_resultA globale variable with success/error message
-    /// @param param desc
+    /// @param $param
     /// @returns 1 desc
     public function BTtest1($param) {
         global $data_BTtestarray;
@@ -156,6 +150,104 @@ class SRVSIDE_BLOG {
 
     }
 
+    public function BTtest6($cbk, $dir, $file){
+        $files = array();
+
+        $filters = [ ".js", ".php" ];
+        foreach($this->reposcan($dir) as $line){
+            foreach($filters as $filter){
+                if(FALSE != strpos($line, $filter)){
+                    $files[$filter][] = $line;
+                }
+            }
+        }
+
+        if(null != $file) {
+            $stream = fopen($file, "w");
+
+            foreach($files[$filters[0]] as $item){
+                call_user_func_array(array($this, $cbk), array([ "JAVASCRIPT: ", $stream, $item ]));
+            }
+            foreach($files[$filters[1]] as $item){
+                call_user_func_array(array($this, $cbk), array([ "PHP: ", $stream, $item ]));
+            }
+
+            fclose($stream);
+        }
+
+        return $files;
+    }
+
+    public function BTtest8() {
+        // Error Reporting und Zeitlimit für Serverbetrieb setzen
+        error_reporting(E_ERROR);
+        set_time_limit (0);
+
+        $host = 'localhost'; // Serverhost auf der gelauscht werden soll
+        $port = 1414; // Port auf dem Verbindungen angenommen werden sollen
+
+        // Socket erstellen
+        $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+        // Socket an Adresse und Port binden
+        socket_bind($sock, $host, $port);
+        // An Port lauschen
+        socket_listen($sock);
+
+        $sockets = array($sock);
+        $arClients = array();
+        $count = 0;
+        while (true){
+            echo "Warte auf Verbindung...rn";
+
+            $sockets_change = $sockets;
+            $ready = socket_select($sockets_change, $write = null, $expect = null, null);
+
+            echo "Verbindung angenommen...rn";
+
+            foreach($sockets_change as $s){
+                if ($s == $sock){
+                    // Änderung am Serversocket
+                    $client = socket_accept($sock);
+                    array_push($sockets, $client);
+                    print_r($sockets);
+                }
+                else{
+                    // Eingehende Nachrichten der Clientsockets
+                    $bytes = @socket_recv($s, $buffer, 2048, 0);
+                    if("TESTTOTOTESTTOTO" == $buffer) {
+                        $buffer = "OKOKOKOK".$count;
+                        $bytes = @socket_send($s, $buffer, 2048, 0);
+                        $count = $count+1;
+                    }
+                }
+            }
+        }
+    }
+
+    /*************************************************************************************
+     * NON VISIBLE IMPLEMENTATION
+     ************************************************************************************/
+    private function repocbk($params) {
+        fwrite($params[1], $params[0]);
+        fwrite($params[1], $params[2]);
+        fwrite($params[1], "\r\n");
+    }
+
+    private function reposcan($dir, &$results = array()){
+        $files = scandir($dir);
+
+        foreach($files as $key => $value){
+            $path = realpath($dir.DIRECTORY_SEPARATOR.$value);
+            if(!is_dir($path)) {
+                $results[] = $path;
+            }
+            else if($value != "." && $value != "..") {
+                $this->reposcan($path, $results);
+                $results[] = $path;
+            }
+        }
+
+        return $results;
+    }
+
 }
-
-

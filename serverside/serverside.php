@@ -12,61 +12,6 @@ include 'serversideBLOG.php';
 include 'serversideCV.php';
 include 'serversideENTRY.php';
 
-class SRVSIDE_ANALYSER {
-
-    public function parserepo($cbk, $file){
-        $files = array();
-
-        $filters = [ ".js", ".php" ];
-        foreach($this->scanrepo('..') as $line){
-            foreach($filters as $filter){
-                if(FALSE != strpos($line, $filter)){
-                    $files[$filter][] = $line;
-                }
-            }
-        }
-
-        if(null != $file) {
-            $stream = fopen($file, "w");
-
-            foreach($files[$filters[0]] as $item){
-                call_user_func_array(array($this, $cbk), array([ "JAVASCRIPT: ", $stream, $item ]));
-            }
-            foreach($files[$filters[1]] as $item){
-                call_user_func_array(array($this, $cbk), array([ "PHP: ", $stream, $item ]));
-            }
-
-            fclose($stream);
-        }
-
-        return $files;
-    }
-
-    private function callbackparse($params) {
-        fwrite($params[1], $params[0]);
-        fwrite($params[1], $params[2]);
-        fwrite($params[1], "\r\n");
-    }
-
-    private function scanrepo($dir, &$results = array()){
-        $files = scandir($dir);
-
-        foreach($files as $key => $value){
-            $path = realpath($dir.DIRECTORY_SEPARATOR.$value);
-            if(!is_dir($path)) {
-                $results[] = $path;
-            }
-            else if($value != "." && $value != "..") {
-                $this->scanrepo($path, $results);
-                $results[] = $path;
-            }
-        }
-
-        return $results;
-    }
-
-}
-
 /*************************************************************************************
  * IMPLEMENTATION: SITE MAIN ENTRYPOINT
  *************************************************************************************/
@@ -85,12 +30,11 @@ class SERVERSIDE {
         /*5*/"cliside_BLOGphptest4",
 
         /*6*/"cliside_CVphpgetdata",
-
         /*7*/"cliside_BLOGphpgetdata",
 
         /*8*/"cliside_BLOGphptest6",
-
-        /*9*/"cliside_BLOGphptest7"
+        /*9*/"cliside_BLOGphptest7",
+        /*10*/"cliside_BLOGphptest8"
 
     ];
 
@@ -111,8 +55,8 @@ class SERVERSIDE {
 
             if(false) {
                 //debug only
-                $analyser = new SRVSIDE_ANALYSER();
-                $analyser->parserepo("callbackparse", "../listfile.txt");
+                $analyser = new SRVSIDE_DIRPARSER();
+                $analyser->BTtest6("callbackparse", '..', "../listfile.txt");
             }
         }
         catch(Exception $e) {
@@ -190,7 +134,7 @@ class SERVERSIDE {
                     $debug = false;
 
                     $blog = new SRVSIDE_BLOG;
-                    $data = $blog->BLOGsend($this->param[1], $debug);
+                    $data = $blog->BNtest1($this->param[1], $debug);
                     // Output encoded data
                     echo json_encode($data);
                     break;
@@ -224,6 +168,13 @@ class SERVERSIDE {
                     break;
 
                 //----------------------------------
+                // WEBSOCKET TEST
+                case $this->triggers[10]:
+                    $test = new SRVSIDE_BLOG();
+                    $test->BTtest8();
+                    break;
+
+                //----------------------------------
                 // SEND TESTS RESULTS
                 // return json data
                 case $this->triggers[4]:
@@ -244,8 +195,8 @@ class SERVERSIDE {
                 // SEND DIRECTORY CONTENT
                 // return json data
                 case $this->triggers[8]:
-                    $analyser = new SRVSIDE_ANALYSER();
-                    $data = $analyser->parserepo(null, null);
+                    $analyser = new SRVSIDE_BLOG();
+                    $data = $analyser->BTtest6(null, '..', null);
                     echo json_encode($data);
                     break;
 

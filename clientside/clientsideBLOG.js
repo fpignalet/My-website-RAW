@@ -1,3 +1,51 @@
+'use strict';
+
+import {
+    CLISIDE_DOM,
+    CLISIDE_LOADER
+} from "./clientside.js";
+
+import {
+    data_BLOGcontent1,
+    data_BLOGcontent2,
+    data_BLOGcontent3,
+    data_BLOGcontent4,
+    data_BLOGcontent5,
+    data_BLOGcontent6,
+    data_BLOGcontent7,
+    data_BLOGcontent10,
+    data_BLOGcontent11,
+    data_BLOGcontent12,
+    data_BLOGcontent13,
+    data_BLOGcontent14,
+    data_BLOGcontent15,
+    data_BLOGcontent16,
+    data_BLOGcontent17,
+    data_BLOGcontent91,
+    data_BLOGdesc1,
+    data_BLOGdesc2,
+    data_BLOGdesc3,
+    data_BLOGdesc4,
+    data_BLOGdesc5,
+    data_BLOGdesc6,
+    data_BLOGdesc7,
+    data_BLOGdesc9,
+    data_BLOGdesc10,
+    data_BLOGdesc11,
+    data_BLOGdesc12,
+    data_BLOGdesc13,
+    data_BLOGdesc14,
+    data_BLOGdesc15,
+    data_BLOGdesc16,
+    data_BLOGdesc17,
+    data_BNEWSlasts,
+    data_BNEWSmap,
+    data_BNEWSstruct,
+    data_BTECHlasts,
+    data_BTECHmap,
+    data_BTECHstruct,
+} from "./data/BLOGdata.js";
+
 /*************************************************************************************
  *************************************************************************************
  * BOTH SIDES
@@ -5,11 +53,11 @@
  *************************************************************************************/
 
 /// @brief specific DOM utilities for BLOG pages
-class CLISIDE_BLOGDOM extends CLISIDE_DOM {
+export class CLISIDE_BLOGDOM extends CLISIDE_DOM {
 
     /// ctor
-    constructor() {
-        super();
+    constructor(id) {
+        super(id);
     }
 
     /// @brief fills a blog entry descriptor (with title and date)
@@ -44,11 +92,11 @@ class CLISIDE_BLOGDOM extends CLISIDE_DOM {
  *************************************************************************************/
 
 /// @brief specific loading utilities for BLOG pages
-class CLISIDE_BLOGLOADER extends CLISIDE_LOADER {
+export class CLISIDE_BLOGLOADER extends CLISIDE_LOADER {
 
     /// @brief ctor
-    constructor() {
-        super("cliside_BLOGphpgetdata");
+    constructor(id) {
+        super("cliside_BLOGphpgetdata", id);
     }
 
 }
@@ -60,11 +108,11 @@ class CLISIDE_BLOGLOADER extends CLISIDE_LOADER {
  *************************************************************************************/
 
 /// @brief specific DOM utilities for BLOG NEWS pages
-class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
+export class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
 
     /// ctor
-    constructor() {
-        super();
+    constructor(id) {
+        super(id);
     }
 
     fillentry(contener, desc, content) {
@@ -146,19 +194,19 @@ class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
  *************************************************************************************/
 /// @brief filling the BLOG NEWS page
 /// @param contener is the target DOM
-function cliside_BLOGNEWSpageload(contener) {
+export function cliside_BLOGNEWSpageload(contener) {
     try {
-        const BLcr = new CLISIDE_BNEWSDOM();
-        const loader = new CLISIDE_BLOGLOADER();
+        const BLOGcr = new CLISIDE_BNEWSDOM(-1);
+        const loader = new CLISIDE_BLOGLOADER(-1);
 
         data_BNEWSmap.forEach((entry, index) => {
             loader.remotegetentry(contener,
-                BLcr,
+                BLOGcr,
                 entry["desc"],
                 entry["content"],
                 entry["progress"],
-                (BL, desc, content) => {
-                    BL.fillentry(contener, desc, content);
+                (cr, desc, content) => {
+                    cr.fillentry(contener, desc, content);
                 }
             );
         })
@@ -183,16 +231,16 @@ function cliside_BLOGNEWSpageload(contener) {
  *************************************************************************************/
 
 /// @brief specific DOM utilities for BLOG TECH page
-class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
+export class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
 
-    constructor() {
-        super();
+    constructor(id) {
+        super(id);
         this.count = 0;
     }
 
     /// @brief SayHello() prints a message in the document's "hello" area
     /// @param contener is the target DOM
-    /// @param name desc
+    /// @param fieldid is the field which receives the result
     /// @returns 1 desc
     testhello(contener, fieldid) {
         const message = "Hello, World";
@@ -202,7 +250,7 @@ class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
 
     /// @brief Put the current count on the page
     /// @param contener is the target DOM
-    /// @param name desc
+    /// @param fieldid is the field which receives the result
     /// @returns 1 desc
     testcount(contener, fieldid) {
         // Put current time in the "count" area of the web page
@@ -218,14 +266,16 @@ class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
 //        console.log(this.getFuncName() + "OK");
     }
 
-    /// @brief desc
-    /// @param contener is the target DOM
-    /// @param name desc
+    /// @brief creates a blog entry only with code
+    /// @param entryname desc
+    /// @param photo desc
+    /// @param title desc
+    /// @param desc desc
+    /// @param date desc
+    /// @param content desc
     /// @returns 1 desc
     testdyn(entryname, photo, title, desc, date, content){
         return [
-
-            '<div id=\"' + entryname + '\" class=\"w3-card-4 w3-margin w3-white\">\n' +
 
             '    <img id=\"' + entryname + 'PHOTO' + '\" src=\"' + photo + '\" alt=\"img\" style=\"width:80%\">\n' +
             '    <div class=\"w3-container\">\n' +
@@ -240,16 +290,16 @@ class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
 
             '    <div id=\"' + entryname + 'CONTENT' + '\" class=\"w3-container\">\n' +
             '        <p>' + content + '</p>\n' +
-            '    </div>\n' +
-
-            '</div>\n'
+            '    </div>\n'
 
         ].join('\n');
 
 //        console.log(this.getFuncName() + "OK");
     }
 
-    /// @brief desc
+    /// @brief add angularjs to tech tests
+    /// @param name desc
+    /// @param ctrl desc
     testangular(name, ctrl) {
         const ifirstName = "Firstname";
         const ilastName = "Lastname";
@@ -316,13 +366,15 @@ class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
  *************************************************************************************/
 
 /// @brief specific loading utilities for BLOG TECH page
-class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
+export class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
 
-    constructor() {
-        super("cliside_BLOGphptest");
+    /// @brief ...
+    /// @param id
+    constructor(id) {
+        super("cliside_BLOGphptest", id);
 
         this.islinux = false;
-
+        this.wsocket = null;
     }
     
     //-----------------------------------------------
@@ -331,8 +383,9 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     /// @brief calls serverside with cliside_BLOGphptest1 selector then updates txtHint html item
     /// @param contener is the target DOM
     /// @param data contains the parameter waited by cliside_BLOGphptest1 selector
+    /// @param fieldid is the field which receives the result
     testphp1(contener, data, fieldid) {
-        const params = [this.cmdname + 1, data];
+        const params = [this.cmdselect + 1, data];
         if (null == params[0]) {
             params[0] = "";
         }
@@ -347,8 +400,9 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     /// @brief calls serverside with cliside_BLOGphptest2 selector then updates bdResult html item
     /// @param contener is the target DOM
     /// @param data contains the parameter waited by cliside_BLOGphptest2 selector
+    /// @param fieldid is the field which receives the result
     testphp2(contener, data, fieldid) {
-        const params = [this.cmdname + 2, ""];
+        const params = [this.cmdselect + 2, ""];
 
         const local = this;
         this.getdataraw(params, (result) => {
@@ -360,8 +414,9 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     /// @brief calls serverside with cliside_BLOGphptest5 selector then updates params_area3 html item
     /// @param contener is the target DOM
     /// @param data contains the parameter waited by cliside_BLOGphptest5 selector
+    /// @param fieldid is the field which receives the result
     testphp5(contener, data, fieldid) {
-        const params = [this.cmdname + 5, ""];
+        const params = [this.cmdselect + 5, ""];
 
         const local = this;
         this.getdataraw(params, (result) => {
@@ -371,13 +426,28 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     }
 
     /// @brief calls serverside with cliside_BLOGphptest4 selector then updates ...
-    /// @param contener is the target DOM
-    /// @param data contains the parameter waited by cliside_BLOGphptest4 selector
-    checkos() {
-        const params = [this.cmdname + 7, ""];
+    testphp7() {
+        const params = [this.cmdselect + 7, ""];
 
         this.getdataraw(params, (result) => {
             this.islinux = /Linux/.test(result);
+        });
+    }
+
+    /// @brief prepraring push test
+    /// TODO: need a form
+    testphp8() {
+        const params = [this.cmdselect + 8, ""];
+
+        const local = this;
+        this.getdataraw(params, (result) => {
+
+            //you can use wss instead of ws for secure communication.
+            if(null === local.wsocket) {
+                local.createwsocket();
+            }
+
+            local.wsocket.send('TESTTOTOTESTTOTO'); //sending message to server.
         });
     }
 
@@ -387,8 +457,9 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     /// @brief calls serverside with cliside_BLOGphptest3 selector then updates params_area1 html item
     /// @param contener is the target DOM
     /// @param data contains the parameter waited by cliside_BLOGphptest3 selector
+    /// @param fieldid is the field which receives the result
     testphp3(contener, data, fieldid) {
-        const params = [this.cmdname + 3, ""];
+        const params = [this.cmdselect + 3, ""];
 
         const local = this;
         this.getdatajson(params, (result) => {
@@ -400,9 +471,10 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     /// @brief calls serverside with cliside_BLOGphptest4 selector then updates params_area2 html item
     /// @param contener is the target DOM
     /// @param data contains the parameter waited by cliside_BLOGphptest4 selector
+    /// @param fieldid is the field which receives the result
     testphp4(contener, data, fieldid) {
         const adata = [2, "JScript_TestObject2"];
-        const params = [this.cmdname + 4, JSON.stringify(adata)];
+        const params = [this.cmdselect + 4, JSON.stringify(adata)];
 
         const local = this;
         this.getdatajson(params, (result) => {
@@ -414,8 +486,9 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     /// @brief calls serverside with cliside_BLOGphptest4 selector then updates ...
     /// @param contener is the target DOM
     /// @param data contains the parameter waited by cliside_BLOGphptest4 selector
+    /// @param fieldid is the field which receives the result
     testphp6(contener, data, fieldid) {
-        const params = [this.cmdname + 6, ""];
+        const params = [this.cmdselect + 6, ""];
 
         const local = this;
         this.getdatajson(params, (result) => {
@@ -424,22 +497,52 @@ class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
         });
     }
 
+    //-----------------------------------------------
+    // NON VISIBLE IMPLEMENTATION
+    //-----------------------------------------------
+    createwsocket() {
+        const local = this;
+
+        this.wsocket = new WebSocket('ws://localhost', ['soap', 'xmpp']);
+
+        // connection open event
+        this.wsocket.onopen = function () {
+            local.wsocket.send('TESTTOTOTESTTOTO'); //sending message to server.
+        };
+
+        // error event
+        this.wsocket.onerror = function (error) {
+            console.log('WebSocket Error ' + error);
+        };
+
+        // update received from server event
+        this.wsocket.onmessage = function (e) {
+            if('OKOKOKOK' === e.data) {
+                console.log('WebSocket Server answered: ' + e.data);
+            }
+            else {
+                console.log('WebSocket Server didn\'t answered properly...');
+            }
+        };
+    }
 }
 
 /*************************************************************************************
  * TECH IMPLEMENTATION: PAGE ENTRYPOINTs
  *************************************************************************************/
 /// @brief filling the BLOG TECH page
-function cliside_BLOGTECHpageload() {
+export function cliside_BLOGTECHpageload(contener) {
     try {
-        const local = new CLISIDE_BTECHLOCAL();
-        const loader = new CLISIDE_BLOGLOADER();
+        const BLOGcr = new CLISIDE_BTECHLOCAL(-1);
 
+        const loader = new CLISIDE_BLOGLOADER(-1);
         data_BTECHmap.forEach((item, index) => {
-            loader.remotegetdata(null,
+            loader.remotegetbatch(contener,
+                BLOGcr,
                 item,
-                (unused, d) => {
-                    local.filldesc(document, d[0]);
+                null,
+                (cr, data) => {
+                    cr.filldesc(contener, data[0]);
                 }
             );
         })
@@ -452,3 +555,7 @@ function cliside_BLOGTECHpageload() {
         //...
     }
 }
+
+//to avoid re-entrance issues:
+export const cliside_BTECHtestslocal = new CLISIDE_BTECHLOCAL();
+export const cliside_BTECHtestsremote = new CLISIDE_BTECHREMOTE();

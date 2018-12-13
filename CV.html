@@ -31,12 +31,13 @@
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- JS IMPLEMENTATION -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <script type="text/javascript" src="clientside/data/CVdata.js">
-        </script>
-
-        <script type="text/javascript" src="clientside/clientside.js">
-        </script>
-        <script type="text/javascript" src="clientside/clientsideCV.js">
+        <script type="module">
+            import {
+                cliside_CVpageload,
+                cliside_CVpageprint
+            } from "./clientside/clientsideCV.js";
+            window.cliside_CVpageload = cliside_CVpageload;
+            window.cliside_CVpageprint = cliside_CVpageprint;
         </script>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
@@ -49,10 +50,10 @@
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <body class="w3-light-grey" onload="cliside_CVpageload(document)">
+    <body class="w3-light-grey" onload="window.cliside_CVpageload(document)">
     <!-- -------------------------------------------------------------------------------------------------------------->
 
-        <div class="w3-content w3-margin-top" style="max-width:1300px;">
+        <div class="w3-content w3-margin-top" style="max-width:1800px;">
 
             <div class="w3-row-padding">
 
@@ -96,7 +97,7 @@
 
                             </div>
 
-                            <input type="button" class="w3-button w3-block w3-theme-l1 w3-left-align" value="Print (under construction...)" onclick="cliside_CVpageprint(document)" />
+                            <input type="button" class="w3-button w3-block w3-theme-l1 w3-left-align" value="Print (under construction...)" onclick="window.cliside_CVpageprint(document)" />
 
                             <hr>
 

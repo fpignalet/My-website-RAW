@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
 local_update() {
-    rm -r /cygdrive/c/dev/wamp64/www
-    mkdir /cygdrive/c/dev/wamp64/www
+#    rm -r /cygdrive/c/dev/wamp64/www
+
+#    mkdir /cygdrive/c/dev/wamp64/www
     cp -r /cygdrive/c/dev/wspace/fpiweb/* /cygdrive/c/dev/wamp64/www
+    cp -r /cygdrive/c/dev/wspace/fpiweb/clientside/game/* /cygdrive/c/dev/wspace/canvas
+
+#    mkdir /cygdrive/c/dev/wamp64/www/GoJS-master
+#    cp -r /cygdrive/c/dev/wspace/GoJS-master/* /cygdrive/c/dev/wamp64/www/GoJS-master
+
     chmod -R 777 /cygdrive/c/dev/wamp64/www
 }
 

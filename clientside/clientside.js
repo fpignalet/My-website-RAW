@@ -1,8 +1,14 @@
-class CLISIDE_BASE {
+'use strict';
+
+/*************************************************************************************
+ * IMPLEMENTATION: BASE CLASS
+ *************************************************************************************/
+export class CLISIDE_BASE {
 
     /// ctor
-    constructor() {
-        this.id = null;
+    /// @param id
+    constructor(id) {
+        this.id = id;
     }
 
     /// @brief ...
@@ -38,7 +44,7 @@ class CLISIDE_BASE {
         //---------------
         // special case
         else if("MSIE" === select) {
-            if( false === document.documentMode ) {
+            if( false !== document.documentMode ) {
                 return true;
             }
         }
@@ -52,11 +58,11 @@ class CLISIDE_BASE {
  * IMPLEMENTATION: BASIC PAGE CREATION UTILITIES
  *************************************************************************************/
 /// @brief class to make items adding easy
-class CLISIDE_DOM extends CLISIDE_BASE {
+export class CLISIDE_DOM extends CLISIDE_BASE {
 
     /// ctor
-    constructor() {
-        super();
+    constructor(id) {
+        super(id);
     }
 
     //------------------------------------------------------------------
@@ -288,8 +294,10 @@ class CLISIDE_DOM extends CLISIDE_BASE {
         const btcbk = data[2];
         const button = div.appendChild(contener.createElement("button"));
         button.setAttribute("id", btid);
-        button.setAttribute("onclick", "CLISIDE_DOM.cbkdisclose('" + btcbk + "')");
         button.setAttribute("class", "w3-button w3-block w3-theme-l1 w3-left-align");
+        button.addEventListener("click", (e) => {
+            CLISIDE_DOM.cbkdisclose(contener, btcbk);
+        });
 
         const bttxt = data[1];
         const i = button.appendChild(contener.createElement("i"));
@@ -317,10 +325,7 @@ class CLISIDE_DOM extends CLISIDE_BASE {
 
     /// @brief function to disclose an html item
     /// @param id index of the disclosable item
-    static cbkdisclose(id) {
-        // noinspection UnnecessaryLocalVariableJS
-        const contener = document;
-
+    static cbkdisclose(contener, id) {
         const x = contener.getElementById(id);
         if (-1 === x.className.indexOf("w3-show")) {
             x.className += " w3-show";
@@ -339,15 +344,15 @@ class CLISIDE_DOM extends CLISIDE_BASE {
  * IMPLEMENTATION: COMMUNICATION WITH SERVER
  *************************************************************************************/
 /// @brief local or remote data access
-class CLISIDE_LOADER extends CLISIDE_DOM {
+export class CLISIDE_LOADER extends CLISIDE_DOM {
 
     /// @brief ctor
-    /// @param cmdname ...
-    constructor(cmdname) {
-        super();
+    /// @param cmdselect ...
+    constructor(cmdselect, id) {
+        super(id);
 
         this.target = "serverside/serverside.php";
-        this.cmdname = cmdname;
+        this.cmdselect = cmdselect;
 
         this.progressbars = {};
         this.progressvals = {};
@@ -365,40 +370,47 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
     /// @param creator is th instance of the creator
     /// @param data desc...
     /// @param cbk will be executed
-    remotegetdata(creator, data, cbk) {
+    remotegetbatch(contener, creator, content, progress, cbk) {
         const inst = this;
 
+        if(null != progress) {
+            inst.progressshow(contener, progress);
+        }
+
         // with many data to be loaded
-        if(true === Array.isArray(data)) {
+        if(true === Array.isArray(content)) {
             /**********************************
              * 1ST: PREPARE DATA FOR UPDATE
+             contentmap contains result for each content item.
+             it is there to be sure that they are correctly sorted:
+             everything is fully asynchrone, so getdatajson may fill the table in a total random way
              **********************************/
-            const datamap = {};
-            inst.mapinit(data, datamap);
+            const contentmap = {};
+            inst.mapinit(content, contentmap);
 
-            /**********************************
-             * 2ND: RETRIEVE DATA
-             * the main request, to get the data item contents
-             * @type {XMLHttpRequest}
-             **********************************/
-            data.forEach((item, index) => {
-                const params = [inst.cmdname, item];
+            content.forEach((item, index) => {
+                /**********************************
+                 * 2ND: RETRIEVE DATA
+                 * the main request, to get the data item contents
+                 * @type {XMLHttpRequest}
+                 **********************************/
+                const params = [inst.cmdselect, item];
                 inst.getdatajson(params, (result) => {
                     // ---------------------------------------------------
                     // store result and survey: we need to be sure that all results are there:
-                    datamap[item] = result;
-                    if(false === inst.mapisfull(datamap)) {
+                    contentmap[item] = result;
+                    if(false === inst.mapisfull(contentmap)) {
                         /// not everything is there, we need to keep on waiting
                         return;
                     }
 
                     // ---------------------------------------------------
                     /// OK we got every result for the current data list
-                    const results = [];
-                    Object.keys(datamap).forEach((key, _index) => {
-                        results.push(datamap[key]);
-                    });
+                    if(null != progress) {
+                        inst.progresshide(contener, progress);
+                    }
 
+                    const results = inst.map2array(contentmap);
                     cbk(creator, results);
 //                    console.log(this.getFuncName() + "OK");
                 });
@@ -406,53 +418,66 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
         }
         // with just one item to be loaded
         else {
-            var params = [ inst.cmdname, data ];
+            const params = [ inst.cmdselect, content ];
             inst.getdatajson(params, (result) => {
+                if(null != progress) {
+                    inst.progresshide(contener, progress);
+                }
+
                 cbk(creator, result);
             });
         }
     }
 
     /// @brief calls serverside with cliside_BLOGphptest1 selector then updates ...
-    /// @param CV is th instance of the CV creator
+    /// @param creator is th instance of the CV creator
     /// @param boite is the name of the desired boite data
     /// @param boulots is the name of the desired boulots data
     /// @param progress contains the DOM items required to display progress
     /// @param cbk will be executed
-    remotegetentry(contener, loader, desc, content, progress, cbk) {
+    remotegetentry(contener, creator, desc, content, progress, cbk) {
         const inst = this;
+
+        if(null != progress) {
+            inst.progressshow(contener, progress);
+        }
 
         /**********************************
          * 1ST: PREPARE DATA FOR UPDATE
          **********************************/
-        inst.showprogress(contener, progress);
-
         /*
         desc contains result for desc item
-        contentmap contains result for each content item.
-        it is there to be sure that they are correctl sorted:
-        everything is fully asynchrone, so getdatajson may fill the table in a total random way
         */
         let descdata = null;
-        const contentmap = {};
-        inst.mapinit(content, contentmap);
 
         /**********************************
          * 2ND: RETRIEVE DATA
          * the main request, to get the desc item contents
          * @type {XMLHttpRequest}
          **********************************/
-        const params = [inst.cmdname, desc];
+        const params = [inst.cmdselect, desc];
         inst.getdatajson(params, (result) => {
             //store result
             descdata = result;
 
+            /**********************************
+             * 3RD: PREPARE DATA FOR UPDATE
+             **********************************/
+            /*
+            contentmap contains result for each content item.
+            it is there to be sure that they are correctly sorted:
+            everything is fully asynchrone, so getdatajson may fill the table in a total random way
+            */
+            const contentmap = {};
+            inst.mapinit(content, contentmap);
+
             content.forEach((item, index) => {
                 /**********************************
+                 * 4TH: RETRIEVE DATA
                  * the sub request, to get a "content item contents" :)
                  * @type {XMLHttpRequest}
                  **********************************/
-                const _params = [inst.cmdname, item];
+                const _params = [inst.cmdselect, item];
                 inst.getdatajson(_params, (_result) => {
                     // ---------------------------------------------------
                     // store result and survey: we need to be sure that all results are there:
@@ -464,8 +489,11 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
 
                     // ---------------------------------------------------
                     /// OK we got all content results
-                    inst.hideprogress(contener, progress);
-                    cbk(loader, descdata, contentmap);
+                    if(null != progress) {
+                        inst.progresshide(contener, progress);
+                    }
+
+                    cbk(creator, descdata, contentmap);
                 });
             })
         });
@@ -508,12 +536,48 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
     }
 
     //-----------------------------------------------
+    // MAP HANDLING
+    //-----------------------------------------------
+    /// @brief a way to be sure that the datas are in a proper order:
+    /// the keys will be sorted following the order of the array
+    /// @param datamap ...
+    mapinit(data, datamap) {
+        data.forEach((key, index) => {
+            datamap[key] = null;
+        });
+    }
+
+    /// @brief to be called each time a data item has been received
+    /// @param datamap ...
+    mapisfull(datamap) {
+        let isfull = true;
+        Object.keys(datamap).forEach((key, _index) => {
+            if(null == datamap[key]) {
+                isfull = false;
+            }
+        });
+
+        return isfull;
+    }
+
+    /// @brief ...
+    /// @param datamap ...
+    map2array(datamap) {
+        const results = [];
+        Object.keys(datamap).forEach((key, _index) => {
+            results.push(datamap[key]);
+        });
+
+        return results;
+    }
+
+    //-----------------------------------------------
     // PROGRESS HANDLING
     //-----------------------------------------------
     /// @brief uses "CV.html::boulotentryXXwait" to display a progrss bar during wait
     /// @param contener is the target DOM
     /// @param progress is the bar to be updated
-    showprogress(contener, progress) {
+    progressshow(contener, progress) {
         const barid = progress[2];
         if(null != this.progressbars[barid]) {
             //there is no progress bar?
@@ -533,7 +597,7 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
     /// @brief uses "CV.html::boulotentryXXwait" to display a progrss bar during wait
     /// @param contener is the target DOM
     /// @param progress is the bar to be updated
-    hideprogress(contener, progress) {
+    progresshide(contener, progress) {
         const barid = progress[2];
         if(null == this.progressbars[barid]) {
             //there is no progress bar?
@@ -572,24 +636,93 @@ class CLISIDE_LOADER extends CLISIDE_DOM {
         return cmd;
     }
 
-    /// @brief a way to be sure that the datas are in a proper order:
-    /// the keys will be sorted following the order of the array
-    mapinit(data, datamap) {
-        data.forEach((key, index) => {
-            datamap[key] = null;
-        });
+}
+
+/*************************************************************************************
+ * IMPLEMENTATION: NAVBAR UTILS
+ *************************************************************************************/
+/// @brief Used to toggle the menu on small screens when clicking on the menu button
+/// @param contener is the target DOM
+export function clientside_navtoggle(contener, navid) {
+    try {
+        const x = contener.getElementById(navid);
+        if (x.className.indexOf("w3-show") === -1) {
+            x.className += " w3-show";
+        }
+        else {
+            x.className = x.className.replace(
+                " w3-show", ""
+            );
+        }
     }
-
-    /// @brief to be called each time a data item has been received
-    mapisfull(datamap) {
-        let isfull = true;
-        Object.keys(datamap).forEach((key, _index) => {
-            if(null == datamap[key]) {
-                isfull = false;
-            }
-        });
-
-        return isfull;
+    catch (e) {
+        console.log(e.name)
     }
+    finally {
+        //...
+    }
+}
 
+/// @brief Change style of navbar on scroll
+/// @param contener is the target DOM
+export function clientside_navscroll(contener, barid) {
+    try {
+        const navbar = contener.getElementById(barid);
+        if (contener.body.scrollTop > 100 || contener.documentElement.scrollTop > 100) {
+            navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+        }
+        else {
+            navbar.className = navbar.className.replace(
+                " w3-card w3-animate-top w3-white", ""
+            );
+        }
+    }
+    catch (e) {
+        console.log(e.name)
+    }
+    finally {
+        //...
+    }
+}
+
+/*************************************************************************************
+ * IMPLEMENTATION: GOOGLE MAPS INTEGRATION
+ *************************************************************************************/
+const clientside_latlon = [
+    41.878114,
+    -87.629798
+];
+
+/// @brief
+/// @param contener is the target DOM
+/// @param mapid
+export function clientside_gmapshow(contener, mapid/*"googleMap"*/) {
+    try {
+
+        // --------------------------------------
+        //1.1: construct location
+        const where = new google.maps.LatLng(clientside_latlon[0], clientside_latlon[1]);
+        //1.2: construct parameters using location
+        const options = {
+            center: where,
+            zoom: 12,
+            scrollwheel: false,
+            draggable: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        //1.3: construct map using parameters
+        const map = new google.maps.Map(contener.getElementById(mapid), options);
+
+        // --------------------------------------
+        //2.1: construct marker using location
+        const marker = new google.maps.Marker({position: where});
+        //2.2: assigns marker to map
+        marker.setMap(map);
+    }
+    catch (e) {
+        console.log(e.name)
+    }
+    finally {
+        //...
+    }
 }

@@ -37,15 +37,14 @@
         </script>
         <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js">
         </script>
-
-        <script type="text/javascript" src="clientside/data/BLOGdata.js">
-        </script>
-
-        <script type="text/javascript" src="clientside/clientside.js">
-        </script>
         <script type="text/babel" src="clientside/clientsideREACT.js">
         </script>
-        <script type="text/javascript" src="clientside/clientsideBLOG.js">
+
+        <script type="module">
+            import {
+                cliside_BLOGTECHpageload
+            } from "./clientside/clientsideBLOG.js";
+            window.cliside_BLOGTECHpageload = cliside_BLOGTECHpageload;
         </script>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
@@ -58,12 +57,12 @@
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <body class="w3-light-grey" onload="cliside_BLOGTECHpageload()">
+    <body class="w3-light-grey" onload="window.cliside_BLOGTECHpageload(document)">
     <!-- -------------------------------------------------------------------------------------------------------------->
 
         <!-- w3-content defines a container for fixed size centered content,
         and is wrapped around the whole page content, except for the footer in this example -->
-        <div class="w3-content" style="max-width:1400px">
+        <div class="w3-content" style="max-width:1600px">
 
             <!-- ---------------------------------------------------------------------------------------------------------------------->
             <!-- BLOG HEADER -->
@@ -92,20 +91,59 @@
             <!-- ---------------------------------------------------------------------------------------------------------------------->
             <div class="w3-row">
 
-                <script>
-                    //to avoid re-entrance issues
-                    const cliside_BTECHtestslocal = new CLISIDE_BTECHLOCAL();
-                    const cliside_BTECHtestsremote = new CLISIDE_BTECHREMOTE();
-                </script>
-
                 <div class="w3-col l8 s12">
 
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
                     <!-- REACT -->
                     <!-- ------------------------------------------------------------------ -->
-                    <!-- div id="blog_entry16" class="w3-card-4 w3-margin w3-white">
-                        <img id="blog_entry16PHOTO" src="images/gears-1059756_640.png" alt="img" style="width:80%">
+                    <div id="blog_entry18" class="w3-card-4 w3-margin w3-white">
+                        <img id="blog_entry18PHOTO" src="images/gears-686316_640.jpg" alt="img" style="width:100%">
+                        <div class="w3-container">
+                            <h3 id="blog_entry18TITLE">
+                            </h3>
+                            <h5 id="blog_entry18DATE">
+                            </h5>
+                        </div>
+                        <div id="blog_entry18CONTENT" class="w3-container">
+                            <div class="row">
+                                <div class="column" style="background-color:#ccc;">
+                                    <h2>Some important points to develop with raw Javascript</h2>
+                                    <ul>
+                                        <li>
+                                            It's possible to be pure OOP, using only classes exactly like other langages
+                                        </li>
+                                        <li>
+                                            Classes need to exported like this:
+                                            <br>
+                                            <code class="codebox" id="codebox5">
+                                                ...
+                                                export default Multiple;
+                                                ...
+                                            </code>
+                                        </li>
+                                        <li>
+                                            Classes need to imported like this:
+                                            <br>
+                                            <code class="codebox" id="codebox6">
+                                                ...
+                                                import {
+                                                CLISIDE_LOADER
+                                                } from "./clientside/clientside.js";
+                                                ...
+                                            </code>
+                                            <br>
+                                            It's important to specify the ".js" postfix, otherwise there is sometimes
+                                            loading issues.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="blog_entry16" class="w3-card-4 w3-margin w3-white">
+                        <img id="blog_entry16PHOTO" src="images/macro-1452987_640.jpg" alt="img" style="width:100%">
                         <div class="w3-container">
                             <h3 id="blog_entry16TITLE">
                             </h3>
@@ -113,18 +151,80 @@
                             </h5>
                         </div>
                         <div id="blog_entry16CONTENT" class="w3-container">
-                            <script type="module">
-                                import { go } from "../../wspace/GoJS-master/release/go";
-                                var diagram = new go.Diagram("myDiagramDiv");
-                                diagram.model = new go.GraphLinksModel(
-                                    [{ key: "Hello" },   // two node data, in an Array
-                                        { key: "World!" }],
-                                    [{ from: "Hello", to: "World!"}]  // one link data, in an Array
-                                );
-                            </script>
+                            <div class="row">
+                                <div class="column" style="background-color:#aaa;">
+                                    <code class="codebox" id="codebox1">
+                                    </code>
+                                    <script type="module">
+                                        import {
+                                            CLISIDE_LOADER
+                                        } from "./clientside/clientside.js";
+
+                                        const loader = new CLISIDE_LOADER();
+                                        loader.target = "./clientside/game/js/lib/instances.js";
+                                        loader.getdataraw(null, (result) => {
+                                            const it = document.getElementById("codebox1");
+                                            it.appendChild(document.createTextNode(result));
+                                        });
+                                    </script>
+                                </div>
+                                <div class="column" style="background-color:#bbb;">
+                                    <h2>Multi canvas instances</h2>
+                                    <p>
+                                        Solution to have many instances of the game canvas from the previous sandbox
+                                    <ul>
+                                        <li>
+                                            create a Multiple class like the one on the left
+                                        </li>
+                                        <li>
+                                            Apply the following initialisation sequence for any other class
+                                            <br>
+                                            <code class="codebox" id="codebox2">
+                                                class Input extends Multiple {
+                                                ...
+                                                static IDENT() { return "input" };
+                                                ...
+                                                constructor() {
+                                                super(Input.IDENT());
+                                            </code>
+                                        </li>
+                                        <li>
+                                            Reference related html items with an index number
+                                            <br>
+                                            <code class="codebox" id="codebox3">
+                                                ...
+                                                canvas id="canvas0"
+                                                ...
+                                            </code>
+                                        </li>
+                                        <li>
+                                            Access all objects referenced like this using:
+                                            <br>
+                                            <code class="codebox" id="codebox4">
+                                                ...
+                                                const input = Multiple.get(Input.IDENT(), this.index);
+                                                ...
+                                            </code>
+                                        </li>
+                                    </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- pre class="code">
+                                <span class="tr first-row"><span class="th"></span><code>   indented line</code></span>
+                                <span class="tr"><span class="th"></span><code>unindented line</code></span>
+                                <span class="tr"><span class="th"></span><code>&#9;line starting and ending with tab&#9;</code></span>
+                                <span class="tr"><span class="th"></span><code></code></span>
+                                <span class="tr"><span class="th"></span><code>the above line should be empty</code></span>
+                                <span class="tr"><span class="th"></span><code>overlong line that wraps around or so I hope because it's really long and should overflow the right sided margin of the web page in your browser</code></span>
+                                <span class="tr"><span class="th"></span><code>fill up to ten</code></span>
+                                <span class="tr"><span class="th"></span><code>lines to check</code></span>
+                                <span class="tr"><span class="th"></span><code>alignment</code></span>
+                                <span class="tr"><span class="th"></span><code>of numbers</code></span>
+                            </pre -->
                         </div>
 
-                    </1div -->
+                    </div>
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
                     <!-- Embed a canves -->
@@ -167,21 +267,21 @@
 
                             <link rel="stylesheet" href="clientside/game/css/emb.css">
 
-                            <div id="game-over-overlay">
+                            <div id="game-over-overlay0" class="game-over-overlay">
                             </div>
-                            <div id="game-over">
+                            <div id="game-over0" class="game-over">
                                 <h1>GAME OVER</h1>
-                                <button id="play-again">Play Again</button>
+                                <button id="play-again0">Play Again</button>
 
                             </div>
 
-                            <div class="wrapper" style="background-color: black;">
+                            <div id="wrapper0" class="wrapper" style="background-color: black;">
 
-                                <div id="instructions">
+                                <div id="instructions0" class="instructions">
                                     <ul>
-                                        <li>move with <span class="key">arrows</span> or <span class="key">wasd</span>
+                                        <li>move with <span class="key">arrows</span> or <span class="key">wasd</span> or <span class="key">mouse</span> or <span class="key">touch</span>
                                         </li>
-                                        <li>shoot with <span class="key">space</span>
+                                        <li>shoot with <span class="key">space (with arrows / wasd)</span> or <span class="key">automatic (with mouse / touch)</span>
                                         </li>
                                         <li>loose 20 life pts (progress bar) each time an ennemy reach left side
                                         </li>
@@ -190,29 +290,32 @@
                                     </ul>
                                 </div>
 
-                                <div id="score"></div>
+                                <div id="score0" class="score"></div>
                                 <br><br><br><br><br><br>
                                 <div class="myProgress">
-                                    <div class="myBar" id="lifebar"></div>
+                                    <div id="lifebar0" class="myBar"></div>
                                 </div>
                                 <br><br>
 
-                            </div>
+                                <canvas id="canvas0" style="background-color: black;"/>
 
-                            <canvas id="myCanvas" width="800" height="600" style="background-color: black;"/>
+                            </div>
 
                         </div>
 
-                        <script type="text/javascript" src="clientside/game/js/lib/resources.js"></script>
-                        <script type="text/javascript" src="clientside/game/js/lib/input.js"></script>
-                        <script type="text/javascript" src="clientside/game/js/lib/engine.js"></script>
-                        <script type="text/javascript" src="clientside/game/js/lib/render.js"></script>
+                        <script type="module">
+                            import Multiple from "./clientside/game/js/lib/instances.js";
+                            import Core from "./clientside/game/js/impl/core.js";
+                            import execute from "./clientside/game/js/lib/execute.js";
+                            import {
+                                app_settings,
+                                app_guimap,
+                                app_images
+                            } from "./clientside/game/js/embset.js";
 
-                        <script type="text/javascript" src="clientside/game/js/impl/sprite.js"></script>
-                        <script type="text/javascript" src="clientside/game/js/impl/core.js"></script>
-                        <script type="text/javascript" src="clientside/game/js/impl/factory.js"></script>
-
-                        <script type="text/javascript" src="clientside/game/js/emb.js"></script>
+                            const core = new Core(app_settings, app_guimap, "canvas0");
+                            execute(app_images, Multiple.get(Core.IDENT(), core.index));
+                        </script>
 
                     </div>
                     <!-- ------------------------------------------------------------------ -->
@@ -258,8 +361,12 @@
                                 </li>
                             </ul>
                             <ul id="htreedemo"></ul>
-                            <script>
-                                cliside_BTECHtestsremote.checkos();
+                            <script type="module">
+                                import {
+                                    cliside_BTECHtestsremote
+                                } from "./clientside/clientsideBLOG.js";
+
+                                cliside_BTECHtestsremote.testphp7();
                                 cliside_BTECHtestsremote.testphp6(document, null, "htreedemo");
                             </script>
                         </div>
@@ -305,17 +412,21 @@
                     <!-- Blog entry -->
                     <!-- Javascript generated HTML -->
                     <!-- ------------------------------------------------------------------ -->
-                    <script>
-                        try {
+                    <div id="blog_entry8" class="w3-card-4 w3-margin w3-white">
+                        <script type="module">
                             // Specific sandbox content is not outside processed
-                            document.write(
-                                cliside_BTECHtestslocal.testdyn(
+                            import {
+                                cliside_BTECHtestslocal
+                            } from "./clientside/clientsideBLOG.js";
+                            try {
+                                let html = cliside_BTECHtestslocal.testdyn(
+                                    // HEADER:
                                     'blog_entry8',
                                     'images/gears-686316_640.jpg',
                                     'Today\'s sandbox',
                                     'August 25, 2018',
                                     'Dynamic test',
-                                    <!-- CONTENU -->
+                                    // CONTENU:
                                     '<ul>\n' +
                                     '    <li>dynamic blog entry: generating html with javascript\n' +
                                     '        <ul>\n' +
@@ -324,17 +435,19 @@
                                     '        </ul>\n' +
                                     '    </li>\n' +
                                     '</ul>\n'
-                                )
-                            );
-                        }
-                        catch (e) {
-                            console.log(e.name)
-                        }
-                        finally {
-                            //...
-                        }
+                                );
 
-                    </script>
+                                document.getElementById("blog_entry8").innerHTML = html;
+                            }
+                            catch (e) {
+                                console.log(e.name)
+                            }
+                            finally {
+                                //...
+                            }
+
+                        </script>
+                    </div>
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
                     <!-- Angular.js -->
@@ -349,8 +462,11 @@
                         </div>
                         <div id="blog_entry7CONTENT" class="w3-container">
 
-                            <script>
+                            <script type="module">
                                 // Specific sandbox content is not outside processed
+                                import {
+                                    cliside_BTECHtestslocal
+                                } from "./clientside/clientsideBLOG.js";
                                 try {
                                     cliside_BTECHtestslocal.testangular("testapp", "testctrl");
                                 }
@@ -441,12 +557,15 @@
                             <!---------------- TESTS LOCAL ------------------>
                             <div>
                                 <p>
-                                <div><b>Locally obtained data:</b></div>
-                                <div id="hello_area">This text should be replaced.</div>
-                                <div id="count_area">This text should be replaced.</div>
+                                    <div><b>Locally obtained data:</b></div>
+                                    <div id="hello_area">This text should be replaced.</div>
+                                    <div id="count_area">This text should be replaced.</div>
 
                                 </p>
-                                <script>
+                                <script type="module">
+                                    import {
+                                        cliside_BTECHtestslocal
+                                    } from "./clientside/clientsideBLOG.js";
                                     // Specific sandbox content is not outside processed
                                     try {
                                         cliside_BTECHtestslocal.testhello(document, "hello_area");
@@ -464,20 +583,26 @@
                             <!------------------ TESTS REMOTE DIRECT ------------------>
                             <div>
                                 <p>
-                                <div>
-                                    <b>Remotely obtained data: start typing a name in the input field below to get an answer from the server</b>
-                                </div>
-                                <form>
-                                    <b>First try: </b>
-                                    <input type="text" onkeyup="cliside_BTECHtestsremote.testphp1(document, this.value, 'txtHint')">
-                                    <br>
-                                    <b>Second try: </b>
-                                    <input type="text" onkeyup="cliside_BTECHtestsremote.testphp1(document, this.value, 'txtHint')">
-                                </form>
-                                <div>
-                                    <b>Suggestions: </b>
-                                    <span id="txtHint"></span>
-                                </div>
+                                    <div>
+                                        <b>Remotely obtained data: start typing a name in the input field below to get an answer from the server</b>
+                                    </div>
+                                    <form>
+                                        <script type="module">
+                                            import {
+                                                cliside_BTECHtestsremote
+                                            } from "./clientside/clientsideBLOG.js";
+                                            window.cliside_BTECHtestsremote = cliside_BTECHtestsremote;
+                                        </script>
+                                        <b>First try: </b>
+                                        <input type="text" onkeyup="window.cliside_BTECHtestsremote.testphp1(document, this.value, 'txtHint')">
+                                        <br>
+                                        <b>Second try: </b>
+                                        <input type="text" onkeyup="window.cliside_BTECHtestsremote.testphp1(document, this.value, 'txtHint')">
+                                    </form>
+                                    <div>
+                                        <b>Suggestions: </b>
+                                        <span id="txtHint"></span>
+                                    </div>
 
                                 </p>
                             </div>
@@ -485,12 +610,12 @@
                             <!------------------ TESTS REMOTE PHP ------------------>
                             <div>
                                 <p>
-                                <div><b>parameters 1: </b><span id="params_area1"></span></div>
-                                <div><b>parameters 2: </b><span id="params_area2"></span></div>
-                                <div><b>parameters 3: </b><span id="params_area3"></span></div>
+                                    <div><b>parameters 1: </b><span id="params_area1"></span></div>
+                                    <div><b>parameters 2: </b><span id="params_area2"></span></div>
+                                    <div><b>parameters 3: </b><span id="params_area3"></span></div>
 
                                 </p>
-                                <script>
+                                <script type="module">
                                     // Specific sandbox content is not outside processed
                                     try {
                                         cliside_BTECHtestsremote.testphp3(document, null, "params_area1");
@@ -509,10 +634,10 @@
                             <!------------------ TESTS REMOTE BD ------------------>
                             <div>
                                 <p>
-                                <div><b>BD Contents: </b><span id="bdResult"></span></div>
+                                    <div><b>BD Contents: </b><span id="bdResult"></span></div>
 
                                 </p>
-                                <script>
+                                <script type="module">
                                     try {
                                         // Specific sandbox content is not outside processed
                                         cliside_BTECHtestsremote.testphp2(document, null, "bdResult");

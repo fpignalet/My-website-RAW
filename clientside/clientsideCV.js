@@ -1,12 +1,65 @@
+'use strict';
+
+import {
+    CLISIDE_BASE,
+    CLISIDE_DOM,
+    CLISIDE_LOADER
+} from "./clientside.js";
+
+import {
+    data_CVbildung1,
+    data_CVbildung11,
+    data_CVbildung12,
+    data_CVbildung13,
+    data_CVboulot0,
+    data_CVboulot1,
+    data_CVboulot01,
+    data_CVboulot2,
+    data_CVboulot3,
+    data_CVboulot4,
+    data_CVboulot5,
+    data_CVboulot6,
+    data_CVboulot11,
+    data_CVboulot12,
+    data_CVboulot13,
+    data_CVboulot14,
+    data_CVboulot15,
+    data_CVboulot16,
+    data_CVboulot21,
+    data_CVboulot22,
+    data_CVboulot31,
+    data_CVboulot41,
+    data_CVboulot42,
+    data_CVboulot43,
+    data_CVboulot51,
+    data_CVboulot52,
+    data_CVboulot61,
+    data_CVexperience,
+    data_CVhobby1,
+    data_CVhobby11,
+    data_CVhobby12,
+    data_CVhobby13,
+    data_CVinfo,
+    data_CVlangentries,
+    data_CVlanghead,
+    data_CVmap,
+    data_CVprintindexes,
+    data_CVskillsentries,
+    data_CVskillshead,
+    data_CVstructleft,
+    data_CVstructright,
+    data_CVtitle
+} from "./data/CVdata.js";
+
 /*************************************************************************************
  * IMPLEMENTATION: CV CREATION UTILITIES
  *************************************************************************************/
 /// @brief class to make boite/boulot items add easy
-class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
+export class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
 
     /// ctor
-    constructor() {
-        super();
+    constructor(id) {
+        super(id);
     }
 
     //------------------------------------------------------------------
@@ -15,7 +68,7 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
     /// @brief add boite info
     /// @param contener is the destination DOM
     /// @param data contains data_CVboulotXX
-    addentry(contener, data) {
+    addENTRY(contener, data) {
         const keys = Object.keys(data);
 
         // -------------------------------------
@@ -207,14 +260,14 @@ class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
 /// wrapper above CLISIDE_DOM and CLISIDE_CVCREATEHISTORY
 /// uses CLISIDE_DOM to fill left side column
 /// uses CLISIDE_CVCREATEHISTORY to fill right side column
-class CLISIDE_CVCREATE extends CLISIDE_BASE {
+export class CLISIDE_CVCREATE extends CLISIDE_BASE {
 
     /// ctor
-    constructor() {
-        super();
+    constructor(id) {
+        super(id);
 
-        this.leftcreator = new CLISIDE_DOM();
-        this.rightcreator = new CLISIDE_CVCREATEHISTORY();
+        this.leftcreator = new CLISIDE_DOM(id);
+        this.rightcreator = new CLISIDE_CVCREATEHISTORY(id);
     }
 
     //------------------------------------------------------------------
@@ -223,7 +276,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     /// @brief display CVtitle in CV left column
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
-    addtitle(contener, data) {
+    addTITLE(contener, data) {
         const keys = Object.keys(data);
 
         //data_CVtitle
@@ -243,7 +296,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     /// @brief display CVInfo in CV left column
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
-    addinfo(contener, data) {
+    addINFO(contener, data) {
         Object.keys(data).forEach((item, index) => {
 
             //data_CVinfo
@@ -273,7 +326,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     /// @brief display CVexperience in CV left column
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
-    addexperience(contener, data) {
+    addEXPERIENCE(contener, data) {
         Object.keys(data).forEach((item, index) => {
 
             //data_CVexperience
@@ -300,7 +353,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     /// @brief display CVskill / CVlangh in CV left column
     /// @param contener is the destination DOM
     /// @param adata is an array which contains details
-    adddetails(contener, adata) {
+    addDETAILS(contener, adata) {
         let keys = null;
 
         //--------------------------
@@ -348,9 +401,9 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     fillrightside(contener, boite, boulots) {
         const local = this;
 
-        const table = local.addhistoryentry(contener, boite);
+        const table = local.addHISTORYENTRY(contener, boite);
         Object.keys(boulots).forEach((key, _index) => {
-            local.addhistorysubentry(contener, table, boulots[key]);
+            local.addHISTORYSUBENTRY(contener, table, boulots[key]);
         });
     }
 
@@ -360,8 +413,8 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     /// @brief function to add boite/boulot item
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
-    addhistoryentry(contener, data) {
-        this.rightcreator.addentry(contener, data);
+    addHISTORYENTRY(contener, data) {
+        this.rightcreator.addENTRY(contener, data);
 
         //table containing boulotentries
         // desc = boulotentryXXdesc
@@ -374,7 +427,7 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
     /// @param contener is the destination DOM
     /// @param table is the name of the table to be filled
     /// @param data is an array which contains details
-    addhistorysubentry(contener, table, data) {
+    addHISTORYSUBENTRY(contener, table, data) {
         //MAIN ROW
         const tr = table.appendChild(contener.createElement("tr"));
 
@@ -431,11 +484,11 @@ class CLISIDE_CVCREATE extends CLISIDE_BASE {
 }
 
 /// brief CV printer helper
-class CLISIDE_CVPRINT extends CLISIDE_BASE {
+export class CLISIDE_CVPRINT extends CLISIDE_BASE {
 
     /// ctor
-    constructor() {
-        super();
+    constructor(id) {
+        super(id);
     }
 
     //------------------------------------------------------------------
@@ -444,7 +497,7 @@ class CLISIDE_CVPRINT extends CLISIDE_BASE {
     /// @brief desc
     /// @param html
     /// @param data
-    printtitle(html, data){
+    printTITLE(html, data){
         Object.keys(data).forEach((key, index) => {
             html+= document.getElementById(key).innerHTML;
             html+= "<br>";
@@ -459,7 +512,7 @@ class CLISIDE_CVPRINT extends CLISIDE_BASE {
     /// @brief desc
     /// @param html
     /// @param data
-    printinfo(html, data){
+    printINFO(html, data){
         Object.keys(data).forEach((key, index) => {
             html+= document.getElementById(key).innerHTML;
             html+= "<br>";
@@ -474,7 +527,7 @@ class CLISIDE_CVPRINT extends CLISIDE_BASE {
     /// @brief desc
     /// @param html
     /// @param data
-    printexperience(html, data){
+    printEXPERIENCE(html, data){
         Object.keys(data).forEach((key, index) => {
             html+= document.getElementById(key).innerHTML;
             html+= "<br>";
@@ -489,7 +542,7 @@ class CLISIDE_CVPRINT extends CLISIDE_BASE {
     /// @brief desc
     /// @param html
     /// @param adata
-    printdetails(html, adata){
+    printDETAILS(html, adata){
         const datah = adata[0];
         const datae = adata[1];
 
@@ -534,7 +587,7 @@ class CLISIDE_CVPRINT extends CLISIDE_BASE {
         return html;
     }
 
-    printhistoryentry(contener, html, key, index) {
+    printHISTORYENTRY(contener, html, key, index) {
         const text = contener.getElementById(key).innerHTML;
 
         let done = false;
@@ -586,11 +639,11 @@ class CLISIDE_CVPRINT extends CLISIDE_BASE {
  *************************************************************************************/
 
 ///@brief CV asynchronous loader
-class CLISIDE_CVLOADER extends CLISIDE_LOADER {
+export class CLISIDE_CVLOADER extends CLISIDE_LOADER {
 
     /// @brief ctor
-    constructor() {
-        super("cliside_CVphpgetdata");
+    constructor(id) {
+        super("cliside_CVphpgetdata", id);
     }
 
 }
@@ -600,11 +653,11 @@ class CLISIDE_CVLOADER extends CLISIDE_LOADER {
  *************************************************************************************/
 /// @brief main entry function which fills the CV.html page. Called during page load
 /// @returns 1 desc
-function cliside_CVpageload(contener) {
+export function cliside_CVpageload(contener) {
     try {
-        const CVcr = new CLISIDE_CVCREATE();
-        const loader = new CLISIDE_CVLOADER();
+        const CVcr = new CLISIDE_CVCREATE(-1);
 
+        const loader = new CLISIDE_CVLOADER(-1);
         data_CVmap.forEach((entry, index) => {
             //-----------------------------------------------------
             // parse LEFT side using schema:
@@ -612,10 +665,12 @@ function cliside_CVpageload(contener) {
             //  entry["cbk"],
             //-----------------------------------------------------
             if("left" === entry["side"]) {
-                loader.remotegetdata(CVcr,
+                loader.remotegetbatch(contener,
+                    CVcr,
                     entry["data"],
-                    (CV, detail) => {
-                        entry["cbk"](CV, detail);
+                    null,
+                    (cr, data) => {
+                        entry["cbk"](contener, cr, data);
                     }
                 );
             }
@@ -631,8 +686,8 @@ function cliside_CVpageload(contener) {
                     entry["boite"],
                     entry["boulots"],
                     entry["progress"],
-                    (CV, boite, boulots) => {
-                        CV.fillrightside(contener, boite, boulots);
+                    (cr, desc, content) => {
+                        cr.fillrightside(contener, desc, content);
                     }
                 );
             }
@@ -650,10 +705,9 @@ function cliside_CVpageload(contener) {
 
 /// @brief print function
 /// @param contener
-function cliside_CVpageprint(contener)
-{
+export function cliside_CVpageprint(contener) {
     try {
-        const CVpr = new CLISIDE_CVPRINT();
+        const CVpr = new CLISIDE_CVPRINT(-1);
 
         let html = "<html>";
 
@@ -662,14 +716,14 @@ function cliside_CVpageprint(contener)
         //-----------------------------------------------------
         html+= "____________________________________________________________________<br>";
         html+= "____________________________________________________________________<br>";
-        html = CVpr.printtitle(html, data_CVstructleft[0][0]);
-        html = CVpr.printinfo(html, data_CVstructleft[1][0]);
+        html = CVpr.printTITLE(html, data_CVstructleft[0][0]);
+        html = CVpr.printINFO(html, data_CVstructleft[1][0]);
         html+= "<br>";
-        html = CVpr.printexperience(html, data_CVstructleft[2][0]);
+        html = CVpr.printEXPERIENCE(html, data_CVstructleft[2][0]);
         html+= "<br>";
-        html = CVpr.printdetails(html, data_CVstructleft[3]);
+        html = CVpr.printDETAILS(html, data_CVstructleft[3]);
         html+= "<br>";
-        html = CVpr.printdetails(html, data_CVstructleft[4]);
+        html = CVpr.printDETAILS(html, data_CVstructleft[4]);
 
         //-----------------------------------------------------
         // parse RIGHT side
@@ -679,7 +733,9 @@ function cliside_CVpageprint(contener)
         data_CVstructright.forEach((entry, index) => {
             html = CVpr.printrightside(html,
                 entry,
-                (html, key, index) => { return CVpr.printhistoryentry(contener, html, key, index); }
+                (html, key, index) => {
+                    return CVpr.printHISTORYENTRY(contener, html, key, index);
+                }
             );
         });
 

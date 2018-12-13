@@ -143,3 +143,58 @@ transform: rotate(90deg);
 .active {
     display: block;
 }
+
+/* --------- CODEBOX --------- */
+/* from https://stackoverflow.com/questions/41306797/html-how-to-add-line-numbers-to-a-source-code-block*/
+.codebox {
+    border:1px solid black;
+    background-color:#EEEEFF;
+    white-space: pre-line;
+    padding:10px;
+    font-size:0.9em;
+    display: inline-block;
+}
+pre.code {
+    display: table;
+    table-layout: fixed;
+    width: 100%; /* anything but auto, otherwise fixed layout not guaranteed */
+    white-space: pre-wrap;
+}
+pre.code::before {
+    counter-reset: linenum;
+}
+pre.code span.tr {
+    display: table-row;
+    counter-increment: linenum;
+}
+pre.code span.th { /* used for line numbers */
+    display: table-cell;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+pre.code span.th::before {
+    content: counter(linenum);
+    text-align: right;
+    display: block;
+}
+pre.code span.th {
+    width: 4em; /* or whatever the desired width of the numbers column is */
+}
+pre.code code {
+    display: table-cell;
+}
+
+/* --------- MULTICOLUMS --------- */
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}

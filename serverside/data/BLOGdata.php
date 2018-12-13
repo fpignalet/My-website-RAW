@@ -10,6 +10,70 @@
 $data_BNloadsleep = 100000;
 
 //-----------------------------------------------------------------------------------------------------------
+$data_BTdesc18 = array(
+
+    "blog_entry18TITLE" =>
+        "Today's sandbox",
+
+    "blog_entry18DATE" => [
+        "December 13, 2018",
+        "Some more tricks"
+    ]
+
+);
+
+$data_BTcontent18 = array(
+
+    "blog_entry18CONTENT" => [
+        //TECH BLOG, no dynamic content
+
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
+$data_BNdesc17 = array(
+
+    "blog_entry17TITLE" =>
+        "Different bug fixes",
+
+    "blog_entry17DATE" => [
+        "December 10, 2018",
+        "Some more improvement"
+    ]
+
+);
+
+$data_BNcontent17 = array(
+
+    "blog_entry17CONTENT" => [
+        [ "p", [
+            "Fixed bug with entry page navbar for small screens"
+        ]],
+        [ "ul", [
+            "it was a stupid space before a parameter",
+        ]],
+
+        [ "p", [
+            "Can multi-instantiate game canvas",
+        ]],
+        [ "ul", [
+            "see Technical Blog for details",
+        ]],
+
+        [ "p", [
+            "Now \"ALL CLASSES\", see in Github for latest version available"
+        ]],
+        [ "ul", [
+            [ "https://github.com/fpignalet/canvas-game-bootstrap", "for canvas game" ],
+            [ "https://github.com/fpignalet/My-website-RAW", "for Web site" ]
+        ]],
+
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
 $data_BTdesc16 = array(
 
     "blog_entry16TITLE" =>
@@ -17,7 +81,7 @@ $data_BTdesc16 = array(
 
     "blog_entry16DATE" => [
         "December 5, 2018",
-        "Tryin' GoJS"
+        "Some tricks"
     ]
 
 );
@@ -481,6 +545,12 @@ $data_BNcontent1 = array(
 
 //-----------------------------------------------------------------------------------------------------------
 $data_BLOGdatamap = array(
+
+    "data_BTdesc18" => $data_BTdesc18,
+    "data_BTcontent18" => $data_BTcontent18,
+
+    "data_BNdesc17" => $data_BNdesc17,
+    "data_BNcontent17" => $data_BNcontent17,
 
     "data_BTdesc16" => $data_BTdesc16,
     "data_BTcontent16" => $data_BTcontent16,
