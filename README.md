@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://github.com/fpignalet/My-website-RAW" title="My Website Documentation">
-    <img alt="My website" src="https://github.com/fpignalet/My-website-RAW/blob/master/images/WP_20180821_17_57_49_Pro.jpg" width="200px" height="200px" />
+    <img alt="My website" src="https://github.com/fpignalet/My-website-RAW/blob/master/images/WP_20180821_17_57_49_Pro.jpg" />
   </a>
   <br />
   My Website
