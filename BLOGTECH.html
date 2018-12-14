@@ -7,7 +7,7 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="pragma" content="no-cache" />
+        <!-- meta http-equiv="pragma" content="no-cache" / -->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- EXTERNAL RESSOURCES -->
@@ -35,7 +35,7 @@
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <body class="w3-light-grey" onload="window.cliside_BLOGTECHpageload(document)">
+    <body class="w3-light-grey" onload="window.cliside_BLOGTECHpageload(document)" onbeforeunload="window.cliside_BLOGTECHpageunload(document)">
     <!-- -------------------------------------------------------------------------------------------------------------->
 
         <!-- w3-content defines a container for fixed size centered content,
@@ -92,7 +92,7 @@
                                             It's possible to be pure OOP, using only classes exactly like other langages
                                         </li>
                                         <li>
-                                            Classes need to exported like this:
+                                            Classes need to be exported like this:
                                             <br>
                                             <code class="codebox" id="codebox5">
                                                 ...
@@ -101,18 +101,19 @@
                                             </code>
                                         </li>
                                         <li>
-                                            Classes need to imported like this:
+                                            Classes need to be imported like this:
                                             <br>
                                             <code class="codebox" id="codebox6">
-                                                ...
+                                                < script type="module" >
                                                 import {
                                                 CLISIDE_LOADER
                                                 } from "./clientside/clientside.js";
-                                                ...
+                                                < /script >
                                             </code>
                                             <br>
-                                            It's important to specify the ".js" postfix, otherwise there is sometimes
-                                            loading issues.
+                                            It's important to specify the script type="module", otherwise import / export return error.
+                                            <br>
+                                            It's important to specify the ".js" postfix, otherwise there is sometimes loading issues.
                                         </li>
                                     </ul>
                                 </div>
@@ -339,11 +340,13 @@
                                 </li>
                             </ul>
                             <ul id="htreedemo"></ul>
+                            <!-- -------------------------------------------------------------------------------------------------------------->
+                            <!-- JS IMPLEMENTATION -->
+                            <!-- -------------------------------------------------------------------------------------------------------------->
                             <script type="module">
                                 import {
                                     cliside_BTECHtestsremote
                                 } from "./clientside/clientsideBLOG.js";
-
                                 cliside_BTECHtestsremote.testphp7();
                                 cliside_BTECHtestsremote.testphp6(document, null, "htreedemo");
                             </script>
@@ -370,6 +373,15 @@
                             <br>
                             <div id="reacttodojsx"></div>
                             <br>
+
+                            <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin>
+                            </script>
+                            <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin>
+                            </script>
+                            <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js">
+                            </script>
+                            <script type="text/babel" src="clientside/clientsideREACT.js">
+                            </script>
 
                             <script type="text/babel">
                                 // Specific sandbox content is not outside processed
@@ -443,7 +455,7 @@
                             <script type="module">
                                 // Specific sandbox content is not outside processed
                                 import {
-                                    cliside_BTECHtestslocal
+                                    cliside_BTECHtestslocal,
                                 } from "./clientside/clientsideBLOG.js";
                                 try {
                                     cliside_BTECHtestslocal.testangular("testapp", "testctrl");
@@ -544,7 +556,6 @@
                                     import {
                                         cliside_BTECHtestslocal
                                     } from "./clientside/clientsideBLOG.js";
-                                    // Specific sandbox content is not outside processed
                                     try {
                                         cliside_BTECHtestslocal.testhello(document, "hello_area");
                                         cliside_BTECHtestslocal.testcount(document, "count_area");
@@ -569,13 +580,13 @@
                                             import {
                                                 cliside_BTECHtestsremote
                                             } from "./clientside/clientsideBLOG.js";
-                                            window.cliside_BTECHtestsremote = cliside_BTECHtestsremote;
+                                            window.tstrem = cliside_BTECHtestsremote;
                                         </script>
                                         <b>First try: </b>
-                                        <input type="text" onkeyup="window.cliside_BTECHtestsremote.testphp1(document, this.value, 'txtHint')">
+                                        <input type="text" onkeyup="window.tstrem.testphp1(document, this.value, 'txtHint')">
                                         <br>
                                         <b>Second try: </b>
-                                        <input type="text" onkeyup="window.cliside_BTECHtestsremote.testphp1(document, this.value, 'txtHint')">
+                                        <input type="text" onkeyup="window.tstrem.testphp1(document, this.value, 'txtHint')">
                                     </form>
                                     <div>
                                         <b>Suggestions: </b>
@@ -595,6 +606,9 @@
                                 </p>
                                 <script type="module">
                                     // Specific sandbox content is not outside processed
+                                    import {
+                                        cliside_BTECHtestsremote
+                                    } from "./clientside/clientsideBLOG.js";
                                     try {
                                         cliside_BTECHtestsremote.testphp3(document, null, "params_area1");
                                         cliside_BTECHtestsremote.testphp4(document, null, "params_area2");
@@ -616,6 +630,9 @@
 
                                 </p>
                                 <script type="module">
+                                    import {
+                                        cliside_BTECHtestsremote
+                                    } from "./clientside/clientsideBLOG.js";
                                     try {
                                         // Specific sandbox content is not outside processed
                                         cliside_BTECHtestsremote.testphp2(document, null, "bdResult");
@@ -683,20 +700,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
         </script>
 
-        <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin>
-        </script>
-        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin>
-        </script>
-        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js">
-        </script>
-        <script type="text/babel" src="clientside/clientsideREACT.js">
-        </script>
-
         <script type="module">
             import {
-                cliside_BLOGTECHpageload
+                cliside_BLOGTECHpageload,
+                cliside_BLOGTECHpageunload
             } from "./clientside/clientsideBLOG.js";
             window.cliside_BLOGTECHpageload = cliside_BLOGTECHpageload;
+            window.cliside_BLOGTECHpageunload = cliside_BLOGTECHpageunload;
         </script>
 
     </body>
