@@ -42,3 +42,7 @@ You are free to take my source code and modify it to create your own resume.
 Please don't use my resume for anything else without my permission, though!
 
 If you have any questions, feel free to join me with francois.pignalet@gmail.com and ask away.
+
+## Annexes
+
+[![DeepScan grade](https://deepscan.io/api/teams/2575/projects/3746/branches/32484/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=2575&pid=3746&bid=32484)
