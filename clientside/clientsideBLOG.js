@@ -561,9 +561,9 @@ export function cliside_BLOGTECHpageload(contener) {
     }
 }
 
-export function cliside_BLOGTECHpageunload(contener) {
+export function cliside_BLOGTECHpageunload(contener, index) {
     try {
-        let core = Multiple.get(Core.IDENT(), core.index);
+        let core = Multiple.get(Core.IDENT(), index);
         core.isPageOver = true;
 
     }
