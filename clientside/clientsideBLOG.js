@@ -6,6 +6,7 @@ import {
 } from "./clientside.js";
 
 import {
+    /*
     data_BLOGcontent1,
     data_BLOGcontent2,
     data_BLOGcontent3,
@@ -38,6 +39,7 @@ import {
     data_BLOGdesc15,
     data_BLOGdesc16,
     data_BLOGdesc17,
+    */
     data_BNEWSlasts,
     data_BNEWSmap,
     data_BNEWSstruct,
@@ -45,6 +47,9 @@ import {
     data_BTECHmap,
     data_BTECHstruct,
 } from "./data/BLOGdata.js";
+
+import Multiple from "./game/js/lib/instances.js";
+import Core from "./game/js/impl/core.js";
 
 /*************************************************************************************
  *************************************************************************************
@@ -546,6 +551,20 @@ export function cliside_BLOGTECHpageload(contener) {
                 }
             );
         })
+
+    }
+    catch (e) {
+        console.log(e.name)
+    }
+    finally {
+        //...
+    }
+}
+
+export function cliside_BLOGTECHpageunload(contener) {
+    try {
+        let core = Multiple.get(Core.IDENT(), core.index);
+        core.isPageOver = true;
 
     }
     catch (e) {

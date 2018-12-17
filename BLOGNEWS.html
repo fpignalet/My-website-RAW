@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
@@ -7,7 +8,7 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="pragma" content="no-cache" />
+        <!-- meta http-equiv="pragma" content="no-cache" / -->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- EXTERNAL RESSOURCES -->
@@ -36,7 +37,8 @@
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <body class="w3-light-grey" onload="window.cliside_BLOGNEWSpageload(document)">
+    <!-- body class="w3-light-grey" onload="window.BLOGNEWSpageload(document)" -->
+    <body class="w3-light-grey">
     <!-- -------------------------------------------------------------------------------------------------------------->
 
         <!-- w3-content defines a container for fixed size centered content,
@@ -336,7 +338,8 @@
             import {
                 cliside_BLOGNEWSpageload
             } from "./clientside/clientsideBLOG.js";
-            window.cliside_BLOGNEWSpageload = cliside_BLOGNEWSpageload;
+//            window.BLOGNEWSpageload = cliside_BLOGNEWSpageload;
+            window.onload = cliside_BLOGNEWSpageload(document);
         </script>
 
     </body>

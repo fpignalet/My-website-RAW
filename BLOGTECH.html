@@ -35,7 +35,8 @@
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <body class="w3-light-grey" onload="window.cliside_BLOGTECHpageload(document)" onbeforeunload="window.cliside_BLOGTECHpageunload(document)">
+    <!-- body class="w3-light-grey" onload="window.BLOGTECHpageload(document)" onbeforeunload="window.BLOGTECHpageunload(document)" -->
+    <body class="w3-light-grey">
     <!-- -------------------------------------------------------------------------------------------------------------->
 
         <!-- w3-content defines a container for fixed size centered content,
@@ -134,18 +135,6 @@
                                 <div class="column" style="background-color:#aaa;">
                                     <code class="codebox" id="codebox1">
                                     </code>
-                                    <script type="module">
-                                        import {
-                                            CLISIDE_LOADER
-                                        } from "./clientside/clientside.js";
-
-                                        const loader = new CLISIDE_LOADER();
-                                        loader.target = "./clientside/game/js/lib/instances.js";
-                                        loader.getdataraw(null, (result) => {
-                                            const it = document.getElementById("codebox1");
-                                            it.appendChild(document.createTextNode(result));
-                                        });
-                                    </script>
                                 </div>
                                 <div class="column" style="background-color:#bbb;">
                                     <h2>Multi canvas instances</h2>
@@ -282,20 +271,6 @@
 
                         </div>
 
-                        <script type="module">
-                            import Multiple from "./clientside/game/js/lib/instances.js";
-                            import Core from "./clientside/game/js/impl/core.js";
-                            import execute from "./clientside/game/js/lib/execute.js";
-                            import {
-                                app_settings,
-                                app_guimap,
-                                app_images
-                            } from "./clientside/game/js/embset.js";
-
-                            const core = new Core(app_settings, app_guimap, "canvas0");
-                            execute(app_images, Multiple.get(Core.IDENT(), core.index));
-                        </script>
-
                     </div>
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
@@ -340,16 +315,6 @@
                                 </li>
                             </ul>
                             <ul id="htreedemo"></ul>
-                            <!-- -------------------------------------------------------------------------------------------------------------->
-                            <!-- JS IMPLEMENTATION -->
-                            <!-- -------------------------------------------------------------------------------------------------------------->
-                            <script type="module">
-                                import {
-                                    cliside_BTECHtestsremote
-                                } from "./clientside/clientsideBLOG.js";
-                                cliside_BTECHtestsremote.testphp7();
-                                cliside_BTECHtestsremote.testphp6(document, null, "htreedemo");
-                            </script>
                         </div>
 
                     </div>
@@ -403,40 +368,6 @@
                     <!-- Javascript generated HTML -->
                     <!-- ------------------------------------------------------------------ -->
                     <div id="blog_entry8" class="w3-card-4 w3-margin w3-white">
-                        <script type="module">
-                            // Specific sandbox content is not outside processed
-                            import {
-                                cliside_BTECHtestslocal
-                            } from "./clientside/clientsideBLOG.js";
-                            try {
-                                let html = cliside_BTECHtestslocal.testdyn(
-                                    // HEADER:
-                                    'blog_entry8',
-                                    'images/gears-686316_640.jpg',
-                                    'Today\'s sandbox',
-                                    'August 25, 2018',
-                                    'Dynamic test',
-                                    // CONTENU:
-                                    '<ul>\n' +
-                                    '    <li>dynamic blog entry: generating html with javascript\n' +
-                                    '        <ul>\n' +
-                                    '            <li>sub item 1</li>\n' +
-                                    '            <li>sub item 2</li>\n' +
-                                    '        </ul>\n' +
-                                    '    </li>\n' +
-                                    '</ul>\n'
-                                );
-
-                                document.getElementById("blog_entry8").innerHTML = html;
-                            }
-                            catch (e) {
-                                console.log(e.name)
-                            }
-                            finally {
-                                //...
-                            }
-
-                        </script>
                     </div>
                     <!-- ------------------------------------------------------------------ -->
                     <!-- Blog entry -->
@@ -452,21 +383,6 @@
                         </div>
                         <div id="blog_entry7CONTENT" class="w3-container">
 
-                            <script type="module">
-                                // Specific sandbox content is not outside processed
-                                import {
-                                    cliside_BTECHtestslocal,
-                                } from "./clientside/clientsideBLOG.js";
-                                try {
-                                    cliside_BTECHtestslocal.testangular("testapp", "testctrl");
-                                }
-                                catch (e) {
-                                    console.log(e.name)
-                                }
-                                finally {
-                                    //...
-                                }
-                            </script>
                             <div class="w3-container"
                                  ng-app="testapp"
                                  ng-controller="testctrl"
@@ -552,21 +468,6 @@
                                     <div id="count_area">This text should be replaced.</div>
 
                                 </p>
-                                <script type="module">
-                                    import {
-                                        cliside_BTECHtestslocal
-                                    } from "./clientside/clientsideBLOG.js";
-                                    try {
-                                        cliside_BTECHtestslocal.testhello(document, "hello_area");
-                                        cliside_BTECHtestslocal.testcount(document, "count_area");
-                                    }
-                                    catch (e) {
-                                        console.log(e.name)
-                                    }
-                                    finally {
-                                        //...
-                                    }
-                                </script>
                             </div>
 
                             <!------------------ TESTS REMOTE DIRECT ------------------>
@@ -576,17 +477,11 @@
                                         <b>Remotely obtained data: start typing a name in the input field below to get an answer from the server</b>
                                     </div>
                                     <form>
-                                        <script type="module">
-                                            import {
-                                                cliside_BTECHtestsremote
-                                            } from "./clientside/clientsideBLOG.js";
-                                            window.tstrem = cliside_BTECHtestsremote;
-                                        </script>
                                         <b>First try: </b>
-                                        <input type="text" onkeyup="window.tstrem.testphp1(document, this.value, 'txtHint')">
+                                        <input type="text" onkeyup="window.testsremote.testphp1(document, this.value, 'txtHint')">
                                         <br>
                                         <b>Second try: </b>
-                                        <input type="text" onkeyup="window.tstrem.testphp1(document, this.value, 'txtHint')">
+                                        <input type="text" onkeyup="window.testsremote.testphp1(document, this.value, 'txtHint')">
                                     </form>
                                     <div>
                                         <b>Suggestions: </b>
@@ -604,23 +499,6 @@
                                     <div><b>parameters 3: </b><span id="params_area3"></span></div>
 
                                 </p>
-                                <script type="module">
-                                    // Specific sandbox content is not outside processed
-                                    import {
-                                        cliside_BTECHtestsremote
-                                    } from "./clientside/clientsideBLOG.js";
-                                    try {
-                                        cliside_BTECHtestsremote.testphp3(document, null, "params_area1");
-                                        cliside_BTECHtestsremote.testphp4(document, null, "params_area2");
-                                        cliside_BTECHtestsremote.testphp5(document, null, "params_area3");
-                                    }
-                                    catch (e) {
-                                        console.log(e.name)
-                                    }
-                                    finally {
-                                        //...
-                                    }
-                                </script>
                             </div>
 
                             <!------------------ TESTS REMOTE BD ------------------>
@@ -629,21 +507,6 @@
                                     <div><b>BD Contents: </b><span id="bdResult"></span></div>
 
                                 </p>
-                                <script type="module">
-                                    import {
-                                        cliside_BTECHtestsremote
-                                    } from "./clientside/clientsideBLOG.js";
-                                    try {
-                                        // Specific sandbox content is not outside processed
-                                        cliside_BTECHtestsremote.testphp2(document, null, "bdResult");
-                                    }
-                                    catch (e) {
-                                        console.log(e.name)
-                                    }
-                                    finally {
-                                        //...
-                                    }
-                                </script>
                             </div>
 
                         </div>
@@ -703,10 +566,81 @@
         <script type="module">
             import {
                 cliside_BLOGTECHpageload,
-                cliside_BLOGTECHpageunload
+                cliside_BLOGTECHpageunload,
+                cliside_BTECHtestslocal,
+                cliside_BTECHtestsremote
             } from "./clientside/clientsideBLOG.js";
-            window.cliside_BLOGTECHpageload = cliside_BLOGTECHpageload;
-            window.cliside_BLOGTECHpageunload = cliside_BLOGTECHpageunload;
+            import Multiple from "./clientside/game/js/lib/instances.js";
+            import Core from "./clientside/game/js/impl/core.js";
+            import execute from "./clientside/game/js/lib/execute.js";
+            import {
+                app_settings,
+                app_guimap,
+                app_images
+            } from "./clientside/game/js/embset.js";
+            import {
+                CLISIDE_LOADER
+            } from "./clientside/clientside.js";
+            //-----------------------------------------------------------
+            try {
+                window.onload = cliside_BLOGTECHpageload(document);
+//                window.onunload = cliside_BLOGTECHpageunload(document);
+                window.testslocal = cliside_BTECHtestslocal;
+                window.testsremote = cliside_BTECHtestsremote; //testphp1
+
+                cliside_BTECHtestslocal.testhello(document, "hello_area");
+                cliside_BTECHtestslocal.testcount(document, "count_area");
+
+                cliside_BTECHtestsremote.testphp2(document, null, "bdResult");
+
+                cliside_BTECHtestsremote.testphp3(document, null, "params_area1");
+                cliside_BTECHtestsremote.testphp4(document, null, "params_area2");
+                cliside_BTECHtestsremote.testphp5(document, null, "params_area3");
+
+                cliside_BTECHtestsremote.testphp6(document, null, "htreedemo");
+                cliside_BTECHtestsremote.testphp7();
+
+                cliside_BTECHtestslocal.testangular("testapp", "testctrl");
+
+                let html = window.testslocal.testdyn(
+                    // HEADER:
+                    'blog_entry8',
+                    'images/gears-686316_640.jpg',
+                    'Today\'s sandbox',
+                    'August 25, 2018',
+                    'Dynamic test',
+                    // CONTENU:
+                    '<ul>\n' +
+                    '    <li>dynamic blog entry: generating html with javascript\n' +
+                    '        <ul>\n' +
+                    '            <li>sub item 1</li>\n' +
+                    '            <li>sub item 2</li>\n' +
+                    '        </ul>\n' +
+                    '    </li>\n' +
+                    '</ul>\n'
+                );
+
+                document.getElementById("blog_entry8").innerHTML = html;
+
+                const core = new Core(app_settings, app_guimap, "canvas0");
+                execute(app_images, Multiple.get(Core.IDENT(), core.index));
+
+
+                const loader = new CLISIDE_LOADER();
+                loader.target = "./clientside/game/js/lib/instances.js";
+                loader.getdataraw(null, (result) => {
+                    const it = document.getElementById("codebox1");
+                    it.appendChild(document.createTextNode(result));
+                });
+
+            }
+            catch (e) {
+                console.log(e.name)
+            }
+            finally {
+                //...
+            }
+
         </script>
 
     </body>

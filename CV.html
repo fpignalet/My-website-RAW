@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
@@ -7,7 +8,7 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="pragma" content="no-cache" />
+        <!-- meta http-equiv="pragma" content="no-cache" / -->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- EXTERNAL RESSOURCES -->
@@ -38,7 +39,8 @@
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <body class="w3-light-grey" onload="window.cliside_CVpageload(document)">
+    <!-- body class="w3-light-grey" onload="window.cliside_CVpageload(document)" -->
+    <body class="w3-light-grey">
     <!-- -------------------------------------------------------------------------------------------------------------->
 
         <div class="w3-content w3-margin-top" style="max-width:1800px;">
@@ -85,7 +87,7 @@
 
                             </div>
 
-                            <input type="button" class="w3-button w3-block w3-theme-l1 w3-left-align" value="Print (under construction...)" onclick="window.cliside_CVpageprint(document)" />
+                            <input type="button" class="w3-button w3-block w3-theme-l1 w3-left-align" value="Print (under construction...)" onclick="window.pageprint(document)" />
 
                             <hr>
 
@@ -474,8 +476,9 @@
                 cliside_CVpageload,
                 cliside_CVpageprint
             } from "./clientside/clientsideCV.js";
-            window.cliside_CVpageload = cliside_CVpageload;
-            window.cliside_CVpageprint = cliside_CVpageprint;
+//            window.cliside_CVpageload = cliside_CVpageload;
+            window.onload = cliside_CVpageload(document);
+            window.pageprint = cliside_CVpageprint;
         </script>
 
     </body>

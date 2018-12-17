@@ -7,6 +7,7 @@ import {
 } from "./clientside.js";
 
 import {
+    /*
     data_CVbildung1,
     data_CVbildung11,
     data_CVbildung12,
@@ -42,13 +43,14 @@ import {
     data_CVinfo,
     data_CVlangentries,
     data_CVlanghead,
-    data_CVmap,
-    data_CVprintindexes,
     data_CVskillsentries,
     data_CVskillshead,
+    data_CVtitle,
+    */
+    data_CVmap,
     data_CVstructleft,
     data_CVstructright,
-    data_CVtitle
+    data_CVprintindexes
 } from "./data/CVdata.js";
 
 /*************************************************************************************

@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
@@ -7,7 +8,7 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="pragma" content="no-cache" />
+        <!-- meta http-equiv="pragma" content="no-cache" / -->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- EXTERNAL RESSOURCES -->
@@ -15,6 +16,11 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- link rel="modulepreload" href="./clientside/clientside.js">
+        <link rel="modulepreload" href="./clientside/clientsideCV.js">
+        <link rel="modulepreload" href="./clientside/clientsideBLOG.js">
+        <link rel="modulepreload" href="./clientside/clientsideENTRY.js" -->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- STYLE SHEETS -->
@@ -43,7 +49,8 @@
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <body onload="window.cliside_ENTRYpageload(document)">
+    <!-- body onload="window.ENTRYpageload(document)" -->
+    <body class="w3-light-grey">
     <!-- -------------------------------------------------------------------------------------------------------------->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
@@ -54,7 +61,7 @@
             <div class="w3-bar" id="entry_navbar">
                 <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
                    href="javascript:void(0);"
-                   onclick="clientside_navtoggle(document, 'navDemo')"
+                   onclick="window.ENTRYnavtoggle(document, 'navDemo')"
                    title="Toggle Navigation Menu">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -80,11 +87,11 @@
             </div>
             <!-- on small screens -->
             <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-                <a id="navDemo2" href="#about" class="w3-bar-item w3-button" onclick="clientside_navtoggle(document, 'navDemo')"></a>
-                <a id="navDemo3" href="#portfolio2" class="w3-bar-item w3-button" onclick="clientside_navtoggle(document, 'navDemo')"></a>
-                <a id="navDemo4" href="#portfolio1" class="w3-bar-item w3-button" onclick="clientside_navtoggle(document, 'navDemo')"></a>
-                <a id="navDemo5" href="#contact" class="w3-bar-item w3-button" onclick="clientside_navtoggle(document, 'navDemo')"></a>
-                <a id="navDemo6" href="impressum.html" class="w3-bar-item w3-button" onclick="clientside_navtoggle(document, 'navDemo')"></a>
+                <a id="navDemo2" href="#about" class="w3-bar-item w3-button" onclick="window.clientside_navtoggle(document, 'navDemo')"></a>
+                <a id="navDemo3" href="#portfolio2" class="w3-bar-item w3-button" onclick="window.clientside_navtoggle(document, 'navDemo')"></a>
+                <a id="navDemo4" href="#portfolio1" class="w3-bar-item w3-button" onclick="window.clientside_navtoggle(document, 'navDemo')"></a>
+                <a id="navDemo5" href="#contact" class="w3-bar-item w3-button" onclick="window.clientside_navtoggle(document, 'navDemo')"></a>
+                <a id="navDemo6" href="impressum.html" class="w3-bar-item w3-button" onclick="window.clientside_navtoggle(document, 'navDemo')"></a>
 
             </div>
         </div>
@@ -167,13 +174,13 @@
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
                         <img id="pf2img1" style="width:100%"
-                             onclick="window.cliside_ENTRYmodalnews(document, this, 0)"
+                             onclick="window.ENTRYmodalnews(document, this, 0)"
                              class="w3-hover-opacity" alt="BLOGNEWS entry 0">
                     </div>
 
                     <div class="w3-col m6">
                         <img id="pf2img2" style="width:100%"
-                             onclick="window.cliside_ENTRYmodalnews(document, this, 1)"
+                             onclick="window.ENTRYmodalnews(document, this, 1)"
                              class="w3-hover-opacity" alt="BLOGNEWS entry 1">
                     </div>
 
@@ -212,13 +219,13 @@
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
                         <img id="pf1img1" style="width:100%"
-                             onclick="window.cliside_ENTRYmodaltech(document, this, 0)"
+                             onclick="window.ENTRYmodaltech(document, this, 0)"
                              class="w3-hover-opacity" alt="BLOGTECH entry 0">
                     </div>
 
                     <div class="w3-col m6">
                         <img id="pf1img2" style="width:100%"
-                             onclick="window.cliside_ENTRYmodaltech(document, this, 1)"
+                             onclick="window.ENTRYmodaltech(document, this, 1)"
                              class="w3-hover-opacity" alt="BLOGTECH entry 1">
                     </div>
 
@@ -259,7 +266,7 @@
                     </p>
 
                     <!-- Feedback fields. Will send an email on submit (SEND MESSAGE button) -->
-                    <form action="javascript:window.cliside_ENTRYpagefbk(document)">
+                    <form action="javascript:window.ENTRYpagefbk(document)">
 
                         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
                             <div class="w3-half">
@@ -358,33 +365,31 @@
         </div>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- -------------------------------------------------------------------------------------------------------------->
-        <script type="module">
-            window.onscroll = function() {
-                window.clientside_navscroll(document, "entry_navbar")
-            };
-
-        </script>
-
-        <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- JS IMPLEMENTATION -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <script type="module">
-            import {
-                clientside_navscroll
-            } from "./clientside/clientside.js";
-            window.clientside_navscroll = clientside_navscroll;
-
             import {
                 cliside_ENTRYpageload,
                 cliside_ENTRYmodalnews,
                 cliside_ENTRYmodaltech,
                 cliside_ENTRYpagefbk
             } from "./clientside/clientsideENTRY.js";
-            window.cliside_ENTRYpageload = cliside_ENTRYpageload;
-            window.cliside_ENTRYmodalnews = cliside_ENTRYmodalnews;
-            window.cliside_ENTRYmodaltech = cliside_ENTRYmodaltech;
-            window.cliside_ENTRYpagefbk = cliside_ENTRYpagefbk;
+//            window.ENTRYpageload = cliside_ENTRYpageload;
+            window.onload = cliside_ENTRYpageload(document);
+            window.ENTRYmodalnews = cliside_ENTRYmodalnews;
+            window.ENTRYmodaltech = cliside_ENTRYmodaltech;
+            window.ENTRYpagefbk = cliside_ENTRYpagefbk;
+
+            import {
+                clientside_navscroll,
+                clientside_navtoggle
+            } from "./clientside/clientside.js";
+            window.ENTRYnavscroll = clientside_navscroll;
+            window.ENTRYnavtoggle = clientside_navtoggle;
+            window.onscroll = function() {
+                window.ENTRYnavscroll(document, "entry_navbar")
+            };
+
         </script>
 
     </body>
