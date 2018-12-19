@@ -29,8 +29,8 @@ The main features that have currently been implemented are:
 ## Quick Start
 
 To use a test BD:
-* create a database using serverside/database.xml
-* update the serverside/BDdata.php file
+* create a database using serverside/data/database.xml
+* update the serverside/data/BDdata.php file
 
 ## Credit
 
