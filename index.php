@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
@@ -8,12 +7,13 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- meta http-equiv="pragma" content="no-cache" / -->
+        <meta http-equiv="pragma" content="no-cache" />
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- EXTERNAL RESSOURCES -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -25,18 +25,16 @@
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- STYLE SHEETS -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <link rel="stylesheet" href="./clientside/clientside.css">
+        <link rel="stylesheet" href="clientside/css/clientside.css">
         <style>
             body,h1,h2,h3,h4,h5,h6 {
                 font-family: "Lato", sans-serif;
             }
-
             body, html {
                 height: 100%;
                 color: #777;
                 line-height: 1.8;
             }
-
         </style>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
@@ -54,9 +52,11 @@
     <!-- -------------------------------------------------------------------------------------------------------------->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- NAVBARS / MENUS -->
         <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- NAVBARS / MENUS -->
         <div class="w3-top">
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- -------------------------------------------------------------------------------------------------------------->
             <!-- sit on top -->
             <div class="w3-bar" id="entry_navbar">
                 <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
@@ -87,17 +87,19 @@
             </div>
             <!-- on small screens -->
             <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-                <a id="navDemo2" href="#about" class="w3-bar-item w3-button" onclick="window.clientside_navtoggle(document, 'navDemo')"></a>
-                <a id="navDemo3" href="#portfolio2" class="w3-bar-item w3-button" onclick="window.clientside_navtoggle(document, 'navDemo')"></a>
-                <a id="navDemo4" href="#portfolio1" class="w3-bar-item w3-button" onclick="window.clientside_navtoggle(document, 'navDemo')"></a>
-                <a id="navDemo5" href="#contact" class="w3-bar-item w3-button" onclick="window.clientside_navtoggle(document, 'navDemo')"></a>
-                <a id="navDemo6" href="impressum.html" class="w3-bar-item w3-button" onclick="window.clientside_navtoggle(document, 'navDemo')"></a>
+                <a id="navDemo2" href="#about" class="w3-bar-item w3-button" onclick="window.ENTRYnavtoggle(document, 'navDemo')"></a>
+                <a id="navDemo3" href="#portfolio2" class="w3-bar-item w3-button" onclick="window.ENTRYnavtoggle(document, 'navDemo')"></a>
+                <a id="navDemo4" href="#portfolio1" class="w3-bar-item w3-button" onclick="window.ENTRYnavtoggle(document, 'navDemo')"></a>
+                <a id="navDemo5" href="#contact" class="w3-bar-item w3-button" onclick="window.ENTRYnavtoggle(document, 'navDemo')"></a>
+                <a id="navDemo6" href="impressum.html" class="w3-bar-item w3-button" onclick="window.ENTRYnavtoggle(document, 'navDemo')"></a>
 
             </div>
         </div>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- First Parallax Image with Logo Text -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- FIRST Parallax Image with Logo Text -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
             <div class="w3-display-middle" style="white-space:nowrap;">
@@ -106,7 +108,6 @@
                 </span>
             </div>
         </div>
-
         <!-- About stripe -->
         <div class="w3-row w3-center w3-dark-grey w3-padding-16">
             <div id="aboutyearstext" class="w3-quarter w3-section">
@@ -122,7 +123,6 @@
                 <span id="abouthoursnum" class="w3-xlarge"></span><br>
             </div>
         </div>
-
         <!-- About Section -->
         <div class="w3-content w3-container w3-padding-64" id="about">
             <h3 class="w3-center">
@@ -142,8 +142,14 @@
                     <div id="entrypresentation">
                     </div>
 
+                    <hr/>
                     <form>
                         <button id="entrycvbutton"></button>
+                    </form>
+
+                    <hr/>
+                    <form>
+                        <button id="entryofferbutton"></button>
                     </form>
                 </div>
 
@@ -152,7 +158,9 @@
         </div>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- Second Parallax Image with BLOG Text -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- SECOND Parallax Image with BLOG Text -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <div class="bgimg-2 w3-display-container w3-opacity-min">
             <div class="w3-display-middle">
@@ -196,7 +204,9 @@
         </div>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- Third Parallax Image with BLOG Text -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- THIRD Parallax Image with BLOG Text -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <div class="bgimg-3 w3-display-container w3-opacity-min">
             <div class="w3-display-middle">
@@ -242,7 +252,9 @@
         </div>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- Fourth Parallax Image with feedback formular -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- FOURTH Parallax Image with feedback formular -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <div class="bgimg-4 w3-display-container w3-opacity-min">
             <div class="w3-display-middle">
@@ -266,7 +278,7 @@
                     </p>
 
                     <!-- Feedback fields. Will send an email on submit (SEND MESSAGE button) -->
-                    <form action="javascript:window.ENTRYpagefbk(document)">
+                    <form action="javascript:window.ENTRYpagefbk(document, { load: 9 })">
 
                         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
                             <div class="w3-half">
@@ -316,79 +328,35 @@
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- Footer -->
+        <div id="footer"></div>
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-            <a href="#home" class="w3-button w3-light-grey">
-                <i class="fa fa-arrow-up w3-margin-right"></i>
-                To the top
-            </a>
-
-            <h6 class="w3-text-teal">
-                Find me on social media.
-            </h6>
-            <div class="w3-xlarge w3-section">
-                <a class="fa fa-facebook-official w3-hover-opacity" href="https://www.facebook.com/francois-pignalet">
-                </a>
-                <a class="fa fa-twitter w3-hover-opacity" href="https://twitter.com/fpignalet">
-                </a>
-                <a class="fa fa-linkedin w3-hover-opacity" href="https://www.linkedin.com/in/françois-pignalet-in-bayern/">
-                </a>
-                <!-- i class="fa fa-instagram w3-hover-opacity">
-                </i>
-                <i class="fa fa-snapchat w3-hover-opacity">
-                </i>
-                <i class="fa fa-pinterest-p w3-hover-opacity">
-                </i -->
-            </div>
-
-            <p>
-                Powered by
-                <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">
-                    w3.css
-                </a>
-            </p>
-
-        </footer>
-
-        <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- Modal utility for full size images on click-->
-        <!-- not visible: will display a modal dialog when a "latest entry sprite" is clicked -->
-        <!-- -------------------------------------------------------------------------------------------------------------->
-        <div id="modaldiv" class="w3-modal w3-black" onclick="this.style.display='none'">
-            <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image">
-                <i class="fa fa-remove"></i>
-            </span>
-            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-                <img id="modalimg" class="w3-image">
-                <p id="modalcaption" class="w3-opacity w3-large"></p>
-            </div>
-        </div>
+        <!-- Modal utility-->
+        <div id="modalutil"></div>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- JS IMPLEMENTATION -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <script type="module">
             import {
-                cliside_ENTRYpageload,
-                cliside_ENTRYmodalnews,
-                cliside_ENTRYmodaltech,
-                cliside_ENTRYpagefbk
-            } from "./clientside/clientsideENTRY.js";
-//            window.ENTRYpageload = cliside_ENTRYpageload;
-            window.onload = cliside_ENTRYpageload(document);
-            window.ENTRYmodalnews = cliside_ENTRYmodalnews;
-            window.ENTRYmodaltech = cliside_ENTRYmodaltech;
-            window.ENTRYpagefbk = cliside_ENTRYpagefbk;
+                cliside_INDEXpageload,
+                cliside_INDEXpagescroll
+            } from "./clientside/js/clientsideIINDEX.js";
 
-            import {
-                clientside_navscroll,
-                clientside_navtoggle
-            } from "./clientside/clientside.js";
-            window.ENTRYnavscroll = clientside_navscroll;
-            window.ENTRYnavtoggle = clientside_navtoggle;
-            window.onscroll = function() {
-                window.ENTRYnavscroll(document, "entry_navbar")
-            };
+            //-----------------------------------------------------------
+            try {
+                window.onload = function() {
+                    cliside_INDEXpageload(document, { create: 0, load: 1 })
+                };
+                window.onscroll = function() {
+                    cliside_INDEXpagescroll(document, "entry_navbar")
+                };
+            }
+            catch (e) {
+                console.log(e.name)
+            }
+            finally {
+                //...
+            }
 
         </script>
 

@@ -1,260 +1,251 @@
 'use strict';
 
 //-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc18 = {
-    "blog_entry18TITLE": "",
-    "blog_entry18DATE": []
-};
-export const data_BLOGcontent18 = {
-    "blog_entry18CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc17 = {
-    "blog_entry17TITLE": "",
-    "blog_entry17DATE": []
-};
-export const data_BLOGcontent17 = {
-    "blog_entry17CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc16 = {
-    "blog_entry16TITLE": "",
-    "blog_entry16DATE": []
-};
-export const data_BLOGcontent16 = {
-    "blog_entry16CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc15 = {
-    "blog_entry15TITLE": "",
-    "blog_entry15DATE": []
-};
-export const data_BLOGcontent15 = {
-    "blog_entry15CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc14 = {
-    "blog_entry14TITLE": "",
-    "blog_entry14DATE": []
-};
-export const data_BLOGcontent14 = {
-    "blog_entry14CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc13 = {
-    "blog_entry13TITLE": "",
-    "blog_entry13DATE": []
-};
-export const data_BLOGcontent13 = {
-    "blog_entry13CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc12 = {
-    "blog_entry12TITLE": "",
-    "blog_entry12DATE": []
-};
-export const data_BLOGcontent12 = {
-    "blog_entry12CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc11 = {
-    "blog_entry11TITLE": "",
-    "blog_entry11DATE": []
-};
-export const data_BLOGcontent11 = {
-    "blog_entry11CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc10 = {
-    "blog_entry10TITLE": "",
-    "blog_entry10DATE": []
-};
-export const data_BLOGcontent10 = {
-    "blog_entry10CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc9 = {
-    "blog_entry9TITLE": "",
-    "blog_entry9DATE": []
-};
-export const data_BLOGcontent91 = {
-    "blog_entry91CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc7 = {
-    "blog_entry7TITLE": "",
-    "blog_entry7DATE": []
-};
-export const data_BLOGcontent7 = {
-    "blog_entry7CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc6 = {
-    "blog_entry6TITLE": "",
-    "blog_entry6DATE": []
-};
-export const data_BLOGcontent6 = {
-    "blog_entry6CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc5 = {
-    "blog_entry5TITLE": "",
-    "blog_entry5DATE": []
-};
-export const data_BLOGcontent5 = {
-    "blog_entry5CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc4 = {
-    "blog_entry4TITLE": "",
-    "blog_entry4DATE": []
-};
-export const data_BLOGcontent4 = {
-    "blog_entry4CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc3 = {
-    "blog_entry3TITLE": "",
-    "blog_entry3DATE": []
-};
-export const data_BLOGcontent3 = {
-    "blog_entry3CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc2 = {
-    "blog_entry2TITLE": "",
-    "blog_entry2DATE": []
-};
-export const data_BLOGcontent2 = {
-    "blog_entry2CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-export const data_BLOGdesc1 = {
-    "blog_entry1TITLE": "",
-    "blog_entry1DATE": []
-};
-export const data_BLOGcontent1 = {
-    "blog_entry1CONTENT": []
-};
-
-//-----------------------------------------------------------------------------------------------------------
-// structs are there to navigate page contents
-export const data_BNEWSstruct = [
-    [data_BLOGdesc17, data_BLOGcontent17],
-    [data_BLOGdesc14, data_BLOGcontent14],
-    [data_BLOGdesc12, data_BLOGcontent12],
-    [data_BLOGdesc10, data_BLOGcontent10],
-    [data_BLOGdesc9, data_BLOGcontent91],
-    [data_BLOGdesc6, data_BLOGcontent6],
-    [data_BLOGdesc4, data_BLOGcontent4],
-    [data_BLOGdesc3, data_BLOGcontent3],
-    [data_BLOGdesc2, data_BLOGcontent2],
-    [data_BLOGdesc1, data_BLOGcontent1]
+/// @brief lasts are used for sprite previews
+export const data_BNEWSlasts = [
+    "blog_entry17PHOTO",
+    "blog_entry14PHOTO"
 ];
 
-export const data_BTECHstruct = [
-    [data_BLOGdesc18, data_BLOGcontent18],
-    [data_BLOGdesc16, data_BLOGcontent16],
-    [data_BLOGdesc15, data_BLOGcontent15],
-    [data_BLOGdesc13, data_BLOGcontent13],
-    [data_BLOGdesc11, data_BLOGcontent11],
-//    [ data_BLOGdesc8, data_BLOGcontent8 ],
-    [data_BLOGdesc7, data_BLOGcontent7],
-    [data_BLOGdesc5, data_BLOGcontent5],
-];
-
-// maps are there to fetch remote data
+/// @brief maps are there to fetch remote data. see serverside/data/BLOGdata.php
 export const data_BNEWSmap = [
     //---------------------------------------
     {
+        loaded: false,
+        side: null,
+        data: null,
+        desc: "data_BNdesc20",
+        content: [ "data_BNcontent20" ],
+        boite: null,
+        boulots: null,
+        progress: ["blog_entry20wait", "blog_entry20progress", "blog_entry20bar"],
+        cbk: null
+    },
+    {
+        loaded: false,
+        side: null,
+        data: null,
         desc: "data_BNdesc17",
         content: [ "data_BNcontent17" ],
+        boite: null,
+        boulots: null,
         progress: ["blog_entry17wait", "blog_entry17progress", "blog_entry17bar"],
+        cbk: null
     },
     {
+        loaded: false,
+        side: null,
+        data: null,
         desc: "data_BNdesc14",
         content: [ "data_BNcontent14" ],
+        boite: null,
+        boulots: null,
         progress: ["blog_entry14wait", "blog_entry14progress", "blog_entry14bar"],
+        cbk: null
     },
     {
+        loaded: false,
+        side: null,
+        data: null,
         desc: "data_BNdesc12",
         content: [ "data_BNcontent12" ],
+        boite: null,
+        boulots: null,
         progress: ["blog_entry12wait", "blog_entry12progress", "blog_entry12bar"],
+        cbk: null
     },
     {
+        loaded: false,
+        side: null,
+        data: null,
         desc: "data_BNdesc10",
         content: [ "data_BNcontent10" ],
+        boite: null,
+        boulots: null,
         progress: ["blog_entry10wait", "blog_entry10progress", "blog_entry10bar"],
+        cbk: null
     },
     {
+        loaded: false,
+        side: null,
+        data: null,
         desc: "data_BNdesc9",
         content: [ "data_BNcontent91" ],
+        boite: null,
+        boulots: null,
         progress: ["blog_entry9wait", "blog_entry9progress", "blog_entry9bar"],
+        cbk: null
     },
     {
+        loaded: false,
+        side: null,
+        data: null,
         desc: "data_BNdesc6",
         content: [ "data_BNcontent6" ],
+        boite: null,
+        boulots: null,
         progress: ["blog_entry6wait", "blog_entry6progress", "blog_entry6bar"],
+        cbk: null
     },
     {
+        loaded: false,
+        side: null,
+        data: null,
         desc: "data_BNdesc4",
         content: [ "data_BNcontent4" ],
+        boite: null,
+        boulots: null,
         progress: ["blog_entry4wait", "blog_entry4progress", "blog_entry4bar"],
+        cbk: null
     },
     {
+        loaded: false,
+        side: null,
+        data: null,
         desc: "data_BNdesc3",
         content: [ "data_BNcontent3" ],
+        boite: null,
+        boulots: null,
         progress: ["blog_entry3wait", "blog_entry3progress", "blog_entry3bar"],
+        cbk: null
     },
     {
+        loaded: false,
+        side: null,
+        data: null,
         desc: "data_BNdesc2",
         content: [ "data_BNcontent2" ],
+        boite: null,
+        boulots: null,
         progress: ["blog_entry2wait", "blog_entry2progress", "blog_entry2bar"],
+        cbk: null
     },
     {
+        loaded: false,
+        side: null,
+        data: null,
         desc: "data_BNdesc1",
         content: [ "data_BNcontent1" ],
+        boite: null,
+        boulots: null,
         progress: ["blog_entry1wait", "blog_entry1progress", "blog_entry1bar"],
+        cbk: null
     }
 ];
 
-export const data_BNEWSlasts = [
-    "blog_entry17PHOTO",
-    "blog_entry14PHOTO",
-//    "blog_entry12PHOTO"
-];
-
-export const data_BTECHmap = [
-    //not a real hashmap, because the TECH blog contents get no remote contents
-    ["data_BTdesc18", "data_BTcontent18"],
-    ["data_BTdesc16", "data_BTcontent16"],
-    ["data_BTdesc15", "data_BTcontent15"],
-    ["data_BTdesc13", "data_BTcontent13"],
-    ["data_BTdesc11", "data_BTcontent11"],
-//    [ "data_BTdesc8", "data_BTcontent8" ],
-    ["data_BTdesc7", "data_BTcontent7"],
-    ["data_BTdesc5", "data_BTcontent5"],
-];
-
+//-----------------------------------------------------------------------------------------------------------
+/// @brief maps are there to fetch remote data. see serverside/data/BLOGdata.php
 export const data_BTECHlasts = [
+//    "blog_entry19PHOTO",
     "blog_entry18PHOTO",
-    "blog_entry16PHOTO",
-//    "blog_entry15PHOTO",
-//    "blog_entry13PHOTO"
+    "blog_entry16PHOTO"
+];
+
+/// @brief maps are there to fetch remote data. see serverside/data/BLOGdata.php
+export const data_BTECHmap1 = [
+    /*
+    {
+        loaded: false,
+        side: null,
+        data: [ "./clientside/cards/BLOGentryT19.html", "blog_entry19CONTENT", null ],
+        desc: "data_BTdesc19",
+        content: [ "data_BTcontent19" ],
+        boite: null,
+        boulots: null,
+        progress: ["blog_entry19wait", "blog_entry19progress", "blog_entry19bar"],
+        cbk: null
+    },
+    */
+    {
+        loaded: false,
+        side: null,
+        data: [ "./clientside/cards/BLOGentryT18.html", "blog_entry18CONTENT", null ],
+        desc: "data_BTdesc18",
+        content: [ "data_BTcontent18" ],
+        boite: null,
+        boulots: null,
+        progress: ["blog_entry18wait", "blog_entry18progress", "blog_entry18bar"],
+        cbk: null
+    },
+    {
+        loaded: false,
+        side: null,
+        data: [ "./clientside/cards/BLOGentryT16.html", "blog_entry16CONTENT", null ],
+        desc: "data_BTdesc16",
+        content: [ "data_BTcontent16" ],
+        boite: null,
+        boulots: null,
+        progress: ["blog_entry16wait", "blog_entry16progress", "blog_entry16bar"],
+        cbk: null
+    },
+    {
+        loaded: false,
+        side: null,
+        data: [ "./clientside/cards/BLOGentryT15.html", "blog_entry15CONTENT", null ],
+        desc: "data_BTdesc15",
+        content: [ "data_BTcontent15" ],
+        boite: null,
+        boulots: null,
+        progress: ["blog_entry15wait", "blog_entry15progress", "blog_entry15bar"],
+        cbk: null
+    },
+    {
+        loaded: false,
+        side: null,
+        data: [ "./clientside/cards/BLOGentryT13.html", "blog_entry13CONTENT", null ],
+        desc: "data_BTdesc13",
+        content: [ "data_BTcontent13" ],
+        boite: null,
+        boulots: null,
+        progress: ["blog_entry13wait", "blog_entry13progress", "blog_entry13bar"],
+        cbk: null
+    },
+    {
+        loaded: false,
+        side: null,
+        data: [ "./clientside/cards/BLOGentryT11.html", null, null ],
+        desc: "data_BTdesc11",
+        content: [ "data_BTcontent11" ],
+        boite: null,
+        boulots: null,
+        progress: ["blog_entry11wait", "blog_entry11progress", "blog_entry11bar"],
+        cbk: null
+    },
+    {
+        loaded: false,
+        side: null,
+        data: [ "./clientside/cards/BLOGentryT8.html", null, null ],
+        desc: /*"data_BTdesc8"*/null,
+        content: [ /*"data_BTcontent8"*/null ],
+        boite: null,
+        boulots: null,
+        progress: ["blog_entry8wait", "blog_entry8progress", "blog_entry8bar"],
+        cbk: null
+    }
+];
+
+/// @brief maps are there to fetch remote data. see serverside/data/BLOGdata.php
+export const data_BTECHmap2 = [
+    {
+        loaded: false,
+        side: null,
+        data: [ "./clientside/cards/BLOGentryT7.html", /*"blog_entry7CONTENT"*/null, null ],
+        desc: "data_BTdesc7",
+        content: [ "data_BTcontent7" ],
+        boite: null,
+        boulots: null,
+        progress: ["blog_entry7wait", "blog_entry7progress", "blog_entry7bar"],
+        cbk: null
+    },
+    {
+        loaded: false,
+        side: null,
+        data: [ "./clientside/cards/BLOGentryT5.html", "blog_entry5CONTENT", null ],
+        desc: "data_BTdesc5",
+        content: [ "data_BTcontent5" ],
+        boite: null,
+        boulots: null,
+        progress: ["blog_entry5wait", "blog_entry5progress", "blog_entry5bar"],
+        cbk: null
+    }
 ];

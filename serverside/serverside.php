@@ -122,19 +122,13 @@ class SERVERSIDE {
                 //----------------------------------------------------------------
 
                 //----------------------------------
-                // UTILITY
-                case $this->triggers[9]:
-                    echo php_uname();
-                    break;
-
-                //----------------------------------
                 // SEND BLOG CONTENT
                 // return json data
                 case $this->triggers[7]:
                     $debug = false;
 
                     $blog = new SRVSIDE_BLOG;
-                    $data = $blog->BNtest1($this->param[1], $debug);
+                    $data = $blog->BNsend($this->param[1], $debug);
                     // Output encoded data
                     echo json_encode($data);
                     break;
@@ -168,13 +162,6 @@ class SERVERSIDE {
                     break;
 
                 //----------------------------------
-                // WEBSOCKET TEST
-                case $this->triggers[10]:
-                    $test = new SRVSIDE_BLOG();
-                    $test->BTtest8();
-                    break;
-
-                //----------------------------------
                 // SEND TESTS RESULTS
                 // return json data
                 case $this->triggers[4]:
@@ -198,6 +185,19 @@ class SERVERSIDE {
                     $analyser = new SRVSIDE_BLOG();
                     $data = $analyser->BTtest6(null, '..', null);
                     echo json_encode($data);
+                    break;
+
+                //----------------------------------
+                // UTILITY
+                case $this->triggers[9]:
+                    echo php_uname();
+                    break;
+
+                //----------------------------------
+                // WEBSOCKET TEST
+                case $this->triggers[10]:
+                    $test = new SRVSIDE_BLOG();
+                    $test->BTtest8();
                     break;
 
                 //----------------------------------------------------------------

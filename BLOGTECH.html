@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
@@ -13,12 +13,13 @@
         <!-- EXTERNAL RESSOURCES -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- STYLE SHEETS -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <link rel="stylesheet" href="clientside/clientside.css">
+        <link rel="stylesheet" href="clientside/css/clientside.css">
         <style>
             body, h1, h2, h3, h4, h5 {
                 font-family: "Raleway", sans-serif
@@ -35,9 +36,7 @@
     </head>
 
     <!-- -------------------------------------------------------------------------------------------------------------->
-    <!-- body class="w3-light-grey" onload="window.BLOGTECHpageload(document)" onbeforeunload="window.BLOGTECHpageunload(document)" -->
     <body class="w3-light-grey">
-    <!-- -------------------------------------------------------------------------------------------------------------->
 
         <!-- w3-content defines a container for fixed size centered content,
         and is wrapped around the whole page content, except for the footer in this example -->
@@ -45,517 +44,128 @@
 
             <!-- ---------------------------------------------------------------------------------------------------------------------->
             <!-- BLOG HEADER -->
-            <!-- ---------------------------------------------------------------------------------------------------------------------->
-            <header class="w3-container w3-center w3-padding-32">
-
-                <!-- BLOG TITLE -->
-                <h1>
-                    <b><i>Irgendwo in Bayern</i></b>
-                    <br>
-                    <i>Technical part</i>
-                </h1>
-
-                <!-- BLOG SUBTITLE -->
-                <p>
-                    Welcome to the blog of
-                    <span class="w3-tag">
-                        Francois Pignalet
-                    </span>
-                </p>
-
+            <header class="w3-container w3-center w3-padding-32" id="headercard">
             </header>
 
             <!-- ---------------------------------------------------------------------------------------------------------------------->
             <!-- Grid -->
-            <!-- ---------------------------------------------------------------------------------------------------------------------->
             <div class="w3-row">
 
+                <!-- left column entries -->
                 <div class="w3-col l8 s12">
 
-                    <!-- ------------------------------------------------------------------ -->
-                    <!-- Blog entry -->
-                    <!-- REACT -->
-                    <!-- ------------------------------------------------------------------ -->
-                    <div id="blog_entry18" class="w3-card-4 w3-margin w3-white">
-                        <img id="blog_entry18PHOTO" src="images/gears-686316_640.jpg" alt="img" style="width:100%">
-                        <div class="w3-container">
-                            <h3 id="blog_entry18TITLE">
-                            </h3>
-                            <h5 id="blog_entry18DATE">
-                            </h5>
-                        </div>
-                        <div id="blog_entry18CONTENT" class="w3-container">
-                            <div class="row">
-                                <div class="column" style="background-color:#ccc;">
-                                    <h2>Some important points to develop with raw Javascript</h2>
-                                    <ul>
-                                        <li>
-                                            It's possible to be pure OOP, using only classes exactly like other langages
-                                        </li>
-                                        <li>
-                                            Classes need to be exported like this:
-                                            <br>
-                                            <code class="codebox" id="codebox5">
-                                                ...
-                                                export default Multiple;
-                                                ...
-                                            </code>
-                                        </li>
-                                        <li>
-                                            Classes need to be imported like this:
-                                            <br>
-                                            <code class="codebox" id="codebox6">
-                                                < script type="module" >
-                                                import {
-                                                CLISIDE_LOADER
-                                                } from "./clientside/clientside.js";
-                                                < /script >
-                                            </code>
-                                            <br>
-                                            It's important to specify the script type="module", otherwise import / export return error.
-                                            <br>
-                                            It's important to specify the ".js" postfix, otherwise there is sometimes loading issues.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div id="blog_entry16" class="w3-card-4 w3-margin w3-white">
-                        <img id="blog_entry16PHOTO" src="images/macro-1452987_640.jpg" alt="img" style="width:100%">
-                        <div class="w3-container">
-                            <h3 id="blog_entry16TITLE">
-                            </h3>
-                            <h5 id="blog_entry16DATE">
-                            </h5>
-                        </div>
-                        <div id="blog_entry16CONTENT" class="w3-container">
-                            <div class="row">
-                                <div class="column" style="background-color:#aaa;">
-                                    <code class="codebox" id="codebox1">
-                                    </code>
-                                </div>
-                                <div class="column" style="background-color:#bbb;">
-                                    <h2>Multi canvas instances</h2>
-                                    <p>
-                                        Solution to have many instances of the game canvas from the previous sandbox
-                                    <ul>
-                                        <li>
-                                            create a Multiple class like the one on the left
-                                        </li>
-                                        <li>
-                                            Apply the following initialisation sequence for any other class
-                                            <br>
-                                            <code class="codebox" id="codebox2">
-                                                class Input extends Multiple {
-                                                ...
-                                                static IDENT() { return "input" };
-                                                ...
-                                                constructor() {
-                                                super(Input.IDENT());
-                                            </code>
-                                        </li>
-                                        <li>
-                                            Reference related html items with an index number
-                                            <br>
-                                            <code class="codebox" id="codebox3">
-                                                ...
-                                                canvas id="canvas0"
-                                                ...
-                                            </code>
-                                        </li>
-                                        <li>
-                                            Access all objects referenced like this using:
-                                            <br>
-                                            <code class="codebox" id="codebox4">
-                                                ...
-                                                const input = Multiple.get(Input.IDENT(), this.index);
-                                                ...
-                                            </code>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- pre class="code">
-                                <span class="tr first-row"><span class="th"></span><code>   indented line</code></span>
-                                <span class="tr"><span class="th"></span><code>unindented line</code></span>
-                                <span class="tr"><span class="th"></span><code>&#9;line starting and ending with tab&#9;</code></span>
-                                <span class="tr"><span class="th"></span><code></code></span>
-                                <span class="tr"><span class="th"></span><code>the above line should be empty</code></span>
-                                <span class="tr"><span class="th"></span><code>overlong line that wraps around or so I hope because it's really long and should overflow the right sided margin of the web page in your browser</code></span>
-                                <span class="tr"><span class="th"></span><code>fill up to ten</code></span>
-                                <span class="tr"><span class="th"></span><code>lines to check</code></span>
-                                <span class="tr"><span class="th"></span><code>alignment</code></span>
-                                <span class="tr"><span class="th"></span><code>of numbers</code></span>
-                            </pre -->
-                        </div>
-
+                    <!-- Blog entries -->
+                    <div id="gridtech1">
                     </div>
                     <!-- ------------------------------------------------------------------ -->
-                    <!-- Blog entry -->
-                    <!-- Embed a canves -->
-                    <!-- ------------------------------------------------------------------ -->
-                    <div id="blog_entry15" class="w3-card-4 w3-margin w3-white">
-                        <img id="blog_entry15PHOTO" src="images/gears-1236578_640.jpg" alt="img" style="width:100%">
-                        <div class="w3-container">
-                            <h3 id="blog_entry15TITLE">
-                            </h3>
-                            <h5 id="blog_entry15DATE">
-                            </h5>
-                        </div>
-
-                        <div id="blog_entry15CONTENT" class="w3-container">
-                            <p>
-                                Just to have fun (and to learn at the same time how to embed a "sub application" somewhere in my page),
-                                I did a fork
-                                <ul>
-                                    <li>from <a href="https://github.com/jlongster/canvas-game-bootstrap">
-                                        https://github.com/jlongster/canvas-game-bootstrap
-                                        </a>
-                                        <br>
-                                        (check <a href="https://github.com/jlongster/canvas-game-bootstrap/blob/master/LICENSE">
-                                            LICENSE
-                                        </a> there)
-                                    </li>
-                                    <li>to <a href="https://github.com/fpignalet/canvas-game-bootstrap">
-                                        https://github.com/fpignalet/canvas-game-bootstrap
-                                    </a>
-                                    </li>
-                                </ul>
-                                , then:
-                                <ul>
-                                    <li>I did a big refactoring, putting everything into classes
-                                    </li>
-                                    <li>I started to add new features such as a lifebar
-                                    </li>
-                                </ul>
-                            </p>
-
-                            <link rel="stylesheet" href="clientside/game/css/emb.css">
-
-                            <div id="game-over-overlay0" class="game-over-overlay">
-                            </div>
-                            <div id="game-over0" class="game-over">
-                                <h1>GAME OVER</h1>
-                                <button id="play-again0">Play Again</button>
-
-                            </div>
-
-                            <div id="wrapper0" class="wrapper" style="background-color: black;">
-
-                                <div id="instructions0" class="instructions">
-                                    <ul>
-                                        <li>move with <span class="key">arrows</span> or <span class="key">wasd</span> or <span class="key">mouse</span> or <span class="key">touch</span>
-                                        </li>
-                                        <li>shoot with <span class="key">space (with arrows / wasd)</span> or <span class="key">automatic (with mouse / touch)</span>
-                                        </li>
-                                        <li>loose 20 life pts (progress bar) each time an ennemy reach left side
-                                        </li>
-                                        <li>win 1 life pt (progress bar) each time an ennemy is killed
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div id="score0" class="score"></div>
-                                <br><br><br><br><br><br>
-                                <div class="myProgress">
-                                    <div id="lifebar0" class="myBar"></div>
-                                </div>
-                                <br><br>
-
-                                <canvas id="canvas0" style="background-color: black;"/>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- ------------------------------------------------------------------ -->
-                    <!-- Blog entry -->
-                    <!-- Dynamic trees -->
-                    <!-- ------------------------------------------------------------------ -->
-                    <div id="blog_entry13" class="w3-card-4 w3-margin w3-white">
-                        <img id="blog_entry13PHOTO" src="images/screw-1924173_640.jpg" alt="img" style="width:100%">
-                        <div class="w3-container">
-                            <h3 id="blog_entry13TITLE">
-                            </h3>
-                            <h5 id="blog_entry13DATE">
-                            </h5>
-                        </div>
-                        <div id="blog_entry13CONTENT" class="w3-container">
-
-                            <p>
-                                Preparing something for next version...
-                            </p>
-                            <p>
-                                For now this sample asks the server for an implementation files list,
-                                and display the result hierarchicaly
-                            </p>
-                            <p>
-                                something interessant that I have discovered:
-                            </p>
-                            <ul>
-                                <li>
-                                    if I try to use a style entry directly in the style sheet like
-                                    <p>
-                                        <strong>ul, #htreedemo { list-style-type: none; }</strong><br>
-                                        <strong>#htreedemo { margin: 0; padding: 0; }</strong>
-                                    </p>
-                                    Obviously it removes the list dots everywhere. OK, it's logic
-                                </li>
-                                <li>
-                                    <p>
-                                        So the correct approach is to do setAttribute on every tree ul elements.
-                                    </p>
-                                    <p>
-                                        This way it'll concern only this demo items.
-                                    </p>
-                                </li>
-                            </ul>
-                            <ul id="htreedemo"></ul>
-                        </div>
-
-                    </div>
-                    <!-- ------------------------------------------------------------------ -->
-                    <!-- Blog entry -->
-                    <!-- REACT -->
-                    <!-- ------------------------------------------------------------------ -->
-                    <div id="blog_entry11" class="w3-card-4 w3-margin w3-white">
-                        <img id="blog_entry11PHOTO" src="images/gears-1059756_640.png" alt="img" style="width:80%">
-                        <div class="w3-container">
-                            <h3 id="blog_entry11TITLE">
-                            </h3>
-                            <h5 id="blog_entry11DATE">
-                            </h5>
-                        </div>
-                        <div id="blog_entry11CONTENT" class="w3-container">
-
-                            <div id="reactbuttonjsx"></div>
-                            <br>
-                            <div id="reacttablejsx"></div>
-                            <br>
-                            <div id="reacttodojsx"></div>
-                            <br>
-
-                            <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin>
-                            </script>
-                            <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin>
-                            </script>
-                            <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js">
-                            </script>
-                            <script type="text/babel" src="clientside/clientsideREACT.js">
-                            </script>
-
-                            <script type="text/babel">
-                                // Specific sandbox content is not outside processed
-                                let contener;
-
-                                const button = React.createElement(ReactButtonJSX, {data: document});
-                                contener = document.querySelector('#' + "reactbuttonjsx");
-                                ReactDOM.render(button, contener);
-
-                                contener = document.querySelector('#' + "reacttodojsx");
-                                ReactDOM.render(<ReactApp />, contener);
-
-                            </script>
-                        </div>
-
-                    </div>
-                    <!-- ------------------------------------------------------------------ -->
-                    <!-- Blog entry -->
-                    <!-- Javascript generated HTML -->
-                    <!-- ------------------------------------------------------------------ -->
-                    <div id="blog_entry8" class="w3-card-4 w3-margin w3-white">
-                    </div>
-                    <!-- ------------------------------------------------------------------ -->
-                    <!-- Blog entry -->
+                    <!-- Blog entry specific -->
                     <!-- Angular.js -->
-                    <!-- ------------------------------------------------------------------ -->
+                    <!-- OK, it's still hard-coded in html page, I don't know why when loaded from outside it doesn't functionate -->
                     <div id="blog_entry7" class="w3-card-4 w3-margin w3-white">
                         <img id="blog_entry7PHOTO" src="images/macro-1452987_640.jpg" alt="img" style="width:100%">
                         <div class="w3-container">
-                            <h3 id="blog_entry7TITLE">
-                            </h3>
-                            <h5 id="blog_entry7DATE">
-                            </h5>
+                            <h3 id="blog_entry7TITLE"></h3>
+                            <h5 id="blog_entry7DATE"></h5>
+                        </div>
+                        <!-- ASYNC PROGRESS DISPLAY -->
+                        <div id="blog_entry7wait">
+                            <div class="myProgress" id="blog_entry7progress">
+                                <div class="myBar" id="blog_entry7bar">Loading...</div>
+                            </div>
                         </div>
                         <div id="blog_entry7CONTENT" class="w3-container">
+                            <!-- NOTE -->
+                            <!-- OK, it's still hard-coded in html page, I still don't know why when loaded from outside it doesn't functionate -->
 
+                            <!-- IMPLEM -->
                             <div class="w3-container"
                                  ng-app="testapp"
                                  ng-controller="testctrl"
-                                 ng-init="
-                                        person={ firstName: 'John', lastName: 'Doe' };
-                                        points=[ 1, 15, 19, 2, 40 ]">
+                                 ng-init="person={ firstName: 'John', lastName: 'Doe' };
+                                          points=[ 1, 15, 19, 2, 40 ]">
 
-                                <!-- ---------------------------------->
-                                <p>
-                                    [TEST WITH ng-init data:] The name in data is
-                                    <span ng-bind="person.lastName"></span>
-                                </p>
-                                <p>
-                                    [TEST WITH ng-init data:] The third item in array in data is
-                                    {{ points[2] }}
-                                </p>
-                                <!-- ---------------------------------->
-                                <p>
-                                    [TEST input:] Name: <input type="text" ng-model="name">
-                                    <br>
-                                    Hello {{name}}
-                                </p>
-                                <p>
+                                <!-- small test 1 ---------------------------------->
+                                <div><strong>[TEST WITH ng-init data:]</strong>
+                                    <br>The name in data is
+                                    <strong><span ng-bind="person.lastName"></span></strong>
+                                </div>
+                                <br>
+                                <div><strong>[TEST WITH ng-init data:]</strong>
+                                    <br>The third item in array in data is
+                                    <strong>{{ points[2] }}</strong>
+                                </div>
+                                <br>
+                                <!-- small test 2 ---------------------------------->
+                                <div><strong>[TEST input:]</strong>
+                                    <br>Name: <input type="text" ng-model="name">
+                                    <br>Hello
+                                    <strong>{{name}}</strong>
+                                </div>
+                                <br>
+                                <!-- small test 3 ---------------------------------->
+                                <div>
+                                    <strong>[TEST with form:]</strong>
                                     <form>
-                                        <b>First Name: </b><input type="text" ng-model="ifirstName">
-                                        <b>Last Name: </b><input type="text" ng-model="ilastName">
+                                        <br>First Name: <input type="text" ng-model="ifirstName">
+                                        <br>Last Name: <input type="text" ng-model="ilastName">
                                     </form>
-                                    [TEST with form:] Full Name: {{ifirstName + " " + ilastName}}
-                                </p>
-                                <!-- ---------------------------------->
-                                <p>
-                                    [[TEST with dynamic list: ] ]
+                                    Full Name:
+                                    <strong>{{ifirstName + " " + ilastName}}</strong>
+                                </div>
+                                <br>
+                                <!-- small test 4 ---------------------------------->
+                                <div><strong>[[TEST with dynamic list: ]]</strong>
                                     <ul>
                                         <li ng-repeat="x in products">{{x}}
-                                            <span ng-click="removeItem($index)"> X </span>
+                                            <span ng-click="removeItem($index)"> [X] </span>
                                         </li>
                                     </ul>
                                     <input ng-model="addMe">
                                     <button ng-click="addItem()">Add</button>
-                                </p>
-                                <p>
-                                    {{errortext}}
-                                </p>
-                                <p>
+                                </div>
+                                <br>
+                                <div>{{errortext}}
+                                </div>
+                                <br>
+                                <!-- small test 5 ---------------------------------->
+                                <div>
                                     <h1 ng-mousemove="mouseoverfunc($event)">Mouse Over Me!</h1>
-                                    <p>[TEST mouse:] Coordinates: {{x + ', ' + y}}</p>
-                                </p>
+                                    <p><strong>[TEST with mouse:]</strong>
+                                        <br>Coordinates: <strong>{{x + ', ' + y}}</strong>
+                                    </p>
+                                </div>
                                 <!-- ---------------------------------->
-                                <!-- p>
+                                <!-- div>
                                     <a href="#/!">Main</a>
                                     <a href="#!banana">Banana</a>
                                     <a href="#!tomato">Tomato</a>
                                     <p>Click on the links to change the content.</p>
                                     <p>Use the "otherwise" method to define what to display when none of the links are clicked.</p>
-                                </p -->
+                                </div -->
                                 <!-- div ng-view></div -->
 
                             </div>
-
                         </div>
 
                     </div>
                     <!-- ------------------------------------------------------------------ -->
-                    <!-- Blog entry -->
-                    <!-- Basic tests local & remote -->
-                    <!-- ------------------------------------------------------------------ -->
-                    <div id="blog_entry5" class="w3-card-4 w3-margin w3-white">
-                        <!-- TITRE: PHOTO -->
-                        <img id="blog_entry5PHOTO" src="images/gears-1236578_640.jpg" alt="img" style="width:100%">
-                        <div class="w3-container">
-                            <h3 id="blog_entry5TITLE">
-                            </h3>
-                            <h5 id="blog_entry5DATE">
-                            </h5>
-                        </div>
-                        <div id="blog_entry5CONTENT" class="w3-container">
-
-                            <!---------------- TESTS LOCAL ------------------>
-                            <div>
-                                <p>
-                                    <div><b>Locally obtained data:</b></div>
-                                    <div id="hello_area">This text should be replaced.</div>
-                                    <div id="count_area">This text should be replaced.</div>
-
-                                </p>
-                            </div>
-
-                            <!------------------ TESTS REMOTE DIRECT ------------------>
-                            <div>
-                                <p>
-                                    <div>
-                                        <b>Remotely obtained data: start typing a name in the input field below to get an answer from the server</b>
-                                    </div>
-                                    <form>
-                                        <b>First try: </b>
-                                        <input type="text" onkeyup="window.testsremote.testphp1(document, this.value, 'txtHint')">
-                                        <br>
-                                        <b>Second try: </b>
-                                        <input type="text" onkeyup="window.testsremote.testphp1(document, this.value, 'txtHint')">
-                                    </form>
-                                    <div>
-                                        <b>Suggestions: </b>
-                                        <span id="txtHint"></span>
-                                    </div>
-
-                                </p>
-                            </div>
-
-                            <!------------------ TESTS REMOTE PHP ------------------>
-                            <div>
-                                <p>
-                                    <div><b>parameters 1: </b><span id="params_area1"></span></div>
-                                    <div><b>parameters 2: </b><span id="params_area2"></span></div>
-                                    <div><b>parameters 3: </b><span id="params_area3"></span></div>
-
-                                </p>
-                            </div>
-
-                            <!------------------ TESTS REMOTE BD ------------------>
-                            <div>
-                                <p>
-                                    <div><b>BD Contents: </b><span id="bdResult"></span></div>
-
-                                </p>
-                            </div>
-
-                        </div>
-
+                    <!-- Blog entries -->
+                    <div id="gridtech2">
                     </div>
 
                 </div>
-                <!-- END BLOG ENTRIES -->
 
-                <!-- ---------------------------------------------------------------------------------------------------------------------->
                 <!-- right info menu -->
-                <!-- ---------------------------------------------------------------------------------------------------------------------->
-                <div class="w3-col l4">
-
-                    <!-- ------------------------------------------------------------------ -->
-                    <!-- About card -->
-                    <!-- ------------------------------------------------------------------ -->
-                    <div class="w3-card w3-margin w3-margin-top">
-
-                        <img id="blog_infoPHOTO" src="images/P_20160208_183649_BF.jpg" style="width:100%">
-                        <div id="blog_infoDESC" class="w3-container w3-white">
-                            <h4>
-                                <b>Francois Pignalet</b>
-                            </h4>
-                            <p>
-                                Mein berufliche Situation <br>
-                                My professional situation <br>
-                                Ma situation professionnelle <br>
-
-                                <a href="CV.html">Resume / CV</a>
-                            </p>
-                        </div>
-
-                    </div>
-                    <hr>
-
+                <div class="w3-col l4" id="aboutcard">
                 </div>
-                <!-- END right info menu -->
 
             </div>
 
         </div>
 
+        <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- Footer -->
-        <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-            <!-- button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button -->
-            <!-- button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button -->
-            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-        </footer>
+        <div id="footer"></div>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- JS IMPLEMENTATION -->
@@ -564,74 +174,78 @@
         </script>
 
         <script type="module">
+            /*************************************************************************************
+             * INCLUDES CODE
+             *************************************************************************************/
             import {
                 cliside_BLOGTECHpageload,
-                cliside_BLOGTECHpageunload,
-                cliside_BTECHtestslocal,
-                cliside_BTECHtestsremote
-            } from "./clientside/clientsideBLOG.js";
-            import Multiple from "./clientside/game/js/lib/instances.js";
-            import Core from "./clientside/game/js/impl/core.js";
-            import execute from "./clientside/game/js/lib/execute.js";
+                cliside_BLOGTECHpagescroll
+            } from "./clientside/js/clientsideIBLOG.js";
+
+            /*************************************************************************************
+             * INCLUDES DATA
+             *************************************************************************************/
             import {
-                app_settings,
-                app_guimap,
-                app_images
-            } from "./clientside/game/js/embset.js";
-            import {
-                CLISIDE_LOADER
-            } from "./clientside/clientside.js";
-            //-----------------------------------------------------------
+                CLISIDE_BTECHLOCAL
+            } from "./clientside/js/impl/clientsideBLOG.js";
+
+            /*************************************************************************************
+             * IMPLEMENTATION
+             *************************************************************************************/
             try {
-                window.onload = cliside_BLOGTECHpageload(document);
-                window.testslocal = cliside_BTECHtestslocal;
-                window.testsremote = cliside_BTECHtestsremote; //testphp1
+                window.onload = function() {
+                    cliside_BLOGTECHpageload(document, { create: 4, load: 5 })
+                };
+                window.onscroll = function() {
+                    cliside_BLOGTECHpagescroll(document, "entry_navbar")
+                };
 
-                cliside_BTECHtestslocal.testhello(document, "hello_area");
-                cliside_BTECHtestslocal.testcount(document, "count_area");
-
-                cliside_BTECHtestsremote.testphp2(document, null, "bdResult");
-
-                cliside_BTECHtestsremote.testphp3(document, null, "params_area1");
-                cliside_BTECHtestsremote.testphp4(document, null, "params_area2");
-                cliside_BTECHtestsremote.testphp5(document, null, "params_area3");
-
-                cliside_BTECHtestsremote.testphp6(document, null, "htreedemo");
-                cliside_BTECHtestsremote.testphp7();
-
-                cliside_BTECHtestslocal.testangular("testapp", "testctrl");
-
-                let html = window.testslocal.testdyn(
-                    // HEADER:
-                    'blog_entry8',
-                    'images/gears-686316_640.jpg',
-                    'Today\'s sandbox',
-                    'August 25, 2018',
-                    'Dynamic test',
-                    // CONTENU:
-                    '<ul>\n' +
-                    '    <li>dynamic blog entry: generating html with javascript\n' +
-                    '        <ul>\n' +
-                    '            <li>sub item 1</li>\n' +
-                    '            <li>sub item 2</li>\n' +
-                    '        </ul>\n' +
-                    '    </li>\n' +
-                    '</ul>\n'
+                // OK, it's still hard-coded in html page, I still don't know why when loaded from outside it doesn't functionate
+                const local = new CLISIDE_BTECHLOCAL();
+                local.testANGULAR(
+                    "testapp",
+                    "testctrl",
+                    "Firstname",
+                    "Lastname",
+                    ["Item 1", "Item 2", "Item 3"]
                 );
+            }
+            catch (e) {
+                console.log(e.name)
+            }
+            finally {
+                //...
+            }
 
-                document.getElementById("blog_entry8").innerHTML = html;
+        </script>
 
-                const core = new Core(app_settings, app_guimap, "canvas0");
-                execute(app_images, Multiple.get(Core.IDENT(), core.index));
-
-                const loader = new CLISIDE_LOADER();
-                loader.target = "./clientside/game/js/lib/instances.js";
-                loader.getdataraw(null, (result) => {
-                    const it = document.getElementById("codebox1");
-                    it.appendChild(document.createTextNode(result));
-                });
-
-                window.onunload = cliside_BLOGTECHpageunload(document, core.index);
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin>
+        </script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin>
+        </script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js">
+        </script>
+        <script type="text/babel" src="clientside/js/impl/clientsideREACT.js">
+        </script>
+        <script type="text/babel">
+            /*************************************************************************************
+             * INCLUDES CODE
+             *************************************************************************************/
+            /*************************************************************************************
+             * INCLUDES DATA
+             *************************************************************************************/
+            /*************************************************************************************
+             * IMPLEMENTATION
+             *************************************************************************************/
+            try {
+                window.BLOGreactloader.localgetfile(document,
+                    "./clientside/cards/BLOGentryT11.html",
+                    "contener",
+                    "blog_entry11CONTENT",
+                    () => {
+                        reactexecute();
+                    }
+                );
             }
             catch (e) {
                 console.log(e.name)

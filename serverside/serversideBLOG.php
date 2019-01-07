@@ -27,14 +27,14 @@ class SRVSIDE_BLOG {
     /// @param $param
     /// @param $debug
     /// @returns 1 desc
-    public function BNtest1($param, $debug) {
-        global $data_BLOGdatamap, $data_BNloadsleep;
+    public function BNsend($param, $debug) {
+        global $data_BLOGmap, $data_BNloadsleep;
 
         if(true == $debug) {
             usleep($data_BNloadsleep);
         }
 
-        return $data_BLOGdatamap[$param];
+        return $data_BLOGmap[$param];
     }
 
     /*************************************************************************************

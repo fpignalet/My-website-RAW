@@ -7,9 +7,11 @@
  */
 
 //-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_CVloadsleep = 100000;
 
 //-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_CVtitle = array(
     "moi_photo" =>
         "images/P_20160208_183649_BF.jpg",
@@ -17,6 +19,7 @@ $data_CVtitle = array(
         "Francois Pignalet"
 );
 
+/// @brief
 $data_CVinfo = array(
     "info_raisonsociale" =>
         [ "Software architecture, development and integration with 25+ years expertise"  ],
@@ -28,6 +31,7 @@ $data_CVinfo = array(
         [ "00491704868403" ]
 );
 
+/// @brief
 $data_CVexperience = array(
     "exp_title" =>
         "Areas of expertise",
@@ -42,49 +46,53 @@ $data_CVexperience = array(
         ]
 );
 
+/// @brief
 $data_CVskillshead = array(
     "mskills_title" =>
         "Main skills"
 );
+/// @brief
 $data_CVskillsentries = array(
     array(
         "mskills_f1desc" =>
-            [ "Java, C, C++" ],
+            [ "Java,  C,  C++,  Javascript" ],
         "mskills_f1level" =>
             [ "100%" ],
         "mskills_f1text" =>
-            [ "Confirmed" ]
+            [ "CONFIRMED" ]
     ),
     array(
         "mskills_f2desc" =>
-            [ "Php, Javascript, MFC, Win32, Asm 68K" ],
+            [ "Php,  MFC,  Win32,  Asm 68K" ],
         "mskills_f2level" =>
             [ "75%" ],
         "mskills_f2text" =>
-            [ "Average" ]
+            [ "AVERAGE" ]
     ),
     array(
         "mskills_f3desc" =>
-            [ "Python, .NET, WebLogic, CORBA, Asm x86" ],
+            [ "Python,  .NET,  WebLogic,  CORBA,  Asm x86" ],
         "mskills_f3level" =>
             [ "50%" ],
         "mskills_f3text" =>
-            [ "Low" ]
+            [ "LOW" ]
     ),
     array(
         "mskills_f4desc" =>
-            ["Android, J2EE, OSGi, Asm PowerPC / ARM"],
+            ["Android,  J2EE,  OSGi,  Asm PowerPC / ARM"],
         "mskills_f4level" =>
             ["25%"],
         "mskills_f4text" =>
-            ["Known"]
+            ["KNOWN"]
     )
 );
 
+/// @brief
 $data_CVlanghead = array(
     "lang_title" =>
         "Languages"
 );
+/// @brief
 $data_CVlangentries = array(
     array(
         "lang_f1desc" =>
@@ -92,7 +100,7 @@ $data_CVlangentries = array(
         "lang_f1level" =>
             [ "100%" ],
         "lang_f1text" =>
-            [ "100% (mother tongue)" ]
+            [ "100% (MOTHER TONGUE)" ]
     ),
     array(
         "lang_f2desc" =>
@@ -112,8 +120,8 @@ $data_CVlangentries = array(
     )
 );
 
-//-----------------------------------------------------------------------------------------------------------
-// BOULOT ENTRY
+// BOULOT ENTRY -----------------------------------------------------------------
+/// @brief
 $data_CVboulot0 = array(
     "boulotentry0date" =>
         [ "2018/11" ],
@@ -128,6 +136,7 @@ $data_CVboulot0 = array(
         [ null ]
 );
 
+/// @brief
 $data_CVboulot01 = array(
     "boulotentry0item" =>
         [
@@ -145,8 +154,8 @@ $data_CVboulot01 = array(
         ]
 );
 
-//-----------------------------------------------------------------------------------------------------------
-// BOULOT ENTRY
+// BOULOT ENTRY -----------------------------------------------------------------
+/// @brief
 $data_CVboulot1 = array(
     "boulotentry1date" =>
         [ "2000/06 - 2018/10" ],
@@ -161,6 +170,7 @@ $data_CVboulot1 = array(
         [ null ]
 );
 
+/// @brief
 $data_CVboulot11 = array(
     "boulotentry1item" =>
         [
@@ -195,6 +205,7 @@ $data_CVboulot11 = array(
         ]
 );
 
+/// @brief
 $data_CVboulot12 = array(
     "boulotentry2item" =>
         [
@@ -213,6 +224,7 @@ $data_CVboulot12 = array(
         ]
 );
 
+/// @brief
 $data_CVboulot13 = array(
     "boulotentry3item" =>
         [
@@ -234,6 +246,7 @@ $data_CVboulot13 = array(
         ]
 );
 
+/// @brief
 $data_CVboulot14 = array(
     "boulotentry4item" =>
         [
@@ -252,6 +265,7 @@ $data_CVboulot14 = array(
         ]
 );
 
+/// @brief
 $data_CVboulot15 = array(
     "boulotentry5item" =>
         [
@@ -273,6 +287,7 @@ $data_CVboulot15 = array(
         ]
 );
 
+/// @brief
 $data_CVboulot16 = array(
     "boulotentry6item" =>
         [
@@ -304,8 +319,8 @@ $data_CVboulot16 = array(
         ]
 );
 
-//-----------------------------------------------------------------------------------------------------------
-// BOULOT ENTRY
+// BOULOT ENTRY -----------------------------------------------------------------
+/// @brief
 $data_CVboulot2 = array(
     "boulotentry8date" =>
         [ "1999/10 - 2000/05" ],
@@ -322,6 +337,7 @@ $data_CVboulot2 = array(
         [ null, ]
 );
 
+/// @brief
 $data_CVboulot21 = array(
     "boulotentry8item" =>
         [
@@ -343,6 +359,7 @@ $data_CVboulot21 = array(
         ]
 );
 
+/// @brief
 $data_CVboulot22 = array(
     "boulotentry9item" =>
         [
@@ -362,8 +379,8 @@ $data_CVboulot22 = array(
         ]
 );
 
-//-----------------------------------------------------------------------------------------------------------
-// BOULOT ENTRY
+// BOULOT ENTRY -----------------------------------------------------------------
+/// @brief
 $data_CVboulot3 = array(
     "boulotentry10date" =>
         [
@@ -381,6 +398,7 @@ $data_CVboulot3 = array(
         [ null ]
 );
 
+/// @brief
 $data_CVboulot31 = array(
     "boulotentry10item" =>
         [
@@ -407,8 +425,8 @@ $data_CVboulot31 = array(
         ]
 );
 
-//-----------------------------------------------------------------------------------------------------------
-// BOULOT ENTRY
+// BOULOT ENTRY -----------------------------------------------------------------
+/// @brief
 $data_CVboulot4 = array(
     "boulotentry11date" =>
         [ "1996/01 - 1998/06" ],
@@ -447,6 +465,7 @@ $data_CVboulot41 = array(
         ]
 );
 
+/// @brief
 $data_CVboulot42 = array(
     "boulotentry12item" =>
         [
@@ -464,6 +483,7 @@ $data_CVboulot42 = array(
         ]
 );
 
+/// @brief
 $data_CVboulot43 = array(
     "boulotentry13item" =>
         [
@@ -485,8 +505,8 @@ $data_CVboulot43 = array(
         ]
 );
 
-//-----------------------------------------------------------------------------------------------------------
-// BOULOT ENTRY
+// BOULOT ENTRY -----------------------------------------------------------------
+/// @brief
 $data_CVboulot5 = array(
     "boulotentry14date" =>
         [ "1992/04 - 1995/12" ],
@@ -501,6 +521,7 @@ $data_CVboulot5 = array(
         [ null ]
 );
 
+/// @brief
 $data_CVboulot51 = array(
     "boulotentry14item" =>
         [
@@ -527,6 +548,7 @@ $data_CVboulot51 = array(
         ]
 );
 
+/// @brief
 $data_CVboulot52 = array(
     "boulotentry15item" =>
         [
@@ -553,8 +575,8 @@ $data_CVboulot52 = array(
         ]
 );
 
-//-----------------------------------------------------------------------------------------------------------
-// BOULOT ENTRY
+// BOULOT ENTRY -----------------------------------------------------------------
+/// @brief
 $data_CVboulot6 = array(
     "boulotentry16date" =>
         [ "1986/10 - 1992/03" ],
@@ -569,6 +591,7 @@ $data_CVboulot6 = array(
         [ null ]
 );
 
+/// @brief
 $data_CVboulot61 = array(
     "boulotentry16item" =>
         [
@@ -586,8 +609,8 @@ $data_CVboulot61 = array(
         ]
 );
 
-//-----------------------------------------------------------------------------------------------------------
-// BILDUNG
+// BILDUNG -----------------------------------------------------------------
+/// @brief
 $data_CVbildung1 = array(
     "edu_f1date" =>
         [ "During last years..." ],
@@ -597,6 +620,7 @@ $data_CVbildung1 = array(
         null
 );
 
+/// @brief
 $data_CVbildung11 = array(
     "edu_f11item" =>
         [ "2017" ],
@@ -614,6 +638,7 @@ $data_CVbildung11 = array(
         ]
 );
 
+/// @brief
 $data_CVbildung12 = array(
     "edu_f12item" =>
         [ "2004" ],
@@ -631,6 +656,7 @@ $data_CVbildung12 = array(
         ]
 );
 
+/// @brief
 $data_CVbildung13 = array(
     "edu_f13item" =>
         [ "1985" ],
@@ -648,7 +674,8 @@ $data_CVbildung13 = array(
         ]
 );
 
-// LOISIRS
+// LOISIRS -----------------------------------------------------------------
+/// @brief
 $data_CVhobby1 = array(
     "loisirs_f1date" =>
         [ "Until now..." ],
@@ -658,6 +685,7 @@ $data_CVhobby1 = array(
         null,
 );
 
+/// @brief
 $data_CVhobby11 = array(
     "loisirs_f11item" =>
         [ "Activity" ],
@@ -680,6 +708,7 @@ $data_CVhobby11 = array(
         ]
 );
 
+/// @brief
 $data_CVhobby12 = array(
     "loisirs_f12item" =>
         [ "Activity" ],
@@ -696,6 +725,7 @@ $data_CVhobby12 = array(
         ]
 );
 
+/// @brief
 $data_CVhobby13 = array(
     "loisirs_f13item" =>
         [ "Interests" ],
@@ -711,7 +741,8 @@ $data_CVhobby13 = array(
         ]
 );
 
-$data_CVdatamap = array(
+/// @brief
+$data_CVmap = array(
 
     "data_CVtitle" => $data_CVtitle,
     "data_CVinfo" => $data_CVinfo,
@@ -762,4 +793,3 @@ $data_CVdatamap = array(
     "data_CVhobby13" => $data_CVhobby13
 
 );
-

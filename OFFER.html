@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <head>
+    <!-- -------------------------------------------------------------------------------------------------------------->
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- meta http-equiv="pragma" content="no-cache" / -->
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- EXTERNAL RESSOURCES -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- STYLE SHEETS -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <link rel="stylesheet" href="clientside/css/clientside.css">
+        <style>
+            body, h1, h2, h3, h4, h5 {
+                font-family: "Raleway", sans-serif;
+                font-size: 18px;
+            }
+        </style>
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- OTHERS -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <title>
+            My commerial offer:
+        </title>
+
+    </head>
+
+    <!-- -------------------------------------------------------------------------------------------------------------->
+    <body class="w3-light-grey">
+
+        <!-- w3-content defines a container for fixed size centered content,
+        and is wrapped around the whole page content, except for the footer in this example -->
+        <div class="w3-content" style="max-width:1800px">
+
+            <!-- ---------------------------------------------------------------------------------------------------------------------->
+            <!-- OFFER HEADER -->
+            <header class="w3-container w3-center w3-padding-32" id="headercard">
+            </header>
+
+            <!-- ---------------------------------------------------------------------------------------------------------------------->
+            <!-- Grid -->
+            <div class="w3-row">
+
+                <div class="w3-col l8 s12" id="gridnews">
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <strong>What are my obvious strengths?</strong>
+                        <ul>
+                            <li>The first language I used intensively is C</li>
+                            <li>The second language I used intensively is Java</li>
+                            <li>Then I did lots of
+                                <ul>
+                                    <li>C++</li>
+                                    <li>Javascript</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <strong>What can I do for you?</strong>
+                        <ul>
+                            <li>Software architectural advice</li>
+                            <li>Standard “monolithic” application development: writing C / C++ / Java / Python source code, loaded with external libraries (Qt, boost…), accessing specific kind of resource or specific hardware through network or serial port, using REST API as communication protocol for example. Internal architecture can rely upon small modules as static or shared libs. The target may be a standard station running Windows or Linux, or an embedded microcontroller as well</li>
+                            <li>The same but with a microservices architectural approach</li>
+                            <li>Some kind of extension / middleware development. For example: an Eclipse plugin</li>
+                            <li>Device driver development (C / C++)</li>
+                            <li>Web development
+                                <ul>
+                                    <li>HTML / Client side
+                                        <ul>
+                                            <li>JS raw</li>
+                                            <li>JS with Angular</li>
+                                            <li>JS with React</li>
+                                        </ul>
+                                    </li>
+                                    <li>Server side
+                                        <ul>
+                                            <li>Php</li>
+                                            <li>Python (Django)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <strong>How it normally goes</strong>
+                        <ul>
+                            <li>Specifications writing</li>
+                            <li>Requirement analysis</li>
+                            <li>Modelling phase</li>
+                            <li>Additional / optional preparations
+                                <ul>
+                                    <li>With legacy project
+                                        <ul>
+                                            <li>Analysis of existing { anything }</li>
+                                            <li>Evolution / Modification</li>
+                                        </ul>
+                                    </li>
+                                    <li>In any case
+                                        <ul>
+                                            <li>Preparatory study / Model</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Partial deliveries including
+                                <ul>
+                                    <li>Note1: It will at least be possible to give access to sources through GitHub in a private repository, for example, always accompanied by means of tests</li>
+                                    <li>Note2: with an AGILE approach, specific { Requirement analysis / modelling } phase may apply there</li>
+                                    <li>Implementation / unit tests / Remarks and corrections cycle for
+                                        <ul>
+                                            <li>Lower / primitive layer</li>
+                                            <li>Middle / business layer</li>
+                                            <li>Presentation layer</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Final delivery</li>
+                            <li>Maintenance</li>
+                        </ul>
+                    </div>
+                    <div class="w3-card-4 w3-margin w3-white">
+                        My standard hourly cost is
+                        <strong>100 € / hour</strong>
+                    </div>
+
+                </div>
+
+                <!-- ---------------------------------------------------------------------------------------------------------------------->
+                <!-- right info menu -->
+                <div class="w3-col l4" id="aboutcard">
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- Footer -->
+        <div id="footer"></div>
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- JS IMPLEMENTATION -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <script type="module">
+            /*************************************************************************************
+             * INCLUDES CODE
+             *************************************************************************************/
+            import {
+                cliside_OFFERpageload
+            } from "./clientside/js/clientsideIOFFER.js";
+
+            /*************************************************************************************
+             * INCLUDES DATA
+             *************************************************************************************/
+            /*************************************************************************************
+             * IMPLEMENTATION
+             *************************************************************************************/
+            try {
+                window.onload = function() {
+                    cliside_OFFERpageload(document, { create: 8, load: 9 })
+                };
+
+            }
+            catch (e) {
+                console.log(e.name)
+            }
+            finally {
+                //...
+            }
+
+        </script>
+
+    </body>
+
+</html>

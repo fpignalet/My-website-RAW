@@ -20,13 +20,13 @@ class SRVSIDE_CV {
     /// @param debug
     /// @returns 1 desc
     public function CVsend($param, $debug) {
-        global $data_CVdatamap, $data_CVloadsleep;
+        global $data_CVmap, $data_CVloadsleep;
 
         if(true == $debug) {
             usleep($data_CVloadsleep);
         }
 
-        return $data_CVdatamap[$param];
+        return $data_CVmap[$param];
     }
 
 }

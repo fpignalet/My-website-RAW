@@ -17,16 +17,15 @@ xmlns="http://www.w3.org/TR/REC-html40">
 
 <script language="JavaScript">
 <!--
- var c_lTabs=2;
+const c_lTabs = 2;
 
- var c_rgszSh=new Array(c_lTabs);
- c_rgszSh[0] = "General";
+const c_rgszSh = new Array(c_lTabs);
+c_rgszSh[0] = "General";
  c_rgszSh[1] = "Bruckner";
 
 
-
- var c_rgszClr=new Array(8);
- c_rgszClr[0]="window";
+const c_rgszClr = new Array(8);
+c_rgszClr[0]="window";
  c_rgszClr[1]="buttonface";
  c_rgszClr[2]="windowframe";
  c_rgszClr[3]="windowtext";
@@ -35,14 +34,14 @@ xmlns="http://www.w3.org/TR/REC-html40">
  c_rgszClr[6]="threeddarkshadow";
  c_rgszClr[7]="threedshadow";
 
- var g_iShCur;
- var g_rglTabX=new Array(c_lTabs);
+let g_iShCur;
+const g_rglTabX = new Array(c_lTabs);
 
 function fnGetIEVer()
 {
- var ua=window.navigator.userAgent
- var msie=ua.indexOf("MSIE")
- if (msie>0 && window.navigator.platform=="Win32")
+    const ua = window.navigator.userAgent;
+    const msie = ua.indexOf("MSIE");
+    if (msie>0 && window.navigator.platform=="Win32")
   return parseInt(ua.substring(msie+5,ua.indexOf(".", msie)));
  else
   return 0;
@@ -50,14 +49,14 @@ function fnGetIEVer()
 
 function fnBuildFrameset()
 {
- var szHTML="<frameset rows=\"*,18\" border=0 width=0 frameborder=no framespacing=0>"+
-  "<frame src=\""+document.all.item("shLink")[0].href+"\" name=\"frSheet\" noresize>"+
-  "<frameset cols=\"54,*\" border=0 width=0 frameborder=no framespacing=0>"+
-  "<frame src=\"\" name=\"frScroll\" marginwidth=0 marginheight=0 scrolling=no>"+
-  "<frame src=\"\" name=\"frTabs\" marginwidth=0 marginheight=0 scrolling=no>"+
-  "</frameset></frameset><plaintext>";
+    const szHTML = "<frameset rows=\"*,18\" border=0 width=0 frameborder=no framespacing=0>" +
+        "<frame src=\"" + document.all.item("shLink")[0].href + "\" name=\"frSheet\" noresize>" +
+        "<frameset cols=\"54,*\" border=0 width=0 frameborder=no framespacing=0>" +
+        "<frame src=\"\" name=\"frScroll\" marginwidth=0 marginheight=0 scrolling=no>" +
+        "<frame src=\"\" name=\"frTabs\" marginwidth=0 marginheight=0 scrolling=no>" +
+        "</frameset></frameset><plaintext>";
 
- with (document) {
+    with (document) {
   open("text/html","replace");
   write(szHTML);
   close();
@@ -68,19 +67,19 @@ function fnBuildFrameset()
 
 function fnBuildTabStrip()
 {
- var szHTML=
-  "<html><head><style>.clScroll {font:8pt Courier New;color:"+c_rgszClr[6]+";cursor:default;line-height:10pt;}"+
-  ".clScroll2 {font:10pt Arial;color:"+c_rgszClr[6]+";cursor:default;line-height:11pt;}</style></head>"+
-  "<body onclick=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" onselectstart=\"event.returnValue=false;\" bgcolor="+c_rgszClr[4]+" topmargin=0 leftmargin=0><table cellpadding=0 cellspacing=0 width=100%>"+
-  "<tr><td colspan=6 height=1 bgcolor="+c_rgszClr[2]+"></td></tr>"+
-  "<tr><td style=\"font:1pt\">&nbsp;<td>"+
-  "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(0);\" onmouseout=\"parent.fnMouseOutScroll(0);\"><a>&#171;</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(0);\" ondblclick=\"parent.fnScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(1);\" onmouseout=\"parent.fnMouseOutScroll(1);\"><a>&lt</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(1);\" ondblclick=\"parent.fnScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(2);\" onmouseout=\"parent.fnMouseOutScroll(2);\"><a>&gt</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(3);\" onmouseout=\"parent.fnMouseOutScroll(3);\"><a>&#187;</a></td>"+
-  "<td style=\"font:1pt\">&nbsp;<td></tr></table></body></html>";
+    const szHTML =
+        "<html><head><style>.clScroll {font:8pt Courier New;color:" + c_rgszClr[6] + ";cursor:default;line-height:10pt;}" +
+        ".clScroll2 {font:10pt Arial;color:" + c_rgszClr[6] + ";cursor:default;line-height:11pt;}</style></head>" +
+        "<body onclick=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" onselectstart=\"event.returnValue=false;\" bgcolor=" + c_rgszClr[4] + " topmargin=0 leftmargin=0><table cellpadding=0 cellspacing=0 width=100%>" +
+        "<tr><td colspan=6 height=1 bgcolor=" + c_rgszClr[2] + "></td></tr>" +
+        "<tr><td style=\"font:1pt\">&nbsp;<td>" +
+        "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(0);\" onmouseout=\"parent.fnMouseOutScroll(0);\"><a>&#171;</a></td>" +
+        "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(0);\" ondblclick=\"parent.fnScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(1);\" onmouseout=\"parent.fnMouseOutScroll(1);\"><a>&lt</a></td>" +
+        "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(1);\" ondblclick=\"parent.fnScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(2);\" onmouseout=\"parent.fnMouseOutScroll(2);\"><a>&gt</a></td>" +
+        "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(3);\" onmouseout=\"parent.fnMouseOutScroll(3);\"><a>&#187;</a></td>" +
+        "<td style=\"font:1pt\">&nbsp;<td></tr></table></body></html>";
 
- with (frames['frScroll'].document) {
+    with (frames['frScroll'].document) {
   open("text/html","replace");
   write(szHTML);
   close();
@@ -94,14 +93,14 @@ function fnBuildTabStrip()
   "</style></head><body onload=\"parent.fnInit();\" onselectstart=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" bgcolor="+c_rgszClr[4]+
   " topmargin=0 leftmargin=0><table id=tbTabs cellpadding=0 cellspacing=0>";
 
- var iCellCount=(c_lTabs+1)*2;
+    const iCellCount = (c_lTabs + 1) * 2;
 
- var i;
- for (i=0;i<iCellCount;i+=2)
+    let i;
+    for (i=0;i<iCellCount;i+=2)
   szHTML+="<col width=1><col>";
 
- var iRow;
- for (iRow=0;iRow<6;iRow++) {
+    let iRow;
+    for (iRow=0;iRow<6;iRow++) {
 
   szHTML+="<tr>";
 
@@ -147,8 +146,8 @@ function fnBuildTabStrip()
 function fnInit()
 {
  g_rglTabX[0]=0;
- var i;
- for (i=1;i<=c_lTabs;i++)
+    let i;
+    for (i=1;i<=c_lTabs;i++)
   with (frames['frTabs'].document.all.tbTabs.rows[1].cells[fnTabToCol(i-1)])
    g_rglTabX[i]=offsetLeft+offsetWidth-6;
 }
@@ -160,10 +159,10 @@ function fnTabToCol(iTab)
 
 function fnNextTab(fDir)
 {
- var iNextTab=-1;
- var i;
+    const iNextTab = -1;
+    let i;
 
- with (frames['frTabs'].document.body) {
+    with (frames['frTabs'].document.body) {
   if (fDir==0) {
    if (scrollLeft>0) {
     for (i=0;i<c_lTabs&&g_rglTabX[i]<scrollLeft;i++);
@@ -183,9 +182,9 @@ function fnNextTab(fDir)
 
 function fnScrollTabs(fDir)
 {
- var iNextTab=fnNextTab(fDir);
+    const iNextTab = fnNextTab(fDir);
 
- if (iNextTab>=0) {
+    if (iNextTab>=0) {
   frames['frTabs'].scroll(g_rglTabX[iNextTab],0);
   return true;
  } else
@@ -202,10 +201,10 @@ function fnFastScrollTabs(fDir)
 
 function fnSetTabProps(iTab,fActive)
 {
- var iCol=fnTabToCol(iTab);
- var i;
+    const iCol = fnTabToCol(iTab);
+    let i;
 
- if (iTab>=0) {
+    if (iTab>=0) {
   with (frames['frTabs'].document.all) {
    with (tbTabs) {
     for (i=0;i<=4;i++) {
@@ -254,8 +253,8 @@ function fnMouseOutScroll(iCtl)
 function fnMouseOverTab(iTab)
 {
  if (iTab!=g_iShCur) {
-  var iCol=fnTabToCol(iTab);
-  with (frames['frTabs'].document.all) {
+     const iCol = fnTabToCol(iTab);
+     with (frames['frTabs'].document.all) {
    tdTab[iTab].style.background=c_rgszClr[5];
   }
  }
@@ -264,10 +263,10 @@ function fnMouseOverTab(iTab)
 function fnMouseOutTab(iTab)
 {
  if (iTab>=0) {
-  var elFrom=frames['frTabs'].event.srcElement;
-  var elTo=frames['frTabs'].event.toElement;
+     const elFrom = frames['frTabs'].event.srcElement;
+     const elTo = frames['frTabs'].event.toElement;
 
-  if ((!elTo) ||
+     if ((!elTo) ||
    (elFrom.tagName==elTo.tagName) ||
    (elTo.tagName=="A" && elTo.parentElement!=elFrom) ||
    (elFrom.tagName=="A" && elFrom.parentElement!=elTo)) {

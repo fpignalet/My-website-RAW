@@ -1,6 +1,6 @@
 <h1 align="center">
-  <a href="https://github.com/fpignalet/My-website-RAW" title="My Website Documentation">
-    <img alt="My website" src="https://github.com/fpignalet/My-website-RAW/blob/master/images/WP_20180821_17_57_49_Pro.jpg" />
+  <a href="https://github.com/fpignalet/My-website-RAW-" title="My Website Documentation">
+    <img alt="My website" src="https://github.com/fpignalet/My-website-RAW-/icon.png" width="200px" height="200px" />
   </a>
   <br />
   My Website
@@ -29,8 +29,8 @@ The main features that have currently been implemented are:
 ## Quick Start
 
 To use a test BD:
-* create a database using serverside/data/database.xml
-* update the serverside/data/BDdata.php file
+* create a database using serverside/database.xml
+* update the serverside/BDdata.php file
 
 ## Credit
 
@@ -42,7 +42,3 @@ You are free to take my source code and modify it to create your own resume.
 Please don't use my resume for anything else without my permission, though!
 
 If you have any questions, feel free to join me with francois.pignalet@gmail.com and ask away.
-
-## Annexes
-
-[![DeepScan grade](https://deepscan.io/api/teams/2575/projects/3746/branches/32484/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=2575&pid=3746&bid=32484)

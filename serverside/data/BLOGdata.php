@@ -7,31 +7,78 @@
  */
 
 //-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNloadsleep = 100000;
 
 //-----------------------------------------------------------------------------------------------------------
-$data_BTdesc18 = array(
+/// @brief
+$data_BNdesc20 = array(
 
-    "blog_entry18TITLE" =>
-        "Today's sandbox",
+    "blog_entry20TITLE" =>
+        "And now?",
 
-    "blog_entry18DATE" => [
-        "December 13, 2018",
-        "Some more tricks"
+    "blog_entry20DATE" => [
+        "January 07, 2019",
+        "It's time to make a pause, and think about the future"
     ]
 
 );
 
-$data_BTcontent18 = array(
+/// @brief
+$data_BNcontent20 = array(
 
-    "blog_entry18CONTENT" => [
-        //TECH BLOG, no dynamic content
+    "blog_entry20CONTENT" => [
+        [ "p", [
+            "These pages began in the unique form of a CV based on a existing ready-to-go template"
+        ]],
+        [ "ul", [
+            [ "https://www.w3schools.com/", "w3schools template" ],
+        ]],
+
+        [ "p", [
+            "I had a precise idea in mind: something a little interactive."
+        ]],
+        [ "ul", [
+            "A simple and direct general presentation, ",
+            "Access to details if necessary.",
+            "The data was directly in the HTML code."
+        ]],
+
+        [ "p", [
+            "Then"
+        ]],
+        [ "ul", [
+            "I transferred the data into files",
+            "I integrated the CV into a BLOG part",
+            "I deepened my knowledge of Javascript, and everything went into classes / modules",
+        ]],
+
+        [ "p", [
+            "According to these considerations, please note that"
+        ]],
+        [ "ul", [
+            "this website is my playground, meaning that there is no founding architectural analysis",
+            "It’s a fully “extreme modelling / programming” development exercise",
+        ]],
+
+        [ "p", [
+            "What I’m planning to do now"
+        ]],
+        [ "ul", [
+            "Implement lazy loading",
+            "Use spectre.css (https://picturepan2.github.io/spectre/index.html) instead of w3schools",
+            "Put the data entries in a database",
+            "Extract some kind of raw JS framework from this",
+            "Use Symfony (https://symfony.com/) for the server part",
+            "Make a Django version",
+        ]],
 
     ]
 
 );
 
 //-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNdesc17 = array(
 
     "blog_entry17TITLE" =>
@@ -44,6 +91,7 @@ $data_BNdesc17 = array(
 
 );
 
+/// @brief
 $data_BNcontent17 = array(
 
     "blog_entry17CONTENT" => [
@@ -74,50 +122,7 @@ $data_BNcontent17 = array(
 );
 
 //-----------------------------------------------------------------------------------------------------------
-$data_BTdesc16 = array(
-
-    "blog_entry16TITLE" =>
-        "Today's sandbox",
-
-    "blog_entry16DATE" => [
-        "December 5, 2018",
-        "Some tricks"
-    ]
-
-);
-
-$data_BTcontent16 = array(
-
-    "blog_entry16CONTENT" => [
-        //TECH BLOG, no dynamic content
-
-    ]
-
-);
-
-//-----------------------------------------------------------------------------------------------------------
-$data_BTdesc15 = array(
-
-    "blog_entry15TITLE" =>
-        "Today's sandbox",
-
-    "blog_entry15DATE" => [
-        "December 3, 2018",
-        "\"A little break\""
-    ]
-
-);
-
-$data_BTcontent15 = array(
-
-    "blog_entry15CONTENT" => [
-        //TECH BLOG, no dynamic content
-
-    ]
-
-);
-
-//-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNdesc14 = array(
 
     "blog_entry14TITLE" =>
@@ -130,6 +135,7 @@ $data_BNdesc14 = array(
 
 );
 
+/// @brief
 $data_BNcontent14 = array(
 
     "blog_entry14CONTENT" => [
@@ -144,28 +150,7 @@ $data_BNcontent14 = array(
 );
 
 //-----------------------------------------------------------------------------------------------------------
-$data_BTdesc13 = array(
-
-    "blog_entry13TITLE" =>
-        "Today's sandbox",
-
-    "blog_entry13DATE" => [
-        "November 28, 2018",
-        "Foolin' around with Treeviews"
-    ]
-
-);
-
-$data_BTcontent13 = array(
-
-    "blog_entry13CONTENT" => [
-        //TECH BLOG, no dynamic content
-
-    ]
-
-);
-
-//-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNdesc12 = array(
 
     "blog_entry12TITLE" =>
@@ -178,6 +163,7 @@ $data_BNdesc12 = array(
 
 );
 
+/// @brief
 $data_BNcontent12 = array(
 
     "blog_entry12CONTENT" => [
@@ -194,28 +180,7 @@ $data_BNcontent12 = array(
 );
 
 //-----------------------------------------------------------------------------------------------------------
-$data_BTdesc11 = array(
-
-    "blog_entry11TITLE" =>
-        "Some React",
-
-    "blog_entry11DATE" => [
-        "November 15, 2018",
-        "Tests with React"
-    ]
-
-);
-
-$data_BTcontent11 = array(
-
-    "blog_entry11CONTENT" => [
-        //TECH BLOG, no dynamic content
-
-    ]
-
-);
-
-//-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNdesc10 = array(
 
     "blog_entry10TITLE" =>
@@ -227,6 +192,8 @@ $data_BNdesc10 = array(
     ]
 
 );
+
+/// @brief
 $data_BNcontent10 = array(
 
     "blog_entry10CONTENT" => [
@@ -246,6 +213,7 @@ $data_BNcontent10 = array(
 );
 
 //-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNdesc9 = array(
 
     "blog_entry9TITLE" =>
@@ -257,6 +225,8 @@ $data_BNdesc9 = array(
     ]
 
 );
+
+/// @brief
 $data_BNcontent91 = array(
 
     "blog_entry91CONTENT" => [
@@ -305,34 +275,7 @@ $data_BNcontent91 = array(
 );
 
 //-----------------------------------------------------------------------------------------------------------
-$data_BTdesc8 = array(
-    "blog_entry8TITLE" => "",
-    "blog_entry8DATE" => []
-);
-$data_BTcontent8 = array(
-    "blog_entry8CONTENT" => []
-);
-
-//-----------------------------------------------------------------------------------------------------------
-$data_BTdesc7 = array(
-
-    "blog_entry7TITLE" =>
-        "Today's sandbox",
-
-    "blog_entry7DATE" => [
-        "August 24, 2018",
-        "Trying different things with angular.js"
-    ]
-
-);
-$data_BTcontent7 = array(
-    "blog_entry7CONTENT" => [
-        //TECH BLOG, no dynamic content
-    ]
-
-);
-
-//-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNdesc6 = array(
 
     "blog_entry6TITLE" =>
@@ -344,6 +287,8 @@ $data_BNdesc6 = array(
     ]
 
 );
+
+/// @brief
 $data_BNcontent6 = array(
     "blog_entry6CONTENT" => [
         [ "p", [
@@ -368,25 +313,7 @@ $data_BNcontent6 = array(
 );
 
 //-----------------------------------------------------------------------------------------------------------
-$data_BTdesc5 = array(
-
-    "blog_entry5TITLE" =>
-        "Today's sandbox",
-
-    "blog_entry5DATE" => [
-        "May 05, 2018",
-        "Trying different things with jscript / php to find a CLEAN implementation"
-    ]
-
-);
-$data_BTcontent5 = array(
-    "blog_entry5CONTENT" => [
-        //TECH BLOG, no dynamic content
-    ]
-
-);
-
-//-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNdesc4 = array(
 
     "blog_entry4TITLE" =>
@@ -398,6 +325,8 @@ $data_BNdesc4 = array(
     ]
 
 );
+
+/// @brief
 $data_BNcontent4 = array(
     "blog_entry4CONTENT" => [
         [ "p", [
@@ -446,6 +375,7 @@ $data_BNcontent4 = array(
 );
 
 //-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNdesc3 = array(
 
     "blog_entry3TITLE" =>
@@ -457,6 +387,8 @@ $data_BNdesc3 = array(
     ]
 
 );
+
+/// @brief
 $data_BNcontent3 = array(
 
     "blog_entry3CONTENT" => [
@@ -480,6 +412,7 @@ $data_BNcontent3 = array(
 );
 
 //-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNdesc2 = array(
 
     "blog_entry2TITLE" =>
@@ -491,6 +424,8 @@ $data_BNdesc2 = array(
     ]
 
 );
+
+/// @brief
 $data_BNcontent2 = array(
 
     "blog_entry2CONTENT" => [
@@ -520,6 +455,7 @@ $data_BNcontent2 = array(
 );
 
 //-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNdesc1 = array(
 
     "blog_entry1TITLE" =>
@@ -531,6 +467,8 @@ $data_BNdesc1 = array(
     ]
 
 );
+
+/// @brief
 $data_BNcontent1 = array(
 
     "blog_entry1CONTENT" => [
@@ -544,65 +482,202 @@ $data_BNcontent1 = array(
 );
 
 //-----------------------------------------------------------------------------------------------------------
-$data_BLOGdatamap = array(
+/// @brief
+$data_BTdesc19 = array(
 
-    "data_BTdesc18" => $data_BTdesc18,
-    "data_BTcontent18" => $data_BTcontent18,
+    "blog_entry19TITLE" =>
+        "Floupok",
 
-    "data_BNdesc17" => $data_BNdesc17,
-    "data_BNcontent17" => $data_BNcontent17,
+    "blog_entry19DATE" => [
+        "December 19, 2018",
+        "ouigui ougou"
+    ]
 
-    "data_BTdesc16" => $data_BTdesc16,
-    "data_BTcontent16" => $data_BTcontent16,
+);
 
-    "data_BTdesc15" => $data_BTdesc15,
-    "data_BTcontent15" => $data_BTcontent15,
+/// @brief
+$data_BTcontent19 = array(
 
-    "data_BNdesc14" => $data_BNdesc14,
-    "data_BNcontent14" => $data_BNcontent14,
-
-    "data_BTdesc13" => $data_BTdesc13,
-    "data_BTcontent13" => $data_BTcontent13,
-
-    "data_BNdesc12" => $data_BNdesc12,
-    "data_BNcontent12" => $data_BNcontent12,
-
-    "data_BNdesc10" => $data_BNdesc10,
-    "data_BNcontent10" => $data_BNcontent10,
-
-    "data_BNdesc9" => $data_BNdesc9,
-    "data_BNcontent91" => $data_BNcontent91,
-
-    "data_BNdesc6" => $data_BNdesc6,
-    "data_BNcontent6" => $data_BNcontent6,
-
-    "data_BNdesc4" => $data_BNdesc4,
-    "data_BNcontent4" => $data_BNcontent4,
-
-    "data_BNdesc3" => $data_BNdesc3,
-    "data_BNcontent3" => $data_BNcontent3,
-
-    "data_BNdesc2" => $data_BNdesc2,
-    "data_BNcontent2" => $data_BNcontent2,
-
-    "data_BNdesc1" => $data_BNdesc1,
-    "data_BNcontent1" => $data_BNcontent1,
-
-    "data_BTdesc11" => $data_BTdesc11,
-    "data_BTcontent11" => $data_BTcontent11,
-
-    "data_BTdesc8" => $data_BTdesc8,
-    "data_BTcontent8" => $data_BTcontent8,
-
-    "data_BTdesc7" => $data_BTdesc7,
-    "data_BTcontent7" => $data_BTcontent7,
-
-    "data_BTdesc5" => $data_BTdesc5,
-    "data_BTcontent5" => $data_BTcontent5,
+    "blog_entry19CONTENT" => [
+        //TECH BLOG, no dynamic content
+    ]
 
 );
 
 //-----------------------------------------------------------------------------------------------------------
+/// @brief
+$data_BTdesc18 = array(
+
+    "blog_entry18TITLE" =>
+        "Today's sandbox",
+
+    "blog_entry18DATE" => [
+        "December 13, 2018",
+        "Some more tricks"
+    ]
+
+);
+
+/// @brief
+$data_BTcontent18 = array(
+
+    "blog_entry18CONTENT" => [
+        //TECH BLOG, no dynamic content
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
+/// @brief
+$data_BTdesc16 = array(
+
+    "blog_entry16TITLE" =>
+        "Today's sandbox",
+
+    "blog_entry16DATE" => [
+        "December 5, 2018",
+        "Some tricks"
+    ]
+
+);
+
+/// @brief
+$data_BTcontent16 = array(
+
+    "blog_entry16CONTENT" => [
+        //TECH BLOG, no dynamic content
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
+/// @brief
+$data_BTdesc15 = array(
+
+    "blog_entry15TITLE" =>
+        "Today's sandbox",
+
+    "blog_entry15DATE" => [
+        "December 3, 2018",
+        "\"A little break\""
+    ]
+
+);
+
+/// @brief
+$data_BTcontent15 = array(
+
+    "blog_entry15CONTENT" => [
+        //TECH BLOG, no dynamic content
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
+/// @brief
+$data_BTdesc13 = array(
+
+    "blog_entry13TITLE" =>
+        "Today's sandbox",
+
+    "blog_entry13DATE" => [
+        "November 28, 2018",
+        "Foolin' around with Treeviews"
+    ]
+
+);
+
+/// @brief
+$data_BTcontent13 = array(
+
+    "blog_entry13CONTENT" => [
+        //TECH BLOG, no dynamic content
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
+/// @brief
+$data_BTdesc11 = array(
+
+    "blog_entry11TITLE" =>
+        "Some React",
+
+    "blog_entry11DATE" => [
+        "November 15, 2018",
+        "Tests with React"
+    ]
+
+);
+
+/// @brief
+$data_BTcontent11 = array(
+
+    "blog_entry11CONTENT" => [
+        //TECH BLOG, no dynamic content
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
+/// @brief
+$data_BTdesc8 = array(
+    "blog_entry8TITLE" => "",
+    "blog_entry8DATE" => []
+);
+
+/// @brief
+$data_BTcontent8 = array(
+    "blog_entry8CONTENT" => [
+        //TECH BLOG, no dynamic content
+    ]
+);
+
+//-----------------------------------------------------------------------------------------------------------
+/// @brief
+$data_BTdesc7 = array(
+
+    "blog_entry7TITLE" =>
+        "Today's sandbox",
+
+    "blog_entry7DATE" => [
+        "August 24, 2018",
+        "Trying different things with angular.js"
+    ]
+
+);
+
+/// @brief
+$data_BTcontent7 = array(
+    "blog_entry7CONTENT" => [
+        //TECH BLOG, no dynamic content
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
+/// @brief
+$data_BTdesc5 = array(
+
+    "blog_entry5TITLE" =>
+        "Today's sandbox",
+
+    "blog_entry5DATE" => [
+        "May 05, 2018",
+        "Trying different things with jscript / php to find a CLEAN implementation"
+    ]
+
+);
+/// @brief
+$data_BTcontent5 = array(
+    "blog_entry5CONTENT" => [
+        //TECH BLOG, no dynamic content
+    ]
+
+);
+
+//-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BTtestarray = [
     "Anna", "Amanda",
     "Brittany",
@@ -611,10 +686,10 @@ $data_BTtestarray = [
     "Eva", "Eve", "Evita", "Elizabeth", "Ellen",
     "Fiona",
     "Gunda",
-    "Hege",
+    "Hege", "Helga", "Hildegard",
     "Inga",
     "Johanna", "Jenny",
-    "Kitty",
+    "Kitty", "Katherin",
     "Linda", "Liza",
     "Nina",
     "Ophelia",
@@ -627,4 +702,50 @@ $data_BTtestarray = [
     "Wenche"
 ];
 
+//-----------------------------------------------------------------------------------------------------------
+/// @brief
+$data_BLOGmap = array(
 
+    "data_BNdesc20" => $data_BNdesc20,
+    "data_BNcontent20" => $data_BNcontent20,
+    "data_BNdesc17" => $data_BNdesc17,
+    "data_BNcontent17" => $data_BNcontent17,
+    "data_BNdesc14" => $data_BNdesc14,
+    "data_BNcontent14" => $data_BNcontent14,
+    "data_BNdesc12" => $data_BNdesc12,
+    "data_BNcontent12" => $data_BNcontent12,
+    "data_BNdesc10" => $data_BNdesc10,
+    "data_BNcontent10" => $data_BNcontent10,
+    "data_BNdesc9" => $data_BNdesc9,
+    "data_BNcontent91" => $data_BNcontent91,
+    "data_BNdesc6" => $data_BNdesc6,
+    "data_BNcontent6" => $data_BNcontent6,
+    "data_BNdesc4" => $data_BNdesc4,
+    "data_BNcontent4" => $data_BNcontent4,
+    "data_BNdesc3" => $data_BNdesc3,
+    "data_BNcontent3" => $data_BNcontent3,
+    "data_BNdesc2" => $data_BNdesc2,
+    "data_BNcontent2" => $data_BNcontent2,
+    "data_BNdesc1" => $data_BNdesc1,
+    "data_BNcontent1" => $data_BNcontent1,
+
+    "data_BTdesc19" => $data_BTdesc19,
+    "data_BTcontent19" => $data_BTcontent19,
+    "data_BTdesc18" => $data_BTdesc18,
+    "data_BTcontent18" => $data_BTcontent18,
+    "data_BTdesc16" => $data_BTdesc16,
+    "data_BTcontent16" => $data_BTcontent16,
+    "data_BTdesc15" => $data_BTdesc15,
+    "data_BTcontent15" => $data_BTcontent15,
+    "data_BTdesc13" => $data_BTdesc13,
+    "data_BTcontent13" => $data_BTcontent13,
+    "data_BTdesc11" => $data_BTdesc11,
+    "data_BTcontent11" => $data_BTcontent11,
+    "data_BTdesc8" => $data_BTdesc8,
+    "data_BTcontent8" => $data_BTcontent8,
+    "data_BTdesc7" => $data_BTdesc7,
+    "data_BTcontent7" => $data_BTcontent7,
+    "data_BTdesc5" => $data_BTdesc5,
+    "data_BTcontent5" => $data_BTcontent5,
+
+);

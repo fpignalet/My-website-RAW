@@ -12,10 +12,12 @@ $srvside_BDconnect = "use your credentials [login:pass:bdname]";
 $srvside_BDsrvname = "use your credentials [IP addr]";
 
 /// --------------------------------------------------------
+/// @brief
 $srvside_BDtables = [
     "fpi_testtable1"
 ];
 
+/// @brief
 $srvside_BDfields = [
     "testtable1field1",
     "testtable1field2",
@@ -23,6 +25,7 @@ $srvside_BDfields = [
     NULL
 ];
 
+/// @brief
 $srvside_BDtestvalues = [
     21,
     22,
