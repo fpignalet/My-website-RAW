@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<html lang="en">
 
     <!-- -------------------------------------------------------------------------------------------------------------->
     <head>
@@ -8,19 +8,32 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- meta http-equiv="pragma" content="no-cache" / -->
+        <meta name="description" content="fpignaletCVpage">
+        <meta http-equiv="Content-Type" content="text/html">
+        <!-- meta http-equiv="Content-Security-Policy"
+              content="default-src 'self'
+                https://www.w3schools.com
+                https://fonts.googleapis.com
+                https://cdnjs.cloudflare.com;
+                script-src 'unsafe-inline' 'self';"
+        -->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- EXTERNAL RESSOURCES -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <link rel="modulepreload" href="./clientside/js/lib/clientside.js">
+        <link rel="modulepreload" href="./clientside/js/impl/clientsideCV.js">
+        <link rel="modulepreload" href="./clientside/js/clientsideICV.js">
+
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- STYLE SHEETS -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <link rel="stylesheet" href="clientside/css/clientside.css">
+        <link rel="stylesheet" type="text/css" href="clientside/css/clientside.css">
         <style>
             html, body, h1, h2, h3, h4, h5, h6 {
                 font-family: "Roboto", sans-serif;
@@ -162,6 +175,7 @@
              *************************************************************************************/
             import {
                 cliside_CVpageload,
+                cliside_CVpageunload,
                 cliside_CVpagescroll
             } from "./clientside/js/clientsideICV.js";
 
@@ -174,6 +188,9 @@
             try {
                 window.onload = function() {
                     cliside_CVpageload(document, { create: 6, load: 7 })
+                };
+                window.onunload = function() {
+                    cliside_CVpageunload(document, null)
                 };
                 window.onscroll = function() {
                     cliside_CVpagescroll(document, "entry_navbar")

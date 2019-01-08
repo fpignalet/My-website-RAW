@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<html lang="en">
 
     <!-- -------------------------------------------------------------------------------------------------------------->
     <head>
@@ -8,18 +8,31 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- meta http-equiv="pragma" content="no-cache" / -->
+        <meta name="description" content="fpignaletblognewspage">
+        <meta http-equiv="Content-Type" content="text/html">
+        <!-- meta http-equiv="Content-Security-Policy"
+              content="default-src 'self'
+                https://www.w3schools.com
+                https://fonts.googleapis.com
+                https://cdnjs.cloudflare.com;
+                script-src 'unsafe-inline' 'self';"
+        -->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- EXTERNAL RESSOURCES -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+        <link rel="modulepreload" href="./clientside/js/lib/clientside.js">
+        <link rel="modulepreload" href="./clientside/js/impl/clientsideBLOG.js">
+        <link rel="modulepreload" href="./clientside/js/clientsideIBLOG.js">
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- STYLE SHEETS -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <link rel="stylesheet" href="clientside/css/clientside.css">
+        <link rel="stylesheet" type="text/css" href="clientside/css/clientside.css">
         <style>
             body, h1, h2, h3, h4, h5 {
                 font-family: "Raleway", sans-serif
@@ -76,6 +89,7 @@
              *************************************************************************************/
             import {
                 cliside_BLOGNEWSpageload,
+                cliside_BLOGNEWSpageunload,
                 cliside_BLOGNEWSpagescroll
             } from "./clientside/js/clientsideIBLOG.js";
 
@@ -88,6 +102,9 @@
             try {
                 window.onload = function() {
                     cliside_BLOGNEWSpageload(document, { create: 2, load: 3 })
+                };
+                window.onunload = function() {
+                    cliside_BLOGNEWSpageunload(document, null)
                 };
                 window.onscroll = function() {
                     cliside_BLOGNEWSpagescroll(document, "entry_navbar")
