@@ -280,9 +280,11 @@ export class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
     /// @param ifirstName desc...
     /// @param ilastName desc...
     /// @param products desc...
-    testANGULAR(name, ctrl, ifirstName, ilastName, products) {
-        const app = angular.module(name, []);
-        app.controller(ctrl, function($scope) {
+    testANGULAR1(id, ifirstName, ilastName, products) {
+        const appname = document.getElementById("angutest1").getAttribute("ng-app");
+        const ctrlname = document.getElementById("angutest1").getAttribute("ng-controller");
+        const testapp = angular.module(appname, []);
+        testapp.controller(ctrlname, function($scope) {
 
             // -------------------------------------
             $scope.ifirstName= ifirstName;
@@ -290,47 +292,81 @@ export class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
             $scope.products = products;
 
             // -------------------------------------
-            $scope.addItem = function () {
+            $scope.dynlistadditem = function () {
                 $scope.errortext = "";
-                if (!$scope.addMe) {
+
+                if (null === $scope.addMe) {
+                    $scope.errortext = "Please enter something";
                     return;
                 }
-                if ($scope.products.indexOf($scope.addMe) === -1) {
-                    $scope.products.push($scope.addMe);
+
+                if ($scope.products.indexOf($scope.addMe) !== -1) {
+                    $scope.errortext = "The item is already in the list";
+                    return;
                 }
-                else {
-                    $scope.errortext = "The item is already in the list.";
-                }
+
+                $scope.products.push($scope.addMe);
             };
 
             // -------------------------------------
-            $scope.removeItem = function (x) {
+            $scope.dynlistremoveitem = function (index) {
                 $scope.errortext = "";
-                $scope.products.splice(x, 1);
+                $scope.products.splice(index, 1);
             };
 
             // -------------------------------------
-            $scope.mouseoverfunc = function(myE) {
-                $scope.x = myE.clientX;
-                $scope.y = myE.clientY;
+            $scope.onmouseover = function(event) {
+                $scope.x = event.clientX;
+                $scope.y = event.clientY;
             };
 
         });
 
-        /*
-        app.config(function($routeProvider) {
+//        console.log(this.getFuncName() + "OK");
+    }
+
+    /// @brief add angularjs to tech tests
+    /// @param name desc...
+    /// @param ctrl desc...
+    /// @param ifirstName desc...
+    /// @param ilastName desc...
+    /// @param products desc...
+    testANGULAR2(id) {
+        function onmenu1() {
+            return "<h1>Menu 1</h1><p>result = 75%.</p>"
+        }
+        function onmenu2() {
+            return "<h1>Menu 2</h1><p>result = 95%.</p>"
+        }
+        function ondefault() {
+            return "<h1>Nothing</h1><p>Nothing has been selected</p>"
+        }
+
+        const appname = document.getElementById(id).getAttribute("ng-app");
+        const ctrlname = document.getElementById(id).getAttribute("ng-controller");
+        const otherapp = angular.module(appname, [
+            'ngRoute'
+        ]);
+        otherapp.config(function($routeProvider) {
             $routeProvider
-                .when("/banana", {
-                    template : "<h1>Banana</h1><p>Bananas contain around 75% water.</p>"
+                .when("/Menu1", {
+                    template : onmenu1(),
+                    controller: ctrlname
                 })
-                .when("/tomato", {
-                    template : "<h1>Tomato</h1><p>Tomatoes contain around 95% water.</p>"
+                .when("/Menu2", {
+                    template : onmenu2(),
+                    controller: ctrlname
                 })
                 .otherwise({
-                    template : "<h1>Nothing</h1><p>Nothing has been selected</p>"
+                    template : ondefault(),
+                    controller: ctrlname
                 });
         });
-        */
+        otherapp.controller(ctrlname, function($scope) {
+            console.log(CLISIDE_DOM.getFuncName() + "$scope = " + $scope.toString());
+        });
+
+        angular.bootstrap(document.getElementById("angutest2"), ['otherapp']);
 
 //        console.log(this.getFuncName() + "OK");
     }

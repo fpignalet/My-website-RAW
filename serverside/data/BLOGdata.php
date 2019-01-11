@@ -601,7 +601,7 @@ $data_BTcontent13 = array(
 $data_BTdesc11 = array(
 
     "blog_entry11TITLE" =>
-        "Some React",
+        "[--UPDATED --] Some React",
 
     "blog_entry11DATE" => [
         "November 15, 2018",
@@ -638,10 +638,10 @@ $data_BTcontent8 = array(
 $data_BTdesc7 = array(
 
     "blog_entry7TITLE" =>
-        "Today's sandbox",
+        "[-- UPDATED --] Today's sandbox",
 
     "blog_entry7DATE" => [
-        "August 24, 2018",
+        "January 09, 2019",
         "Trying different things with angular.js"
     ]
 

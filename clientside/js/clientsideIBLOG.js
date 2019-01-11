@@ -153,7 +153,7 @@ export function cliside_BLOGTECHpageload(contener, param) {
 
     (data_BTECHmap2[0]["data"])[2] = () => {
         // OK, it's still hard-coded in html page, I still don't know why when loaded from outside it doesn't functionate
-        //local.testANGULAR("testapp", "testctrl");
+        //local.testANGULAR1("testapp", "testctrl");
     };
     (data_BTECHmap2[1]["data"])[2] = () => {
         local.testHELLO(contener, "hello_area");
@@ -167,7 +167,7 @@ export function cliside_BLOGTECHpageload(contener, param) {
     };
 
 //      TODO: NOT OK THERE. still dont't know why...
-//      local.testANGULAR("testapp", "testctrl");
+//      local.testANGULAR1("testapp", "testctrl");
 
     //-----------------------------------------------------------
     const BLOGcr = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param["create"]);

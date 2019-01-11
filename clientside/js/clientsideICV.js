@@ -6,6 +6,7 @@
 import {
     CLISIDE_LOADER,
     cliside_disctoggle,
+    cliside_disctoggled,
     cliside_BASEIDENT
 } from "./lib/clientside.js";
 
@@ -170,7 +171,7 @@ export function cliside_CVpagescroll(contener, param) {
 /// @param param maybe anything
 export function cliside_CVpageprint(contener, param) {
     try {
-        const status = cliside_disctoggle;
+        const status = cliside_disctoggled;
         if(false === status) {
             cliside_disctoggle(contener);
         }
