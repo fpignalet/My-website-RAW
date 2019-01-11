@@ -28,7 +28,9 @@ export function cliside_OFFERpageload(contener, param) {
         srcid,
         "headercard",
         () => {
-            contener.getElementById("titlepart").appendChild(contener.createTextNode("What can I do for you? And how much it costs..."))
+            contener.getElementById("titlepart").appendChild(contener.createTextNode(
+                "What can I do for you? And how much it costs...")
+            )
         }
     );
     cliside_OFFERldr.localgetfile(contener,
