@@ -38,79 +38,70 @@ let cliside_INDEXldr = null;
 /// @param contener is the target DOM
 /// @param param maybe anything
 export function cliside_INDEXpageload(contener, param) {
-    try {
-        //-----------------------------------------------------------
-        window.ENTRYmodalnews = cliside_INDEXmodalnews;
-        window.ENTRYmodaltech = cliside_INDEXmodaltech;
-        window.ENTRYpagefbk = cliside_INDEXpagefbk;
-        window.ENTRYnavtoggle = clientside_navtoggle;
+//        document.cookie = "fpiwebsite";
 
-        //-----------------------------------------------------------
-        cliside_INDEXcr = new CLISIDE_INDEXCREATE(cliside_BASEIDENT + param["create"]);
-        cliside_INDEXcr.displayNAVBARS(contener);
-        cliside_INDEXcr.displayTITLE(contener);
-        cliside_INDEXcr.displayABOUT(contener);
+    //-----------------------------------------------------------
+    window.ENTRYmodalnews = cliside_INDEXmodalnews;
+    window.ENTRYmodaltech = cliside_INDEXmodaltech;
+    window.ENTRYpagefbk = cliside_INDEXpagefbk;
+    window.ENTRYnavtoggle = clientside_navtoggle;
 
-        cliside_INDEXldr = new CLISIDE_INDEXLOADER(cliside_BASEIDENT + param["load"]);
-        cliside_INDEXldr.loadPRESENTATION(contener, cliside_INDEXcr, "./clientside/cards/CVcardpres.html");
-        cliside_INDEXldr.loadNEWS(contener, cliside_INDEXcr, "./clientside/cards/BLOGgridNEWS.html");
-        cliside_INDEXldr.loadTECH(contener, cliside_INDEXcr, "./clientside/cards/BLOGgridTECH1.html");
+    //-----------------------------------------------------------
+    cliside_INDEXcr = new CLISIDE_INDEXCREATE(cliside_BASEIDENT + param["create"]);
+    cliside_INDEXldr = new CLISIDE_INDEXLOADER(cliside_BASEIDENT + param["load"]);
 
-        cliside_INDEXldr.localgetfile(contener,
-            "./clientside/cards/cardfooter.html",
-            "contener",
-            "footer"
-        );
-        cliside_INDEXldr.localgetfile(contener,
-            "./clientside/cards/cardmodal.html",
-            "contener",
-            "modalutil"
-        );
+    cliside_INDEXldr.localgetfile(contener,
+        "./clientside/cards/cardnavi.html",
+        "contener",
+        "navi",
+        () => {
+            cliside_INDEXcr.displayNAVBARS(contener)
+        }
+    );
 
-    }
-    catch (e) {
-        console.log(e.name)
-    }
-    finally {
-        //...
-    }
+    cliside_INDEXcr.displayTITLE(contener);
+    cliside_INDEXcr.displayABOUT(contener);
+
+    cliside_INDEXldr.loadPRESENTATION(contener, cliside_INDEXcr, "./clientside/cards/CVcardpres.html");
+    cliside_INDEXldr.loadNEWS(contener, cliside_INDEXcr, "./clientside/cards/BLOGgridNEWS.html");
+    cliside_INDEXldr.loadTECH(contener, cliside_INDEXcr, "./clientside/cards/BLOGgridTECH1.html");
+
+    cliside_INDEXldr.localgetfile(contener,
+        "./clientside/cards/cardfooter.html",
+        "contener",
+        "footer"
+    );
+    cliside_INDEXldr.localgetfile(contener,
+        "./clientside/cards/cardmodal.html",
+        "contener",
+        "modalutil"
+    );
+
 }
 
-/// @brief leaving the BLOG TECH page
+/// @brief leaving the INDEX TECH page
 /// @param contener is the target DOM
 /// @param param maybe anything
 export function cliside_INDEXpageunload(contener, param) {
-    try {
-        //...
-    }
-    catch (e) {
-        console.log(e.name)
-    }
-    finally {
-        //...
-    }
+    //...
 }
 
 /// @brief Change style of navbar on scroll
 /// @param contener is the target DOM
 /// @param param maybe anything
 export function cliside_INDEXpagescroll(contener, param) {
-    try {
-        const navbar = contener.getElementById(param);
-        if (contener.body.scrollTop > 100 || contener.documentElement.scrollTop > 100) {
-            navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-        }
-        else {
-            navbar.className = navbar.className.replace(
-                " w3-card w3-animate-top w3-white", ""
-            );
-        }
+    const navbar = contener.getElementById(param);
+    if(null === navbar){
+        return;
     }
-    catch (e) {
-        console.log(e.name)
+
+    if (contener.body.scrollTop > 100 || contener.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
     }
-    finally {
-        //...
+    else {
+        navbar.className = navbar.className.replace(
+            " w3-card w3-animate-top w3-white", ""
+        );
     }
 }
 

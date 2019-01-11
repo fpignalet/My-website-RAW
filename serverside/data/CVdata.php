@@ -121,7 +121,7 @@ $data_CVlangentries = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot0 = array(
     "boulotentry0date" =>
         [ "2018/11" ],
@@ -136,7 +136,7 @@ $data_CVboulot0 = array(
         [ null ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot01 = array(
     "boulotentry0item" =>
         [
@@ -155,7 +155,7 @@ $data_CVboulot01 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot1 = array(
     "boulotentry1date" =>
         [ "2000/06 - 2018/10" ],
@@ -170,7 +170,7 @@ $data_CVboulot1 = array(
         [ null ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot11 = array(
     "boulotentry1item" =>
         [
@@ -205,7 +205,7 @@ $data_CVboulot11 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot12 = array(
     "boulotentry2item" =>
         [
@@ -224,7 +224,7 @@ $data_CVboulot12 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot13 = array(
     "boulotentry3item" =>
         [
@@ -246,7 +246,7 @@ $data_CVboulot13 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot14 = array(
     "boulotentry4item" =>
         [
@@ -265,7 +265,7 @@ $data_CVboulot14 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot15 = array(
     "boulotentry5item" =>
         [
@@ -287,7 +287,7 @@ $data_CVboulot15 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot16 = array(
     "boulotentry6item" =>
         [
@@ -320,7 +320,7 @@ $data_CVboulot16 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot2 = array(
     "boulotentry8date" =>
         [ "1999/10 - 2000/05" ],
@@ -337,7 +337,7 @@ $data_CVboulot2 = array(
         [ null, ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot21 = array(
     "boulotentry8item" =>
         [
@@ -359,7 +359,7 @@ $data_CVboulot21 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot22 = array(
     "boulotentry9item" =>
         [
@@ -380,7 +380,7 @@ $data_CVboulot22 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot3 = array(
     "boulotentry10date" =>
         [
@@ -398,7 +398,7 @@ $data_CVboulot3 = array(
         [ null ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot31 = array(
     "boulotentry10item" =>
         [
@@ -426,7 +426,7 @@ $data_CVboulot31 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot4 = array(
     "boulotentry11date" =>
         [ "1996/01 - 1998/06" ],
@@ -441,6 +441,7 @@ $data_CVboulot4 = array(
         [ null ]
 );
 
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot41 = array(
     "boulotentry11item" =>
         [
@@ -465,7 +466,7 @@ $data_CVboulot41 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot42 = array(
     "boulotentry12item" =>
         [
@@ -483,7 +484,7 @@ $data_CVboulot42 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot43 = array(
     "boulotentry13item" =>
         [
@@ -506,7 +507,7 @@ $data_CVboulot43 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot5 = array(
     "boulotentry14date" =>
         [ "1992/04 - 1995/12" ],
@@ -521,7 +522,7 @@ $data_CVboulot5 = array(
         [ null ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot51 = array(
     "boulotentry14item" =>
         [
@@ -548,7 +549,7 @@ $data_CVboulot51 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot52 = array(
     "boulotentry15item" =>
         [
@@ -576,7 +577,7 @@ $data_CVboulot52 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot6 = array(
     "boulotentry16date" =>
         [ "1986/10 - 1992/03" ],
@@ -591,7 +592,7 @@ $data_CVboulot6 = array(
         [ null ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot61 = array(
     "boulotentry16item" =>
         [
@@ -610,7 +611,7 @@ $data_CVboulot61 = array(
 );
 
 // BILDUNG -----------------------------------------------------------------
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVbildung1 = array(
     "edu_f1date" =>
         [ "During last years..." ],
@@ -620,7 +621,7 @@ $data_CVbildung1 = array(
         null
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVbildung11 = array(
     "edu_f11item" =>
         [ "2017" ],
@@ -638,7 +639,7 @@ $data_CVbildung11 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVbildung12 = array(
     "edu_f12item" =>
         [ "2004" ],
@@ -656,7 +657,7 @@ $data_CVbildung12 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVbildung13 = array(
     "edu_f13item" =>
         [ "1985" ],
@@ -675,7 +676,7 @@ $data_CVbildung13 = array(
 );
 
 // LOISIRS -----------------------------------------------------------------
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVhobby1 = array(
     "loisirs_f1date" =>
         [ "Until now..." ],
@@ -685,7 +686,7 @@ $data_CVhobby1 = array(
         null,
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVhobby11 = array(
     "loisirs_f11item" =>
         [ "Activity" ],
@@ -708,7 +709,7 @@ $data_CVhobby11 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVhobby12 = array(
     "loisirs_f12item" =>
         [ "Activity" ],
@@ -725,7 +726,7 @@ $data_CVhobby12 = array(
         ]
 );
 
-/// @brief
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVhobby13 = array(
     "loisirs_f13item" =>
         [ "Interests" ],

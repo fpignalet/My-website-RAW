@@ -113,12 +113,17 @@ export class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
     fillentry(contener, desc, content) {
         const local = this;
 
+        let loadedweight = 0;
         local.filldesc(contener, desc);
         Object.keys(content).forEach((key, _index) => {
-            local.fillcontent(contener, content[key]);
+            const loaded = local.fillcontent(contener, content[key]);
+            if(true === loaded){
+                loadedweight = loadedweight + 1;
+            }
         });
 
 //      console.log(lloader.getFuncName() + "OK");
+        return loadedweight;
     }
 
     /// @brief fills a blog entry content (with entry data)
@@ -132,6 +137,11 @@ export class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
         //blog_entryXXCONTENT
         const id = keys[0];
         const target = contener.getElementById(id);
+        /*
+        if (contener.body.scrollTop + window.innerHeight < target.offset().top) {
+            return false;
+        }
+        */
 
         let lastLI = null;
         let lastA = null;
@@ -180,6 +190,7 @@ export class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
 
         });
 
+        return true;
     }
 
 }

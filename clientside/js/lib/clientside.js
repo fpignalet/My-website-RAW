@@ -486,9 +486,13 @@ export class CLISIDE_LOADER extends CLISIDE_DOM {
         this.target = file;
         this.getdataraw(null, (result) => {
             if(null != dstid){
+                //access loaded content
                 const dom = inst.parser.parseFromString(result, "text/html");
-                const it = contener.getElementById(dstid);
-                it.appendChild(dom.getElementById(srcid));
+                const itsrc = dom.getElementById(srcid);
+                itsrc.removeAttribute("id");
+                //then push it in destination DOM
+                const itdst = contener.getElementById(dstid);
+                itdst.appendChild(itsrc);
             }
 
             if(null != cbk){
