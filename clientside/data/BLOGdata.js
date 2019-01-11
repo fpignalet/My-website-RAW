@@ -3,8 +3,8 @@
 //-----------------------------------------------------------------------------------------------------------
 /// @brief lasts are used for sprite previews
 export const data_BNEWSlasts = [
-    "blog_entry17PHOTO",
-    "blog_entry14PHOTO"
+    "blog_entry20PHOTO",
+    "blog_entry17PHOTO"
 ];
 
 /// @brief maps are there to fetch remote data. see serverside/data/BLOGdata.php
@@ -136,9 +136,8 @@ export const data_BNEWSmap = [
 //-----------------------------------------------------------------------------------------------------------
 /// @brief maps are there to fetch remote data. see serverside/data/BLOGdata.php
 export const data_BTECHlasts = [
-//    "blog_entry19PHOTO",
-    "blog_entry18PHOTO",
-    "blog_entry16PHOTO"
+    "blog_entry7PHOTO",
+    "blog_entry11PHOTO"
 ];
 
 /// @brief maps are there to fetch remote data. see serverside/data/BLOGdata.php

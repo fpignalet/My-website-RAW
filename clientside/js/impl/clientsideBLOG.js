@@ -333,13 +333,13 @@ export class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
     /// @param products desc...
     testANGULAR2(id) {
         function onmenu1() {
-            return "<h1>Menu 1</h1><p>result = 75%.</p>"
+            return "<h1>Choosed: Menu 1</h1><p>result = 75%.</p>"
         }
         function onmenu2() {
-            return "<h1>Menu 2</h1><p>result = 95%.</p>"
+            return "<h1>Choosed: Menu 2</h1><p>result = 95%.</p>"
         }
         function ondefault() {
-            return "<h1>Nothing</h1><p>Nothing has been selected</p>"
+            return "<h1>Choosed: Nothing</h1><p>Nothing has been selected</p>"
         }
 
         const appname = document.getElementById(id).getAttribute("ng-app");

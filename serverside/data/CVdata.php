@@ -55,7 +55,7 @@ $data_CVskillshead = array(
 $data_CVskillsentries = array(
     array(
         "mskills_f1desc" =>
-            [ "Java,  C,  C++,  Javascript" ],
+            [ "Java,  C,  C++,  Javascript  :" ],
         "mskills_f1level" =>
             [ "100%" ],
         "mskills_f1text" =>
@@ -63,7 +63,7 @@ $data_CVskillsentries = array(
     ),
     array(
         "mskills_f2desc" =>
-            [ "Php,  MFC,  Win32,  Asm 68K" ],
+            [ "Php,  Python,  Angular,  React,  MFC,  Win32,  Asm 68K  :" ],
         "mskills_f2level" =>
             [ "75%" ],
         "mskills_f2text" =>
@@ -71,7 +71,7 @@ $data_CVskillsentries = array(
     ),
     array(
         "mskills_f3desc" =>
-            [ "Python,  .NET,  WebLogic,  CORBA,  Asm x86" ],
+            [ ".NET,  J2EE,  OSGi,  WebLogic,  CORBA,  Asm x86  :" ],
         "mskills_f3level" =>
             [ "50%" ],
         "mskills_f3text" =>
@@ -79,7 +79,7 @@ $data_CVskillsentries = array(
     ),
     array(
         "mskills_f4desc" =>
-            ["Android,  J2EE,  OSGi,  Asm PowerPC / ARM"],
+            ["Android,  Spring,  Asm PowerPC / ARM  :"],
         "mskills_f4level" =>
             ["25%"],
         "mskills_f4text" =>

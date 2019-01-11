@@ -139,7 +139,7 @@ export function cliside_INDEXmodaltech(contener, inst, param) {
             data_INDEXfiles[2],
             "./clientside/cards/BLOGgridTECH1.html",
             "gridtech1",
-            data_BTECHmap1[param]["desc"]
+            param["desc"]
         );
 
     }

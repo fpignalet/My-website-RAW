@@ -190,14 +190,22 @@
             <div class="w3-card w3-margin">
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
+                        <script type="module">
+                            import { data_BTECHmap2 } from "./clientside/data/BLOGdata.js";
+                            window.modaltarget = data_BTECHmap2[0];
+                        </script>
                         <img id="pf1img1" style="width:100%"
-                             onclick="window.ENTRYmodaltech(document, this, 0)"
+                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget)"
                              class="w3-hover-opacity" alt="BLOGTECH entry 0">
                     </div>
 
                     <div class="w3-col m6">
+                        <script type="module">
+                            import { data_BTECHmap1 } from "./clientside/data/BLOGdata.js";
+                            window.modaltarget = data_BTECHmap1[4];
+                        </script>
                         <img id="pf1img2" style="width:100%"
-                             onclick="window.ENTRYmodaltech(document, this, 1)"
+                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget)"
                              class="w3-hover-opacity" alt="BLOGTECH entry 1">
                     </div>
 

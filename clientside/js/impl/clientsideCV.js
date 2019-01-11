@@ -262,6 +262,8 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
     addINFO(contener, data) {
+        const local = this;
+
         Object.keys(data).forEach((item, index) => {
 
             //data_CVinfo
@@ -271,15 +273,15 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
             if(true === Array.isArray(valueinfo)) {
                 if(1 < valueinfo.length){
                     const it = contener.getElementById(idinfo);
-                    this.leftcreator.addhref(contener, it, valueinfo[0], valueinfo[1]);
+                    local.leftcreator.addhref(contener, it, valueinfo[0], valueinfo[1]);
                 }
                 else {
-                    this.leftcreator.addtext(contener, idinfo, valueinfo[0]);
+                    local.leftcreator.addtext(contener, idinfo, valueinfo[0]);
                 }
             }
             //--------------------------
             else {
-                this.leftcreator.addtext(contener, idinfo, valueinfo[0]);
+                local.leftcreator.addtext(contener, idinfo, valueinfo[0]);
             }
 
         });
@@ -292,6 +294,8 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
     /// @param contener is the destination DOM
     /// @param data is an array which contains details
     addEXPERIENCE(contener, data) {
+        const local = this;
+
         Object.keys(data).forEach((item, index) => {
 
             //data_CVexperience
@@ -301,12 +305,12 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
             if(true === Array.isArray(value)) {
                 value.forEach((_item, index) => {
                     const it = contener.getElementById(id);
-                    this.leftcreator.dynlistadditem(contener, it, _item);
+                    local.leftcreator.addlistitem(contener, it, _item);
                 });
             }
             //--------------------------
             else {
-                this.leftcreator.addtext(contener, id, value);
+                local.leftcreator.addtext(contener, id, value);
             }
 
         });
@@ -336,13 +340,15 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
             return;
         }
 
+        const local = this;
+
         //data_CVskillsentries / data_CVlangentries
         data.forEach((item, index) => {
             keys = Object.keys(item);
 
             const iddesc = keys[0];
             const valuedesc = item[iddesc];
-            this.rightcreator.addtext(contener, iddesc, valuedesc);
+            local.rightcreator.addtext(contener, iddesc, valuedesc);
 
             const idlevel = keys[1];
             const valueevel = item[idlevel];
@@ -351,7 +357,7 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
 
             const idtext = keys[2];
             const valuetext = item[idtext];
-            this.rightcreator.addtext(contener, idtext, valuetext);
+            local.rightcreator.addtext(contener, idtext, valuetext);
 
         });
     }
@@ -405,6 +411,8 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
         this.rightcreator.addLcol(contener, tr, [ iditem, valueitem ]);
 
         // RIGHT COLUMN ----------
+        const local = this;
+
         let rcol = null;
         let table_ = null;
         [
@@ -428,7 +436,7 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
                 rcol = this.rightcreator.addRcol(contener, tr,  [ idtitle, valuetitle, idcontent ]);
                 if(null != valuecontent) {
                     valuecontent.forEach((item, index) => {
-                        this.rightcreator.rcolinit(contener, rcol, item, index);
+                        local.rightcreator.rcolinit(contener, rcol, item, index);
                     });
                 }
             }
@@ -437,7 +445,7 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
                 table_ = this.rightcreator.fillRcol(contener, rcol[0], [ idtitle, valuetitle, idcontent ]);
                 if(null != valuecontent) {
                     valuecontent.forEach((item, index) => {
-                        this.rightcreator.rcolappend(contener, table_, item, index);
+                        local.rightcreator.rcolappend(contener, table_, item, index);
                     });
                 }
             }
