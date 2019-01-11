@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<html lang="en">
 
     <!-- -------------------------------------------------------------------------------------------------------------->
     <head>
@@ -7,25 +7,33 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="fpignaletmainpage">
+        <meta http-equiv="Content-Type" content="text/html">
         <meta http-equiv="pragma" content="no-cache" />
+        <!-- meta http-equiv="Content-Security-Policy"
+              content="default-src 'self'
+                https://www.w3schools.com
+                https://fonts.googleapis.com
+                https://cdnjs.cloudflare.com;
+                script-src 'unsafe-inline' 'self';"
+        -->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- EXTERNAL RESSOURCES -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <!-- link rel="modulepreload" href="./clientside/clientside.js">
-        <link rel="modulepreload" href="./clientside/clientsideCV.js">
-        <link rel="modulepreload" href="./clientside/clientsideBLOG.js">
-        <link rel="modulepreload" href="./clientside/clientsideENTRY.js" -->
+        <link rel="modulepreload" href="./clientside/js/lib/clientside.js">
+        <link rel="modulepreload" href="./clientside/js/impl/clientsideINDEX.js">
+        <link rel="modulepreload" href="./clientside/js/clientsideIINDEX.js">
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- STYLE SHEETS -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <link rel="stylesheet" href="clientside/css/clientside.css">
+        <link rel="stylesheet" type="text/css" href="clientside/css/clientside.css">
         <style>
             body,h1,h2,h3,h4,h5,h6 {
                 font-family: "Lato", sans-serif;
@@ -52,49 +60,8 @@
     <!-- -------------------------------------------------------------------------------------------------------------->
 
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- NAVBARS / MENUS -->
-        <div class="w3-top">
-        <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- -------------------------------------------------------------------------------------------------------------->
-            <!-- sit on top -->
-            <div class="w3-bar" id="entry_navbar">
-                <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
-                   href="javascript:void(0);"
-                   onclick="window.ENTRYnavtoggle(document, 'navDemo')"
-                   title="Toggle Navigation Menu">
-                    <i class="fa fa-bars"></i>
-                </a>
-
-                <a id="entry_navbar1" href="#home" class="w3-bar-item w3-button">
-                </a>
-                <a id="entry_navbar2" href="#about" class="w3-bar-item w3-button w3-hide-small">
-                    <i class="fa fa-user"></i>
-                </a>
-                <a id="entry_navbar3" href="#portfolio2" class="w3-bar-item w3-button w3-hide-small">
-                    <i class="fa fa-th"></i>
-                </a>
-                <a id="entry_navbar4" href="#portfolio1" class="w3-bar-item w3-button w3-hide-small">
-                    <i class="fa fa-th"></i>
-                </a>
-                <a id="entry_navbar5" href="#contact" class="w3-bar-item w3-button w3-hide-small">
-                    <i class="fa fa-envelope"></i>
-                </a>
-                <a id="entry_navbar6" href="impressum.html" class="w3-bar-item w3-button w3-hide-small">
-                    <i class="fa fa-user"></i>
-                </a>
-
-            </div>
-            <!-- on small screens -->
-            <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-                <a id="navDemo2" href="#about" class="w3-bar-item w3-button" onclick="window.ENTRYnavtoggle(document, 'navDemo')"></a>
-                <a id="navDemo3" href="#portfolio2" class="w3-bar-item w3-button" onclick="window.ENTRYnavtoggle(document, 'navDemo')"></a>
-                <a id="navDemo4" href="#portfolio1" class="w3-bar-item w3-button" onclick="window.ENTRYnavtoggle(document, 'navDemo')"></a>
-                <a id="navDemo5" href="#contact" class="w3-bar-item w3-button" onclick="window.ENTRYnavtoggle(document, 'navDemo')"></a>
-                <a id="navDemo6" href="impressum.html" class="w3-bar-item w3-button" onclick="window.ENTRYnavtoggle(document, 'navDemo')"></a>
-
-            </div>
-        </div>
+        <div id="navi"></div>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- -------------------------------------------------------------------------------------------------------------->
@@ -143,14 +110,9 @@
                     </div>
 
                     <hr/>
-                    <form>
-                        <button id="entrycvbutton"></button>
-                    </form>
-
+                    <form><button id="entrycvbutton"></button></form>
                     <hr/>
-                    <form>
-                        <button id="entryofferbutton"></button>
-                    </form>
+                    <form><button id="entryofferbutton"></button></form>
                 </div>
 
             </div>
@@ -339,6 +301,7 @@
         <script type="module">
             import {
                 cliside_INDEXpageload,
+                cliside_INDEXpageunload,
                 cliside_INDEXpagescroll
             } from "./clientside/js/clientsideIINDEX.js";
 
@@ -347,12 +310,16 @@
                 window.onload = function() {
                     cliside_INDEXpageload(document, { create: 0, load: 1 })
                 };
+                window.onunload = function() {
+                    cliside_INDEXpageunload(document, null)
+                };
                 window.onscroll = function() {
                     cliside_INDEXpagescroll(document, "entry_navbar")
                 };
+
             }
             catch (e) {
-                console.log(e.name)
+                console.log(e.toString())
             }
             finally {
                 //...
