@@ -301,7 +301,7 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
             if(true === Array.isArray(value)) {
                 value.forEach((_item, index) => {
                     const it = contener.getElementById(id);
-                    this.leftcreator.addlistitem(contener, it, _item);
+                    this.leftcreator.dynlistadditem(contener, it, _item);
                 });
             }
             //--------------------------

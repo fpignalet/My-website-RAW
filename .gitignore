@@ -1,0 +1,6 @@
+.idea/*
+clientside/dist/*
+clientside/game/*
+*.zip
+*.docx
+BD*.php

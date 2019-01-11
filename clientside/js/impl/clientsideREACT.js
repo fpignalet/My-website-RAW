@@ -1,7 +1,8 @@
 /*************************************************************************************
  * INCLUDES
  *************************************************************************************/
-//...
+//import React from 'react';
+//import ReactDOM from 'react-dom';
 
 /*************************************************************************************
  * IMPLEMENTATION
@@ -13,9 +14,12 @@ class ReactButtonJSX extends React.Component {
     constructor(props) {
         super(props);
 
+        this.tableid = "reacttablejsx";
+
         this.testtext = [
             'CLICK ME!',
-            'Do something'
+            'Do something',
+            'Did something using React/JSX: now displaying the following list\n'
         ];
 
         this.testdata = [
@@ -46,29 +50,42 @@ class ReactButtonJSX extends React.Component {
             this.createtable();
 
             return (
-                <span>
-                    Did something using React/JSX:
-                    now displaying the following list
-                </span>
+                <div>
+
+                    { this.testtext[2] }
+                    <div id={this.tableid}></div>
+
+                </div>
+
             );
         }
         else {
             return (
-                <button
-                    onMouseEnter={ this.onMouseover.bind(this) }
-                    onMouseLeave={ this.onMouseout.bind(this) }
-                    onClick={ this.onClick.bind(this) }>
-                    { this.state.text }
-                </button>
+                <div>
+
+                    { this.renderbutton() }
+                    <div id={this.tableid}></div>
+
+                </div>
             );
         }
     }
 
+    renderbutton() {
+        return (
+            <button
+                onMouseEnter={ this.onMouseover.bind(this) }
+                onMouseLeave={ this.onMouseout.bind(this) }
+                onClick={ this.onClick.bind(this) }>
+                { this.state.text }
+            </button>
+        );
+    }
+
     /// diaplay a table when button is clicked
     createtable() {
-        const table = React.createElement(ReactTableJSX, {data: this.testdata});
-        const container = this.contener.querySelector('#' + "reacttablejsx");
-        ReactDOM.render(table, container);
+        const container = this.contener.querySelector('#' + this.tableid);
+        ReactDOM.render(<ReactTableJSX data={ this.testdata } />, container);
     }
 
 }
@@ -85,29 +102,47 @@ class ReactTableJSX extends React.Component {
         };
     }
 
-    /// display table
+    /// display the object content
     render() {
 
         // 1st parse the map to generate table items
         const namesList = this.state.data.map(
             (item, index) => {
-                return (
-                    <tr key={index + 1}>
-                        <td>{item}</td>
-                        <td>{index}</td>
-                    </tr>
-                );
+                return this.renderitem(item, index);
             }
         );
 
         // 2nd insert table items
         return (
+            <div>
+                { this.rendertable(namesList) }
+            </div>
+        );
+
+    }
+
+    /// display table
+    rendertable(namesList) {
+
+        return (
             <table>
                 <tbody>
-                    <tr key="0"><th>Name</th><th>Index</th></tr>
-                    { namesList }
+                <tr key="0"><th>Name</th><th>Index</th></tr>
+                { namesList }
                 </tbody>
             </table>
+        );
+
+    }
+
+    /// display 1 table item
+    renderitem(item, index) {
+
+        return (
+            <tr key={index + 1}>
+                <td>{item}</td>
+                <td>{index}</td>
+            </tr>
         );
 
     }
@@ -116,15 +151,14 @@ class ReactTableJSX extends React.Component {
 
 //-----------------------------------------------------------------------------------------------------------
 /// desc
-class ReactApp extends React.Component {
-
+class ReactList extends React.Component {
     /// ctor
     /// @param props
     constructor(props) {
         super(props);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.onchange = this.onchange.bind(this);
+        this.onsubmit = this.onsubmit.bind(this);
 
         this.state = {
             items: [],
@@ -133,40 +167,59 @@ class ReactApp extends React.Component {
 
     }
 
-    /// display 'application', in fact a dynamic list
+    /// display the object content
     render() {
         return (
             <div>
-                <h3>LIST</h3>
-                <ReactList items={this.state.items} />
-                <form onSubmit={this.handleSubmit}>
 
-                    <label htmlFor="new-todo">
-                        What needs to be added?
-                    </label>
+                { this.renderlist() }
+                { this.renderform() }
 
-                    <input
-                        id="new-todo"
-                        onChange={this.handleChange}
-                        value={this.state.text}
-                    />
-
-                    <button>
-                        Add #{this.state.items.length + 1}
-                    </button>
-
-                </form>
             </div>
         );
     }
 
-    /// desc
-    handleChange(e) {
+    /// display the list
+    renderlist() {
+        return (
+            <ul>
+                {this.state.items.map(item => (
+                    <li key={item.id}>{item.text}</li>
+                ))}
+            </ul>
+        );
+    }
+
+    /// display the form with list input
+    renderform() {
+        return (
+            <form onSubmit={this.onsubmit}>
+
+                <label htmlFor="new-todo">
+                    What needs to be added?
+                </label>
+
+                <input
+                    id="new-todo"
+                    onChange={this.onchange}
+                    value={this.state.text}
+                />
+
+                <button>
+                    Add #{this.state.items.length + 1}
+                </button>
+
+            </form>
+        );
+    }
+
+    /// called when input modified
+    onchange(e) {
         this.setState({ text: e.target.value });
     }
 
-    /// desc
-    handleSubmit(e) {
+    /// called when list modified
+    onsubmit(e) {
         e.preventDefault();
 
         if (!this.state.text.length) {
@@ -179,33 +232,39 @@ class ReactApp extends React.Component {
         };
 
         this.setState(state => ({
-            items: state.items.concat(newItem),
+            items: this.state.items.concat(newItem),
             text: ''
         }));
     }
 }
 
+//-----------------------------------------------------------------------------------------------------------
 /// desc
-class ReactList extends React.Component {
-    /// desc
+class TestApp extends React.Component {
+
+    /// display 'application', contents
     render() {
         return (
-            <ul>
-                {this.props.items.map(item => (
-                    <li key={item.id}>{item.text}</li>
-                ))}
-            </ul>
+            <div>
+                <div>
+                    <h3>BUTTON</h3>
+                    <ReactButtonJSX data={document} />
+
+                </div>
+
+                <div>
+                    <h3>LIST</h3>
+                    <ReactList data={document} />
+
+                </div>
+
+            </div>
         );
     }
 }
 
+//export default TestApp;
+
 function reactexecute() {
-    let contener;
-
-    const button = React.createElement(ReactButtonJSX, {data: document});
-    contener = document.querySelector('#' + "reactbuttonjsx");
-    ReactDOM.render(button, contener);
-
-    contener = document.querySelector('#' + "reacttodojsx");
-    ReactDOM.render(<ReactApp />, contener);
+    ReactDOM.render(<TestApp />, document.querySelector('#reacttestjsx'));
 }
