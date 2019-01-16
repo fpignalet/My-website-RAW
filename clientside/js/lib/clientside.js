@@ -31,7 +31,7 @@ export class CLISIDE_BASE extends Multiple {
 
     /// @brief ...
     static getFuncName() {
-        if(true === CLISIDE_BASE.clientside_checkbrowser("Firefox")) {
+        if(true === CLISIDE_BASE.checkbrowser("Firefox")) {
             return "";
         }
 
@@ -45,7 +45,7 @@ export class CLISIDE_BASE extends Multiple {
 
     /// @brief ...
     /// @param select ...
-    static clientside_checkbrowser(select) {
+    static checkbrowser(select) {
 
         if(-1 !== navigator.userAgent.indexOf(select) ) {
             return true;
@@ -70,6 +70,18 @@ export class CLISIDE_BASE extends Multiple {
         return false;
     }
 
+    /// @brief ...
+    /// @param select ...
+    static inviewport(elem) {
+        var bounding = elem.getBoundingClientRect();
+        return (
+            bounding.top >= 0 &&
+            bounding.left >= 0 &&
+            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    };
+
 }
 
 /*************************************************************************************
@@ -79,7 +91,7 @@ export class CLISIDE_BASE extends Multiple {
 export class CLISIDE_DOM extends CLISIDE_BASE {
 
     /// ctor
-    /// @param id
+    /// @param id ...
     constructor(id) {
         super(id);
 
@@ -229,7 +241,7 @@ export class CLISIDE_DOM extends CLISIDE_BASE {
     //------------------------------------------------------------------
     // TREE ITEMS(THROUGH INSTANCE)
     //------------------------------------------------------------------
-    /// @brief html single element update
+    /// @brief html single element update. start hierarchical tree
     /// @param contener is the target DOM
     /// @param id is the ID attribute of the element to be updated
     /// @param name contains the value to be used
@@ -268,10 +280,10 @@ export class CLISIDE_DOM extends CLISIDE_BASE {
 
     }
 
-    /// @brief
-    /// @param li
-    /// @param item
-    /// @param id
+    /// @brief fills hierarchical tree with sub elements
+    /// @param li ...
+    /// @param item ...
+    /// @param id ...
     addtreenested(contener, li, item, id) {
         const span = li.appendChild(contener.createElement("span"));
         span.setAttribute("class", "caret");
@@ -476,10 +488,10 @@ export class CLISIDE_LOADER extends CLISIDE_DOM {
     //-----------------------------------------------------
     /// @brief load local html file
     /// @param contener is the destination DOM
-    /// @param file desc
-    /// @param srcid desc
-    /// @param dstid desc
-    /// @param cbk desc
+    /// @param file ...
+    /// @param srcid ...
+    /// @param dstid ...
+    /// @param cbk ...
     localgetfile(contener, file, srcid, dstid, cbk=null) {
         const inst = this;
 
@@ -503,11 +515,11 @@ export class CLISIDE_LOADER extends CLISIDE_DOM {
 
     /// @brief display items from another html page
     /// @param contener is the destination DOM
-    /// @param file desc
+    /// @param file ...
     /// @param data says which source data shall be fetched
-    /// @param idsrc desc
-    /// @param iddst desc
-    /// @param cbk desc
+    /// @param idsrc ...
+    /// @param iddst ...
+    /// @param cbk ...
     displayitemsfrom(contener, file, data, idsrc, itdst, cbk) {
         const inst = this;
 
@@ -528,7 +540,7 @@ export class CLISIDE_LOADER extends CLISIDE_DOM {
 
     /// @brief calls serverside with cliside_BLOGphptest1 selector then updates txtHint html item
     /// @param creator is th instance of the creator
-    /// @param data desc...
+    /// @param data ...
     /// @param cbk will be executed
     remotegetbatch(contener, creator, content, progress, cbk) {
         const inst = this;
@@ -830,9 +842,9 @@ const clientside_latlon = [
     -87.629798
 ];
 
-/// @brief
+/// @brief ...
 /// @param contener is the target DOM
-/// @param mapid
+/// @param mapid ...
 export function clientside_gmapshow(contener, mapid/*"googleMap"*/) {
     try {
 

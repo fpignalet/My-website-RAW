@@ -1,6 +1,7 @@
 .idea/*
 clientside/dist/*
 clientside/game/*
+clientside/node_modules/*
 *.zip
 *.docx
 BD*.php

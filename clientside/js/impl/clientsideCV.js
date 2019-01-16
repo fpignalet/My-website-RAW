@@ -364,6 +364,13 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
 
     //------------------------------------------------------------------
     // RIGHT SIDE: CV BOITE & BOULOTS & BILDUNG & HOBBIES ENTRIES
+    // base principle: display the following content:
+    // boulotentry1date
+    // boulotentry1boite
+    // boulotentry1desc     boulotentry1item
+    //                      boulotentry1title
+    //                      boulotentry1content
+    //                      ...
     //------------------------------------------------------------------
     /// @brief handles right side contents with history entries (CVboulot) and extra info (CVbildung, CVhobby)
     /// @param contener is the destination DOM
@@ -416,7 +423,7 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
         let rcol = null;
         let table_ = null;
         [
-            //                N * boulotentryXXtitle, boulotentryXXcontent
+            // N *                boulotentryXXtitle, boulotentryXXcontent
             /*pair[0, 1]*/[       keys[1],            keys[2] ],
             /*pair[0, 1]*/[       keys[3],            keys[4] ]
         ].forEach((pair, idx) => {

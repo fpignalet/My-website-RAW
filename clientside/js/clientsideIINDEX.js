@@ -29,11 +29,25 @@ import {
 } from "../data/BLOGdata.js";
 
 /*************************************************************************************
- * IMPLEMENTATION: PAGE ENTRYPOINTs
+ * GLOBAL VARIABLES
  *************************************************************************************/
 let cliside_INDEXcr = null;
 let cliside_INDEXldr = null;
 
+/*************************************************************************************
+ * IMPLEMENTATION: PAGE UTILS
+ *************************************************************************************/
+/// @brief fills the page with required data
+/// @param contener is the target DOM
+function cliside_INDEXlazyload(contener) {
+    cliside_INDEXldr.loadPRESENTATION(contener, cliside_INDEXcr, "./clientside/cards/CVcardpres.html");
+    cliside_INDEXldr.loadNEWS(contener, cliside_INDEXcr, "./clientside/cards/BLOGgridNEWS.html");
+    cliside_INDEXldr.loadTECH(contener, cliside_INDEXcr, "./clientside/cards/BLOGgridTECH1.html");
+}
+
+/*************************************************************************************
+ * IMPLEMENTATION: PAGE ENTRYPOINTs
+ *************************************************************************************/
 /// @brief fills the page with required data
 /// @param contener is the target DOM
 /// @param param maybe anything
@@ -62,9 +76,9 @@ export function cliside_INDEXpageload(contener, param) {
     cliside_INDEXcr.displayTITLE(contener);
     cliside_INDEXcr.displayABOUT(contener);
 
-    cliside_INDEXldr.loadPRESENTATION(contener, cliside_INDEXcr, "./clientside/cards/CVcardpres.html");
-    cliside_INDEXldr.loadNEWS(contener, cliside_INDEXcr, "./clientside/cards/BLOGgridNEWS.html");
-    cliside_INDEXldr.loadTECH(contener, cliside_INDEXcr, "./clientside/cards/BLOGgridTECH1.html");
+    //-----------------------------------------------------------
+    cliside_INDEXlazyload(contener);
+    //-----------------------------------------------------------
 
     cliside_INDEXldr.localgetfile(contener,
         "./clientside/cards/cardfooter.html",
@@ -103,6 +117,8 @@ export function cliside_INDEXpagescroll(contener, param) {
             " w3-card w3-animate-top w3-white", ""
         );
     }
+
+//    cliside_INDEXlazyload(contener);
 }
 
 /// @brief wrapper function to diaplay a sprite

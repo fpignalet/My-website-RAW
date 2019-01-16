@@ -1,0 +1,11 @@
+{
+  "name": "clientside",
+  "description": "my-website-raw client implementation",
+  "version": "1.0.0",
+  "dependencies": {
+    "webpack": "^4.28.4"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}

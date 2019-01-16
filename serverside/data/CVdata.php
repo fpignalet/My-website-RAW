@@ -19,7 +19,7 @@ $data_CVtitle = array(
         "Francois Pignalet"
 );
 
-/// @brief
+/// @brief fills clientside/cards/CVcardpres.html
 $data_CVinfo = array(
     "info_raisonsociale" =>
         [ "Software architecture, development and integration with 25+ years expertise"  ],
@@ -31,7 +31,7 @@ $data_CVinfo = array(
         [ "00491704868403" ]
 );
 
-/// @brief
+/// @brief fills clientside/cards/CVcardskills.html
 $data_CVexperience = array(
     "exp_title" =>
         "Areas of expertise",
@@ -46,12 +46,12 @@ $data_CVexperience = array(
         ]
 );
 
-/// @brief
+/// @brief fills clientside/cards/CVcardskills.html
 $data_CVskillshead = array(
     "mskills_title" =>
         "Main skills"
 );
-/// @brief
+/// @brief fills clientside/cards/CVcardskills.html
 $data_CVskillsentries = array(
     array(
         "mskills_f1desc" =>
@@ -87,12 +87,12 @@ $data_CVskillsentries = array(
     )
 );
 
-/// @brief
+/// @brief fills clientside/cards/CVcardlangs.html
 $data_CVlanghead = array(
     "lang_title" =>
         "Languages"
 );
-/// @brief
+/// @brief fills clientside/cards/CVcardlangs.html
 $data_CVlangentries = array(
     array(
         "lang_f1desc" =>
@@ -121,6 +121,7 @@ $data_CVlangentries = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot0 = array(
     "boulotentry0date" =>
@@ -136,6 +137,7 @@ $data_CVboulot0 = array(
         [ null ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot01 = array(
     "boulotentry0item" =>
@@ -155,6 +157,7 @@ $data_CVboulot01 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot1 = array(
     "boulotentry1date" =>
@@ -170,6 +173,7 @@ $data_CVboulot1 = array(
         [ null ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot11 = array(
     "boulotentry1item" =>
@@ -205,6 +209,7 @@ $data_CVboulot11 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot12 = array(
     "boulotentry2item" =>
@@ -224,6 +229,7 @@ $data_CVboulot12 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot13 = array(
     "boulotentry3item" =>
@@ -246,6 +252,7 @@ $data_CVboulot13 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot14 = array(
     "boulotentry4item" =>
@@ -265,6 +272,7 @@ $data_CVboulot14 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot15 = array(
     "boulotentry5item" =>
@@ -287,6 +295,7 @@ $data_CVboulot15 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot16 = array(
     "boulotentry6item" =>
@@ -320,6 +329,7 @@ $data_CVboulot16 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot2 = array(
     "boulotentry8date" =>
@@ -337,6 +347,7 @@ $data_CVboulot2 = array(
         [ null, ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot21 = array(
     "boulotentry8item" =>
@@ -359,6 +370,7 @@ $data_CVboulot21 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot22 = array(
     "boulotentry9item" =>
@@ -380,6 +392,7 @@ $data_CVboulot22 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot3 = array(
     "boulotentry10date" =>
@@ -398,6 +411,7 @@ $data_CVboulot3 = array(
         [ null ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot31 = array(
     "boulotentry10item" =>
@@ -426,6 +440,7 @@ $data_CVboulot31 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot4 = array(
     "boulotentry11date" =>
@@ -441,6 +456,7 @@ $data_CVboulot4 = array(
         [ null ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot41 = array(
     "boulotentry11item" =>
@@ -466,6 +482,7 @@ $data_CVboulot41 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot42 = array(
     "boulotentry12item" =>
@@ -484,6 +501,7 @@ $data_CVboulot42 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot43 = array(
     "boulotentry13item" =>
@@ -507,6 +525,7 @@ $data_CVboulot43 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot5 = array(
     "boulotentry14date" =>
@@ -522,6 +541,7 @@ $data_CVboulot5 = array(
         [ null ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot51 = array(
     "boulotentry14item" =>
@@ -549,6 +569,7 @@ $data_CVboulot51 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot52 = array(
     "boulotentry15item" =>
@@ -577,6 +598,7 @@ $data_CVboulot52 = array(
 );
 
 // BOULOT ENTRY -----------------------------------------------------------------
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot6 = array(
     "boulotentry16date" =>
@@ -592,6 +614,7 @@ $data_CVboulot6 = array(
         [ null ]
 );
 
+/// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot61 = array(
     "boulotentry16item" =>
@@ -611,6 +634,7 @@ $data_CVboulot61 = array(
 );
 
 // BILDUNG -----------------------------------------------------------------
+/// @brief fills clientside/cards/CVcardbildung.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVbildung1 = array(
     "edu_f1date" =>
@@ -621,6 +645,7 @@ $data_CVbildung1 = array(
         null
 );
 
+/// @brief fills clientside/cards/CVcardbildung.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVbildung11 = array(
     "edu_f11item" =>
@@ -639,6 +664,7 @@ $data_CVbildung11 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVcardbildung.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVbildung12 = array(
     "edu_f12item" =>
@@ -657,6 +683,7 @@ $data_CVbildung12 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVcardbildung.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVbildung13 = array(
     "edu_f13item" =>
@@ -676,6 +703,7 @@ $data_CVbildung13 = array(
 );
 
 // LOISIRS -----------------------------------------------------------------
+/// @brief fills clientside/cards/CVcardhobbyg.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVhobby1 = array(
     "loisirs_f1date" =>
@@ -686,6 +714,7 @@ $data_CVhobby1 = array(
         null,
 );
 
+/// @brief fills clientside/cards/CVcardhobbyg.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVhobby11 = array(
     "loisirs_f11item" =>
@@ -709,6 +738,7 @@ $data_CVhobby11 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVcardhobbyg.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVhobby12 = array(
     "loisirs_f12item" =>
@@ -726,6 +756,7 @@ $data_CVhobby12 = array(
         ]
 );
 
+/// @brief fills clientside/cards/CVcardhobbyg.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVhobby13 = array(
     "loisirs_f13item" =>

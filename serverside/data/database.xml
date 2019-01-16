@@ -8,6 +8,8 @@
 - Erstellungszeit: 16. Nov 2018 um 12:55
 - Server-Version: 5.7.19
 - PHP-Version: 7.1.9
+-
+- import this direct in phpmyadmin
 -->
 
 <pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">

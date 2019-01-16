@@ -25,34 +25,26 @@ import {
 } from "../data/CVdata.js";
 
 /*************************************************************************************
+ * GLOBAL VARIABLES
+ *************************************************************************************/
+const cliside_CVsrcid = "contener";
+
+let cliside_CVloader = null;
+let cliside_CVcr = null;
+let cliside_CVldr = null;
+
+/*************************************************************************************
  * IMPLEMENTATION: PAGE ENTRYPOINTs
  *************************************************************************************/
 /// @brief main entry function
 /// @param contener is the target DOM
-/// @param param may be anything
 /// @returns 1 desc
-export function cliside_CVpageload(contener, param) {
-    //-----------------------------------------------------------
-    window.CVpageprint = cliside_CVpageprint;
-    window.CVtoggleall = cliside_disctoggle;
-
-    //-----------------------------------------------------------
-    const CVcr = new CLISIDE_CVCREATE(cliside_BASEIDENT + param["create"]);
-    const CVldr = new CLISIDE_CVLOADER(cliside_BASEIDENT + param["load"]);
-
-    const srcid = "contener";
+function cliside_CVlazyload(contener) {
     const loadmapitem = (entry) => {
         if(true === entry["loaded"]){
             return;
         }
 
-        /*
-        if (contener.body.scrollTop.scrollTop() + window.height() < contener.getElementById(entry["desc"]).offset().top) {
-            return;
-        }
-        */
-
-        entry["loaded"] = true;
         switch(entry["side"]) {
 
             case "left":
@@ -61,12 +53,13 @@ export function cliside_CVpageload(contener, param) {
                 //  entry["data"],
                 //  entry["cbk"],
                 //-----------------------------------------------------
-                CVldr.remotegetbatch(contener,
-                    CVcr,
+                cliside_CVldr.remotegetbatch(contener,
+                    cliside_CVcr,
                     entry["data"],
                     null,
                     (cr, data) => {
                         entry["cbk"](contener, cr, data);
+                        entry["loaded"] = true;
                     }
                 );
 
@@ -80,13 +73,14 @@ export function cliside_CVpageload(contener, param) {
                 //  entry["boulots"],
                 //  entry["progress"],
                 //-----------------------------------------------------
-                CVldr.remotegetentry(contener,
-                    CVcr,
+                cliside_CVldr.remotegetentry(contener,
+                    cliside_CVcr,
                     entry["boite"],
                     entry["boulots"],
                     entry["progress"],
                     (cr, desc, content) => {
                         cr.fillrightside(contener, desc, content);
+                        entry["loaded"] = true;
                     }
                 );
 
@@ -95,27 +89,9 @@ export function cliside_CVpageload(contener, param) {
         }
     };
 
-    //-----------------------------------------------------------
-    const loader = new CLISIDE_LOADER(cliside_BASEIDENT + param["load"] + 12);
-
-    loader.localgetfile(contener,
-        "./clientside/cards/CVcardpres.html",
-        srcid,
-        "prescard"
-    );
-    loader.localgetfile(contener,
-        "./clientside/cards/CVcardskills.html",
-        srcid,
-        "skillscard"
-    );
-    loader.localgetfile(contener,
-        "./clientside/cards/CVcardlangs.html",
-        srcid,
-        "langscard"
-    );
-    loader.localgetfile(contener,
+    cliside_CVloader.localgetfile(contener,
         "./clientside/cards/CVgridHIST.html",
-        srcid,
+        cliside_CVsrcid,
         "gridhistory",
         () => {
             data_CVmap1.forEach((entry, index) => {
@@ -123,9 +99,10 @@ export function cliside_CVpageload(contener, param) {
             });
         }
     );
-    loader.localgetfile(contener,
+
+    cliside_CVloader.localgetfile(contener,
         "./clientside/cards/CVcardbildung.html",
-        srcid,
+        cliside_CVsrcid,
         "bildungcard",
         () => {
             data_CVmap2.forEach((entry, index) => {
@@ -133,9 +110,9 @@ export function cliside_CVpageload(contener, param) {
             });
         }
     );
-    loader.localgetfile(contener,
+    cliside_CVloader.localgetfile(contener,
         "./clientside/cards/CVcardhobby.html",
-        srcid,
+        cliside_CVsrcid,
         "hobbycard",
         () => {
             data_CVmap3.forEach((entry, index) => {
@@ -144,9 +121,48 @@ export function cliside_CVpageload(contener, param) {
         }
     );
 
-    loader.localgetfile(contener,
+}
+
+/*************************************************************************************
+ * IMPLEMENTATION: PAGE ENTRYPOINTs
+ *************************************************************************************/
+/// @brief main entry function
+/// @param contener is the target DOM
+/// @param param may be anything
+/// @returns 1 desc
+export function cliside_CVpageload(contener, param) {
+    //-----------------------------------------------------------
+    window.CVpageprint = cliside_CVpageprint;
+    window.CVtoggleall = cliside_disctoggle;
+
+    //-----------------------------------------------------------
+    cliside_CVloader = new CLISIDE_LOADER(cliside_BASEIDENT + param["load"] + 12);
+    cliside_CVcr = new CLISIDE_CVCREATE(cliside_BASEIDENT + param["create"]);
+    cliside_CVldr = new CLISIDE_CVLOADER(cliside_BASEIDENT + param["load"]);
+
+    cliside_CVloader.localgetfile(contener,
+        "./clientside/cards/CVcardpres.html",
+        cliside_CVsrcid,
+        "prescard"
+    );
+    cliside_CVloader.localgetfile(contener,
+        "./clientside/cards/CVcardskills.html",
+        cliside_CVsrcid,
+        "skillscard"
+    );
+    cliside_CVloader.localgetfile(contener,
+        "./clientside/cards/CVcardlangs.html",
+        cliside_CVsrcid,
+        "langscard"
+    );
+
+    //-----------------------------------------------------------
+    cliside_CVlazyload(contener);
+    //-----------------------------------------------------------
+
+    cliside_CVloader.localgetfile(contener,
         "./clientside/cards/cardfooter.html",
-        srcid,
+        cliside_CVsrcid,
         "footer"
     );
 
@@ -163,7 +179,9 @@ export function cliside_CVpageunload(contener, param) {
 /// @param contener is the target DOM
 /// @param param maybe anything
 export function cliside_CVpagescroll(contener, param) {
-//        alert("notyetimplemented")
+    /*
+    cliside_CVlazyload(contener);
+    */
 }
 
 /// @brief print function

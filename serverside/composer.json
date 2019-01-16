@@ -1,0 +1,8 @@
+{
+  "name": "serverside",
+  "description": "my-website-raw server implementation",
+  "version": "1.0.0",
+  "dependencies": {
+    "php": "^7.2"
+  }
+}

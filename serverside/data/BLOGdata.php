@@ -486,11 +486,11 @@ $data_BNcontent1 = array(
 $data_BTdesc19 = array(
 
     "blog_entry19TITLE" =>
-        "Floupok",
+        "CURRENT",
 
     "blog_entry19DATE" => [
         "December 19, 2018",
-        "ouigui ougou"
+        "UNDER CONSTRUCTION"
     ]
 
 );
@@ -604,7 +604,7 @@ $data_BTdesc11 = array(
         "[--UPDATED --] Some React",
 
     "blog_entry11DATE" => [
-        "November 15, 2018",
+        "January 09, 2019",
         "Tests with React"
     ]
 

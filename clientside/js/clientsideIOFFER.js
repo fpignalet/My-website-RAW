@@ -13,19 +13,25 @@ import {
  *************************************************************************************/
 
 /*************************************************************************************
+ * GLOBAL VARIABLES
+ *************************************************************************************/
+const cliside_OFFERsrcid = "contener";
+
+let cliside_OFFERloader = null;
+
+/*************************************************************************************
  * IMPLEM
  *************************************************************************************/
 /// @brief main entry function
 /// @param contener is the target DOM
 /// @param param maybe anything
 export function cliside_OFFERpageload(contener, param) {
-    const srcid = "contener";
+    //-----------------------------------------------------
+    cliside_OFFERloader = new CLISIDE_LOADER(cliside_BASEIDENT + param["load"]);
 
-    let cliside_OFFERldr = new CLISIDE_LOADER(cliside_BASEIDENT + param["load"]);
-
-    cliside_OFFERldr.localgetfile(contener,
+    cliside_OFFERloader.localgetfile(contener,
         "./clientside/cards/cardheader.html",
-        srcid,
+        cliside_OFFERsrcid,
         "headercard",
         () => {
             contener.getElementById("titlepart").appendChild(contener.createTextNode(
@@ -33,14 +39,19 @@ export function cliside_OFFERpageload(contener, param) {
             )
         }
     );
-    cliside_OFFERldr.localgetfile(contener,
+
+    //-----------------------------------------------------
+    //...
+
+    //-----------------------------------------------------
+    cliside_OFFERloader.localgetfile(contener,
         "./clientside/cards/cardfooter.html",
         "contener",
         "footer"
     );
-    cliside_OFFERldr.localgetfile(contener,
+    cliside_OFFERloader.localgetfile(contener,
         "./clientside/cards/cardabout.html",
-        srcid,
+        cliside_OFFERsrcid,
         "aboutcard"
     );
 

@@ -4,10 +4,14 @@
  * INCLUDES CODE
  *************************************************************************************/
 import {
+    CLISIDE_BASE,
     CLISIDE_DOM,
     CLISIDE_LOADER
 } from "../lib/clientside.js";
 
+//import * as angular from "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js";
+
+//game embedding:
 import {
     app_settings,
     app_guimap,
@@ -16,8 +20,6 @@ import {
 import execute from "../../game/js/lib/execute.js";
 import Multiple from "../../game/js/lib/instances.js";
 import Core from "../../game/js/impl/core.js";
-
-//import * as angular from "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js";
 
 /*************************************************************************************
  * INCLUDES DATA
@@ -108,8 +110,8 @@ export class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
 
     /// @brief
     /// @param contener is the target DOM
-    /// @param desc
-    /// @param content
+    /// @param desc contains the entry descriptor
+    /// @param content contains the entry details
     fillentry(contener, desc, content) {
         const local = this;
 
@@ -142,6 +144,13 @@ export class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
             return false;
         }
         */
+        if(false === CLISIDE_BASE.inviewport(target)) {
+            console.log(id + " NOT VISIBLE\n")
+//            return false;
+        }
+        else {
+            console.log(id + "  -- VISIBLE --\n")
+        }
 
         let lastLI = null;
         let lastA = null;

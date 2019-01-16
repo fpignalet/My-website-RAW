@@ -98,9 +98,9 @@
             <div class="w3-row">
                 <div class="w3-col m6 w3-center w3-padding-large">
                     <p>
-                    <h3 id="entryname" class="w3-center">
-                        <i class="fa fa-user w3-margin-right"></i>
-                    </h3>
+                        <h3 id="entryname" class="w3-center">
+                            <i class="fa fa-user w3-margin-right"></i>
+                        </h3>
                     </p>
                     <br>
                     <img id="entryphoto" class="w3-round w3-image" alt="Photo of Me">
@@ -139,7 +139,8 @@
                 <em id="pf2text"></em>
             </p>
             <br>
-            <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+            <!-- Responsive Grid. Four columns on tablets, laptops and desktops.
+            Will stack on mobile devices/small screens (100% width) -->
             <div class="w3-card w3-margin">
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
@@ -186,26 +187,27 @@
             </p>
             <br>
 
-            <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+            <!-- Responsive Grid. Four columns on tablets, laptops and desktops.
+            Will stack on mobile devices/small screens (100% width) -->
             <div class="w3-card w3-margin">
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
                         <script type="module">
                             import { data_BTECHmap2 } from "./clientside/data/BLOGdata.js";
-                            window.modaltarget = data_BTECHmap2[0];
+                            window.modaltarget1 = data_BTECHmap2[0];
                         </script>
                         <img id="pf1img1" style="width:100%"
-                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget)"
+                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget1)"
                              class="w3-hover-opacity" alt="BLOGTECH entry 0">
                     </div>
 
                     <div class="w3-col m6">
                         <script type="module">
                             import { data_BTECHmap1 } from "./clientside/data/BLOGdata.js";
-                            window.modaltarget = data_BTECHmap1[4];
+                            window.modaltarget2 = data_BTECHmap1[5];
                         </script>
                         <img id="pf1img2" style="width:100%"
-                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget)"
+                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget2)"
                              class="w3-hover-opacity" alt="BLOGTECH entry 1">
                     </div>
 
@@ -272,26 +274,6 @@
 
                 </div>
 
-                <!-- -------------------------------------------------------------------------------------------------------------->
-                <!-- -------------------------------------------------------------------------------------------------------------->
-                <!-- Für später: add Google Maps
-                To use this code on your website, get a free API key from Google.
-                Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
-                -->
-                <!-- div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;">
-                </div -->
-                <!-- div class="w3-col m4 w3-container">
-                    <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5330.759791175086!2d11.63675597722834!3d48.08361119099929!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479de0863d2eada1%3A0xecf7e95475a09464!2sCurd-J%C3%BCrgens-Stra%C3%9Fe+18%2C+81739+M%C3%BCnchen!5e0!3m2!1sde!2sde!4v1539927416198"
-                            height="450"
-                            frameborder="0"
-                            style="border:0"
-                            allowfullscreen>
-                    </iframe>
-                </div -->
-                <!-- script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA4Ast8z4S1oRDkopGSpOIa5kVEHfhN2g&callback=clientside_ENTRYshowgmap">
-                </script -->
-
             </div>
 
         </div>
@@ -302,9 +284,33 @@
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- Modal utility-->
         <div id="modalutil"></div>
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- junkyard-->
+        <div id="junkyard">
+            <!-- -------------------------------------------------------------------------------------------------------------->
+            <!-- -------------------------------------------------------------------------------------------------------------->
+            <!-- Für später: add Google Maps
+            To use this code on your website, get a free API key from Google.
+            Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+            -->
+            <!-- div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;">
+            </div -->
+            <!-- div class="w3-col m4 w3-container">
+                <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5330.759791175086!2d11.63675597722834!3d48.08361119099929!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479de0863d2eada1%3A0xecf7e95475a09464!2sCurd-J%C3%BCrgens-Stra%C3%9Fe+18%2C+81739+M%C3%BCnchen!5e0!3m2!1sde!2sde!4v1539927416198"
+                        height="450"
+                        frameborder="0"
+                        style="border:0"
+                        allowfullscreen>
+                </iframe>
+            </div -->
+            <!-- script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA4Ast8z4S1oRDkopGSpOIa5kVEHfhN2g&callback=clientside_ENTRYshowgmap">
+            </script -->
+
+        </div>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- JS IMPLEMENTATION -->
+        <!-- JS IMPLEMENTATION: STANDARD -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <script type="module">
             import {
@@ -316,6 +322,7 @@
             //-----------------------------------------------------------
             try {
                 window.onload = function() {
+                    //page initialsation happends there
                     cliside_INDEXpageload(document, { create: 0, load: 1 })
                 };
                 window.onunload = function() {

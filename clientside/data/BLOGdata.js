@@ -142,7 +142,6 @@ export const data_BTECHlasts = [
 
 /// @brief maps are there to fetch remote data. see serverside/data/BLOGdata.php
 export const data_BTECHmap1 = [
-    /*
     {
         loaded: false,
         side: null,
@@ -154,6 +153,7 @@ export const data_BTECHmap1 = [
         progress: ["blog_entry19wait", "blog_entry19progress", "blog_entry19bar"],
         cbk: null
     },
+    /*
     */
     {
         loaded: false,
