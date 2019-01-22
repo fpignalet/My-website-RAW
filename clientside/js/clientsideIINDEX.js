@@ -137,7 +137,7 @@ export function cliside_INDEXmodalnews(contener, inst, param) {
 
     }
     catch (e) {
-        console.log(e.name)
+        console.log(e.toString())
     }
     finally {
         //...
@@ -160,7 +160,7 @@ export function cliside_INDEXmodaltech(contener, inst, param) {
 
     }
     catch (e) {
-        console.log(e.name)
+        console.log(e.toString())
     }
     finally {
         //...
@@ -193,7 +193,7 @@ export function cliside_INDEXpagefbk(contener, param) {
 
     }
     catch (e) {
-        console.log(e.name)
+        console.log(e.toString())
     }
     finally {
         //...

@@ -79,7 +79,7 @@ module.exports = {
             { resource: { or: [ /* conditions */ ] } },
             { resource: [ /* conditions */ ] },
             // matches if any condition is matched (default for arrays)
-            { resource: { not: /* condition */ } }
+            { resource: { not: [ /* condition */ ] } }
             // matches if the condition is not matched
         ],
         /* Advanced module configuration (click to show) */  },

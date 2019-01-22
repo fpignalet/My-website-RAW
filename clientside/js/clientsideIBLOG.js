@@ -5,7 +5,8 @@
  *************************************************************************************/
 import {
     CLISIDE_LOADER,
-    cliside_BASEIDENT
+    cliside_BASEIDENT,
+    cliside_pagescroll
 } from "./lib/clientside.js";
 
 import {
@@ -49,9 +50,9 @@ let cliside_BLOGTECHldr = null;
  *************************************************************************************/
 
 /*************************************************************************************
- * IMPLEMENTATION: NEWS SIDE
+ * IMPLEMENTATION: NEWS UTILS
  *************************************************************************************/
-/// @brief maiin entry function
+/// @brief loading function
 /// @param contener is the target DOM
 /// @param param maybe anything
 function cliside_BLOGNEWSlazyload(contener) {
@@ -88,6 +89,9 @@ function cliside_BLOGNEWSlazyload(contener) {
 
 }
 
+/*************************************************************************************
+ * IMPLEMENTATION: NEWS SIDE
+ *************************************************************************************/
 /// @brief maiin entry function
 /// @param contener is the target DOM
 /// @param param maybe anything
@@ -137,11 +141,11 @@ export function cliside_BLOGNEWSpagescroll(contener, param) {
     /*
     cliside_BLOGNEWSlazyload(contener);
     */
-    cliside_BLOGpagescroll(contener, param);
+    cliside_pagescroll(contener, param);
 }
 
 /*************************************************************************************
- * IMPLEMENTATION: TECH SIDE
+ * IMPLEMENTATION: TECH UTILS
  *************************************************************************************/
 /// @brief filling the BLOG TECH page
 /// @param contener is the target DOM
@@ -196,6 +200,9 @@ function cliside_BLOGTECHlazyload(contener) {
 
 }
 
+/*************************************************************************************
+ * IMPLEMENTATION: TECH SIDE
+ *************************************************************************************/
 /// @brief filling the BLOG TECH page
 /// @param contener is the target DOM
 /// @param param maybe anything
@@ -206,10 +213,10 @@ export function cliside_BLOGTECHpageload(contener, param) {
     const local = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param["create"] + 10);
     window.BLOGdomlocal = local; //for testPHP1 & angular(temp)
     (data_BTECHmap1[2]["data"])[2] = () => {
-        local.testCODEBOX(cliside_BLOGTECHloader, "codebox1");
+        local.testCODEBOX(contener, "./clientside/game/js/lib/instances.js", cliside_BLOGTECHloader, "codebox1");
     };
     (data_BTECHmap1[3]["data"])[2] = () => {
-        local.testCANVAS("canvas0");
+        local.testCANVAS(contener, "canvas0");
     };
     /*
     (data_BTECHmap2[0]["data"])[2] = () => {
@@ -239,6 +246,7 @@ export function cliside_BLOGTECHpageload(contener, param) {
     (data_BTECHmap1[6]["data"])[2] = () => {
         contener.getElementById("blog_entry8").innerHTML = local.testDYN(
             // HEADER:
+            null,
             'blog_entry8',
             'images/gears-686316_640.jpg',
             'Today\'s sandbox',
@@ -302,8 +310,6 @@ export function cliside_BLOGTECHpageunload(contener, param) {
     core.isPageOver = true;
 }
 
-window.BTscrollrect = null;
-
 /// @brief scroll function
 /// @param contener is the target DOM
 /// @param param maybe anything
@@ -312,41 +318,5 @@ export function cliside_BLOGTECHpagescroll(contener, param) {
     cliside_BLOGTECHlazyload(contener);
     */
 
-    cliside_BLOGpagescroll(contener, param);
-}
-
-/*************************************************************************************
- * IMPLEMENTATION: UTILS
- *************************************************************************************/
-/// @brief scroll function
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_BLOGpagescroll(contener, param) {
-    function getOffset(el) {
-        const rect = el.getBoundingClientRect();
-        return {
-//            left: (rect.right + window.scrollX ) +'px',
-//            top: (rect.top + window.scrollY ) +'px'
-            left: rect.right,
-            top: rect.top
-        }
-    }
-
-    const item = document.getElementById("aboutcard");
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        item.style.transform = "scale(0.5, 0.5)";
-        if(null != window.BTscrollrect){
-            var xPosition = window.BTscrollrect.left - contener.getBoundingClientRect().left - (item.clientWidth / 2);
-            var yPosition = window.BTscrollrect.top - contener.getBoundingClientRect().top - (item.clientHeight / 2);
-            // in case of a wide border, the boarder-width needs to be considered in the formula above
-            item.style.left = xPosition + "px";
-            item.style.top = yPosition + "px";
-        }
-    }
-    else {
-        item.style.transform = "";
-        if(null == window.BTscrollrect){
-            window.BTscrollrect = getOffset(item);
-        }
-    }
+    cliside_pagescroll(contener, param);
 }

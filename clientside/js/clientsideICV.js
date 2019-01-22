@@ -34,7 +34,7 @@ let cliside_CVcr = null;
 let cliside_CVldr = null;
 
 /*************************************************************************************
- * IMPLEMENTATION: PAGE ENTRYPOINTs
+ * IMPLEMENTATION: PAGE UTILS
  *************************************************************************************/
 /// @brief main entry function
 /// @param contener is the target DOM
@@ -201,7 +201,7 @@ export function cliside_CVpageprint(contener, param) {
 //        console.log(this.getFuncName() + "OK");
     }
     catch (e) {
-        console.log(e.name)
+        console.log(e.toString())
     }
     finally {
         //...

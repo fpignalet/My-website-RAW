@@ -5,7 +5,8 @@
  *************************************************************************************/
 import {
     CLISIDE_LOADER,
-    cliside_BASEIDENT
+    cliside_BASEIDENT,
+    cliside_pagescroll
 } from "./lib/clientside.js";
 
 /*************************************************************************************
@@ -18,6 +19,22 @@ import {
 const cliside_OFFERsrcid = "contener";
 
 let cliside_OFFERloader = null;
+
+/*************************************************************************************
+ * UTILS
+ *************************************************************************************/
+/// @brief maiin entry function
+/// @param contener is the target DOM
+/// @param param maybe anything
+function cliside_OFFERlazyload(contener) {
+    cliside_OFFERloader.localgetfile(contener,
+        "./clientside/cards/OFFERgrid.html",
+        cliside_OFFERsrcid,
+        "gridoffer",
+        null
+    );
+
+}
 
 /*************************************************************************************
  * IMPLEM
@@ -41,7 +58,8 @@ export function cliside_OFFERpageload(contener, param) {
     );
 
     //-----------------------------------------------------
-    //...
+    cliside_OFFERlazyload(contener);
+    //-----------------------------------------------------------
 
     //-----------------------------------------------------
     cliside_OFFERloader.localgetfile(contener,
@@ -68,5 +86,9 @@ export function cliside_OFFERpageunload(contener, param) {
 /// @param contener is the target DOM
 /// @param param maybe anything
 export function cliside_OFFERpagescroll(contener, param) {
-//        alert("notyetimplemented")
+    /*
+    cliside_BLOGTECHlazyload(contener);
+    */
+
+    cliside_pagescroll(contener, param);
 }

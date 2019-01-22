@@ -779,7 +779,7 @@ export class CLISIDE_LOADER extends CLISIDE_DOM {
 }
 
 /*************************************************************************************
- * IMPLEMENTATION: NAVBAR UTILS
+ * IMPLEMENTATION: PAGE UTILS
  *************************************************************************************/
 /// @brief Used to toggle the menu on small screens when clicking on the menu button
 /// @param contener is the target DOM
@@ -803,9 +803,6 @@ export function clientside_navtoggle(contener, navid) {
     }
 }
 
-/*************************************************************************************
- * IMPLEMENTATION: PAGE UTILS
- *************************************************************************************/
 /// @brief print function
 /// @param contener
 export function cliside_disctoggle(contener) {
@@ -833,6 +830,45 @@ export function cliside_disctoggle(contener) {
     }
     finally {
         //...
+    }
+}
+
+window.scrollrect = null;
+
+/// @brief scroll function
+/// @param contener is the target DOM
+/// @param param maybe anything
+export function cliside_pagescroll(contener, param) {
+    function getOffset(el) {
+        const rect = el.getBoundingClientRect();
+        return {
+//            left: (rect.right + window.scrollX ) +'px',
+//            top: (rect.top + window.scrollY ) +'px'
+            left: rect.right,
+            top: rect.top
+        }
+    }
+
+    const item = contener.getElementById("aboutcard");
+    if (contener.body.scrollTop > 50 || contener.documentElement.scrollTop > 50) {
+        item.style.transform = "scale(0.5, 0.5)";
+        /*
+        if(null != window.scrollrect){
+            var xPosition = window.scrollrect.left - contener.getBoundingClientRect().left - (item.clientWidth / 2);
+            var yPosition = window.scrollrect.top - contener.getBoundingClientRect().top - (item.clientHeight / 2);
+            // in case of a wide border, the boarder-width needs to be considered in the formula above
+            item.style.left = xPosition + "px";
+            item.style.top = yPosition + "px";
+        }
+        */
+    }
+    else {
+        item.style.transform = "";
+        /*
+        if(null == window.scrollrect){
+            window.BLOGscrollrect = getOffset(item);
+        }
+        */
     }
 }
 

@@ -261,7 +261,7 @@ export class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
     /// @param date desc...
     /// @param content desc...
     /// @returns 1 desc...
-    testDYN(entryname, photo, title, desc, date, content){
+    testDYN(contener, entryname, photo, title, desc, date, content){
         return [
 
             '    <img id=\"' + entryname + 'PHOTO' + '\" src=\"' + photo + '\" alt=\"img\" style=\"width:80%\">\n' +
@@ -290,9 +290,10 @@ export class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
     /// @param ifirstName desc...
     /// @param ilastName desc...
     /// @param products desc...
-    testANGULAR1(id, ifirstName, ilastName, products) {
-        const appname = document.getElementById("angutest1").getAttribute("ng-app");
-        const ctrlname = document.getElementById("angutest1").getAttribute("ng-controller");
+    testANGULAR1(contener, id, ifirstName, ilastName, products) {
+        const appname = contener.getElementById("angutest1").getAttribute("ng-app");
+        const ctrlname = contener.getElementById("angutest1").getAttribute("ng-controller");
+
         const testapp = angular.module(appname, []);
         testapp.controller(ctrlname, function($scope) {
 
@@ -341,7 +342,7 @@ export class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
     /// @param ifirstName desc...
     /// @param ilastName desc...
     /// @param products desc...
-    testANGULAR2(id) {
+    testANGULAR2(contener, id) {
         function onmenu1() {
             return "<h1>Choosed: Menu 1</h1><p>result = 75%.</p>"
         }
@@ -352,12 +353,12 @@ export class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
             return "<h1>Choosed: Nothing</h1><p>Nothing has been selected</p>"
         }
 
-        const appname = document.getElementById(id).getAttribute("ng-app");
-        const ctrlname = document.getElementById(id).getAttribute("ng-controller");
-        const otherapp = angular.module(appname, [
-            'ngRoute'
-        ]);
+        const appname = contener.getElementById(id).getAttribute("ng-app");
+        const ctrlname = contener.getElementById(id).getAttribute("ng-controller");
+
+        const otherapp = angular.module(appname, [ 'ngRoute' ]);
         otherapp.config(function($routeProvider) {
+
             $routeProvider
                 .when("/Menu1", {
                     template : onmenu1(),
@@ -376,32 +377,32 @@ export class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
             console.log(CLISIDE_DOM.getFuncName() + "$scope = " + $scope.toString());
         });
 
-        angular.bootstrap(document.getElementById("angutest2"), ['otherapp']);
+        angular.bootstrap(contener.getElementById(id), ['otherapp']);
 
 //        console.log(this.getFuncName() + "OK");
     }
 
     /// @brief
     /// @param canid
-    testCANVAS(canid) {
+    testCANVAS(contener, canid) {
         const core = new Core(app_settings, app_guimap, canid);
-        window.onunload = function() { cliside_BLOGTECHpageunload(document, core.index) };
+        window.onunload = function() { cliside_BLOGTECHpageunload(contener, core.index) };
         execute(app_images, Multiple.get(Core.IDENT(), core.index));
     }
 
     /// @brief
     /// @param loader
     /// @param boxid
-    testCODEBOX(loader, boxid) {
-        loader.target = "./clientside/game/js/lib/instances.js";
+    testCODEBOX(contener, target, loader, boxid) {
+        loader.target = target;
         loader.getdataraw(null, (result) => {
-            const it = document.getElementById(boxid);
-            it.appendChild(document.createTextNode(result));
+            const it = contener.getElementById(boxid);
+            it.appendChild(contener.createTextNode(result));
         });
     }
 
     /// @brief code test:
-    static testANY(route) {
+    static testANY(contener, route) {
     }
 
 }

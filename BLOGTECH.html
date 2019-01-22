@@ -53,7 +53,7 @@
 
         <!-- w3-content defines a container for fixed size centered content,
         and is wrapped around the whole page content, except for the footer in this example -->
-        <div class="w3-content" style="max-width:1800px">
+        <div class="w3-content" style="max-width:1800px" href="#home">
 
             <!-- ---------------------------------------------------------------------------------------------------------------------->
             <!-- BLOG HEADER -->
@@ -245,10 +245,12 @@
                 // OK, it's still hard-coded in html page, I still don't know why when loaded from outside it doesn't functionate
                 const local = new CLISIDE_BTECHLOCAL();
                 local.testANGULAR1(
+                    document,
                     "angutest1",
                     "Firstname", "Lastname", ["Item 1", "Item 2", "Item 3"]
                 );
                 local.testANGULAR2(
+                    document,
                     "angutest2"
                 );
             }

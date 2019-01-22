@@ -144,15 +144,13 @@
             <div class="w3-card w3-margin">
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
-                        <img id="pf2img1" style="width:100%"
-                             onclick="window.ENTRYmodalnews(document, this, 0)"
-                             class="w3-hover-opacity" alt="BLOGNEWS entry 0">
+                        <img id="pf2img1" style="width:100%" class="w3-hover-opacity" alt="BLOGNEWS entry 0"
+                             onclick="window.ENTRYmodalnews(document, this, 0)">
                     </div>
 
                     <div class="w3-col m6">
-                        <img id="pf2img2" style="width:100%"
-                             onclick="window.ENTRYmodalnews(document, this, 1)"
-                             class="w3-hover-opacity" alt="BLOGNEWS entry 1">
+                        <img id="pf2img2" style="width:100%" class="w3-hover-opacity" alt="BLOGNEWS entry 1"
+                             onclick="window.ENTRYmodalnews(document, this, 1)">
                     </div>
 
                 </div>
@@ -196,9 +194,8 @@
                             import { data_BTECHmap2 } from "./clientside/data/BLOGdata.js";
                             window.modaltarget1 = data_BTECHmap2[0];
                         </script>
-                        <img id="pf1img1" style="width:100%"
-                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget1)"
-                             class="w3-hover-opacity" alt="BLOGTECH entry 0">
+                        <img id="pf1img1" style="width:100%" class="w3-hover-opacity" alt="BLOGTECH entry 0"
+                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget1)">
                     </div>
 
                     <div class="w3-col m6">
@@ -206,9 +203,8 @@
                             import { data_BTECHmap1 } from "./clientside/data/BLOGdata.js";
                             window.modaltarget2 = data_BTECHmap1[5];
                         </script>
-                        <img id="pf1img2" style="width:100%"
-                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget2)"
-                             class="w3-hover-opacity" alt="BLOGTECH entry 1">
+                        <img id="pf1img2" style="width:100%" class="w3-hover-opacity" alt="BLOGTECH entry 1"
+                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget2)">
                     </div>
 
                 </div>
