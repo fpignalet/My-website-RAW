@@ -849,9 +849,15 @@ export function cliside_pagescroll(contener, param) {
         }
     }
 
-    const item = contener.getElementById("aboutcard");
+    const itemabout = contener.getElementById("aboutcard");
+    const itemdetails = contener.getElementById("detailscard");
     if (contener.body.scrollTop > 50 || contener.documentElement.scrollTop > 50) {
-        item.style.transform = "scale(0.5, 0.5)";
+        itemabout.style.transform = "scale(0.5, 0.5)";
+
+        itemdetails.style.transform = "";
+        itemdetails.style.position = "relative";
+        itemdetails.style.top = '-230px';
+        itemdetails.style.bottom = '+230px';
         /*
         if(null != window.scrollrect){
             var xPosition = window.scrollrect.left - contener.getBoundingClientRect().left - (item.clientWidth / 2);
@@ -863,7 +869,12 @@ export function cliside_pagescroll(contener, param) {
         */
     }
     else {
-        item.style.transform = "";
+        itemabout.style.transform = "";
+
+        itemdetails.style.transform = "";
+        itemdetails.style.position = "relative";
+        itemdetails.style.top = '-10px';
+
         /*
         if(null == window.scrollrect){
             window.BLOGscrollrect = getOffset(item);

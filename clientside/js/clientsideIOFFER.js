@@ -88,7 +88,7 @@ export function cliside_OFFERpageunload(contener, param) {
 export function cliside_OFFERpagescroll(contener, param) {
     /*
     cliside_BLOGTECHlazyload(contener);
+    cliside_pagescroll(contener, param);
     */
 
-    cliside_pagescroll(contener, param);
 }

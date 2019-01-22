@@ -29,6 +29,7 @@ import {
     data_BTECHmap1,
     data_BTECHmap2
 } from "../data/BLOGdata.js";
+import {clientside_navtoggle} from "./lib/clientside";
 
 /*************************************************************************************
  * GLOBAL VARIABLES
@@ -140,8 +141,8 @@ export function cliside_BLOGNEWSpageunload(contener, param) {
 export function cliside_BLOGNEWSpagescroll(contener, param) {
     /*
     cliside_BLOGNEWSlazyload(contener);
-    */
     cliside_pagescroll(contener, param);
+    */
 }
 
 /*************************************************************************************
@@ -274,7 +275,9 @@ export function cliside_BLOGTECHpageload(contener, param) {
     cliside_BLOGTECHcr = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param["create"]);
     cliside_BLOGTECHldr = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param["load"]);
 
-    window.BLOGreactloader = cliside_BLOGTECHloader; //for React
+    window.BLOGreactloader = cliside_BLOGTECHloader;
+    window.BLOGmouseentercard = cliside_BLOGTECHmouseentercard;
+    window.BLOGmouseleavecard = cliside_BLOGTECHmouseleavecard;
 
     cliside_BLOGTECHloader.localgetfile(contener,
         "./clientside/cards/cardheader.html",
@@ -300,6 +303,8 @@ export function cliside_BLOGTECHpageload(contener, param) {
         "aboutcard"
     );
 
+    contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
+
 }
 
 /// @brief leave function
@@ -310,13 +315,40 @@ export function cliside_BLOGTECHpageunload(contener, param) {
     core.isPageOver = true;
 }
 
+let mousecurrent = null;
+let mousepos = { x: 0, y: 0 };
+
 /// @brief scroll function
 /// @param contener is the target DOM
 /// @param param maybe anything
 export function cliside_BLOGTECHpagescroll(contener, param) {
     /*
     cliside_BLOGTECHlazyload(contener);
+    cliside_pagescroll(contener, param);
     */
 
-    cliside_pagescroll(contener, param);
+    /*
+    mousepos.x = window.scrollX;
+    mousepos.y = window.scrollY;
+    mousecurrent = contener.elementFromPoint(50, mousepos.y);
+    contener.getElementById("detailsname").innerHTML = "CURRENT " + mousecurrent;
+    */
+
+}
+
+/// @brief scroll function
+/// @param contener is the target DOM
+/// @param param maybe anything
+export function cliside_BLOGTECHmouseentercard(contener, param) {
+    mousecurrent = param.getAttribute("id");
+//    contener.getElementById("detailsname").innerHTML = "Implementation details for " + mousecurrent + ": ...";
+    contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
+}
+
+/// @brief scroll function
+/// @param contener is the target DOM
+/// @param param maybe anything
+export function cliside_BLOGTECHmouseleavecard(contener, param) {
+    mousecurrent = param.getAttribute("id");
+    contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
 }
