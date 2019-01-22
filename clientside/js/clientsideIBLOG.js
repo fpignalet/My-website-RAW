@@ -29,7 +29,6 @@ import {
     data_BTECHmap1,
     data_BTECHmap2
 } from "../data/BLOGdata.js";
-import {clientside_navtoggle} from "./lib/clientside";
 
 /*************************************************************************************
  * GLOBAL VARIABLES
