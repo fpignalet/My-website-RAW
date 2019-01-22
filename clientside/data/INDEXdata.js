@@ -92,7 +92,7 @@ export const data_INDEXpresitems = [
     /*1*/"entryphoto",
     /*2*/"cvpresentation",
     /*3*/"entrypresentation",
-    /*4*/[ "entrycvbutton", "Click to read/print my RESUME..." ],
+    /*4*/[ "entrycvbutton", "Click to READ / PRINT my RESUME..." ],
     /*5*/[ "entryofferbutton", "The services I propose..." ]
 ];
 

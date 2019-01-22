@@ -6,7 +6,8 @@
 import {
     CLISIDE_BASE,
     CLISIDE_DOM,
-    CLISIDE_LOADER
+    CLISIDE_LOADER,
+    clientside_decorator
 } from "../lib/clientside.js";
 
 //import * as angular from "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js";
@@ -399,6 +400,10 @@ export class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
         });
     }
 
+    /// @brief code test:
+    static testANY(route) {
+    }
+
 }
 
 /*************************************************************************************
@@ -477,8 +482,9 @@ export class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     testPHP7() {
         const params = [this.cmdselect + 7, ""];
 
+        const local = this;
         this.getdataraw(params, (result) => {
-            this.islinux = /Linux/.test(result);
+            local.islinux = /Linux/.test(result);
         });
     }
 
@@ -547,20 +553,17 @@ export class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     // NON VISIBLE IMPLEMENTATION
     //-----------------------------------------------
     /// @brief
+//    @clientside_decorator()
     createwsocket() {
         const local = this;
 
-        this.wsocket = new WebSocket('ws://localhost', ['soap', 'xmpp']);
+        this.wsocket = new WebSocket('ws://localhost:1414', ['soap', 'xmpp']);
+//        this.wsocket = new WebSocket('ws://localhost', ['echo-protocol']);
 
         // connection open event
         this.wsocket.onopen = function () {
             console.log('WebSocket Opened ');
-//            local.wsocket.send('TESTTOTOTESTTOTO'); //sending message to server.
-        };
-
-        // error event
-        this.wsocket.onerror = function (error) {
-            console.log('WebSocket Error ' + error);
+            local.wsocket.send('TESTTOTOTESTTOTO'); //sending message to server.
         };
 
         // update received from server event
@@ -572,5 +575,11 @@ export class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
                 console.log('WebSocket Server didn\'t answered properly...');
             }
         };
+
+        // error event
+        this.wsocket.onerror = function (error) {
+            console.log('WebSocket Error ' + error);
+        };
+
     }
 }

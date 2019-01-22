@@ -198,6 +198,7 @@ class SERVERSIDE {
                 case $this->triggers[10]:
                     $test = new SRVSIDE_BLOG();
                     $test->BTtest8();
+                    echo "OKOKOKOK\n";
                     break;
 
                 //----------------------------------------------------------------

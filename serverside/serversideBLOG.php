@@ -197,12 +197,12 @@ class SRVSIDE_BLOG {
         $arClients = array();
         $count = 0;
         while (true){
-            echo "Warte auf Verbindung...rn";
+            echo "Warte auf Verbindung...\n";
 
             $sockets_change = $sockets;
             $ready = socket_select($sockets_change, $write = null, $expect = null, null);
 
-            echo "Verbindung angenommen...rn";
+            echo "Verbindung angenommen...\n";
 
             foreach($sockets_change as $s){
                 if ($s == $sock){

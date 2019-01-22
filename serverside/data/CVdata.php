@@ -149,10 +149,16 @@ $data_CVboulot01 = array(
         [ "Software engineer" ],
     "boulotentry0content" =>
         [
-            [ "Description", "Web development to improve my web technologies mastering" ],
-            [ "Environment", "Different web browsers, JetBrains PhpStorm, JetBrains PyCharm" ],
+            [ "Description", "Web development" ],
+            [ "Environment", "Different web browsers, JetBrains (PhpStorm, PyCharm, ...)" ],
             [ "Keypoints", "Javascript, Php, React, Python, Angular, Django, Jira, Jenkins" ],
-            [ "Methodology", "AGILE, Extreme programming, continuous integration" ]
+            [ "Methodology",
+                [
+                    "AGILE software development",
+                    "Extreme programming",
+                    "continuous integration"
+                ]
+            ]
         ]
 );
 
@@ -186,24 +192,29 @@ $data_CVboulot11 = array(
         [ "Software engineer" ],
     "boulotentry1content" =>
         [
-            [ "Description", "IFF interrogators, transponders and related tools. ADS-B parser",
+            [ "Description", "IFF interrogators, transponders and related tools",
                 [
                     [ "https://www.hensoldt.net/solutions/sea/identification-iff/short-range-identification-friend-foe-interrogator-shorad-iff-msr-1000/", "MSR1000" ],
                     [ "https://www.hensoldt.net/solutions/sea/identification-iff/iff-mode-4mode-5-crypto-test-bench-srpm-ng/", "SRPM" ],
-                    [ "https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast", "ADS-B" ]
+                    [ "https://www.hensoldt.net/solutions/sea/identification-iff/military-mode-5-and-mode-s-interrogator-mssr-2000-i/", "... and other projects related with" ],
                 ]
             ],
-            [ "Environment", "Linux Debian, Windows, ARM str711, IoT, Eclipse, various com links:", [
+            [ "Environment", "Linux Debian 9, Windows, ARM str711, IoT, Eclipse, various com links, ADS-B parser", [
                 "UDP/TCP IP",
                 "RS-XXX",
-                "CAN bus"
+                "CAN bus",
+                [ "https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast", "ADS-B" ],
+                [ "https://de.moxa.com/product/Ethernet_Remote_IO.htm", "REST API for I/O board" ],
+                [ "https://de.moxa.com/product/IC_specialized_by_market.htm", "Embedded computer for military applications" ],
+                [ "http://www.rugged.com/a172-rugged-compact-pc", "Embedded computer for military applications" ],
+                [ "https://www.kontron.de/industries/defense", "Embedded computer for military applications" ]
             ]
             ],
-            [ "Keypoints", "Java, C, Javascript, Php" ],
+            [ "Keypoints", "Java, C, Javascript, Php, Asm x86" ],
             [ "Methodology",
                 [
-                    "Company internal process (~V cycle)",
-                    "AGILE software development"
+                    "AGILE software development",
+                    "continuous integration"
                 ]
             ]
         ]
@@ -244,7 +255,7 @@ $data_CVboulot13 = array(
         [
             [ "Description", [
                 "Supply flow handling in a military system",
-                "Multithreaded 3 tier architecture"
+                "Pure Java rich client based on a multithreaded 3 tier architecture"
             ]],
             [ "Environment", "Windows, Eclipse" ],
             [ "Keypoints", "Java" ],
@@ -287,7 +298,8 @@ $data_CVboulot15 = array(
         [
             [ "Description", [
                 "Drone video data real-time acquisition and handling",
-                "Multithreaded 3 tier architecture"
+                "Multithreaded 3 tier architecture, with extensive use of design patterns :",
+                "Creational (Abstract Factory / Builder / Factory method / Object pool / Singleton), Structural (Bridge / Facade), Behavioral (Command / Iterator / State), Concurrency (Scheduler) "
             ]],
             [ "Environment", "Windows, Web Services, BEA WebLogic, SQL db, Eclipse" ],
             [ "Keypoints", "Java, C++, .NET (C# / J#)" ],
@@ -310,11 +322,9 @@ $data_CVboulot16 = array(
     "boulotentry6content" =>
         [
             [ "Description", [
-                "Image management (2D & 3D) for geographic information and intelligence. ",
-                "Multithreaded 3 tier architecture, ",
-                "Parallel handling layer,",
-                "Error management layer",
-                "Deployment platform"
+                "Geographic information with image management (2D & 3D) for mission preparation and intelligence",
+                "Heavily multithreaded 3 tier architecture (specific Parallel handling layer / error management layer)",
+                "Specifi deployment platform (initially based on DOS/batch tools, then Emac/lisp tools))"
             ]],
             [ "Environment", "Windows, Unix/CDE, MFC, CORBA, Rational suite, Bounds Checker" ],
             [ "Keypoints", "C++" ],
@@ -495,7 +505,7 @@ $data_CVboulot42 = array(
         [ "Software developer" ],
     "boulotentry12content" =>
         [
-            [ "Description", "Save and restore utilities for Psion organizer (series 3 & 5) on Macintosh" ],
+            [ "Description", "Save and restore utilities for Psion organizer (series 3 & 5)" ],
             [ "Environment", "Mac OS, Psion EPOC 16 & 32" ],
             [ "Keypoints", "C, C++" ]
         ]
@@ -515,8 +525,8 @@ $data_CVboulot43 = array(
     "boulotentry13content" =>
         [
             [ "Description", [
+                "Asynchronous parts under interrupt (there was no real multitasking available in MacOS)",
                 "Faxing (classe 1 & 2) software",
-                "Asynchronous parts under interrupt (no real multitasking available)",
                 "Device to device file transferts (X, Y and Z modem)"
             ]],
             [ "Environment", "Mac OS" ],
@@ -558,9 +568,9 @@ $data_CVboulot51 = array(
                 [
                     "Tools for 4th dimension (RDBMS IDE):",
                     [
-                        "Platform Independant Extension Kit: tools and API for writing 4D plugins.",
-                        "4D Server connection API: samples & tests applications",
-                        "4D plugins. For example : smartcard handling."
+                        "4D plugins. For example : smartcard handling",
+                        "Platform Independant Extension Kit: tools and API for writing 4D plugins",
+                        "4D Server connection API: samples & tests applications for writing 4D native clients"
                     ]
                 ]
             ],
@@ -629,7 +639,7 @@ $data_CVboulot61 = array(
         [
             ["Description", "Database development. EDM."],
             ["Environment", "MS-DOS, Mac OS."],
-            ["Keypoints", "Dbase2, 4th Dimension."]
+            ["Keypoints", "Dbase2, 4th Dimension, DOS cmds"]
         ]
 );
 
@@ -724,7 +734,11 @@ $data_CVhobby11 = array(
     "loisirs_f11content" =>
         [
             [ "Martial arts", "Aikido, Boxing" ],
-            [ "Running", "Marathon" ],
+            [ "Running",
+                [
+                    [ "https://www.abavent.de/anmeldeservice/muenchenmarathon2018/ergebnisse#1_CF28C6", "2018/10/09: München marathon" ],
+                ]
+            ],
             [ "Triathlon",
                 [
                     [ "https://www.regensburger-triathlon.de/triathlon", "2018/08/05: Regensburg, Olympische Distanz" ],

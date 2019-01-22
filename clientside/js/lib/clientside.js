@@ -27,6 +27,8 @@ export class CLISIDE_BASE extends Multiple {
         }
 
         super(id);
+
+        this.decotest = false;
     }
 
     /// @brief ...
@@ -874,4 +876,11 @@ export function clientside_gmapshow(contener, mapid/*"googleMap"*/) {
     finally {
         //...
     }
+}
+
+/*************************************************************************************
+ * IMPLEMENTATION: DECORATORS
+ *************************************************************************************/
+export function clientside_decorator(target) {
+    target.decotest = true;
 }

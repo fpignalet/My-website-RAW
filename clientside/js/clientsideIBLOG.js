@@ -137,6 +137,7 @@ export function cliside_BLOGNEWSpagescroll(contener, param) {
     /*
     cliside_BLOGNEWSlazyload(contener);
     */
+    cliside_BLOGpagescroll(contener, param);
 }
 
 /*************************************************************************************
@@ -219,6 +220,7 @@ export function cliside_BLOGTECHpageload(contener, param) {
 
     const remote = new CLISIDE_BTECHREMOTE(cliside_BASEIDENT + param["create"] + 11);
     window.BLOGdomremote = remote; //for testPHP1
+
     (data_BTECHmap1[0]["data"])[2] = () => {
         remote.testPHP8();
     };
@@ -300,6 +302,8 @@ export function cliside_BLOGTECHpageunload(contener, param) {
     core.isPageOver = true;
 }
 
+window.BTscrollrect = null;
+
 /// @brief scroll function
 /// @param contener is the target DOM
 /// @param param maybe anything
@@ -307,4 +311,42 @@ export function cliside_BLOGTECHpagescroll(contener, param) {
     /*
     cliside_BLOGTECHlazyload(contener);
     */
+
+    cliside_BLOGpagescroll(contener, param);
+}
+
+/*************************************************************************************
+ * IMPLEMENTATION: UTILS
+ *************************************************************************************/
+/// @brief scroll function
+/// @param contener is the target DOM
+/// @param param maybe anything
+export function cliside_BLOGpagescroll(contener, param) {
+    function getOffset(el) {
+        const rect = el.getBoundingClientRect();
+        return {
+//            left: (rect.right + window.scrollX ) +'px',
+//            top: (rect.top + window.scrollY ) +'px'
+            left: rect.right,
+            top: rect.top
+        }
+    }
+
+    const item = document.getElementById("aboutcard");
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        item.style.transform = "scale(0.5, 0.5)";
+        if(null != window.BTscrollrect){
+            var xPosition = window.BTscrollrect.left - contener.getBoundingClientRect().left - (item.clientWidth / 2);
+            var yPosition = window.BTscrollrect.top - contener.getBoundingClientRect().top - (item.clientHeight / 2);
+            // in case of a wide border, the boarder-width needs to be considered in the formula above
+            item.style.left = xPosition + "px";
+            item.style.top = yPosition + "px";
+        }
+    }
+    else {
+        item.style.transform = "";
+        if(null == window.BTscrollrect){
+            window.BTscrollrect = getOffset(item);
+        }
+    }
 }
