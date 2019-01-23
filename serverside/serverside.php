@@ -55,7 +55,7 @@ class SERVERSIDE {
 
             if(false) {
                 //debug only
-                $analyser = new SRVSIDE_DIRPARSER();
+                $analyser = new SRVSIDE_BLOG;
                 $analyser->BTtest6("callbackparse", '..', "../listfile.txt");
             }
         }
@@ -182,7 +182,7 @@ class SERVERSIDE {
                 // SEND DIRECTORY CONTENT
                 // return json data
                 case $this->triggers[8]:
-                    $analyser = new SRVSIDE_BLOG();
+                    $analyser = new SRVSIDE_BLOG;
                     $data = $analyser->BTtest6(null, '..', null);
                     echo json_encode($data);
                     break;
@@ -196,7 +196,7 @@ class SERVERSIDE {
                 //----------------------------------
                 // WEBSOCKET TEST
                 case $this->triggers[10]:
-                    $test = new SRVSIDE_BLOG();
+                    $test = new SRVSIDE_BLOG;
                     $test->BTtest8();
                     echo "OKOKOKOK\n";
                     break;

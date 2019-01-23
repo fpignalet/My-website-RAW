@@ -44,13 +44,7 @@ export const data_INDEXtitleitems = [
     /*0*/"entry_mtitlesub",
     /*1*/"entry_mtitlename"
 ];
-/// @brief
-export const data_INDEXtitledata = [
-    /*0*/"FRANCOIS PIGNALET'S",
-    /*1*/"WEBSITE"
-];
 
-//-----------------------------------------------------------------------------------------------------------
 /// @brief
 export const data_INDEXaboutitems = [
     /*0*/["aboutyearstext", "aboutyearsnum"],
@@ -58,6 +52,14 @@ export const data_INDEXaboutitems = [
     /*2*/["aboutboitestext", "aboutboitesnum"],
     /*3*/["abouthourstext", "abouthoursnum"],
 ];
+
+//-----------------------------------------------------------------------------------------------------------
+/// @brief
+export const data_INDEXtitledata = [
+    /*0*/"FRANCOIS PIGNALET'S",
+    /*1*/"WEBSITE"
+];
+
 /// @brief
 export const data_INDEXaboutdata = [
     /*0*/["25+", "Years of software development"],
@@ -66,7 +68,6 @@ export const data_INDEXaboutdata = [
     /*3*/["Many, many...", "...lines of code & hours of debugging"],
 ];
 
-//-----------------------------------------------------------------------------------------------------------
 /// @brief
 export const data_INDEXcontentdata = [
     /*0*/[
@@ -92,8 +93,8 @@ export const data_INDEXpresitems = [
     /*1*/"entryphoto",
     /*2*/"cvpresentation",
     /*3*/"entrypresentation",
-    /*4*/[ "entrycvbutton", "Click to READ / PRINT my RESUME..." ],
-    /*5*/[ "entryofferbutton", "The services I propose..." ]
+    /*4*/[ "entrycvbutton", "READ / PRINT my RESUME" ],
+    /*5*/[ "entryofferbutton", "HIRE ME" ]
 ];
 
 /// @brief
