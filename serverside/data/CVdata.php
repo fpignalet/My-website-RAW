@@ -108,7 +108,7 @@ $data_CVlangentries = array(
         "lang_f2level" =>
             [ "85%" ],
         "lang_f2text" =>
-            [ "85% (C1)" ]
+            [ "C1" ]
     ),
     array(
         "lang_f3desc" =>
@@ -116,7 +116,7 @@ $data_CVlangentries = array(
         "lang_f3level" =>
             [ "60%" ],
         "lang_f3text" =>
-            [ "60% (B1~B2)" ]
+            [ "B1~B2" ]
     )
 );
 
@@ -204,13 +204,13 @@ $data_CVboulot11 = array(
                 "RS-XXX",
                 "CAN bus",
                 [ "https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast", "ADS-B" ],
-                [ "https://de.moxa.com/product/Ethernet_Remote_IO.htm", "REST API for I/O board" ],
-                [ "https://de.moxa.com/product/IC_specialized_by_market.htm", "Embedded computer for military applications" ],
-                [ "http://www.rugged.com/a172-rugged-compact-pc", "Embedded computer for military applications" ],
-                [ "https://www.kontron.de/industries/defense", "Embedded computer for military applications" ]
+                [ "https://de.moxa.com/product/Ethernet_Remote_IO.htm", "REST API for [Moxa] I/O board" ],
+                [ "https://de.moxa.com/product/IC_specialized_by_market.htm", "[Moxa] Embedded computer for military applications" ],
+                [ "http://www.rugged.com/a172-rugged-compact-pc", "[Aitech] Embedded computer for military applications" ],
+                [ "https://www.kontron.de/industries/defense", "[Kontron] Embedded computer for military applications" ]
             ]
             ],
-            [ "Keypoints", "Java, C, Javascript, Php, Asm x86" ],
+            [ "Keypoints", "Java, C, Javascript, Php, Asm x86, GNU Autotools" ],
             [ "Methodology",
                 [
                     "AGILE software development",
