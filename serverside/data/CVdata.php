@@ -28,7 +28,9 @@ $data_CVinfo = array(
     "info_email" =>
         [ "mailto:francois.pignalet@gmail.com", "francois.pignalet@gmail.com", ],
     "info_phonenum" =>
-        [ "00491704868403" ]
+        [ "00491704868403" ],
+    "info_geburstag" =>
+        [ "06/07/1967" ]
 );
 
 /// @brief fills clientside/cards/CVcardskills.html
@@ -128,7 +130,7 @@ $data_CVboulot0 = array(
         [ "2018/11" ],
     "boulotentry0boite" =>
         [
-            null,
+            "http://www.pignalet.de",
             [
                 "Starting as freelance"
             ]
@@ -140,23 +142,23 @@ $data_CVboulot0 = array(
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot01 = array(
-    "boulotentry0item" =>
+    "boulotentry01item" =>
         [
             "Project:",
-            "My website"
+            "Professional website"
         ],
-    "boulotentry0title" =>
-        [ "Software engineer" ],
-    "boulotentry0content" =>
+    "boulotentry01title" =>
+        [ "Full-Stack developer" ],
+    "boulotentry01content" =>
         [
             [ "Description", "Web development" ],
-            [ "Environment", "Different web browsers, JetBrains (PhpStorm, PyCharm, ...)" ],
-            [ "Keypoints", "Javascript, Php, React, Python, Angular, Django, Jira, Jenkins" ],
+            [ "Environment", "Windows 10, Linus Debian 9, JetBrains (IntelliJIDEA, PhpStorm, PyCharm, Datagrid), Microservices, MySQL, WAMP Server, Apache2, Tomcat, Jira, Jenkins, Github" ],
+            [ "Keypoints", "Javascript, Php, React, Angular, Java/Spring, Python/Django, SQL" ],
             [ "Methodology",
                 [
                     "AGILE software development",
-                    "Extreme programming",
-                    "continuous integration"
+                    "continuous integration",
+                    "Extreme programming"
                 ]
             ]
         ]
@@ -167,12 +169,12 @@ $data_CVboulot01 = array(
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot1 = array(
     "boulotentry1date" =>
-        [ "2000/06 - 2018/10" ],
+        [ "2015/10 - 2018/10" ],
     "boulotentry1boite" =>
         [
             "https://www.hensoldt.net/solutions/sea/identification-iff/",
             [
-                "HENSOLDT (former Airbus Defence / EADS Defence & Security)"
+                "HENSOLDT GMBH Ottobrunn (former Airbus Defence)"
             ]
         ],
     "boulotentry1desc" =>
@@ -182,35 +184,33 @@ $data_CVboulot1 = array(
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot11 = array(
-    "boulotentry1item" =>
+    "boulotentry11item" =>
         [
             "Products / team:",
             "IFF",
             "(until the end)"
         ],
-    "boulotentry1title" =>
-        [ "Software engineer" ],
-    "boulotentry1content" =>
+    "boulotentry11title" =>
+        [ "Software engineer / Full-Stack developer" ],
+    "boulotentry11content" =>
         [
-            [ "Description", "IFF interrogators, transponders and related tools",
+            [ "Description", "IFF interrogators, transponders and related tools, based on these products",
                 [
-                    [ "https://www.hensoldt.net/solutions/sea/identification-iff/short-range-identification-friend-foe-interrogator-shorad-iff-msr-1000/", "MSR1000" ],
-                    [ "https://www.hensoldt.net/solutions/sea/identification-iff/iff-mode-4mode-5-crypto-test-bench-srpm-ng/", "SRPM" ],
-                    [ "https://www.hensoldt.net/solutions/sea/identification-iff/military-mode-5-and-mode-s-interrogator-mssr-2000-i/", "... and other projects related with" ],
+                    [ "https://www.hensoldt.net/solutions/sea/identification-iff/military-mode-5-and-mode-s-interrogator-mssr-2000-i/", "MSSR" ],
+                    [ "https://www.hensoldt.net/solutions/sea/identification-iff/ltr-400-mode-siff-lightweight-transponder/", "LTR" ]
                 ]
             ],
-            [ "Environment", "Linux Debian 9, Windows, ARM str711, IoT, Eclipse, various com links, ADS-B parser", [
+            [ "Environment", "Windows 7, Linux Debian 9, IoT, Eclipse, JIRA, Jenkins, DOORS, SVN, various com links, ADS-B, Microservices", [
                 "UDP/TCP IP",
                 "RS-XXX",
                 "CAN bus",
                 [ "https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast", "ADS-B" ],
-                [ "https://de.moxa.com/product/Ethernet_Remote_IO.htm", "REST API for [Moxa] I/O board" ],
+                [ "https://de.moxa.com/product/Ethernet_Remote_IO.htm", "REST API for Network Controller" ],
                 [ "https://de.moxa.com/product/IC_specialized_by_market.htm", "[Moxa] Embedded computer for military applications" ],
-                [ "http://www.rugged.com/a172-rugged-compact-pc", "[Aitech] Embedded computer for military applications" ],
-                [ "https://www.kontron.de/industries/defense", "[Kontron] Embedded computer for military applications" ]
+                [ "http://www.rugged.com/a172-rugged-compact-pc", "[Aitech] Embedded computer for military applications" ]
             ]
             ],
-            [ "Keypoints", "Java, C, Javascript, Php, Asm x86, GNU Autotools" ],
+            [ "Keypoints", "Java, Javascript, Php, React / Node, GNU Autotools, Asm x86" ],
             [ "Methodology",
                 [
                     "AGILE software development",
@@ -220,119 +220,172 @@ $data_CVboulot11 = array(
         ]
 );
 
+// BOULOT ENTRY -----------------------------------------------------------------
+/// @brief fills clientside/cards/CVgridhist.html
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
+$data_CVboulot2 = array(
+    "boulotentry2date" =>
+        [ "2000/06 - 2015/09" ],
+    "boulotentry2boite" =>
+        [
+            "https://www.hensoldt.net/solutions/sea/identification-iff/",
+            [
+                "Airbus Defence (former Cassidian / EADS Defence & Security)",
+                "[mission for ALTEN until 2002/02]"
+            ]
+        ],
+    "boulotentry2desc" =>
+        [ null ]
+);
+
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot12 = array(
-    "boulotentry2item" =>
+$data_CVboulot21 = array(
+    "boulotentry21item" =>
+        [
+            "Products / team:",
+            "IFF",
+            "(until the end)"
+        ],
+    "boulotentry21title" =>
+        [ "Software engineer" ],
+    "boulotentry21content" =>
+        [
+            [ "Description", "IFF interrogators, transponders and related tools",
+                [
+                    [ "https://www.hensoldt.net/solutions/sea/identification-iff/short-range-identification-friend-foe-interrogator-shorad-iff-msr-1000/", "MSR1000" ],
+                    [ "https://www.hensoldt.net/solutions/sea/identification-iff/iff-mode-4mode-5-crypto-test-bench-srpm-ng/", "SRPM" ],
+                    [ "https://www.hensoldt.net/solutions/sea/identification-iff/military-mode-5-and-mode-s-interrogator-mssr-2000-i/", "... and other projects related with" ],
+                ]
+            ],
+            [ "Environment", "Windows 7, Eclipse, JIRA, SVN, DOORS, various com links, ADS-B", [
+                "UDP/TCP IP",
+                "RS-XXX",
+                [ "https://www.kontron.de/industries/defense", "[Kontron] Embedded computer for military applications" ]
+            ]
+            ],
+            [ "Keypoints", "Java, C, Javascript, Angular, Asm x86" ],
+            [ "Methodology",
+                [
+                    "AGILE software development"
+                ]
+            ]
+        ]
+);
+
+/// @brief fills clientside/cards/CVgridhist.html
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
+$data_CVboulot22 = array(
+    "boulotentry22item" =>
         [
             "Project:",
             "CLA2000",
             "(1 year + 3 months)"
         ],
-    "boulotentry2title" =>
+    "boulotentry22title" =>
         [ "Software engineer" ],
-    "boulotentry2content" =>
+    "boulotentry22content" =>
         [
             [ "Description", "Air traffic control services" ],
-            [ "Environment", "Linux, Java components, Eclipse" ],
-            [ "Keypoints", "Java" ],
+            [ "Environment", "Linux, Eclipse, DOORS" ],
+            [ "Keypoints", "Java, POJO" ],
             [ "Methodology", "company internal process (~V cycle)" ]
         ]
 );
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot13 = array(
-    "boulotentry3item" =>
+$data_CVboulot23 = array(
+    "boulotentry23item" =>
         [
             "Project:",
             "LMT / GCTAM",
             "(2 years + 4 months)"
         ],
-    "boulotentry3title" =>
+    "boulotentry23title" =>
         [ "Software engineer" ],
-    "boulotentry3content" =>
+    "boulotentry23content" =>
         [
             [ "Description", [
                 "Supply flow handling in a military system",
                 "Pure Java rich client based on a multithreaded 3 tier architecture"
             ]],
-            [ "Environment", "Windows, Eclipse" ],
-            [ "Keypoints", "Java" ],
+            [ "Environment", "Windows 7, Eclipse" ],
+            [ "Keypoints", "Java, Java Beans" ],
             [ "Methodology", "Company internal process (~V cycle)" ]
         ]
 );
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot14 = array(
-    "boulotentry4item" =>
+$data_CVboulot24 = array(
+    "boulotentry24item" =>
         [
             "Project:",
             "MOIE Sic Terre",
             "(2 years + 7 months)"
         ],
-    "boulotentry4title" =>
+    "boulotentry24title" =>
         [ "Software architect / Team leader (~6 developers)" ],
-    "boulotentry4content" =>
+    "boulotentry24content" =>
         [
             [ "Description", "Message handling in a military communication system" ],
-            [ "Environment", "Windows, OSGI components, Eclipse" ],
-            [ "Keypoints", "Java, Python" ],
-            [ "Methodology", "MDA Approach (UML), Design Patterns" ]
+            [ "Environment", "Windows XP, Eclipse" ],
+            [ "Keypoints", "Java, J2EE, EJB, POJO, OSGI, Python" ],
+            [ "Methodology", "MDA Approach, Design Patterns" ]
         ]
 );
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot15 = array(
-    "boulotentry5item" =>
+$data_CVboulot25 = array(
+    "boulotentry25item" =>
         [
             "Project:",
             "Euromale",
             "(7 months)"
         ],
-    "boulotentry5title" =>
+    "boulotentry25title" =>
         [ "Software architect / Team leader (~3 developers)" ],
-    "boulotentry5content" =>
+    "boulotentry25content" =>
         [
             [ "Description", [
                 "Drone video data real-time acquisition and handling",
-                "Multithreaded 3 tier architecture, with extensive use of design patterns :",
-                "Creational (Abstract Factory / Builder / Factory method / Object pool / Singleton), Structural (Bridge / Facade), Behavioral (Command / Iterator / State), Concurrency (Scheduler) "
+                "Multithreaded 3 tier architecture",
+                "Extensive use of design patterns: Creational (Abstract Factory / Builder / Factory method / Object pool / Singleton), Structural (Bridge / Facade), Behavioral (Command / Iterator / State), Concurrency (Scheduler) "
             ]],
-            [ "Environment", "Windows, Web Services, BEA WebLogic, SQL db, Eclipse" ],
+            [ "Environment", "Windows XP, Web Services, BEA WebLogic, SQL db, Eclipse" ],
             [ "Keypoints", "Java, C++, .NET (C# / J#)" ],
-            [ "Methodology", "MDA Approach (UML), Design Patterns" ]
+            [ "Methodology", "MDA Approach, Design Patterns" ]
         ]
 );
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot16 = array(
-    "boulotentry6item" =>
+$data_CVboulot26 = array(
+    "boulotentry26item" =>
         [
             "Project:",
             "Helios 2",
             "(4 years + 5 months)",
             "[mission for ALTEN then EADS FLEXIMAGE]"
         ],
-    "boulotentry6title" =>
+    "boulotentry26title" =>
         [ "Software architect / Team leader (~6 developers)" ],
-    "boulotentry6content" =>
+    "boulotentry26content" =>
         [
             [ "Description", [
                 "Geographic information with image management (2D & 3D) for mission preparation and intelligence",
                 "Heavily multithreaded 3 tier architecture (specific Parallel handling layer / error management layer)",
-                "Specifi deployment platform (initially based on DOS/batch tools, then Emac/lisp tools))"
+                "Specific deployment platform (initially based on DOS/batch tools, then Emac/lisp tools))"
             ]],
-            [ "Environment", "Windows, Unix/CDE, MFC, CORBA, Rational suite, Bounds Checker" ],
-            [ "Keypoints", "C++" ],
-            [ "Methodology", "Rational Unified Process (UML), Design Patterns" ]
+            [ "Environment", "Windows NT, Unix/CDE, Microsoft MFC, Rational suite, Bounds Checker" ],
+            [ "Keypoints", "C++, CORBA, ActiveX components" ],
+            [ "Methodology", "Rational Unified Process, Design Patterns" ]
         ],
-    "boulotentry7title" =>
+    "boulotentry27title" =>
         [ "Trainer in ALTEN Learning School (~15 attendees)" ],
-    "boulotentry7content" =>
+    "boulotentry27content" =>
         [
             [ "Description", "Sessions about coding and unit testing best practises (~3 hours)" ]
         ]
@@ -341,111 +394,66 @@ $data_CVboulot16 = array(
 // BOULOT ENTRY -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot2 = array(
-    "boulotentry8date" =>
+$data_CVboulot3 = array(
+    "boulotentry3date" =>
         [ "1999/10 - 2000/05" ],
-    "boulotentry8boite" =>
+    "boulotentry3boite" =>
         [
             "https://www.thalesgroup.com/fr/global/activities/transportation/urban-mobility/billettique-et-systemes-de-paiements",
             //          "https://www.thalesgroup.com/sites/default/files/database/d7/asset/document/transcity_ds400_bd_en.pdf"
             [
-                "ALCATEL CGA Transport (now Thales group)",
+                "THALES group (former ALCATEL CGA Transport)",
                 "[mission for ALTEN]"
             ]
         ],
-    "boulotentry8desc" =>
+    "boulotentry3desc" =>
         [ null, ]
 );
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot21 = array(
-    "boulotentry8item" =>
+$data_CVboulot31 = array(
+    "boulotentry31item" =>
         [
             "Project:",
             "Wayfarer",
             "(7 month)"
         ],
-    "boulotentry8title" =>
+    "boulotentry31title" =>
         [ "Software architect / Team leader (~4 developers)" ],
-    "boulotentry8content" =>
+    "boulotentry31content" =>
         [
             [ "Description", [
                 "Real time embedded software inside bus ticketing console",
                 "Virtual machine for 386EX microcontroller emulation"
             ]],
-            [ "Environment", "Windows, Pupitre Wayfarer" ],
-            [ "Keypoints", "C, C++, Asm x86" ],
-            [ "Methodology", "V-Model, UML static & dynamic modeling" ]
+            [ "Environment", "Windows NT, Wayfarer BUS Ticketing Machine" ],
+            [ "Keypoints", "C, C++, Visual Studio, Microsoft MFC, Asm x86 (386EX microcontroller)" ],
+            [ "Methodology", [
+                "V-Model",
+                "static & dynamic modeling (UML Diagrams)",
+            ]]
         ]
 );
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot22 = array(
-    "boulotentry9item" =>
+$data_CVboulot32 = array(
+    "boulotentry32item" =>
         [
             "Project:",
             "GART",
             "(1 month)"
         ],
-    "boulotentry9title" =>
+    "boulotentry32title" =>
         [
             "Software developer"
         ],
-    "boulotentry9content" =>
+    "boulotentry32content" =>
         [
             [ "Description", "Contactless smartcard demonstration application" ],
-            [ "Environment", "Visual Studio, MFC, Windows" ],
-            [ "Keypoints", "C++, Serial RS-232 communication" ]
-        ]
-);
-
-// BOULOT ENTRY -----------------------------------------------------------------
-/// @brief fills clientside/cards/CVgridhist.html
-/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot3 = array(
-    "boulotentry10date" =>
-        [
-            "1998/07 - 1999/09"
-        ],
-    "boulotentry10boite" =>
-        [
-            "https://www.zodiacaerospace.com/en/products-services/aerosystems/data-systems/telemetry-ground-segment/equipment",
-            [
-                "INTERTECHNIQUE IN-SNEC (now Zodiac)",
-                "[mission for ALTEN]"
-            ]
-        ],
-    "boulotentry10desc" =>
-        [ null ]
-);
-
-/// @brief fills clientside/cards/CVgridhist.html
-/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot31 = array(
-    "boulotentry10item" =>
-        [
-            "Project:",
-            "EUMETSAT",
-            "(1 year + 3 months)"
-        ],
-    "boulotentry10title" =>
-        [ "Software developer" ],
-    "boulotentry10content" =>
-        [
-            [ "Description", [
-                "Regulation and transmission for Meteosat 2nd generationsatellite",
-                "Heavily multithreaded data flow handling",
-                "Real time data treatment",
-                "Data encoding (Reed-Solomon, Pseudo-Randomization, Convolutional)"
-            ]],
-            [ "Environment", "Windows DDK, DSP 56301 modulator firmware" ],
-            [ "Keypoints", "C, C++, Asm DSP 56301" ],
-            [ "Methodology", [
-                "V-Model",
-                "UML static & dynamic modeling"
-            ]]
+            [ "Environment", "Windows NT" ],
+            [ "Keypoints", "C++, Visual Studio, Microsoft MFC, Serial RS-232 communication" ]
         ]
 );
 
@@ -453,31 +461,79 @@ $data_CVboulot31 = array(
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot4 = array(
-    "boulotentry11date" =>
-        [ "1996/01 - 1998/06" ],
-    "boulotentry11boite" =>
+    "boulotentry4date" =>
         [
-            null,
+            "1998/07 - 1999/09"
+        ],
+    "boulotentry4boite" =>
+        [
+            "https://www.zodiacaerospace.com/en/products-services/aerosystems/data-systems/telemetry-ground-segment/equipment",
             [
-                "ATELIER (Groupe Ka)"
+                "ZODIAC (former INTERTECHNIQUE IN-SNEC)",
+                "[mission for ALTEN]"
             ]
         ],
-    "boulotentry11desc" =>
+    "boulotentry4desc" =>
         [ null ]
 );
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
 $data_CVboulot41 = array(
-    "boulotentry11item" =>
+    "boulotentry41item" =>
+        [
+            "Project:",
+            "EUMETSAT",
+            "(1 year + 3 months)"
+        ],
+    "boulotentry41title" =>
+        [ "Software developer" ],
+    "boulotentry41content" =>
+        [
+            [ "Description", [
+                "Regulation and transmission for Meteosat 2nd generationsatellite",
+                "Heavily multithreaded data flow handling",
+                "Real time data treatment",
+                "Data encoding (Reed-Solomon, Pseudo-Randomization, Convolutional)"
+            ]],
+            [ "Environment", "Windows NT, DSP 56301" ],
+            [ "Keypoints", "C, C++, Windows DDK, Asm DSP 56301" ],
+            [ "Methodology", [
+                "V-Model",
+                "static & dynamic modeling (UML Diagrams)",
+            ]]
+        ]
+);
+
+// BOULOT ENTRY -----------------------------------------------------------------
+/// @brief fills clientside/cards/CVgridhist.html
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
+$data_CVboulot5 = array(
+    "boulotentry5date" =>
+        [ "1996/01 - 1998/06" ],
+    "boulotentry5boite" =>
+        [
+            null,
+            [
+                "ATELIER (Groupe Ka)"
+            ]
+        ],
+    "boulotentry5desc" =>
+        [ null ]
+);
+
+/// @brief fills clientside/cards/CVgridhist.html
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
+$data_CVboulot51 = array(
+    "boulotentry51item" =>
         [
             "Project:",
             "Essential Disk Utilities",
             "(9 months)"
         ],
-    "boulotentry11title" =>
+    "boulotentry51title" =>
         [ "Software developer" ],
-    "boulotentry11content" =>
+    "boulotentry51content" =>
         [
             [ "Description", [
                 "VFAT disk utilities for Psion organizer (series 3 & 5): ",
@@ -486,7 +542,7 @@ $data_CVboulot41 = array(
                 "Smart Format,",
                 "Disk Editor"
             ]],
-            [ "Environment", "Psion EPOC 16 & 32" ],
+            [ "Environment", "Psion EPOC(16/32)" ],
             [ "Keypoints", "C, C++" ],
             [ "Methodology", "Static model, Booch diagrams" ]
         ]
@@ -494,42 +550,42 @@ $data_CVboulot41 = array(
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot42 = array(
-    "boulotentry12item" =>
+$data_CVboulot52 = array(
+    "boulotentry52item" =>
         [
             "Project:",
             "PsiTools",
             "(1 year)"
         ],
-    "boulotentry12title" =>
+    "boulotentry52title" =>
         [ "Software developer" ],
-    "boulotentry12content" =>
+    "boulotentry52content" =>
         [
             [ "Description", "Save and restore utilities for Psion organizer (series 3 & 5)" ],
-            [ "Environment", "Mac OS, Psion EPOC 16 & 32" ],
+            [ "Environment", "Mac OS (6/7), Psion EPOC(16/32)" ],
             [ "Keypoints", "C, C++" ]
         ]
 );
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot43 = array(
-    "boulotentry13item" =>
+$data_CVboulot53 = array(
+    "boulotentry53item" =>
         [
             "Project:",
             "Velvet",
             "(9 months)"
         ],
-    "boulotentry13title" =>
+    "boulotentry53title" =>
         [ "Software developer" ],
-    "boulotentry13content" =>
+    "boulotentry53content" =>
         [
             [ "Description", [
                 "Asynchronous parts under interrupt (there was no real multitasking available in MacOS)",
                 "Faxing (classe 1 & 2) software",
                 "Device to device file transferts (X, Y and Z modem)"
             ]],
-            [ "Environment", "Mac OS" ],
+            [ "Environment", "Mac OS (6/7)" ],
             [ "Keypoints", "C, C++" ]
         ]
 );
@@ -537,32 +593,32 @@ $data_CVboulot43 = array(
 // BOULOT ENTRY -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot5 = array(
-    "boulotentry14date" =>
+$data_CVboulot6 = array(
+    "boulotentry6date" =>
         [ "1992/04 - 1995/12" ],
-    "boulotentry14boite" =>
+    "boulotentry6boite" =>
         [
-            "http://www.4d.com/de/",
+            "https://de.4d.com/",
             [
-                "ACI - France & USA (now 4D)"
+                "4D - France & USA (former ACI)"
             ]
         ],
-    "boulotentry14desc" =>
+    "boulotentry6desc" =>
         [ null ]
 );
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot51 = array(
-    "boulotentry14item" =>
+$data_CVboulot61 = array(
+    "boulotentry61item" =>
         [
             "Product: ",
             "4th Dimension",
             "(1 year, with 6 month in USA)"
         ],
-    "boulotentry14title" =>
+    "boulotentry61title" =>
         [ "Software developer" ],
-    "boulotentry14content" =>
+    "boulotentry61content" =>
         [
             [ "Description",
                 [
@@ -574,23 +630,23 @@ $data_CVboulot51 = array(
                     ]
                 ]
             ],
-            [ "Environment", "Windows, Mac OS." ],
+            [ "Environment", "Windows, Mac OS (6/7)" ],
             [ "Keypoints", "C, C++, Pascal, Asm 68K, Asm x86" ]
         ]
 );
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot52 = array(
-    "boulotentry15item" =>
+$data_CVboulot62 = array(
+    "boulotentry62item" =>
         [
             "Products: ",
             "4th Dimension / Object Master",
             "(2 years + 8 month)"
         ],
-    "boulotentry15title" =>
+    "boulotentry62title" =>
         [ "IT Technician / Software developer" ],
-    "boulotentry15content" =>
+    "boulotentry62content" =>
         [
             [ "Description",
                 [
@@ -602,7 +658,7 @@ $data_CVboulot52 = array(
                     ]
                 ]
             ],
-            [ "Environment", "Mac OS, Windows" ],
+            [ "Environment", "Mac OS (6/7), Windows" ],
             [ "Keypoints", "4th Dimension, C, C++, Pascal, Modula2" ]
         ]
 );
@@ -610,32 +666,32 @@ $data_CVboulot52 = array(
 // BOULOT ENTRY -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot6 = array(
-    "boulotentry16date" =>
+$data_CVboulot7 = array(
+    "boulotentry7date" =>
         [ "1986/10 - 1992/03" ],
-    "boulotentry16boite" =>
+    "boulotentry7boite" =>
         [
             null,
             [
                 "Centre d’Essai des Propulseurs de Saclay (DGA), GEET, LTC..."
             ]
         ],
-    "boulotentry16desc" =>
+    "boulotentry7desc" =>
         [ null ]
 );
 
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot61 = array(
-    "boulotentry16item" =>
+$data_CVboulot71 = array(
+    "boulotentry71item" =>
         [
             "General: ",
-            null,
+            "",
             "(5 years + 5 month)"
         ],
-    "boulotentry16title" =>
+    "boulotentry71title" =>
         [ "Software developer" ],
-    "boulotentry16content" =>
+    "boulotentry71content" =>
         [
             ["Description", "Database development. EDM."],
             ["Environment", "MS-DOS, Mac OS."],
@@ -803,30 +859,33 @@ $data_CVmap = array(
 
     "data_CVboulot1" => $data_CVboulot1,
     "data_CVboulot11" => $data_CVboulot11,
-    "data_CVboulot12" => $data_CVboulot12,
-    "data_CVboulot13" => $data_CVboulot13,
-    "data_CVboulot14" => $data_CVboulot14,
-    "data_CVboulot15" => $data_CVboulot15,
-    "data_CVboulot16" => $data_CVboulot16,
 
     "data_CVboulot2" => $data_CVboulot2,
     "data_CVboulot21" => $data_CVboulot21,
     "data_CVboulot22" => $data_CVboulot22,
+    "data_CVboulot23" => $data_CVboulot23,
+    "data_CVboulot24" => $data_CVboulot24,
+    "data_CVboulot25" => $data_CVboulot25,
+    "data_CVboulot26" => $data_CVboulot26,
 
     "data_CVboulot3" => $data_CVboulot3,
     "data_CVboulot31" => $data_CVboulot31,
+    "data_CVboulot32" => $data_CVboulot32,
 
     "data_CVboulot4" => $data_CVboulot4,
     "data_CVboulot41" => $data_CVboulot41,
-    "data_CVboulot42" => $data_CVboulot42,
-    "data_CVboulot43" => $data_CVboulot43,
 
     "data_CVboulot5" => $data_CVboulot5,
     "data_CVboulot51" => $data_CVboulot51,
     "data_CVboulot52" => $data_CVboulot52,
+    "data_CVboulot53" => $data_CVboulot53,
 
     "data_CVboulot6" => $data_CVboulot6,
     "data_CVboulot61" => $data_CVboulot61,
+    "data_CVboulot62" => $data_CVboulot62,
+
+    "data_CVboulot7" => $data_CVboulot7,
+    "data_CVboulot71" => $data_CVboulot71,
 
     "data_CVbildung1" => $data_CVbildung1,
     "data_CVbildung11" => $data_CVbildung11,

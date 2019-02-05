@@ -94,7 +94,7 @@ export const data_CVmap1 = [
         desc: null,
         content: null,
         boite: "data_CVboulot1",
-        boulots: ["data_CVboulot11", "data_CVboulot12", "data_CVboulot13", "data_CVboulot14", "data_CVboulot15", "data_CVboulot16"],
+        boulots: ["data_CVboulot11"],
         progress: ["boulotentry1wait", "boulotentry1progress", "boulotentry1bar"],
         // for left side callback function is implemented in CLISIDE_CVCREATE
         cbk: null
@@ -106,8 +106,8 @@ export const data_CVmap1 = [
         desc: null,
         content: null,
         boite: "data_CVboulot2",
-        boulots: ["data_CVboulot21", "data_CVboulot22"],
-        progress: ["boulotentry8wait", "boulotentry8progress", "boulotentry8bar"],
+        boulots: ["data_CVboulot21", "data_CVboulot22", "data_CVboulot23", "data_CVboulot24", "data_CVboulot25", "data_CVboulot26"],
+        progress: ["boulotentry2wait", "boulotentry2progress", "boulotentry2bar"],
         // for left side callback function is implemented in CLISIDE_CVCREATE
         cbk: null
     },
@@ -118,8 +118,8 @@ export const data_CVmap1 = [
         desc: null,
         content: null,
         boite: "data_CVboulot3",
-        boulots: ["data_CVboulot31"],
-        progress: ["boulotentry10wait", "boulotentry10progress", "boulotentry10bar"],
+        boulots: ["data_CVboulot31", "data_CVboulot32"],
+        progress: ["boulotentry3wait", "boulotentry3progress", "boulotentry3bar"],
         // for left side callback function is implemented in CLISIDE_CVCREATE
         cbk: null
     },
@@ -130,8 +130,8 @@ export const data_CVmap1 = [
         desc: null,
         content: null,
         boite: "data_CVboulot4",
-        boulots: ["data_CVboulot41", "data_CVboulot42", "data_CVboulot43"],
-        progress: ["boulotentry11wait", "boulotentry11progress", "boulotentry11bar"],
+        boulots: ["data_CVboulot41"],
+        progress: ["boulotentry4wait", "boulotentry4progress", "boulotentry4bar"],
         // for left side callback function is implemented in CLISIDE_CVCREATE
         cbk: null
     },
@@ -142,8 +142,8 @@ export const data_CVmap1 = [
         desc: null,
         content: null,
         boite: "data_CVboulot5",
-        boulots: ["data_CVboulot51", "data_CVboulot52"],
-        progress: ["boulotentry14wait", "boulotentry14progress", "boulotentry14bar"],
+        boulots: ["data_CVboulot51", "data_CVboulot52", "data_CVboulot53"],
+        progress: ["boulotentry5wait", "boulotentry5progress", "boulotentry5bar"],
         // for left side callback function is implemented in CLISIDE_CVCREATE
         cbk: null
     },
@@ -154,8 +154,20 @@ export const data_CVmap1 = [
         desc: null,
         content: null,
         boite: "data_CVboulot6",
-        boulots: ["data_CVboulot61"],
-        progress: ["boulotentry16wait", "boulotentry16progress", "boulotentry16bar"],
+        boulots: ["data_CVboulot61", "data_CVboulot62"],
+        progress: ["boulotentry6wait", "boulotentry6progress", "boulotentry6bar"],
+        // for left side callback function is implemented in CLISIDE_CVCREATE
+        cbk: null
+    },
+    {
+        loaded: false,
+        side: "right",
+        data: null,
+        desc: null,
+        content: null,
+        boite: "data_CVboulot7",
+        boulots: ["data_CVboulot71"],
+        progress: ["boulotentry7wait", "boulotentry7progress", "boulotentry7bar"],
         // for left side callback function is implemented in CLISIDE_CVCREATE
         cbk: null
     }

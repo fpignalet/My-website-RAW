@@ -1,258 +1,165 @@
-------------------------------------------------------------------------------------------------------------------------
-Francois Pignalet
-    Software architecture, development and integration with 25+ years expertise
-    Curd-Jürgens-Str 18, 81739 München
-    francois.pignalet@gmail.com
-    00491704868403
-
-Areas of expertise
-    Maintainable and documented code writing... Clean Code!
-    Application architecture (Object Oriented & procedural) from specification
-    Heavily threaded architectures specialist
-    Complex refactoring and debugging
-    Full stack developer
+﻿Francois Pignalet
+    Software architecture, development and integration with 25+ years expertise  
+    Curd-Jürgens-Str 18, 81739 München 
+    mailto:francois.pignalet@gmail.com, francois.pignalet@gmail.com, 
+    00491704868403 
+    06/07/1967 
+Areas of expertise,
+    Maintainable and documented code writing... Clean Code!,
+    Application architecture (Object Oriented & procedural) from specification,
+    Heavily threaded architectures specialist,
+    Complex refactoring and debugging,
+    Full stack developer,
     AGILE software development
-
 Main skills
-    Java, C, C++                                100%    Confirmed
-    Php, Javascript, MFC, Win32, Asm 68K        75%     Average
-    Python, .NET, WebLogic, CORBA, Asm x86      50%     Low
-    [Android, J2EE, OSGi, Asm PowerPC / ARM]    25%     Known
-
+    Java,  C,  C++,  Javascript  : CONFIRMED 
+    Php,  Python,  Angular,  React,  MFC,  Win32,  Asm 68K  : AVERAGE 
+    .NET,  J2EE,  OSGi,  WebLogic,  CORBA,  Asm x86  : LOW 
+    Android,  Spring,  Asm PowerPC / ARM  :[KNOWN
 Languages
-    French  100% (mother tongue)
-    English 85% (C1)
-    German  60% (B1~B2)
-
-------------------------------------------------------------------------------------------------------------------------
-2000/06 - 2018/10
-    https://www.hensoldt.net/solutions/sea/identification-iff/
-    HENSOLDT (former Airbus Defence / EADS Defence & Security)
-    Products / team: IFF until now
-        Software engineer
-        Description:
-                IFF interrogators, transponders and related tools. ADS-B parser
-                https://www.hensoldt.net/solutions/sea/identification-iff/short-range-identification-friend-foe-interrogator-shorad-iff-msr-1000/, MSR1000
-                https://www.hensoldt.net/solutions/sea/identification-iff/iff-mode-4mode-5-crypto-test-bench-srpm-ng/, SRPM
-                https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast, ADS-
-        Environment:
-                Linux Debian, Windows, ARM str711, IoT, Eclipse, various com links:
-                UDP/TCP IP
-                RS-XXX
-                CAN bus
-        Keypoints:
-            Java, C, Javascript, Php
-        Methodology: 
-            Company internal process (~V cycle)
-            AGILE software development
-    Project: CLA2000 (1 year + 3 months)
-        Software engineer
-        Description:
-            Air traffic control services
-        Environment:
-            Linux, Java components, Eclipse
-        Keypoints:
-            Java
-        Methodology:
-            company internal process (~V cycle)
-   Project: LMT / GCTAM (2 years + 4 months)
-        Software engineer
-        Description:
-            Supply flow handling in a military system
-            Multithreaded 3 tier architecture
-        Environment:
-            Windows, Eclipse
-        Keypoints:
-            Java
-        Methodology:
-            Company internal process (~V cycle)
-   Project: MOIE Sic Terre (2 years + 7 months)
-        Software architect / Team leader (~6 developers)
-        Description:
-            Message handling in a military communication system
-        Environment:
-            Windows, OSGI components, Eclipse
-        Keypoints:
-            Java, Python
-        Methodology:
-            MDA Approach (UML), Design Patterns
-   Project: Euromale (7 months)
-        Software architect / Team leader (~3 developers)
-        Description:
-            Drone video data real-time acquisition and handling
-            Multithreaded 3 tier architecture
-        Environment:
-            Windows, Web Services, BEA WebLogic, SQL db, Eclipse
-        Keypoints:
-            Java, C++, .NET (C# / J#)
-        Methodology:
-            MDA Approach (UML), Design Patterns
-   Project: Helios 2 (4 years + 5 months)
-        [mission for ALTEN then EADS FLEXIMAGE]
-        Software architect / Team leader (~6 developers),
-        Description:
-            Image management (2D & 3D) for geographic information and intelligence
-            Multithreaded 3 tier architecture
-            Parallel handling layer
-            Error management layer
-            Deployment platform
-        Environment:
-            Windows, Unix/CDE, MFC, CORBA, Rational suite, Bounds Checker
-        Keypoints:
-            C++,
-        Methodology:
-            Rational Unified Process (UML), Design Patterns
-    Trainer in ALTEN Learning School (~15 attendees)
-        Description:
-            Sessions about coding and unit testing best practises (~3 hours)
-
-1999/10 - 2000/05
-    https://www.thalesgroup.com/fr/global/activities/transportation/urban-mobility/billettique-et-systemes-de-paiements
-//  https://www.thalesgroup.com/sites/default/files/database/d7/asset/document/transcity_ds400_bd_en.pdf
-    ALCATEL CGA Transport (now Thales group),
-    [mission for ALTEN]
-    Project: Wayfarer (7 month)
-        Software architect / Team leader (~4 developers)
-        Description
-            Real time embedded software inside bus ticketing console
-            Virtual machine for 386EX microcontroller emulation
-        Environment:
-            Windows, Pupitre Wayfarer
-        Keypoints:
-            C, C++, Asm x86
-        Methodology:
-            V-Model, UML static & dynamic modeling
-    Project: GART(1 month)
+    French 100% (MOTHER TONGUE) 
+    English C1 
+    German B1~B2 
+// EXPERIENCE -----------------------------------------------------------------
+2018/11  Starting as freelance
+    Project:, Professional website
+    Full-Stack developer 
+        Web development 
+        Windows 10, Linus Debian 9, JetBrains (IntelliJIDEA, PhpStorm, PyCharm, Datagrid), Microservices, MySQL, WAMP Server, Apache2, Tomcat, Jira, Jenkins, Github 
+        Javascript, Php, React, Angular, Java/Spring, Python/Django, SQL 
+        AGILE software development, continuous integration, Extreme programming
+2015/10 - 2018/10  HENSOLDT GMBH Ottobrunn (former Airbus Defence)
+    Products / team:, IFF, (until the end)
+    Software engineer / Full-Stack developer 
+        IFF interrogators, transponders and related tools, based on these products,
+        Windows 7, Linux Debian 9, IoT, Eclipse, JIRA, Jenkins, DOORS, SVN, various com links, ADS-B, Microservices, [
+            UDP/TCP IP, RS-XXX, CAN bus,
+            ADS-B  REST API for Network Controller 
+            [Moxa Embedded computer for military applications  [Aitech Embedded computer for military applications 
+        Java, Javascript, Php, React / Node, GNU Autotools, Asm x86 
+        AGILE software development, continuous integration
+2000/06 - 2015/09  Airbus Defence (former Cassidian / EADS Defence & Security),
+    Products / team:, IFF, (until the end)
+    Software engineer 
+        IFF interrogators, transponders and related tools,
+        Windows 7, Eclipse, JIRA, SVN, DOORS, various com links, ADS-B, [
+            UDP/TCP IP,
+            RS-XXX,
+            [Kontron Embedded computer for military applications 
+        Java, C, Javascript, Angular, Asm x86 
+        AGILE software development
+    Project:, CLA2000, (1 year + 3 months)
+    Software engineer 
+        Air traffic control services 
+        Linux, Eclipse, DOORS 
+        Java, POJO 
+        company internal process (~V cycle) 
+    Project:, LMT / GCTAM, (2 years + 4 months)
+    Software engineer 
+        Supply flow handling in a military system,
+        Pure Java rich client based on a multithreaded 3 tier architecture
+        Windows 7, Eclipse 
+        Java, Java Beans 
+        Company internal process (~V cycle) 
+    Project:, MOIE Sic Terre, (2 years + 7 months)
+    Software architect / Team leader (~6 developers) 
+        Message handling in a military communication system 
+        Windows XP, Eclipse 
+        Java, J2EE, EJB, POJO, OSGI, Python 
+        MDA Approach, Design Patterns 
+    Project:, Euromale, (7 months)
+    Software architect / Team leader (~3 developers) 
+        Drone video data real-time acquisition and handling,
+        Multithreaded 3 tier architecture,
+        Extensive use of design patterns: Creational (Abstract Factory / Builder / Factory method / Object pool / Singleton), Structural (Bridge / Facade), Behavioral (Command / Iterator / State), Concurrency (Scheduler)
+        Windows XP, Web Services, BEA WebLogic, SQL db, Eclipse 
+        Java, C++, .NET (C# / J#) 
+        MDA Approach, Design Patterns 
+    Project:, Helios 2, (4 years + 5 months),
+    Software architect / Team leader (~6 developers) 
+        Geographic information with image management (2D & 3D) for mission preparation and intelligence,
+        Heavily multithreaded 3 tier architecture (specific Parallel handling layer / error management layer),
+        Specific deployment platform (initially based on DOS/batch tools, then Emac/lisp tools))
+        Windows NT, Unix/CDE, Microsoft MFC, Rational suite, Bounds Checker 
+        C++, CORBA, ActiveX components 
+        Rational Unified Process, Design Patterns 
+1999/10 - 2000/05 
+    THALES group (former ALCATEL CGA Transport),
+    [mission for ALTEN
+    Project:, Wayfarer, (7 month)
+    Software architect / Team leader (~4 developers) 
+        Real time embedded software inside bus ticketing console,
+        Virtual machine for 386EX microcontroller emulation
+        Windows NT, Wayfarer BUS Ticketing Machine 
+        C, C++, Visual Studio, Microsoft MFC, Asm x86 (386EX microcontroller) 
+        V-Model, static & dynamic modeling (UML Diagrams),
+    Project:, GART, (1 month)
         Software developer
-        Description:
-            Contactless smartcard demonstration application
-        Environment:
-            Visual Studio, MFC, Windows
-        Keypoints:
-            C++, Serial RS-232 communication
-
+        Contactless smartcard demonstration application 
+        Windows NT 
+        C++, Visual Studio, Microsoft MFC, Serial RS-232 communication 
 1998/07 - 1999/09
-    https://www.zodiacaerospace.com/en/products-services/aerosystems/data-systems/telemetry-ground-segment/equipment
-    INTERTECHNIQUE IN-SNEC (now Zodiac),
-    [mission for ALTEN]
-    Project:    EUMETSAT (1 year + 3 months)
-        Software developer
-        Description
-            Regulation and transmission for Meteosat 2nd generationsatellite
-            Heavily multithreaded data flow handling
-            Real time data treatment
-            Data encoding (Reed-Solomon, Pseudo-Randomization, Convolutional)
-        Environment:
-            Windows DDK, DSP 56301 modulator firmware
-        Keypoints:
-            C, C++, Asm DSP 56301
-        Methodology
-            V-Model
-            UML static & dynamic modeling
-
-1996/01 - 1998/06
+    ZODIAC (former INTERTECHNIQUE IN-SNEC),
+    [mission for ALTEN
+    Project:, EUMETSAT, (1 year + 3 months)
+    Software developer
+        Regulation and transmission for Meteosat 2nd generationsatellite,
+        Heavily multithreaded data flow handling,
+        Real time data treatment,
+        Data encoding (Reed-Solomon, Pseudo-Randomization, Convolutional)
+        Windows NT, DSP 56301
+        C, C++, Windows DDK, Asm DSP 56301
+        V-Model, static & dynamic modeling (UML Diagrams),
+1996/01 - 1998/06 
     ATELIER (Groupe Ka)
-    Project: Essential Disk Utilities (9 months)
-        Software developer,
-        Description,
-            VFAT disk utilities for Psion organizer (series 3 & 5):
-                Defragmentation
-                Scandisk
-                Smart Format
-                Disk Editor
-        Environment:
-            Psion EPOC 16 & 32
-        Keypoints:
-            C, C++
-        Methodology:
-            Static model, Booch diagrams
-    Project: PsiTools (1 year)
-        Software developer
-        Description:
-            Save and restore utilities for Psion organizer (series 3 & 5) on Macintosh
-        Environment:
-            Mac OS, Psion EPOC 16 & 32
-        Keypoints:
-            C, C++
-
-    Project: Velvet (9 months)
-        Software developer,
-        Description
-            Faxing (classe 1 & 2) software
-            Asynchronous parts under interrupt (no real multitasking available
-            Device to device file transferts (X, Y and Z modem)
-        Environment:
-            Mac OS
-        Keypoints:
-            C, C++
-
-1992/04 - 1995/12,
-    http://www.4d.com/de/
-    ACI - France & USA (now 4D)
-    Product: 4th Dimension (1 year, with 6 month in USA)
-        Software developer
-        Description,
-                Tools for 4th dimension (RDBMS IDE):
-                    Platform Independant Extension Kit: tools and API for writing 4D plugins.
-                    4D Server connection API: samples & tests applications
-                    4D plugins. For example : smartcard handling.
-        Environment:
-            Windows, Mac OS.
-        Keypoints:
-            C, C++, Pascal, Asm 68K, Asm x86
-    Products: 4th Dimension / Object Master (2 years + 8 month)
-        IT Technician / Software developer
-        Description,
-            4th dimension (RDBMS IDE) hotline
-            Object Master (C/C++/Pascal/Modula2 IDE) hotline
-                Development problems handling
-                Samples and tools writing
-        Environment:
-            Mac OS, Windows,
-        Keypoints:
-            4th Dimension, C, C++, Pascal, Modula2
-
-1986/10 - 1992/03,
+    Project:, Essential Disk Utilities, (9 months)
+    Software developer 
+        VFAT disk utilities for Psion organizer (series 3 & 5): ,
+        Defragmentation,
+        Scandisk,
+        Smart Format,,
+        Disk Editor
+        Psion EPOC(16/32) 
+        C, C++ 
+        Static model, Booch diagrams 
+    Project:, PsiTools, (1 year)
+    Software developer 
+        Save and restore utilities for Psion organizer (series 3 & 5) 
+        Mac OS (6/7), Psion EPOC(16/32) 
+        C, C++ 
+    Project:, Velvet, (9 months)
+    Software developer 
+        Asynchronous parts under interrupt (there was no real multitasking available in MacOS),
+        Faxing (classe 1 & 2) software,
+        Device to device file transferts (X, Y and Z modem)
+        Mac OS (6/7) 
+        C, C++ 
+1992/04 - 1995/12 
+    4D - France & USA (former ACI)
+    Product: , 4th Dimension, (1 year, with 6 month in USA)
+    Software developer 
+        Tools for 4th dimension (RDBMS IDE):,
+            4D plugins. For example : smartcard handling,
+            Platform Independant Extension Kit: tools and API for writing 4D plugins,
+            4D Server connection API: samples & tests applications for writing 4D native clients
+        Windows, Mac OS (6/7) 
+        C, C++, Pascal, Asm 68K, Asm x86 
+    Products: , 4th Dimension / Object Master, (2 years + 8 month)
+    IT Technician / Software developer 
+        4th dimension (RDBMS IDE) hotline,
+        Object Master (C/C++/Pascal/Modula2 IDE) hotline,
+            Development problems handling,
+            Samples and tools writing
+        Mac OS (6/7), Windows 
+        4th Dimension, C, C++, Pascal, Modula2 
+1986/10 - 1992/03 
     Centre d’Essai des Propulseurs de Saclay (DGA), GEET, LTC...
-    General: (5 years + 5 month)
-        Software developer
-        Description:
-            Database development. EDM.
-        Environment:
-            MS-DOS, Mac OS.
-        Keypoints:
-            Dbase2, 4th Dimension.
-
-------------------------------------------------------------------------------------------------------------------------
-During last years...
-    2017    Training
-            DO-278 Software Standards
-                https://en.wikipedia.org/wiki/DO-178C, Wikipedia...
-    2004    Training
-            BEA WebLogic Integration
-                https://docs.oracle.com/cd/E13222_01/wls/docs90/index.php, BEA WebLogic
-    1985    Diploma
-            Brevet de Formation Technique Aéronautique
-                https://www.aerocampus-aquitaine.com/en/home/, Aerocampus
-
-------------------------------------------------------------------------------------------------------------------------
-Until now...
-    Activity Sport
-        Martial arts, Aikido, Boxing
-        Running, Marathon
-        Triathlon
-                https://www.regensburger-triathlon.de/triathlon, 2018/08/05: Regensburg, Olympische Distanz
-                https://www.zeitgemaess.info/results.php?accesscode=201808051&konkurrenz=900002, Ergebnisse
-                http://www.tegernsee-triathlon.de/, 2018/07/01: Tegernsee, Olympische Distanz
-                https://my1.raceresult.com/91482/results?lang=de#1_0FC775, Ergebnisse
-    Activity Music
-        Guitar, classical & metal
-        Bass guitar, \DFE\ (studies end cycle) 1st prize in 2011
-                http://www.darizmusic.com/, Francis Darizcuren School
-    Interests Various
-        Travelling
-        Gastronomic restaurants
-        Classical & metal music
-        Boardgaming & Role Playing games (oldschool way)
-        To be continued...
-
+    General: , (5 years + 5 month)
+        Software developer 
+            [Database development. EDM.
+            [MS-DOS, Mac OS.
+            [Dbase2, 4th Dimension, DOS cmds
+// BILDUNG -----------------------------------------------------------------
+    2017  Training  DO-278 Software Standards,#
+    2004  Training  BEA WebLogic Integration,
+    1985  Diploma  Brevet de Formation Technique Aéronautique,

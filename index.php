@@ -184,7 +184,6 @@
                 <em id="pf1text"></em>
             </p>
             <br>
-
             <!-- Responsive Grid. Four columns on tablets, laptops and desktops.
             Will stack on mobile devices/small screens (100% width) -->
             <div class="w3-card w3-margin">

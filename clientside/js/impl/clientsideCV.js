@@ -57,7 +57,7 @@ export class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
         //so, when boulotentryXXboite is not null (meaning that there is an idboite):
         let valueboite;
 
-        valueboite = data[idboite][0];
+        valueboite = data[idboite][0]; //"http..."
         if(null != valueboite) {
             //sometimes there is an href
             it.setAttribute("href", valueboite);
@@ -114,6 +114,7 @@ export class CLISIDE_CVCREATEHISTORY extends CLISIDE_DOM {
         valueboulot = data[1][0];
         if(null != valueboulot) {
             th.appendChild(contener.createTextNode(valueboulot));
+            th.appendChild(contener.createElement('br'));
         }
 
         valueboulot = data[1][1];
