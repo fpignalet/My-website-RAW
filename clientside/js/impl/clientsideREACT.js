@@ -3,7 +3,7 @@
  *************************************************************************************/
 //import React from 'react';
 //import ReactDOM from 'react-dom';
-//import neck from './rsrc/neck.jpg';
+//import neck from '../rsrc/neck.jpg';
 
 /*************************************************************************************
  * IMPLEMENTATION
@@ -15,34 +15,33 @@ class ReactButtonJSX extends React.Component {
     constructor(props) {
         super(props);
 
-        this.contener = props.data;
-        this.select = props.select;
-        this.index = props.index;
+        this.tableid = "reacttablejsx";
 
-        this.buttontext = [
-            'Show/hide scale',
+        this.testtext = [
+            'CLICK ME!',
+            'Do something',
+            'Did something using React/JSX: now displaying the following list\n'
         ];
 
-        this.tableid = "reacttablejsx" + props.index;
-        this.tabledata = [];
-        this.harmo = new Harmony();
+        this.testdata = [
+            'JSX Test table Item1 ',
+            'JSX Test table Item2 ',
+            'JSX Test table Item3 '
+        ];
 
         this.state = {
             clicked: false,
-            text: this.harmo.mods[this.select]
+            text: 'Do something'
         };
+
+        this.contener = props.data;
 
     }
 
     /// @brief diaplay a table when button is clicked
     createtable() {
-        this.tabledata = [];
-        this.harmo.getscale(this.select).forEach((it, id) => {
-            this.tabledata.push(it);
-        });
-
         const container = this.contener.querySelector('#' + this.tableid);
-        ReactDOM.render(<ReactTableJSX data={ this.tabledata } />, container);
+        ReactDOM.render(<ReactTableJSX data={ this.testdata } />, container);
     }
 
     /****************************************
@@ -50,10 +49,10 @@ class ReactButtonJSX extends React.Component {
      ****************************************/
     /// @brief set the text
     /// @param e
-    onMouseover (e) { this.setState({ text: this.buttontext[0]}) }
+    onMouseover (e) { this.setState({ text: this.testtext[0]}) }
     /// @brief set the text
     /// @param e
-    onMouseout (e) { this.setState({ text: this.harmo.mods[this.select]}) }
+    onMouseout (e) { this.setState({ text: this.testtext[1]}) }
     /// @brief set the clicked status
     /// @param e
     onClick (e) { this.setState({ clicked: true }) }
@@ -68,7 +67,7 @@ class ReactButtonJSX extends React.Component {
 
             return (
                 <div>
-                    { this.renderbutton() }
+                    { this.testtext[2] }
                     <div id={this.tableid}></div>
                 </div>
 
@@ -138,7 +137,7 @@ class ReactTableJSX extends React.Component {
         return (
             <table>
                 <tbody>
-                <tr key="0"><th>[Index]</th><th>[Name]</th></tr>
+                <tr key="0"><th>Name</th><th>Index</th></tr>
                 { namesList }
                 </tbody>
             </table>
@@ -151,8 +150,8 @@ class ReactTableJSX extends React.Component {
 
         return (
             <tr key={index + 1}>
-                <td>{index}</td>
                 <td>{item}</td>
+                <td>{index}</td>
             </tr>
         );
 
@@ -259,10 +258,10 @@ class ReactCanvas extends React.Component {
     constructor(props) {
         super(props);
 
-        this.img = "./clientside/js/rsrc/neck.jpg";
+        this.img = '../rsrc/neck.jpg';
 
         this.canid = "canvas0";
-        this.canwidth = 2048;
+        this.canwidth = 640;
         this.canheight = 425;
         this.canstyle = { background: "black" };
 
@@ -270,15 +269,8 @@ class ReactCanvas extends React.Component {
     }
 
     componentDidMount() {
-        var canvas=document.getElementById(this.canid),
-            ctx = canvas.getContext("2d");
-
-        canvas.width = 320;
-        canvas.height = 480;
-
-        ctx.fillStyle = "red";
-        ctx.fillRect(160, 240, 20,20);
-        ctx.fillText("Im on top of the world!", 30,30);    }
+        this.renderimage();
+    }
 
     /****************************************
      * RENDERING LAYER
@@ -286,11 +278,65 @@ class ReactCanvas extends React.Component {
     /// display the object content
     render() {
         return (
-            <div id="container">
-                <img className='img' src="./rsrc/neck.jpg" alt=""/>
-                <canvas id={this.canid} style={this.canstyle} width={this.canwidth} height={this.canheight}/>
+            <div>
+                { this.rendercanvas() }
             </div>
         );
+    }
+
+    /// display the list
+    rendercanvas() {
+        return (
+            <div>
+
+                <canvas id={this.canid} style={this.canstyle} width={this.canwidth} height={this.canheight}/>
+                <hr/>
+                { this.harmo.testlinkedplus("K") }
+                <br/>
+                <br/>
+                { this.harmo.testlinkedplus("M") }
+                <br/>
+                <br/>
+                <hr/>
+                { this.harmo.getscale(0).toString() }
+                <br/>
+                <br/>
+                { this.harmo.getscale(7).toString() }
+                <br/>
+                <br/>
+                { this.harmo.getscale(2).toString() }
+                <br/>
+                <br/>
+                { this.harmo.getscale(9).toString() }
+                <br/>
+                <br/>
+                { this.harmo.getscale(4).toString() }
+                <br/>
+                <br/>
+                { this.harmo.getscale(11).toString() }
+                <br/>
+                <br/>
+                { this.harmo.getscale(6).toString() }
+                <br/>
+                <br/>
+                { this.harmo.getscale(2, "dorien").toString() }
+
+            </div>
+        );
+    }
+
+    /// display the list
+    renderimage() {
+        const local = this;
+
+        const canvas = document.getElementById(this.canid);
+        const ctx = canvas.getContext("2d");
+
+        var imageObj1 = new Image();
+        imageObj1.onload = function() {
+            ctx.drawImage(imageObj1,0,0, local.canwidth, local.canheight);
+        }
+        imageObj1.src = this.img;
     }
 
 }
@@ -304,7 +350,7 @@ class Harmony {
             constructor(val, init = 0){
                 super();
                 val.forEach((it, ix) => { this.push(it) });
-//                this.reset(init);
+                this.reset(init);
             }
             reset(init = 0) {
                 this.index = (init % this.length);
@@ -328,18 +374,18 @@ class Harmony {
         FA# SOL# LA#        SI  DO# RE#  MI#
          */
         this.keyz = new Linked([
-            [ "C", "B#" ],
-            [ "C#", "Db" ],
-            [ "D" ],
-            [ "D#", "Eb" ],
-            [ "E", "Fb" ],
-            [ "F", "E#" ],
-            [ "F#", "Gb" ],
-            [ "G" ],
-            [ "G#", "Ab" ],
-            [ "A" ],
-            [ "A#", "Bb" ],
-            [ "B", "Cb" ]
+            [ "DO", "SI#" ],
+            [ "DO#", "REb" ],
+            [ "RE" ],
+            [ "RE#", "MIb" ],
+            [ "MI", "FAb" ],
+            [ "FA", "MI#" ],
+            [ "FA#", "SOLb" ],
+            [ "SOL" ],
+            [ "SOL#", "LAb" ],
+            [ "LA" ],
+            [ "LA#", "SIb" ],
+            [ "SI", "DOb" ]
         ]);
         this.mods = new Linked([
             "ionien",
@@ -431,12 +477,6 @@ class Harmony {
 /// desc
 class TestApp extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.harmo = new Harmony();
-    }
-
     /****************************************
      * RENDERING LAYER
      ****************************************/
@@ -445,25 +485,20 @@ class TestApp extends React.Component {
         return (
             <div>
                 <div>
-                    <ReactCanvas data={document} />
+                    <h3>BUTTON</h3>
+                    <ReactButtonJSX data={document} />
 
                 </div>
 
                 <div>
-                    <h3>SCALES / MODES</h3>
-                    <ReactButtonJSX data={document} index={0} select={0}/>
-                    <ReactButtonJSX data={document} index={2} select={2}/>
-                    <ReactButtonJSX data={document} index={4} select={4}/>
-                    <ReactButtonJSX data={document} index={6} select={5}/>
-                    <ReactButtonJSX data={document} index={1} select={7}/>
-                    <ReactButtonJSX data={document} index={3} select={9}/>
-                    <ReactButtonJSX data={document} index={5} select={11}/>
-
-                </div>
-
-                <div>
-                    <h3>CHORDS</h3>
+                    <h3>LIST</h3>
                     <ReactList data={document} />
+
+                </div>
+
+                <div>
+                    <h3>CANVAS</h3>
+                    <ReactCanvas data={document} />
 
                 </div>
 
