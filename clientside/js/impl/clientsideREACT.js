@@ -1,9 +1,9 @@
 /*************************************************************************************
  * INCLUDES
  *************************************************************************************/
-//import React from 'react';
-//import ReactDOM from 'react-dom';
-//import neck from '../rsrc/neck.jpg';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import neck from './rsrc/neck.jpg';
 
 /*************************************************************************************
  * IMPLEMENTATION
@@ -258,7 +258,7 @@ class ReactCanvas extends React.Component {
     constructor(props) {
         super(props);
 
-        this.img = '../rsrc/neck.jpg';
+        this.img = neck;
 
         this.canid = "canvas0";
         this.canwidth = 640;
