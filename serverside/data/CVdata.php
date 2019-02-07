@@ -39,12 +39,12 @@ $data_CVexperience = array(
         "Areas of expertise",
     "exp_content" =>
         [
+            "Full stack developer",
+            "AGILE software development",
             "Maintainable and documented code writing... Clean Code!",
             "Application architecture (Object Oriented & procedural) from specification",
             "Heavily threaded architectures specialist",
-            "Complex refactoring and debugging",
-            "Full stack developer",
-            "AGILE software development"
+            "Complex refactoring and debugging"
         ]
 );
 
@@ -57,7 +57,7 @@ $data_CVskillshead = array(
 $data_CVskillsentries = array(
     array(
         "mskills_f1desc" =>
-            [ "Java,  C,  C++,  Javascript, SW architecture, OOP, REST, Eclipse, SVN  :" ],
+            [ "Java,  C,  C++,  Javascript, SW architecture, OOP, REST, Eclipse, CUnit, XML, JSON, Ant, AGILE, JIRA, SVN, V Cycle  :" ],
         "mskills_f1level" =>
             [ "100%" ],
         "mskills_f1text" =>
@@ -65,7 +65,7 @@ $data_CVskillsentries = array(
     ),
     array(
         "mskills_f2desc" =>
-            [ "Php,  Python,  Angular,  React,  Spring,  MFC,  Win32,  Asm 68K,  SQL,  Linux,  AGILE, JIRA, Jenkins, DOORS :" ],
+            [ "Python,  Php,  Angular,  React,  Spring,  jQuery,  SQL,  Linux,  Jenkins, DOORS, MFC,  Win32,  Asm 68K,  Github, Continuous Integration,  Rational Unified Process,  Design Patterns :" ],
         "mskills_f2level" =>
             [ "75%" ],
         "mskills_f2text" =>
@@ -119,12 +119,12 @@ $data_CVlangentries = array(
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
 $data_CVboulot0 = array(
     "boulotentry0date" =>
-        [ "2018/11" ],
+        [ "2018/11 - until now" ],
     "boulotentry0boite" =>
         [
             "http://www.pignalet.de",
             [
-                "Starting as freelance"
+                "Freelance"
             ]
         ],
     "boulotentry0desc" =>
@@ -136,16 +136,24 @@ $data_CVboulot0 = array(
 $data_CVboulot01 = array(
     "boulotentry01item" =>
         [
-            "Project:",
-            "Professional website"
+            "Open Source project:",
+            "Website pro",
+            "(whole time)"
         ],
     "boulotentry01title" =>
         [ "Full-Stack developer" ],
     "boulotentry01content" =>
         [
-            [ "Description", "Web development" ],
-            [ "Environment", "Windows 10, Linus Debian 9, JetBrains (IntelliJIDEA, PhpStorm, PyCharm, Datagrid), Microservices, MySQL, WAMP Server, Apache2, Tomcat, Jira, Jenkins, Github" ],
-            [ "Keypoints", "Javascript, Php, React, Angular, Java/Spring, Python/Django, SQL" ],
+            [ "Description", "Web development",
+                [
+                    [ "http://www.pignalet.de", "This website" ],
+                    [ "https://github.com/fpignalet/my-website-raw", "Source code" ],
+                ]
+            ],
+            [ "Environment",
+                "Windows 10, Linus Debian 9, JetBrains (IntelliJIDEA, PhpStorm, PyCharm, Datagrid), React, Angular, Spring, Django, Microservices, Apache2, WAMP Server, Tomcat, MySQL, MariaDB, Jira, Jenkins, Github" ],
+            [ "Keypoints",
+                "Java, Javascript, Php, Python, SQL" ],
             [ "Methodology",
                 [
                     "AGILE software development",
@@ -192,17 +200,20 @@ $data_CVboulot11 = array(
                     [ "https://www.hensoldt.net/solutions/sea/identification-iff/ltr-400-mode-siff-lightweight-transponder/", "LTR" ]
                 ]
             ],
-            [ "Environment", "Windows 7, Linux Debian 9, IoT, Eclipse, JIRA, Jenkins, DOORS, SVN, various com links, ADS-B, Microservices", [
-                "UDP/TCP IP",
-                "RS-XXX",
-                "CAN bus",
-                [ "https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast", "ADS-B" ],
-                [ "https://de.moxa.com/product/Ethernet_Remote_IO.htm", "REST API for Network Controller" ],
-                [ "https://de.moxa.com/product/IC_specialized_by_market.htm", "[Moxa] Embedded computer for military applications" ],
-                [ "http://www.rugged.com/a172-rugged-compact-pc", "[Aitech] Embedded computer for military applications" ]
-            ]
+            [ "Environment",
+                "Windows 7, Linux Debian 9, IoT, Eclipse, Swing, Ant, CUnit, JUnit, React / Node, jQuery, AJAX, XML, JSON, Microservices, GNU Autotools, Docker, JIRA, Jenkins, DOORS, SVN, ADS-B (aircraft tracking data) & various com links",
+                [
+                    "UDP/TCP IP",
+                    "RS-XXX",
+                    "CAN bus",
+                    [ "https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast", "ADS-B" ],
+                    [ "https://de.moxa.com/product/Ethernet_Remote_IO.htm", "REST API for Network Controller" ],
+                    [ "https://de.moxa.com/product/IC_specialized_by_market.htm", "[Moxa] Embedded computer for military applications" ],
+                    [ "http://www.rugged.com/a172-rugged-compact-pc", "[Aitech] Embedded computer for military applications" ]
+                ]
             ],
-            [ "Keypoints", "Java, Javascript, Php, React / Node, GNU Autotools, Asm x86" ],
+            [ "Keypoints",
+                "C, Javascript, Php, SQL, Asm x86" ],
             [ "Methodology",
                 [
                     "AGILE software development",
@@ -250,13 +261,17 @@ $data_CVboulot21 = array(
                     [ "https://www.hensoldt.net/solutions/sea/identification-iff/military-mode-5-and-mode-s-interrogator-mssr-2000-i/", "... and other projects related with" ],
                 ]
             ],
-            [ "Environment", "Windows 7, Eclipse, JIRA, SVN, DOORS, various com links, ADS-B", [
-                "UDP/TCP IP",
-                "RS-XXX",
-                [ "https://www.kontron.de/industries/defense", "[Kontron] Embedded computer for military applications" ]
-            ]
+            [ "Environment",
+                "Windows 7, Eclipse, Swing, Ant, JUnit, JIRA, SVN, DOORS, ADS-B (aircraft tracking data) & various com links",
+                [
+                    "UDP/TCP IP",
+                    "RS-XXX",
+                    [ "https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast", "ADS-B" ],
+                    [ "https://www.kontron.de/industries/defense", "[Kontron] Embedded computer for military applications" ]
+                ]
             ],
-            [ "Keypoints", "Java, C, Javascript, Angular, Asm x86" ],
+            [ "Keypoints",
+                "C, Java, Javascript, Angular, AJAX, JSON, XML, Asm x86, Asm ARM STR7" ],
             [ "Methodology",
                 [
                     "AGILE software development"
@@ -278,9 +293,15 @@ $data_CVboulot22 = array(
         [ "Software engineer" ],
     "boulotentry22content" =>
         [
-            [ "Description", "Air traffic control services" ],
-            [ "Environment", "Linux, Eclipse, DOORS" ],
-            [ "Keypoints", "Java, POJO" ],
+            [ "Description", "Military air control in SCCOA program",
+                [
+                    [ "https://www.nao.org.uk/defencevfm/wp-content/uploads/sites/16/2013/03/france_sccoa_mar_2004_1.pdf", "SCCOA" ],
+                ]
+            ],
+            [ "Environment",
+                "Linux, Eclipse, Hibernate, Ant, POJO, DOORS" ],
+            [ "Keypoints",
+                "Java, XML" ],
             [ "Methodology", "company internal process (~V cycle)" ]
         ]
 );
@@ -302,8 +323,10 @@ $data_CVboulot23 = array(
                 "Supply flow handling in a military system",
                 "Pure Java rich client based on a multithreaded 3 tier architecture"
             ]],
-            [ "Environment", "Windows 7, Eclipse" ],
-            [ "Keypoints", "Java, Java Beans" ],
+            [ "Environment",
+                "Windows 7, Eclipse, Swing, Java Beans, Ant" ],
+            [ "Keypoints",
+                "Java" ],
             [ "Methodology", "Company internal process (~V cycle)" ]
         ]
 );
@@ -321,9 +344,14 @@ $data_CVboulot24 = array(
         [ "Software architect / Team leader (~6 developers)" ],
     "boulotentry24content" =>
         [
-            [ "Description", "Message handling in a military communication system" ],
-            [ "Environment", "Windows XP, Eclipse" ],
-            [ "Keypoints", "Java, J2EE, EJB, POJO, OSGI, Python" ],
+            [ "Description", [
+                "Message handling in a military weapon system communication infrastructure",
+                "Huge team ~100 people (70 SW developers)"
+            ]],
+            [ "Environment", "
+                Windows XP, Entreprise Architect, Eclipse, Swt, OSGI, J2EE, EJB, POJO, JAXB, SVN" ],
+            [ "Keypoints",
+                "Java, Python, Ant, XML, XSLT" ],
             [ "Methodology", "MDA Approach, Design Patterns" ]
         ]
 );
@@ -344,10 +372,16 @@ $data_CVboulot25 = array(
             [ "Description", [
                 "Drone video data real-time acquisition and handling",
                 "Multithreaded 3 tier architecture",
-                "Extensive use of design patterns: Creational (Abstract Factory / Builder / Factory method / Object pool / Singleton), Structural (Bridge / Facade), Behavioral (Command / Iterator / State), Concurrency (Scheduler) "
+                "Extensive use of design patterns: 
+                Creational (Abstract Factory / Builder / Factory method / Object pool / Singleton), 
+                Structural (Bridge / Facade), 
+                Behavioral (Command / Iterator / State), 
+                Concurrency (Scheduler) "
             ]],
-            [ "Environment", "Windows XP, Web Services, BEA WebLogic, SQL db, Eclipse" ],
-            [ "Keypoints", "Java, C++, .NET (C# / J#)" ],
+            [ "Environment", "
+                Windows XP, Eclipse, Web Services, BEA WebLogic, PostgreSQL, SVN" ],
+            [ "Keypoints",
+                "Java, C++, .NET (C# / J#), SQL" ],
             [ "Methodology", "MDA Approach, Design Patterns" ]
         ]
 );
@@ -360,7 +394,7 @@ $data_CVboulot26 = array(
             "Project:",
             "Helios 2",
             "(4 years + 5 months)",
-            "[mission for ALTEN then EADS FLEXIMAGE]"
+            "[mission for ALTEN/EADS FLEXIMAGE]"
         ],
     "boulotentry26title" =>
         [ "Software architect / Team leader (~6 developers)" ],
@@ -371,8 +405,10 @@ $data_CVboulot26 = array(
                 "Heavily multithreaded 3 tier architecture (specific Parallel handling layer / error management layer)",
                 "Specific deployment platform (initially based on DOS/batch tools, then Emac/lisp tools))"
             ]],
-            [ "Environment", "Windows NT, Unix/CDE, Microsoft MFC, Rational suite, Bounds Checker" ],
-            [ "Keypoints", "C++, CORBA, ActiveX components" ],
+            [ "Environment",
+                "Windows NT, Unix/CDE, Microsoft MFC, CORBA, ActiveX components, ORACLE DB, Rational suite (ClearCase), Bounds Checker" ],
+            [ "Keypoints",
+                "C++, SQL" ],
             [ "Methodology", "Rational Unified Process, Design Patterns" ]
         ],
     "boulotentry27title" =>
@@ -419,8 +455,10 @@ $data_CVboulot31 = array(
                 "Real time embedded software inside bus ticketing console",
                 "Virtual machine for 386EX microcontroller emulation"
             ]],
-            [ "Environment", "Windows NT, Wayfarer BUS Ticketing Machine" ],
-            [ "Keypoints", "C, C++, Visual Studio, Microsoft MFC, Asm x86 (386EX microcontroller)" ],
+            [ "Environment",
+                "Windows NT, Visual Studio, Microsoft MFC, Wayfarer BUS Ticketing Machine, 386EX microcontroller" ],
+            [ "Keypoints",
+                "C, C++, Asm x86" ],
             [ "Methodology", [
                 "V-Model",
                 "static & dynamic modeling (UML Diagrams)",
@@ -444,8 +482,10 @@ $data_CVboulot32 = array(
     "boulotentry32content" =>
         [
             [ "Description", "Contactless smartcard demonstration application" ],
-            [ "Environment", "Windows NT" ],
-            [ "Keypoints", "C++, Visual Studio, Microsoft MFC, Serial RS-232 communication" ]
+            [ "Environment",
+                "Windows NT, Visual Studio, Microsoft MFC, Serial RS-232 communication, Contactless smartcard antenna" ],
+            [ "Keypoints",
+                "C++" ]
         ]
 );
 
@@ -488,8 +528,10 @@ $data_CVboulot41 = array(
                 "Real time data treatment",
                 "Data encoding (Reed-Solomon, Pseudo-Randomization, Convolutional)"
             ]],
-            [ "Environment", "Windows NT, DSP 56301" ],
-            [ "Keypoints", "C, C++, Windows DDK, Asm DSP 56301" ],
+            [ "Environment",
+                "Windows NT, Microsoft MFC, Windows DDK, DSP 56301, OOP, Design Patterns" ],
+            [ "Keypoints",
+                "C++, C, Asm DSP 56301" ],
             [ "Methodology", [
                 "V-Model",
                 "static & dynamic modeling (UML Diagrams)",
@@ -520,7 +562,7 @@ $data_CVboulot51 = array(
     "boulotentry51item" =>
         [
             "Project:",
-            "Essential Disk Utilities",
+            "EDU",
             "(9 months)"
         ],
     "boulotentry51title" =>
@@ -528,14 +570,13 @@ $data_CVboulot51 = array(
     "boulotentry51content" =>
         [
             [ "Description", [
-                "VFAT disk utilities for Psion organizer (series 3 & 5): ",
-                "Defragmentation",
-                "Scandisk",
-                "Smart Format,",
-                "Disk Editor"
+                "Essential Disk Utilities: VFAT disk tools for Psion organizer (series 3 & 5): ",
+                "Defragmentation / Scandisk / Smart Format / Disk Editor"
             ]],
-            [ "Environment", "Psion EPOC(16/32)" ],
-            [ "Keypoints", "C, C++" ],
+            [ "Environment",
+                "Windows NT, Psion EPOC(16/32), OOP" ],
+            [ "Keypoints",
+                "C, C++" ],
             [ "Methodology", "Static model, Booch diagrams" ]
         ]
 );
@@ -554,8 +595,10 @@ $data_CVboulot52 = array(
     "boulotentry52content" =>
         [
             [ "Description", "Save and restore utilities for Psion organizer (series 3 & 5)" ],
-            [ "Environment", "Mac OS (6/7), Psion EPOC(16/32)" ],
-            [ "Keypoints", "C, C++" ]
+            [ "Environment",
+                "Mac OS (6/7), Psion EPOC(16/32), Visual C++, Metrowerks CodeWarrior, OOP, Design Patterns" ],
+            [ "Keypoints",
+                "C, C++" ]
         ]
 );
 
@@ -573,12 +616,14 @@ $data_CVboulot53 = array(
     "boulotentry53content" =>
         [
             [ "Description", [
-                "Asynchronous parts under interrupt (there was no real multitasking available in MacOS)",
                 "Faxing (classe 1 & 2) software",
-                "Device to device file transferts (X, Y and Z modem)"
+                "Device to device file transferts (X, Y and Z modem)",
+                "Asynchronous parts under interrupt (no real multitasking available)"
             ]],
-            [ "Environment", "Mac OS (6/7)" ],
-            [ "Keypoints", "C, C++" ]
+            [ "Environment",
+                "Mac OS (6/7)" ],
+            [ "Keypoints",
+                "C, C++" ]
         ]
 );
 
@@ -616,14 +661,16 @@ $data_CVboulot61 = array(
                 [
                     "Tools for 4th dimension (RDBMS IDE):",
                     [
-                        "4D plugins. For example : smartcard handling",
                         "Platform Independant Extension Kit: tools and API for writing 4D plugins",
+                        "4D plugins. For example : smartcard handling",
                         "4D Server connection API: samples & tests applications for writing 4D native clients"
                     ]
                 ]
             ],
-            [ "Environment", "Windows, Mac OS (6/7)" ],
-            [ "Keypoints", "C, C++, Pascal, Asm 68K, Asm x86" ]
+            [ "Environment",
+                "Windows (3.11/WG/NT), Mac OS (6/7), MPW, Think C, Think Pascal, STL, MacAPP, OOP, MacsBug" ],
+            [ "Keypoints",
+                "C, C++, Pascal, Object Pascal, Asm 68K, Asm x86" ]
         ]
 );
 
@@ -650,8 +697,10 @@ $data_CVboulot62 = array(
                     ]
                 ]
             ],
-            [ "Environment", "Mac OS (6/7), Windows" ],
-            [ "Keypoints", "4th Dimension, C, C++, Pascal, Modula2" ]
+            [ "Environment",
+                "Windows (3.11/WG/NT), Mac OS (6/7), MPW, MacsBug" ],
+            [ "Keypoints",
+                "4th Dimension, C, C++, Pascal, Modula2" ]
         ]
 );
 
@@ -685,9 +734,12 @@ $data_CVboulot71 = array(
         [ "Software developer" ],
     "boulotentry71content" =>
         [
-            ["Description", "Database development. EDM."],
-            ["Environment", "MS-DOS, Mac OS."],
-            ["Keypoints", "Dbase2, 4th Dimension, DOS cmds"]
+            ["Description",
+                "Database development. EDM."],
+            ["Environment",
+                "Dbase2, MS-DOS, Mac OS (6)"],
+            ["Keypoints",
+                "4th Dimension, DOS cmds"]
         ]
 );
 
@@ -709,7 +761,7 @@ $data_CVbildung11 = array(
     "edu_f11item" =>
         [ "2017" ],
     "edu_f11title" =>
-        [ "Training" ],
+        [ "Training: aerospace systems SW development" ],
     "edu_f11content" =>
         [
             [
@@ -728,7 +780,7 @@ $data_CVbildung12 = array(
     "edu_f12item" =>
         [ "2004" ],
     "edu_f12title" =>
-        [ "Training" ],
+        [ "Training: application server" ],
     "edu_f12content" =>
         [
             [
@@ -747,7 +799,7 @@ $data_CVbildung13 = array(
     "edu_f13item" =>
         [ "1985" ],
     "edu_f13title" =>
-        [ "Diploma" ],
+        [ "Diploma graduation" ],
     "edu_f13content" =>
         [
             [
@@ -785,6 +837,10 @@ $data_CVhobby11 = array(
             [ "Running",
                 [
                     [ "https://www.abavent.de/anmeldeservice/muenchenmarathon2018/ergebnisse#1_CF28C6", "2018/10/09: München marathon" ],
+                    "2018: B2Run",
+                    "2017: B2Run",
+                    "2016: München Stadtlauf, Marathon, B2Run",
+                    "2004 - 2006: Paris semi marathon & marathon, 5K / 10K / 12K races",
                 ]
             ],
             [ "Triathlon",
