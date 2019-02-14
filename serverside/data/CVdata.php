@@ -273,11 +273,7 @@ $data_CVboulot21 = array(
             ],
             [ "Keypoints",
                 "C, Java, Javascript, JSON, XML, Asm x86, Asm ARM STR7" ],
-            [ "Methodology",
-                [
-                    "AGILE software development"
-                ]
-            ]
+            [ "Methodology", "AGILE software development" ]
         ]
 );
 
@@ -372,8 +368,7 @@ $data_CVboulot25 = array(
         [
             [ "Description", [
                 "Drone video data real-time acquisition and handling",
-                "Multithreaded 3 tier architecture",
-                "Extensive use of design patterns: 
+                "Multithreaded 3 tier architecture with extensive use of design patterns: 
                 Creational (Abstract Factory / Builder / Factory method / Object pool / Singleton), 
                 Structural (Bridge / Facade), 
                 Behavioral (Command / Iterator / State), 
