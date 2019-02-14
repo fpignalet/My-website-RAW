@@ -57,7 +57,7 @@ $data_CVskillshead = array(
 $data_CVskillsentries = array(
     array(
         "mskills_f1desc" =>
-            [ "Java,  C,  C++,  Javascript, SW architecture, OOP, REST, Eclipse, CUnit, XML, JSON, Ant, AGILE, JIRA, SVN, V Cycle  :" ],
+            [ "Java,  C,  C++,  Javascript, SW architecture, OOP, REST, Eclipse, CUnit, JUnit, XML, JSON, Ant, AGILE, JIRA, SVN, V Cycle  ==" ],
         "mskills_f1level" =>
             [ "100%" ],
         "mskills_f1text" =>
@@ -65,7 +65,7 @@ $data_CVskillsentries = array(
     ),
     array(
         "mskills_f2desc" =>
-            [ "Python,  Php,  Angular,  React,  Spring,  jQuery,  SQL,  Linux,  Jenkins, DOORS, MFC,  Win32,  Asm 68K,  Github, Continuous Integration,  Rational Unified Process,  Design Patterns :" ],
+            [ "Python,  Php,  Angular,  React,  Spring,  jQuery,  SQL,  Linux,  Jenkins, DOORS, MFC,  Win32,  Asm 68K,  Github, Continuous Integration,  Rational Unified Process,  Design Patterns ==" ],
         "mskills_f2level" =>
             [ "75%" ],
         "mskills_f2text" =>
@@ -73,7 +73,7 @@ $data_CVskillsentries = array(
     ),
     array(
         "mskills_f3desc" =>
-            [ "C# / .NET,  J2EE,  OSGi,  WebLogic,  CORBA,  Android,  Django,  Asm x86 / PowerPC / ARM  :" ],
+            [ "C# / .NET,  J2EE,  OSGi,  WebLogic,  CORBA,  Android,  Django,  Asm x86 / PowerPC / ARM  ==" ],
         "mskills_f3level" =>
             [ "50%" ],
         "mskills_f3text" =>
@@ -108,9 +108,9 @@ $data_CVlangentries = array(
         "lang_f3desc" =>
             [ "German" ],
         "lang_f3level" =>
-            [ "60%" ],
+            [ "65%" ],
         "lang_f3text" =>
-            [ "B1~B2" ]
+            [ "B2" ]
     )
 );
 
@@ -201,7 +201,8 @@ $data_CVboulot11 = array(
                 ]
             ],
             [ "Environment",
-                "Windows 7, Linux Debian 9, IoT, Eclipse, Swing, Ant, CUnit, JUnit, React / Node, jQuery, AJAX, XML, JSON, Microservices, GNU Autotools, Docker, JIRA, Jenkins, DOORS, SVN, ADS-B (aircraft tracking data) & various com links",
+                "Windows 7, Linux Debian 9, IoT, Eclipse, Swing, Ant, CUnit, JUnit, React / Node, jQuery, AJAX, XML, JSON, 
+                Microservices, GNU Autotools, Docker, JIRA, Jenkins, DOORS, SVN, various com links & specific HW",
                 [
                     "UDP/TCP IP",
                     "RS-XXX",
@@ -213,7 +214,7 @@ $data_CVboulot11 = array(
                 ]
             ],
             [ "Keypoints",
-                "C, Javascript, Php, SQL, Asm x86" ],
+                "C, C++, Java, Javascript, Php, Asm x86" ],
             [ "Methodology",
                 [
                     "AGILE software development",
@@ -262,7 +263,7 @@ $data_CVboulot21 = array(
                 ]
             ],
             [ "Environment",
-                "Windows 7, Eclipse, Swing, Ant, JUnit, JIRA, SVN, DOORS, ADS-B (aircraft tracking data) & various com links",
+                "Windows 7, Eclipse, Swing, Ant, Angular, AJAX, JUnit, JIRA, SVN, DOORS, various com links & specific HW",
                 [
                     "UDP/TCP IP",
                     "RS-XXX",
@@ -271,7 +272,7 @@ $data_CVboulot21 = array(
                 ]
             ],
             [ "Keypoints",
-                "C, Java, Javascript, Angular, AJAX, JSON, XML, Asm x86, Asm ARM STR7" ],
+                "C, Java, Javascript, JSON, XML, Asm x86, Asm ARM STR7" ],
             [ "Methodology",
                 [
                     "AGILE software development"
@@ -349,7 +350,7 @@ $data_CVboulot24 = array(
                 "Huge team ~100 people (70 SW developers)"
             ]],
             [ "Environment", "
-                Windows XP, Entreprise Architect, Eclipse, Swt, OSGI, J2EE, EJB, POJO, JAXB, SVN" ],
+                Windows XP, Entreprise Architect, Eclipse, Swt, OSGI, J2EE, EJB, POJO, JAXB, Spring, SVN" ],
             [ "Keypoints",
                 "Java, Python, Ant, XML, XSLT" ],
             [ "Methodology", "MDA Approach, Design Patterns" ]
