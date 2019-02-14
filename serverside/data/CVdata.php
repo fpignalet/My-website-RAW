@@ -263,7 +263,7 @@ $data_CVboulot21 = array(
                 ]
             ],
             [ "Environment",
-                "Windows 7, Eclipse, Swing, Ant, Angular, AJAX, JUnit, JIRA, SVN, DOORS, various com links & specific HW",
+                "Windows 7, Eclipse, Swing, Ant, AspectJ, Angular, AJAX, JUnit, JIRA, SVN, DOORS, various com links & specific HW",
                 [
                     "UDP/TCP IP",
                     "RS-XXX",
