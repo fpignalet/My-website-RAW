@@ -78,44 +78,21 @@
                         <!-- LEFT COLUMN: RUBRIQUE PRESENTATION -->
                         <div class="w3-container">
 
+                            <!-- ----------------------------------------------------------------------------------------->
+                            <!-- LEFT COLUMN: PRESENTATION -->
                             <div id="prescard">
                             </div>
-
-                            <input class="no-print" type="button" value="Toggle all in right side" onclick="window.CVtoggleall(document)" />
-                            <br class="no-print" />
-                            <br class="no-print" />
-                            <input class="no-print" type="button" value="Print the whole CV" onclick="window.CVpageprint(document, { print: 8 })" />
-                            <br class="no-print" />
-                            <br class="no-print" />
-                            <input class="no-print" type="button" value="Hire me" onclick="location.href='OFFER.html';"  />
-                            <br class="no-print" />
-                            <br class="no-print" />
-                            <input class="no-print" type="button" value="Download text CV" onclick="window.open('FPICVtext.docx')" />
-                            <br class="no-print" />
-                            <br class="no-print" />
-                            <input class="no-print" type="button" value="Download text HIGHLIGHTS" onclick="window.open('FPIDETAILStext.docx')" />
-
+                            <div id="buttonscard">
+                            </div>
                             <hr>
-
                             <!-- ----------------------------------------------------------------------------------------->
                             <!-- LEFT COLUMN: AREAS OF EXPERTISE -->
-                            <p class="w3-large">
-
-                                <!-- LEFT COLUMN: EXP TITLE -->
-                                <!-- CVdata.js: data_CVexperience -->
-                                <b id="exp_title">
-                                    <i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>
-                                </b>
-
-                                <ul id="exp_content"></ul>
-
-                            </p>
-
+                            <div id="expcard">
+                            </div>
                             <!-- ----------------------------------------------------------------------------------------->
                             <!-- LEFT COLUMN: MAINS KILLS -->
                             <div id="skillscard">
                             </div>
-
                             <!-- ----------------------------------------------------------------------------------------->
                             <!-- LEFT COLUMN: SPRACHE -->
                             <!-- liste des langues causees -->
@@ -181,11 +158,7 @@
             /*************************************************************************************
              * INCLUDES CODE
              *************************************************************************************/
-            import {
-                cliside_CVpageload,
-                cliside_CVpageunload,
-                cliside_CVpagescroll
-            } from "./clientside/js/clientsideICV.js";
+            import { CLISIDE_ICV } from "./clientside/js/clientsideICV.js";
 
             /*************************************************************************************
              * INCLUDES DATA
@@ -194,16 +167,10 @@
              * IMPLEMENTATION
              *************************************************************************************/
             try {
-                window.onload = function() {
-                    //page initialsation happends there
-                    cliside_CVpageload(document, { create: 6, load: 7 })
-                };
-                window.onunload = function() {
-                    cliside_CVpageunload(document, null)
-                };
-                window.onscroll = function() {
-                    cliside_CVpagescroll(document, "entry_navbar")
-                };
+                //page initialsation happends there
+                window.onload = function() { CLISIDE_ICV.pageload(document, { create: 6, load: 7 }) };
+                window.onunload = function() { CLISIDE_ICV.pageunload(document, null) };
+                window.onscroll = function() { CLISIDE_ICV.pagescroll(document, null) };
 
             }
             catch (e) {

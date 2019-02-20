@@ -4,8 +4,8 @@
  * INCLUDES CODE
  *************************************************************************************/
 import {
+    CLISIDE_PAGE,
     CLISIDE_LOADER,
-    clientside_navtoggle,
     cliside_BASEIDENT
 } from "./lib/clientside.js";
 
@@ -31,171 +31,194 @@ import {
 /*************************************************************************************
  * GLOBAL VARIABLES
  *************************************************************************************/
-let cliside_INDEXcr = null;
-let cliside_INDEXldr = null;
+let cliside_INDEXpage = null;
 
 /*************************************************************************************
  * IMPLEMENTATION: PAGE UTILS
  *************************************************************************************/
-/// @brief fills the page with required data
-/// @param contener is the target DOM
-function cliside_INDEXlazyload(contener) {
-    cliside_INDEXldr.loadPRESENTATION(contener, cliside_INDEXcr, "./clientside/cards/CVcardpres.html");
-    cliside_INDEXldr.loadNEWS(contener, cliside_INDEXcr, "./clientside/cards/BLOGgridNEWS.html");
-    cliside_INDEXldr.loadTECH(contener, cliside_INDEXcr, "./clientside/cards/BLOGgridTECH1.html");
-}
+export class CLISIDE_IINDEX extends CLISIDE_PAGE {
 
-/*************************************************************************************
- * IMPLEMENTATION: PAGE ENTRYPOINTs
- *************************************************************************************/
-/// @brief fills the page with required data
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_INDEXpageload(contener, param) {
+    /*************************************************************************************
+     * IMPLEMENTATION: PAGE ENTRYPOINTs
+     *************************************************************************************/
+    /// @brief fills the page with required data
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pageload(contener, param) {
 //        document.cookie = "fpiwebsite";
 
-    //-----------------------------------------------------------
-    window.ENTRYmodalnews = cliside_INDEXmodalnews;
-    window.ENTRYmodaltech = cliside_INDEXmodaltech;
-    window.ENTRYpagefbk = cliside_INDEXpagefbk;
-    window.ENTRYnavtoggle = clientside_navtoggle;
+        //-----------------------------------------------------------
+        window.INDEXmodalnews = CLISIDE_IINDEX.modalnews;
+        window.INDEXmodaltech = CLISIDE_IINDEX.modaltech;
+        window.INDEXpagefbk = CLISIDE_IINDEX.pagefbk;
+        window.INDEXnavtoggle = CLISIDE_PAGE.navtoggle;
 
-    //-----------------------------------------------------------
-    cliside_INDEXcr = new CLISIDE_INDEXCREATE(cliside_BASEIDENT + param["create"]);
-    cliside_INDEXldr = new CLISIDE_INDEXLOADER(cliside_BASEIDENT + param["load"]);
-
-    cliside_INDEXldr.localgetfile(contener,
-        "./clientside/cards/cardnavi.html",
-        "contener",
-        "navi",
-        () => {
-            cliside_INDEXcr.displayNAVBARS(contener)
-        }
-    );
-
-    cliside_INDEXcr.displayTITLE(contener);
-    cliside_INDEXcr.displayABOUT(contener);
-
-    //-----------------------------------------------------------
-    cliside_INDEXlazyload(contener);
-    //-----------------------------------------------------------
-
-    cliside_INDEXldr.localgetfile(contener,
-        "./clientside/cards/cardfooter.html",
-        "contener",
-        "footer"
-    );
-    cliside_INDEXldr.localgetfile(contener,
-        "./clientside/cards/cardmodal.html",
-        "contener",
-        "modalutil"
-    );
-
-}
-
-/// @brief leaving the INDEX TECH page
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_INDEXpageunload(contener, param) {
-    //...
-}
-
-/// @brief Change style of navbar on scroll
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_INDEXpagescroll(contener, param) {
-    const navbar = contener.getElementById(param);
-    if(null === navbar){
-        return;
-    }
-
-    if (contener.body.scrollTop > 100 || contener.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    }
-    else {
-        navbar.className = navbar.className.replace(
-            " w3-card w3-animate-top w3-white", ""
+        //-----------------------------------------------------------
+        cliside_INDEXpage = new CLISIDE_IINDEX(param);
+        cliside_INDEXpage.loadtop(contener,
+            "./clientside/cards/cardnavi.html"
         );
+        cliside_INDEXpage.loadbody(contener, [
+            "./clientside/cards/CVcardpres.html",
+            "./clientside/cards/BLOGgridNEWS.html",
+            "./clientside/cards/BLOGgridTECH1.html"
+        ]);
+        cliside_INDEXpage.loadbottom(contener, [
+            "./clientside/cards/cardfooter.html",
+            "./clientside/cards/cardmodal.html",
+            "./clientside/cards/cardfeedback.html"
+        ]);
+
     }
+
+    /// @brief leaving the INDEX TECH page
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pageunload(contener, param) {
+        //...
+    }
+
+    /// @brief Change style of navbar on scroll
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pagescroll(contener, param) {
+        const navbar = contener.getElementById(param);
+        if(null === navbar){
+            return;
+        }
+
+        if (contener.body.scrollTop > 100 || contener.documentElement.scrollTop > 100) {
+            navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+        }
+        else {
+            navbar.className = navbar.className.replace(
+                " w3-card w3-animate-top w3-white", ""
+            );
+        }
 
 //    cliside_INDEXlazyload(contener);
-}
-
-/// @brief wrapper function to diaplay a sprite
-/// @param contener is the target DOM
-/// @param inst is the item which requests the load
-/// @param param selects the data_BNEWSmap item
-export function cliside_INDEXmodalnews(contener, inst, param) {
-    try {
-        cliside_INDEXldr.showMODAL(
-            contener, cliside_INDEXcr, inst,
-            data_INDEXfiles[1],
-            "./clientside/cards/BLOGgridNEWS.html",
-            "gridnews",
-            data_BNEWSmap[param]["desc"]
-        );
-
     }
-    catch (e) {
-        console.log(e.toString())
-    }
-    finally {
-        //...
-    }
-}
 
-/// @brief wrapper function to diaplay a sprite
-/// @param contener is the target DOM
-/// @param inst is the item which requests the load
-/// @param index selects the data_BTECHmap item
-export function cliside_INDEXmodaltech(contener, inst, param) {
-    try {
-        cliside_INDEXldr.showMODAL(
-            contener, cliside_INDEXcr, inst,
-            data_INDEXfiles[2],
-            "./clientside/cards/BLOGgridTECH1.html",
-            "gridtech1",
-            param["desc"]
-        );
-
+    /// @brief print function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pageprint(contener, param) {
+//        alert("notyetimplemented")
     }
-    catch (e) {
-        console.log(e.toString())
-    }
-    finally {
-        //...
-    }
-}
 
-/// @brief sends a feedback message
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_INDEXpagefbk(contener, param) {
-    try {
-        const basename = "cliside_ENTRYphpmail";
-        const loader = new CLISIDE_LOADER(basename, cliside_BASEIDENT + param["load"]);
+    /*************************************************************************************
+     * IMPLEMENTATION: PAGE SPECIFIC ENTRYPOINTS
+     *************************************************************************************/
+    /// @brief wrapper function to diaplay a sprite
+    /// @param contener is the target DOM
+    /// @param inst is the item which requests the load
+    /// @param param selects the data_BNEWSmap item
+    static modalnews(contener, inst, param) {
+        try {
+            cliside_INDEXpage.loader.showMODAL(contener, cliside_INDEXpage.cr, inst, data_INDEXfiles[1],"./clientside/cards/BLOGgridNEWS.html","gridnews", data_BNEWSmap[param]["desc"]);
 
-        const params = [
-            basename,
-            contener.getElementById(data_INDEXmailitems[0]).value,
-            contener.getElementById(data_INDEXmailitems[1]).value,
-            contener.getElementById(data_INDEXmailitems[2]).value
-        ];
-        loader.getdataraw(
-            params,
-            (result) => {
+        }
+        catch (e) {
+            console.log(e.toString())
+        }
+        finally {
+            //...
+        }
+    }
+
+    /// @brief wrapper function to diaplay a sprite
+    /// @param contener is the target DOM
+    /// @param inst is the item which requests the load
+    /// @param index selects the data_BTECHmap item
+    static modaltech(contener, inst, param) {
+        try {
+            cliside_INDEXpage.loader.showMODAL(contener, cliside_INDEXpage.cr, inst, data_INDEXfiles[2],"./clientside/cards/BLOGgridTECH1.html","gridtech1", param["desc"]);
+
+        }
+        catch (e) {
+            console.log(e.toString())
+        }
+        finally {
+            //...
+        }
+    }
+
+    /// @brief sends a feedback message
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pagefbk(contener, param) {
+        try {
+            const basename = "cliside_ENTRYphpmail";
+            const loader = new CLISIDE_LOADER(basename, cliside_BASEIDENT + param["load"]);
+
+            const params = [
+                basename,
+                contener.getElementById(data_INDEXmailitems[0]).value,
+                contener.getElementById(data_INDEXmailitems[1]).value,
+                contener.getElementById(data_INDEXmailitems[2]).value
+            ];
+            loader.getdataraw(params,
+                (result) => {
 //                alert("Mail has been sent");
-                alert("GOT ANSWER: " + result);
+                    alert("GOT ANSWER: " + result);
 
+                }
+
+            );
+
+        }
+        catch (e) {
+            console.log(e.toString())
+        }
+        finally {
+            //...
+        }
+    }
+
+    /*************************************************************************************
+     * IMPLEMENTATION: INTERNALE
+     *************************************************************************************/
+    /// ctor
+    /// @param id
+    constructor(param) {
+        super(-1);
+
+        this.srcid = "contener";
+
+        this.loader = new CLISIDE_INDEXLOADER(cliside_BASEIDENT + param["load"]);
+        this.cr = new CLISIDE_INDEXCREATE(cliside_BASEIDENT + param["create"]);
+
+    }
+
+    loadtop(contener, file) {
+        const local = this;
+
+        this.loader.localgetfile(contener, file, this.srcid,"navi",
+            () => {
+                local.cr.displayNAVBARS(contener)
             }
-
         );
 
+        this.cr.displayTITLE(contener);
+        this.cr.displayABOUT(contener);
+
     }
-    catch (e) {
-        console.log(e.toString())
+
+    /// @brief fills the page with required data
+    /// @param contener is the target DOM
+    loadbody(contener, file) {
+        this.loader.loadPRESENTATION(contener, this.cr, file[0]);
+        this.loader.loadNEWS(contener, this.cr, file[1]);
+        this.loader.loadTECH(contener, this.cr, file[2]);
+
     }
-    finally {
-        //...
+
+    loadbottom(contener, file) {
+        this.loader.localgetfile(contener, file[0], this.srcid,"footer");
+        this.loader.localgetfile(contener, file[1], this.srcid,"modalutil");
+
+        this.loader.localgetfile(contener, file[2], this.srcid,"feedbackcard");
+
     }
+
 }

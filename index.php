@@ -49,7 +49,7 @@
         <!-- OTHERS -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <title>
-            FPIGNALETDE
+            WELCOME TO:
         </title>
 
     </head>
@@ -145,12 +145,12 @@
                 <div class="w3-row-padding w3-center">
                     <div class="w3-col m6">
                         <img id="pf2img1" style="width:100%" class="w3-hover-opacity" alt="BLOGNEWS entry 0"
-                             onclick="window.ENTRYmodalnews(document, this, 0)">
+                             onclick="window.INDEXmodalnews(document, this, 0)">
                     </div>
 
                     <div class="w3-col m6">
                         <img id="pf2img2" style="width:100%" class="w3-hover-opacity" alt="BLOGNEWS entry 1"
-                             onclick="window.ENTRYmodalnews(document, this, 1)">
+                             onclick="window.INDEXmodalnews(document, this, 1)">
                     </div>
 
                 </div>
@@ -194,7 +194,7 @@
                             window.modaltarget1 = data_BTECHmap2[0];
                         </script>
                         <img id="pf1img1" style="width:100%" class="w3-hover-opacity" alt="BLOGTECH entry 0"
-                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget1)">
+                             onclick="window.INDEXmodaltech(document, this, window.modaltarget1)">
                     </div>
 
                     <div class="w3-col m6">
@@ -203,7 +203,7 @@
                             window.modaltarget2 = data_BTECHmap1[5];
                         </script>
                         <img id="pf1img2" style="width:100%" class="w3-hover-opacity" alt="BLOGTECH entry 1"
-                             onclick="window.ENTRYmodaltech(document, this, window.modaltarget2)">
+                             onclick="window.INDEXmodaltech(document, this, window.modaltarget2)">
                     </div>
 
                 </div>
@@ -232,48 +232,16 @@
         </div>
         <!-- Container (Contact Section) -->
         <div class="w3-content w3-container w3-padding-64" id="contact">
-
-            <div class="w3-card w3-margin">
-                <h3 class="w3-center">
-                    I'D LOVE YOUR FEEDBACK
-                </h3>
-                <div class="w3-container w3-padding">
-
-                    <p>
-                        <i class="fa fa-beer"></i>,
-                        Please don't hesitate to leave a note:
-                    </p>
-
-                    <!-- Feedback fields. Will send an email on submit (SEND MESSAGE button) -->
-                    <form action="javascript:window.ENTRYpagefbk(document, { load: 9 })">
-
-                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-                            <div class="w3-half">
-                                <input id="feedbackname" class="w3-input w3-border" type="text" placeholder="Name" required>
-                            </div>
-
-                            <div class="w3-half">
-                                <input id="feedbackmail" class="w3-input w3-border" type="text" placeholder="Email" required>
-                            </div>
-
-                        </div>
-
-                        <input id="feedbacktext" class="w3-input w3-border" type="text" rows="5" cols="40" placeholder="Message" required>
-
-                        <button class="w3-button w3-black w3-right w3-section" type="submit">
-                            <i class="fa fa-paper-plane"></i>
-                            SEND MESSAGE
-                        </button>
-
-                    </form>
-
-                </div>
-
-            </div>
-
+            <div id="feedbackcard"></div>
         </div>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- END Parallaxes -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+
         <!-- Footer -->
         <div id="footer"></div>
         <!-- -------------------------------------------------------------------------------------------------------------->
@@ -293,10 +261,7 @@
             <!-- div class="w3-col m4 w3-container">
                 <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5330.759791175086!2d11.63675597722834!3d48.08361119099929!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479de0863d2eada1%3A0xecf7e95475a09464!2sCurd-J%C3%BCrgens-Stra%C3%9Fe+18%2C+81739+M%C3%BCnchen!5e0!3m2!1sde!2sde!4v1539927416198"
-                        height="450"
-                        frameborder="0"
-                        style="border:0"
-                        allowfullscreen>
+                        height="450" frameborder="0" style="border:0" allowfullscreen>
                 </iframe>
             </div -->
             <!-- script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA4Ast8z4S1oRDkopGSpOIa5kVEHfhN2g&callback=clientside_ENTRYshowgmap">
@@ -308,24 +273,14 @@
         <!-- JS IMPLEMENTATION: STANDARD -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <script type="module">
-            import {
-                cliside_INDEXpageload,
-                cliside_INDEXpageunload,
-                cliside_INDEXpagescroll
-            } from "./clientside/js/clientsideIINDEX.js";
+            import { CLISIDE_IINDEX } from "./clientside/js/clientsideIINDEX.js";
 
             //-----------------------------------------------------------
             try {
-                window.onload = function() {
-                    //page initialsation happends there
-                    cliside_INDEXpageload(document, { create: 0, load: 1 })
-                };
-                window.onunload = function() {
-                    cliside_INDEXpageunload(document, null)
-                };
-                window.onscroll = function() {
-                    cliside_INDEXpagescroll(document, "entry_navbar")
-                };
+                //page initialsation happends there
+                window.onload = function() { CLISIDE_IINDEX.pageload(document, { create: 0, load: 1 }) };
+                window.onunload = function() { CLISIDE_IINDEX.pageunload(document, null) };
+                window.onscroll = function() { CLISIDE_IINDEX.pagescroll(document, "entry_navbar") };
 
             }
             catch (e) {

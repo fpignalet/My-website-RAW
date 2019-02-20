@@ -43,6 +43,7 @@ import {
     data_BTECHlasts,
     data_BNEWSlasts
 } from "../../data/BLOGdata.js";
+import {data_BNEWSmap, data_BTECHmap1} from "../../data/BLOGdata";
 
 /*************************************************************************************
  * IMPLEMENTATION: ENTRY PAGE ITEMS CREATION
@@ -178,9 +179,7 @@ export class CLISIDE_INDEXCREATE extends CLISIDE_DOM {
     /// @param idsrc desc...
     /// @param iddst desc...
     updateSPRITE (domsrc, datasrc, contndst, idsrc, iddst){
-        const itsrc = domsrc.getElementById(datasrc);
-        const img = itsrc.getAttribute("src");
-        contndst.getElementById(iddst).setAttribute("src", img);
+        contndst.getElementById(iddst).setAttribute("src", datasrc);
 
     }
 
@@ -224,7 +223,6 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
     loadPRESENTATION(contener, creator, file) {
         creator.displayPRESENTATION(contener);
 
-        //----------------------
         const local = this;
 
         //------------------
@@ -232,25 +230,15 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
         // the goal consists in loading the page which contains the data we need,
         // but it'll be empty, so we need to load the data too.
         // 1st - load remote data
-        this.CVpreloader.remotegetbatch(contener,
-            creator,
-            data_CVmap1[1]["data"],
-            null,
+        this.CVpreloader.remotegetbatch(contener, creator, data_CVmap1[1]["data"],null,
             (cr, dataremote) => {
                 //------------------
                 // POSTLOAD:
                 // 2nd - then load reference page
-                local.displayitemsfrom(contener,
-                    data_INDEXfiles[0],
-                    dataremote,
-                    data_INDEXpresitems[2],
-                    data_INDEXpresitems[3],
+                local.displayitemsfrom(contener, data_INDEXfiles[0], dataremote, data_INDEXpresitems[2], data_INDEXpresitems[3],
                     (dom, datasrc, contener, idsrc, itdst) => {
                         // 3rd - then complete the reference page with the needed card
-                        local.localgetfile(dom,
-                            file,
-                            "contener",
-                            "prescard",
+                        local.localgetfile(dom, file,"contener","prescard",
                             () => {
                                 // 4rd - then fill ref page with data and transfer items to current page
                                 cr.updatePRESENTATION(dom, datasrc, contener, idsrc, itdst);
@@ -276,25 +264,15 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
         //------------------
         // PRELOAD:
         // 1st - load remote data
-        this.BLOGpreloader.remotegetbatch(contener,
-            creator,
-            data,
-            null,
-            (cr, d) => {
+        this.BLOGpreloader.remotegetbatch(contener, creator, data,null,
+            (cr, dataremote) => {
                 //------------------
                 // POSTLOAD:
                 // 2nd - then load reference page
-                local.displayitemsfrom(contener,
-                    file,
-                    d,
-                    null,
-                    "modalcaption",
+                local.displayitemsfrom(contener, file, dataremote, null,"modalcaption",
                     (dom, datasrc, contener, idsrc, itdst) => {
                         // 3rd - then complete the reference page with the needed card
-                        local.localgetfile(dom,
-                            card,
-                            "contener",
-                            grid,
+                        local.localgetfile(dom, card,"contener", grid,
                             () => {
                                 // 4rd - then fill ref page with data and transfer items to current page
                                 cr.displaymodal(dom, datasrc, contener, element, itdst);
@@ -316,25 +294,27 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
     loadNEWS(contener, creator, file) {
         creator.previewNEWS(contener);
 
-        //----------------------
         const local = this;
 
-        //----------------------
-        // 1st - load reference page
-        this.displayitemsfrom(contener,
-            data_INDEXfiles[1],
-            [ data_BNEWSlasts[0], data_BNEWSlasts[1] ],
-            null,
-            [ data_INDEXnewsitems[2], data_INDEXnewsitems[3] ],
-            (dom, datasrc, contener, idsrc, itdst) => {
-                // 2nd - then complete the reference page with the needed card
-                local.localgetfile(dom,
-                    file,
-                    "contener",
-                    "gridnews",
-                    () => {
-                        // 3rd - then fill ref page with data and transfer items to current page
-                        creator.updateSPRITE(dom, datasrc, contener, idsrc, itdst);
+        //------------------
+        // PRELOAD:
+        // the goal consists in loading the page which contains the data we need,
+        // but it'll be empty, so we need to load the data too.
+        // 1st - load remote data
+        this.BLOGpreloader.remotegetbatch(contener, creator,[ data_BNEWSmap[0]["desc"], data_BNEWSmap[1]["desc"] ],null,
+            (cr, dataremote) => {
+                //------------------
+                // POSTLOAD:
+                // 2nd - then load reference page
+                local.displayitemsfrom(contener, data_INDEXfiles[1],[ dataremote[0][data_BNEWSlasts[0]], dataremote[1][data_BNEWSlasts[1]] ],null,[ data_INDEXnewsitems[2], data_INDEXnewsitems[3] ],
+                    (dom, datasrc, contener, idsrc, itdst) => {
+                        // 3rd - then complete the reference page with the needed card
+                        local.localgetfile(dom, file, "contener", "gridnews",
+                            () => {
+                                // 4th - then fill ref page with data and transfer items to current page
+                                creator.updateSPRITE(dom, datasrc, contener, idsrc, itdst);
+                            }
+                        );
                     }
                 );
             }
@@ -348,25 +328,27 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
     loadTECH(contener, creator, file) {
         creator.previewTECH(contener);
 
-        //----------------------
         const local = this;
 
         //----------------------
-        // 1st - load reference page
-        this.displayitemsfrom(contener,
-            data_INDEXfiles[2],
-            [ data_BTECHlasts[0], data_BTECHlasts[1] ],
-            null,
-            [ data_INDEXtechitems[2], data_INDEXtechitems[3] ],
-            (dom, datasrc, contener, idsrc, itdst) => {
-                // 2nd - then complete the reference page with the needed card
-                local.localgetfile(dom,
-                    file,
-                    "contener",
-                    "gridtech1",
-                    () => {
-                        // 3rd - then fill ref page with data and transfer items to current page
-                        creator.updateSPRITE(dom, datasrc, contener, idsrc, itdst);
+        // PRELOAD:
+        // the goal consists in loading the page which contains the data we need,
+        // but it'll be empty, so we need to load the data too.
+        // 1st - load remote data
+        this.BLOGpreloader.remotegetbatch(contener, creator,[ data_BTECHmap1[5]["desc"], data_BTECHmap1[0]["desc"] ],null,
+            (cr, dataremote) => {
+                //------------------
+                // POSTLOAD:
+                // 2nd - then load reference page
+                local.displayitemsfrom(contener, data_INDEXfiles[2],[ dataremote[0][data_BTECHlasts[0]], dataremote[1][data_BTECHlasts[1]] ],null,[ data_INDEXtechitems[2], data_INDEXtechitems[3] ],
+                    (dom, datasrc, contener, idsrc, itdst) => {
+                        // 3rd - then complete the reference page with the needed card
+                        local.localgetfile(dom, file,"contener", "gridtech1",
+                            () => {
+                                // 4th - then fill ref page with data and transfer items to current page
+                                creator.updateSPRITE(dom, datasrc, contener, idsrc, itdst);
+                            }
+                        );
                     }
                 );
             }

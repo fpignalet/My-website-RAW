@@ -34,30 +34,27 @@ class SERVERSIDE {
 
         /*8*/"cliside_BLOGphptest6",
         /*9*/"cliside_BLOGphptest7",
-        /*10*/"cliside_BLOGphptest8"
+        /*10*/"cliside_BLOGphptest8",
 
+        /*11*/"cliside_CVexport",
     ];
 
     /// @brief ctor
     public function __construct() {
         try {
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                //...
-
-            }
-            elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
-                //...
-
-            }
-
             $this->param[] = $_REQUEST["p1"];
             $this->param[] = $_REQUEST["p2"];
 
-            if(false) {
-                //debug only
-                $analyser = new SRVSIDE_BLOG;
-                $analyser->BTtest6("callbackparse", '..', "../listfile.txt");
+            /*
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                //...
             }
+            elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
+                //...
+            }
+            */
+//            (new SRVSIDE_BLOG)->BTtest6();
+//            (new SRVSIDE_CV)->CVconvert(null, null);
         }
         catch(Exception $e) {
             echo 'Exception abgefangen: ',  $e->getMessage(), "\n";
@@ -106,8 +103,7 @@ class SERVERSIDE {
                 //----------------------------------------------------------------
 
                 //----------------------------------
-                // SEND CV CONTENT
-                // return json data
+                // SEND CV JSON CONTENT
                 case $this->triggers[6]:
                     $debug = false;
 
@@ -117,12 +113,24 @@ class SERVERSIDE {
                     echo json_encode($data);
                     break;
 
+                //----------------------------------
+                // EXPORT CV AS JSON
+                case $this->triggers[11]:
+                    $debug = false;
+
+                    $CV = new SRVSIDE_CV;
+                    $data = $CV->CVconvert(null, $debug);
+//                    echo $data;
+                    $data = "{ \"jsondata\": \"jsondata\" }";
+                    echo json_encode($data);
+                    break;
+
                 //----------------------------------------------------------------
                 // BLOG NEWS tasks
                 //----------------------------------------------------------------
 
                 //----------------------------------
-                // SEND BLOG CONTENT
+                // SEND BLOG DIRECT CONTENT
                 // return json data
                 case $this->triggers[7]:
                     $debug = false;
@@ -138,7 +146,7 @@ class SERVERSIDE {
                 //----------------------------------------------------------------
 
                 //----------------------------------
-                // SEND TESTS RESULTS
+                // SEND TESTS DIRECT RESULTS
                 // fill and return $srvside_BDresult
                 case $this->triggers[1]:
                     $blog = new SRVSIDE_BLOG;
@@ -162,8 +170,7 @@ class SERVERSIDE {
                     break;
 
                 //----------------------------------
-                // SEND TESTS RESULTS
-                // return json data
+                // SEND TESTS JSON RESULTS
                 case $this->triggers[4]:
                     $blog = new SRVSIDE_BLOG;
                     $data = $blog->BTtest3();
@@ -178,31 +185,28 @@ class SERVERSIDE {
                     echo json_encode($data);
                     break;
 
-                //----------------------------------
-                // SEND DIRECTORY CONTENT
-                // return json data
                 case $this->triggers[8]:
                     $analyser = new SRVSIDE_BLOG;
                     $data = $analyser->BTtest6(null, '..', null);
                     echo json_encode($data);
                     break;
 
-                //----------------------------------
-                // UTILITY
+                //----------------------------------------------------------------
+                // UTILITIES, TESTS and MORE
+                //----------------------------------------------------------------
+
                 case $this->triggers[9]:
                     echo php_uname();
                     break;
 
-                //----------------------------------
-                // WEBSOCKET TEST
                 case $this->triggers[10]:
+                    //Push test
                     $test = new SRVSIDE_BLOG;
                     $test->BTtest8();
-                    echo "OKOKOKOK\n";
                     break;
 
                 //----------------------------------------------------------------
-                // others / Not yet implemented
+                // Not yet implemented
                 //----------------------------------------------------------------
                 default:
                     echo "? Unknown command...\n";

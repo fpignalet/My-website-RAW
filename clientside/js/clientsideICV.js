@@ -4,8 +4,8 @@
  * INCLUDES CODE
  *************************************************************************************/
 import {
+    CLISIDE_PAGE,
     CLISIDE_LOADER,
-    cliside_disctoggle,
     cliside_disctoggled,
     cliside_BASEIDENT
 } from "./lib/clientside.js";
@@ -27,20 +27,148 @@ import {
 /*************************************************************************************
  * GLOBAL VARIABLES
  *************************************************************************************/
-const cliside_CVsrcid = "contener";
-
-let cliside_CVloader = null;
-let cliside_CVcr = null;
-let cliside_CVldr = null;
+let cliside_CVpage = null;
 
 /*************************************************************************************
  * IMPLEMENTATION: PAGE UTILS
  *************************************************************************************/
-/// @brief main entry function
-/// @param contener is the target DOM
-/// @returns 1 desc
-function cliside_CVlazyload(contener) {
-    const loadmapitem = (entry) => {
+export class CLISIDE_ICV extends CLISIDE_PAGE {
+
+    /*************************************************************************************
+     * IMPLEMENTATION: PAGE ENTRYPOINTs
+     *************************************************************************************/
+    /// @brief main entry function
+    /// @param contener is the target DOM
+    /// @param param may be anything
+    /// @returns 1 desc
+    static pageload(contener, param) {
+        //-----------------------------------------------------------
+        window.CVpageprint = CLISIDE_ICV.pageprint;
+        window.CVtoggleall = CLISIDE_PAGE.disctoggle;
+
+        //-----------------------------------------------------------
+        cliside_CVpage = new CLISIDE_ICV(param);
+        cliside_CVpage.loadtop(contener, [
+            "./clientside/cards/CVcardpres.html",
+            "./clientside/cards/CVcardbuttons.html",
+            "./clientside/cards/CVcardexp.html",
+            "./clientside/cards/CVcardskills.html",
+            "./clientside/cards/CVcardlangs.html"
+        ]);
+        cliside_CVpage.loadbody(contener, [
+            "./clientside/cards/CVgridHIST.html",
+            "./clientside/cards/CVcardbildung.html",
+            "./clientside/cards/CVcardhobby.html"
+        ]);
+        cliside_CVpage.loadbottom(contener,
+            "./clientside/cards/cardfooter.html"
+        );
+
+        //-----------------------------------------------------------
+//        loader.getdatajson([ "cliside_CVexport" ], (text) => {
+//        alert(text);
+//        });
+
+    }
+
+    static pageunload(contener, param) {
+//        alert("notyetimplemented")
+    }
+
+    /// @brief scroll function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pagescroll(contener, param) {
+        /*
+        cliside_CVlazyload(contener);
+        */
+    }
+
+    /// @brief print function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pageprint(contener, param) {
+        try {
+            const status = cliside_disctoggled;
+            if(false === status) {
+                CLISIDE_PAGE.disctoggle(contener);
+            }
+            window.print();
+            if(false === status) {
+                CLISIDE_PAGE.disctoggle(contener);
+            }
+
+//        console.log(this.getFuncName() + "OK");
+        }
+        catch (e) {
+            console.log(e.toString())
+        }
+        finally {
+            //...
+        }
+    }
+
+    /*************************************************************************************
+     * IMPLEMENTATION: INTERNAL
+     *************************************************************************************/
+    /// ctor
+    /// @param id
+    constructor(param) {
+        super(-1);
+
+        this.srcid = "contener";
+
+        this.loader = new CLISIDE_LOADER(cliside_BASEIDENT + param["load"] + 12);
+
+        this.cr = new CLISIDE_CVCREATE(cliside_BASEIDENT + param["create"]);
+        this.ld = new CLISIDE_CVLOADER(cliside_BASEIDENT + param["load"]);
+
+    }
+
+    loadtop(contener, file) {
+        this.loader.localgetfile(contener, file[0], this.srcid,"prescard");
+        this.loader.localgetfile(contener, file[1], this.srcid,"buttonscard");
+        this.loader.localgetfile(contener, file[2], this.srcid,"expcard");
+        this.loader.localgetfile(contener, file[3], this.srcid,"skillscard");
+        this.loader.localgetfile(contener, file[4], this.srcid,"langscard");
+    }
+
+    /// @brief main entry function
+    /// @param contener is the target DOM
+    /// @returns 1 desc
+    loadbody(contener, file) {
+        const local = this;
+
+        this.loader.localgetfile(contener, file[0], this.srcid,"gridhistory",
+            () => {
+                data_CVmap1.forEach((entry, index) => {
+                    local.loadmapitem(contener, entry);
+                });
+            }
+        );
+        this.loader.localgetfile(contener, file[1], this.srcid,"bildungcard",
+            () => {
+                data_CVmap2.forEach((entry, index) => {
+                    local.loadmapitem(contener, entry);
+                });
+            }
+        );
+        this.loader.localgetfile(contener, file[2], this.srcid,"hobbycard",
+            () => {
+                data_CVmap3.forEach((entry, index) => {
+                    local.loadmapitem(contener, entry);
+                });
+            }
+        );
+
+    }
+
+    loadbottom(contener, file) {
+        this.loader.localgetfile(contener, file, this.srcid,"footer");
+
+    }
+
+    loadmapitem(contener, entry){
         if(true === entry["loaded"]){
             return;
         }
@@ -53,10 +181,7 @@ function cliside_CVlazyload(contener) {
                 //  entry["data"],
                 //  entry["cbk"],
                 //-----------------------------------------------------
-                cliside_CVldr.remotegetbatch(contener,
-                    cliside_CVcr,
-                    entry["data"],
-                    null,
+                this.ld.remotegetbatch(contener, this.cr, entry["data"], null,
                     (cr, data) => {
                         entry["cbk"](contener, cr, data);
                         entry["loaded"] = true;
@@ -73,11 +198,7 @@ function cliside_CVlazyload(contener) {
                 //  entry["boulots"],
                 //  entry["progress"],
                 //-----------------------------------------------------
-                cliside_CVldr.remotegetentry(contener,
-                    cliside_CVcr,
-                    entry["boite"],
-                    entry["boulots"],
-                    entry["progress"],
+                this.ld.remotegetentry(contener, this.cr, entry["boite"], entry["boulots"], entry["progress"],
                     (cr, desc, content) => {
                         cr.fillrightside(contener, desc, content);
                         entry["loaded"] = true;
@@ -89,121 +210,4 @@ function cliside_CVlazyload(contener) {
         }
     };
 
-    cliside_CVloader.localgetfile(contener,
-        "./clientside/cards/CVgridHIST.html",
-        cliside_CVsrcid,
-        "gridhistory",
-        () => {
-            data_CVmap1.forEach((entry, index) => {
-                loadmapitem(entry);
-            });
-        }
-    );
-
-    cliside_CVloader.localgetfile(contener,
-        "./clientside/cards/CVcardbildung.html",
-        cliside_CVsrcid,
-        "bildungcard",
-        () => {
-            data_CVmap2.forEach((entry, index) => {
-                loadmapitem(entry);
-            });
-        }
-    );
-    cliside_CVloader.localgetfile(contener,
-        "./clientside/cards/CVcardhobby.html",
-        cliside_CVsrcid,
-        "hobbycard",
-        () => {
-            data_CVmap3.forEach((entry, index) => {
-                loadmapitem(entry);
-            });
-        }
-    );
-
-}
-
-/*************************************************************************************
- * IMPLEMENTATION: PAGE ENTRYPOINTs
- *************************************************************************************/
-/// @brief main entry function
-/// @param contener is the target DOM
-/// @param param may be anything
-/// @returns 1 desc
-export function cliside_CVpageload(contener, param) {
-    //-----------------------------------------------------------
-    window.CVpageprint = cliside_CVpageprint;
-    window.CVtoggleall = cliside_disctoggle;
-
-    //-----------------------------------------------------------
-    cliside_CVloader = new CLISIDE_LOADER(cliside_BASEIDENT + param["load"] + 12);
-    cliside_CVcr = new CLISIDE_CVCREATE(cliside_BASEIDENT + param["create"]);
-    cliside_CVldr = new CLISIDE_CVLOADER(cliside_BASEIDENT + param["load"]);
-
-    cliside_CVloader.localgetfile(contener,
-        "./clientside/cards/CVcardpres.html",
-        cliside_CVsrcid,
-        "prescard"
-    );
-    cliside_CVloader.localgetfile(contener,
-        "./clientside/cards/CVcardskills.html",
-        cliside_CVsrcid,
-        "skillscard"
-    );
-    cliside_CVloader.localgetfile(contener,
-        "./clientside/cards/CVcardlangs.html",
-        cliside_CVsrcid,
-        "langscard"
-    );
-
-    //-----------------------------------------------------------
-    cliside_CVlazyload(contener);
-    //-----------------------------------------------------------
-
-    cliside_CVloader.localgetfile(contener,
-        "./clientside/cards/cardfooter.html",
-        cliside_CVsrcid,
-        "footer"
-    );
-
-}
-
-/// @brief leave function
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_CVpageunload(contener, param) {
-//        alert("notyetimplemented")
-}
-
-/// @brief scroll function
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_CVpagescroll(contener, param) {
-    /*
-    cliside_CVlazyload(contener);
-    */
-}
-
-/// @brief print function
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_CVpageprint(contener, param) {
-    try {
-        const status = cliside_disctoggled;
-        if(false === status) {
-            cliside_disctoggle(contener);
-        }
-        window.print();
-        if(false === status) {
-            cliside_disctoggle(contener);
-        }
-
-//        console.log(this.getFuncName() + "OK");
-    }
-    catch (e) {
-        console.log(e.toString())
-    }
-    finally {
-        //...
-    }
 }

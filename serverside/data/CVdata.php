@@ -12,15 +12,17 @@ $data_CVloadsleep = 100000;
 
 //-----------------------------------------------------------------------------------------------------------
 /// @brief
-$data_CVtitle = array(
+$data_CVtitle =
+[
     "moi_photo" =>
         "images/P_20160208_183649_BF.jpg",
     "moi_name" =>
         "Francois Pignalet"
-);
+];
 
 /// @brief fills clientside/cards/CVcardpres.html
-$data_CVinfo = array(
+$data_CVinfo =
+[
     "info_raisonsociale" =>
         [ "Software architecture, development and integration with 25+ years expertise"  ],
     "info_adresse" =>
@@ -31,10 +33,11 @@ $data_CVinfo = array(
         [ "00491704868403" ],
     "info_geburstag" =>
         [ "06/07/1967" ]
-);
+];
 
 /// @brief fills clientside/cards/CVcardskills.html
-$data_CVexperience = array(
+$data_CVexperience =
+[
     "exp_title" =>
         "Areas of expertise",
     "exp_content" =>
@@ -46,78 +49,83 @@ $data_CVexperience = array(
             "Heavily threaded architectures specialist",
             "Complex refactoring and debugging"
         ]
-);
+];
 
 /// @brief fills clientside/cards/CVcardskills.html
-$data_CVskillshead = array(
+$data_CVskillshead =
+[
     "mskills_title" =>
         "Main skills"
-);
+];
 /// @brief fills clientside/cards/CVcardskills.html
-$data_CVskillsentries = array(
-    array(
+$data_CVskillsentries =
+[
+    [
         "mskills_f1desc" =>
             [ "Java,  C,  C++,  Javascript, SW architecture, OOP, REST, Eclipse, CUnit, JUnit, XML, JSON, Ant, AGILE, JIRA, SVN, V Cycle  ==" ],
         "mskills_f1level" =>
             [ "100%" ],
         "mskills_f1text" =>
             [ "CONFIRMED" ]
-    ),
-    array(
+    ],
+    [
         "mskills_f2desc" =>
             [ "Python,  Php,  Angular,  React,  Spring,  jQuery,  SQL,  Linux,  Jenkins, DOORS, MFC,  Win32,  Asm 68K,  Github, Continuous Integration,  Rational Unified Process,  Design Patterns ==" ],
         "mskills_f2level" =>
             [ "75%" ],
         "mskills_f2text" =>
             [ "AVERAGE" ]
-    ),
-    array(
+    ],
+    [
         "mskills_f3desc" =>
             [ "C# / .NET,  J2EE,  OSGi,  WebLogic,  CORBA,  Android,  Django,  Asm x86 / PowerPC / ARM  ==" ],
         "mskills_f3level" =>
             [ "50%" ],
         "mskills_f3text" =>
             [ "LOW" ]
-    )
-);
+    ]
+];
 
 /// @brief fills clientside/cards/CVcardlangs.html
-$data_CVlanghead = array(
+$data_CVlanghead =
+[
     "lang_title" =>
         "Languages"
-);
+];
 /// @brief fills clientside/cards/CVcardlangs.html
-$data_CVlangentries = array(
-    array(
+$data_CVlangentries =
+[
+    [
         "lang_f1desc" =>
             [ "French" ],
         "lang_f1level" =>
             [ "100%" ],
         "lang_f1text" =>
             [ "100% (MOTHER TONGUE)" ]
-    ),
-    array(
+    ],
+    [
         "lang_f2desc" =>
             [ "English" ],
         "lang_f2level" =>
             [ "85%" ],
         "lang_f2text" =>
             [ "C1" ]
-    ),
-    array(
+    ],
+    [
         "lang_f3desc" =>
             [ "German" ],
         "lang_f3level" =>
             [ "65%" ],
         "lang_f3text" =>
             [ "B2" ]
-    )
-);
+    ]
+];
 
 // BOULOT ENTRY -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot0 = array(
+$data_CVboulot0 =
+[
     "boulotentry0date" =>
         [ "2018/11 - until now" ],
     "boulotentry0boite" =>
@@ -129,11 +137,11 @@ $data_CVboulot0 = array(
         ],
     "boulotentry0desc" =>
         [ null ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot01 = array(
+$data_CVboulot01 =
+[
     "boulotentry01item" =>
         [
             "Open Source project:",
@@ -162,12 +170,13 @@ $data_CVboulot01 = array(
                 ]
             ]
         ]
-);
+];
 
 // BOULOT ENTRY -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot1 = array(
+$data_CVboulot1 =
+[
     "boulotentry1date" =>
         [ "2015/10 - 2018/10" ],
     "boulotentry1boite" =>
@@ -179,11 +188,11 @@ $data_CVboulot1 = array(
         ],
     "boulotentry1desc" =>
         [ null ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot11 = array(
+$data_CVboulot11 =
+[
     "boulotentry11item" =>
         [
             "Products / team:",
@@ -222,12 +231,13 @@ $data_CVboulot11 = array(
                 ]
             ]
         ]
-);
+];
 
 // BOULOT ENTRY -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot2 = array(
+$data_CVboulot2 =
+[
     "boulotentry2date" =>
         [ "2000/06 - 2015/09" ],
     "boulotentry2boite" =>
@@ -240,11 +250,11 @@ $data_CVboulot2 = array(
         ],
     "boulotentry2desc" =>
         [ null ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot21 = array(
+$data_CVboulot21 =
+[
     "boulotentry21item" =>
         [
             "Products / team:",
@@ -273,13 +283,14 @@ $data_CVboulot21 = array(
             ],
             [ "Keypoints",
                 "C, Java, Javascript, JSON, XML, Asm x86, Asm ARM STR7" ],
-            [ "Methodology", "AGILE software development" ]
+            [ "Methodology",
+                "AGILE software development" ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot22 = array(
+$data_CVboulot22 =
+[
     "boulotentry22item" =>
         [
             "Project:",
@@ -299,13 +310,14 @@ $data_CVboulot22 = array(
                 "Linux, Eclipse, Hibernate, Ant, POJO, DOORS" ],
             [ "Keypoints",
                 "Java, XML" ],
-            [ "Methodology", "company internal process (~V cycle)" ]
+            [ "Methodology",
+                "company internal process (~V cycle)" ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot23 = array(
+$data_CVboulot23 =
+[
     "boulotentry23item" =>
         [
             "Project:",
@@ -316,21 +328,24 @@ $data_CVboulot23 = array(
         [ "Software engineer" ],
     "boulotentry23content" =>
         [
-            [ "Description", [
-                "Supply flow handling in a military system",
-                "Pure Java rich client based on a multithreaded 3 tier architecture"
-            ]],
+            [ "Description",
+                [
+                    "Supply flow handling in a military system",
+                    "Pure Java rich client based on a multithreaded 3 tier architecture"
+                ]
+            ],
             [ "Environment",
                 "Windows 7, Eclipse, Swing, Java Beans, Ant" ],
             [ "Keypoints",
                 "Java" ],
-            [ "Methodology", "Company internal process (~V cycle)" ]
+            [ "Methodology",
+                "Company internal process (~V cycle)" ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot24 = array(
+$data_CVboulot24 =
+[
     "boulotentry24item" =>
         [
             "Project:",
@@ -341,21 +356,24 @@ $data_CVboulot24 = array(
         [ "Software architect / Team leader (~6 developers)" ],
     "boulotentry24content" =>
         [
-            [ "Description", [
-                "Message handling in a military weapon system communication infrastructure",
-                "Huge team ~100 people (70 SW developers)"
-            ]],
+            [ "Description",
+                [
+                    "Message handling in a military weapon system communication infrastructure",
+                    "Huge team ~100 people (70 SW developers)"
+                ]
+            ],
             [ "Environment", "
                 Windows XP, Entreprise Architect, Eclipse, Swt, OSGI, J2EE, EJB, POJO, JAXB, Spring, SVN" ],
             [ "Keypoints",
                 "Java, Python, Ant, XML, XSLT" ],
-            [ "Methodology", "MDA Approach, Design Patterns" ]
+            [ "Methodology",
+                "MDA Approach, Design Patterns" ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot25 = array(
+$data_CVboulot25 =
+[
     "boulotentry25item" =>
         [
             "Project:",
@@ -366,25 +384,28 @@ $data_CVboulot25 = array(
         [ "Software architect / Team leader (~3 developers)" ],
     "boulotentry25content" =>
         [
-            [ "Description", [
-                "Drone video data real-time acquisition and handling",
-                "Multithreaded 3 tier architecture with extensive use of design patterns: 
-                Creational (Abstract Factory / Builder / Factory method / Object pool / Singleton), 
-                Structural (Bridge / Facade), 
-                Behavioral (Command / Iterator / State), 
-                Concurrency (Scheduler) "
-            ]],
+            [ "Description",
+                [
+                    "Drone video data real-time acquisition and handling",
+                    "Multithreaded 3 tier architecture with extensive use of design patterns: 
+                    Creational (Abstract Factory / Builder / Factory method / Object pool / Singleton), 
+                    Structural (Bridge / Facade), 
+                    Behavioral (Command / Iterator / State), 
+                    Concurrency (Scheduler) "
+                ]
+            ],
             [ "Environment", "
                 Windows XP, Eclipse, Web Services, BEA WebLogic, PostgreSQL, SVN" ],
             [ "Keypoints",
                 "Java, C++, .NET (C# / J#), SQL" ],
-            [ "Methodology", "MDA Approach, Design Patterns" ]
+            [ "Methodology",
+                "MDA Approach, Design Patterns" ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot26 = array(
+$data_CVboulot26 =
+[
     "boulotentry26item" =>
         [
             "Project:",
@@ -396,11 +417,13 @@ $data_CVboulot26 = array(
         [ "Software architect / Team leader (~6 developers)" ],
     "boulotentry26content" =>
         [
-            [ "Description", [
-                "Geographic information with image management (2D & 3D) for mission preparation and intelligence",
-                "Heavily multithreaded 3 tier architecture (specific Parallel handling layer / error management layer)",
-                "Specific deployment platform (initially based on DOS/batch tools, then Emac/lisp tools))"
-            ]],
+            [ "Description",
+                [
+                    "Geographic information with image management (2D & 3D) for mission preparation and intelligence",
+                    "Heavily multithreaded 3 tier architecture (specific Parallel handling layer / error management layer)",
+                    "Specific deployment platform (initially based on DOS/batch tools, then Emac/lisp tools))"
+                ]
+            ],
             [ "Environment",
                 "Windows NT, Unix/CDE, Microsoft MFC, CORBA, ActiveX components, ORACLE DB, Rational suite (ClearCase), Bounds Checker" ],
             [ "Keypoints",
@@ -411,14 +434,16 @@ $data_CVboulot26 = array(
         [ "Trainer in ALTEN Learning School (~15 attendees)" ],
     "boulotentry27content" =>
         [
-            [ "Description", "Sessions about coding and unit testing best practises (~3 hours)" ]
+            [ "Description",
+                "Sessions about coding and unit testing best practises (~3 hours)" ]
         ]
-);
+];
 
 // BOULOT ENTRY -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot3 = array(
+$data_CVboulot3 =
+[
     "boulotentry3date" =>
         [ "1999/10 - 2000/05" ],
     "boulotentry3boite" =>
@@ -432,11 +457,11 @@ $data_CVboulot3 = array(
         ],
     "boulotentry3desc" =>
         [ null, ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot31 = array(
+$data_CVboulot31 =
+[
     "boulotentry31item" =>
         [
             "Project:",
@@ -447,10 +472,12 @@ $data_CVboulot31 = array(
         [ "Software architect / Team leader (~4 developers)" ],
     "boulotentry31content" =>
         [
-            [ "Description", [
-                "Real time embedded software inside bus ticketing console",
-                "Virtual machine for 386EX microcontroller emulation"
-            ]],
+            [ "Description",
+                [
+                    "Real time embedded software inside bus ticketing console",
+                    "Virtual machine for 386EX microcontroller emulation"
+                ]
+            ],
             [ "Environment",
                 "Windows NT, Visual Studio, Microsoft MFC, Wayfarer BUS Ticketing Machine, 386EX microcontroller" ],
             [ "Keypoints",
@@ -460,11 +487,11 @@ $data_CVboulot31 = array(
                 "static & dynamic modeling (UML Diagrams)",
             ]]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot32 = array(
+$data_CVboulot32 =
+[
     "boulotentry32item" =>
         [
             "Project:",
@@ -483,12 +510,13 @@ $data_CVboulot32 = array(
             [ "Keypoints",
                 "C++" ]
         ]
-);
+];
 
 // BOULOT ENTRY -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot4 = array(
+$data_CVboulot4 =
+[
     "boulotentry4date" =>
         [
             "1998/07 - 1999/09"
@@ -503,11 +531,11 @@ $data_CVboulot4 = array(
         ],
     "boulotentry4desc" =>
         [ null ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot41 = array(
+$data_CVboulot41 =
+[
     "boulotentry41item" =>
         [
             "Project:",
@@ -518,12 +546,14 @@ $data_CVboulot41 = array(
         [ "Software developer" ],
     "boulotentry41content" =>
         [
-            [ "Description", [
-                "Regulation and transmission for Meteosat 2nd generationsatellite",
-                "Heavily multithreaded data flow handling",
-                "Real time data treatment",
-                "Data encoding (Reed-Solomon, Pseudo-Randomization, Convolutional)"
-            ]],
+            [ "Description",
+                [
+                    "Regulation and transmission for Meteosat 2nd generationsatellite",
+                    "Heavily multithreaded data flow handling",
+                    "Real time data treatment",
+                    "Data encoding (Reed-Solomon, Pseudo-Randomization, Convolutional)"
+                ]
+            ],
             [ "Environment",
                 "Windows NT, Microsoft MFC, Windows DDK, DSP 56301, OOP, Design Patterns" ],
             [ "Keypoints",
@@ -533,12 +563,13 @@ $data_CVboulot41 = array(
                 "static & dynamic modeling (UML Diagrams)",
             ]]
         ]
-);
+];
 
 // BOULOT ENTRY -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot5 = array(
+$data_CVboulot5 =
+[
     "boulotentry5date" =>
         [ "1996/01 - 1998/06" ],
     "boulotentry5boite" =>
@@ -550,11 +581,11 @@ $data_CVboulot5 = array(
         ],
     "boulotentry5desc" =>
         [ null ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot51 = array(
+$data_CVboulot51 =
+[
     "boulotentry51item" =>
         [
             "Project:",
@@ -565,21 +596,24 @@ $data_CVboulot51 = array(
         [ "Software developer" ],
     "boulotentry51content" =>
         [
-            [ "Description", [
-                "Essential Disk Utilities: VFAT disk tools for Psion organizer (series 3 & 5): ",
-                "Defragmentation / Scandisk / Smart Format / Disk Editor"
-            ]],
+            [ "Description",
+                [
+                    "Essential Disk Utilities: VFAT disk tools for Psion organizer (series 3 & 5): ",
+                    "Defragmentation / Scandisk / Smart Format / Disk Editor"
+                ]
+            ],
             [ "Environment",
                 "Windows NT, Psion EPOC(16/32), OOP" ],
             [ "Keypoints",
                 "C, C++" ],
-            [ "Methodology", "Static model, Booch diagrams" ]
+            [ "Methodology",
+                "Static model, Booch diagrams" ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot52 = array(
+$data_CVboulot52 =
+[
     "boulotentry52item" =>
         [
             "Project:",
@@ -596,11 +630,11 @@ $data_CVboulot52 = array(
             [ "Keypoints",
                 "C, C++" ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot53 = array(
+$data_CVboulot53 =
+[
     "boulotentry53item" =>
         [
             "Project:",
@@ -611,22 +645,24 @@ $data_CVboulot53 = array(
         [ "Software developer" ],
     "boulotentry53content" =>
         [
-            [ "Description", [
-                "Faxing (classe 1 & 2) software",
-                "Device to device file transferts (X, Y and Z modem)",
-                "Asynchronous parts under interrupt (no real multitasking available)"
-            ]],
+            [ "Description",
+                [
+                    "Faxing (classe 1 & 2) software",
+                    "Device to device file transferts (X, Y and Z modem)",
+                    "Asynchronous parts under interrupt (no real multitasking available)"
+                ]
+            ],
             [ "Environment",
                 "Mac OS (6/7)" ],
             [ "Keypoints",
                 "C, C++" ]
         ]
-);
-
+];
 // BOULOT ENTRY -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot6 = array(
+$data_CVboulot6 =
+[
     "boulotentry6date" =>
         [ "1992/04 - 1995/12" ],
     "boulotentry6boite" =>
@@ -638,11 +674,11 @@ $data_CVboulot6 = array(
         ],
     "boulotentry6desc" =>
         [ null ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot61 = array(
+$data_CVboulot61 =
+[
     "boulotentry61item" =>
         [
             "Product: ",
@@ -668,11 +704,11 @@ $data_CVboulot61 = array(
             [ "Keypoints",
                 "C, C++, Pascal, Object Pascal, Asm 68K, Asm x86" ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot62 = array(
+$data_CVboulot62 =
+[
     "boulotentry62item" =>
         [
             "Products: ",
@@ -698,12 +734,13 @@ $data_CVboulot62 = array(
             [ "Keypoints",
                 "4th Dimension, C, C++, Pascal, Modula2" ]
         ]
-);
+];
 
 // BOULOT ENTRY -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVboulot7 = array(
+$data_CVboulot7 =
+[
     "boulotentry7date" =>
         [ "1986/10 - 1992/03" ],
     "boulotentry7boite" =>
@@ -715,11 +752,11 @@ $data_CVboulot7 = array(
         ],
     "boulotentry7desc" =>
         [ null ]
-);
-
+];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot71 = array(
+$data_CVboulot71 =
+[
     "boulotentry71item" =>
         [
             "General: ",
@@ -737,23 +774,24 @@ $data_CVboulot71 = array(
             ["Keypoints",
                 "4th Dimension, DOS cmds"]
         ]
-);
+];
 
 // BILDUNG -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVcardbildung.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVbildung1 = array(
+$data_CVbildung1 =
+[
     "edu_f1date" =>
         [ "During last years..." ],
     "edu_f1boite" =>
         null,
     "edu_f1desc" =>
         null
-);
-
+];
 /// @brief fills clientside/cards/CVcardbildung.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVbildung11 = array(
+$data_CVbildung11 =
+[
     "edu_f11item" =>
         [ "2017" ],
     "edu_f11title" =>
@@ -768,11 +806,11 @@ $data_CVbildung11 = array(
                 ]
             ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVcardbildung.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVbildung12 = array(
+$data_CVbildung12 =
+[
     "edu_f12item" =>
         [ "2004" ],
     "edu_f12title" =>
@@ -787,11 +825,11 @@ $data_CVbildung12 = array(
                 ]
             ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVcardbildung.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVbildung13 = array(
+$data_CVbildung13 =
+[
     "edu_f13item" =>
         [ "1985" ],
     "edu_f13title" =>
@@ -806,23 +844,24 @@ $data_CVbildung13 = array(
                 ]
             ]
         ]
-);
+];
 
 // LOISIRS -----------------------------------------------------------------
 /// @brief fills clientside/cards/CVcardhobbyg.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYENTRY
-$data_CVhobby1 = array(
+$data_CVhobby1 =
+[
     "loisirs_f1date" =>
         [ "Until now..." ],
     "loisirs_f1boite" =>
         null,
     "loisirs_f1desc" =>
         null,
-);
-
+];
 /// @brief fills clientside/cards/CVcardhobbyg.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVhobby11 = array(
+$data_CVhobby11 =
+[
     "loisirs_f11item" =>
         [ "Activity" ],
     "loisirs_f11title" =>
@@ -850,11 +889,11 @@ $data_CVhobby11 = array(
                 ]
             ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVcardhobbyg.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVhobby12 = array(
+$data_CVhobby12 =
+[
     "loisirs_f12item" =>
         [ "Activity" ],
     "loisirs_f12title" =>
@@ -868,11 +907,11 @@ $data_CVhobby12 = array(
                 ]
             ]
         ]
-);
-
+];
 /// @brief fills clientside/cards/CVcardhobbyg.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVhobby13 = array(
+$data_CVhobby13 =
+[
     "loisirs_f13item" =>
         [ "Interests" ],
     "loisirs_f13title" =>
@@ -885,10 +924,10 @@ $data_CVhobby13 = array(
             [ "", "Boardgaming & Role Playing games (oldschool way)" ],
             [ "", "To be continued..." ]
         ]
-);
-
+];
 /// @brief
-$data_CVmap = array(
+$data_CVmap =
+[
 
     "data_CVtitle" => $data_CVtitle,
     "data_CVinfo" => $data_CVinfo,
@@ -941,4 +980,4 @@ $data_CVmap = array(
     "data_CVhobby12" => $data_CVhobby12,
     "data_CVhobby13" => $data_CVhobby13
 
-);
+];

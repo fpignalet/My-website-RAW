@@ -248,7 +248,7 @@ export class CLISIDE_CVCREATE extends CLISIDE_BASE {
         //data_CVtitle
         const idphoto = keys[0];
         const valuephoto = data[idphoto];
-        this.leftcreator.addphoto(contener, idphoto, valuephoto);
+        this.leftcreator.addimage(contener, idphoto, valuephoto);
 
         const idname = keys[1];
         const valuename = data[idname];

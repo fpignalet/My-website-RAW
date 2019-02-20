@@ -4,9 +4,10 @@
  * INCLUDES CODE
  *************************************************************************************/
 import {
+    CLISIDE_BASE,
     CLISIDE_LOADER,
     cliside_BASEIDENT,
-    cliside_pagescroll
+    CLISIDE_PAGE
 } from "./lib/clientside.js";
 
 import {
@@ -33,15 +34,12 @@ import {
 /*************************************************************************************
  * GLOBAL VARIABLES
  *************************************************************************************/
-const cliside_BLOGsrcid = "contener";
+let cliside_BLOGNEWSpage = null;
 
-let cliside_BLOGNEWSloader = null;
-let cliside_BLOGNEWScr = null;
-let cliside_BLOGNEWSldr = null;
+let cliside_BLOGTECHpage = null;
 
-let cliside_BLOGTECHloader = null;
-let cliside_BLOGTECHcr = null;
-let cliside_BLOGTECHldr = null;
+let cliside_BLOGTECHmousecur = null;
+let cliside_BLOGTECHmousepos = { x: 0, y: 0 };
 
 /*************************************************************************************
  *************************************************************************************
@@ -52,20 +50,114 @@ let cliside_BLOGTECHldr = null;
 /*************************************************************************************
  * IMPLEMENTATION: NEWS UTILS
  *************************************************************************************/
-/// @brief loading function
-/// @param contener is the target DOM
-/// @param param maybe anything
-function cliside_BLOGNEWSlazyload(contener) {
-    const loadmapitem = (entry) => {
+export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
+
+    /*************************************************************************************
+     * IMPLEMENTATION: NEWS SIDE
+     *************************************************************************************/
+    /// @brief maiin entry function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pageload(contener, param) {
+        cliside_BLOGNEWSpage = new CLISIDE_IBLOGNEWS(param);
+        cliside_BLOGNEWSpage.loadtop(contener,
+            "./clientside/cards/cardheader.html"
+        );
+        cliside_BLOGNEWSpage.loadbody(contener,
+            "./clientside/cards/BLOGgridNEWS.html"
+        );
+        cliside_BLOGNEWSpage.loadbottom(contener, [
+            "./clientside/cards/cardfooter.html",
+            "./clientside/cards/cardabout.html"
+        ]);
+
+    }
+
+    /// @brief leaving the BLOG TECH page
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pageunload(contener, param) {
+        //...
+    }
+
+    /// @brief scroll function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pagescroll(contener, param) {
+        /*
+        cliside_BLOGNEWSlazyload(contener);
+        CLISIDE_PAGE.pagescroll(contener, param);
+        */
+    }
+
+    /// @brief print function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pageprint(contener, param) {
+//        alert("notyetimplemented")
+    }
+
+    /*************************************************************************************
+     * IMPLEMENTATION: NEWS SIDE
+     *************************************************************************************/
+    /// ctor
+    /// @param id
+    constructor(param) {
+        super(-1);
+
+        this.srcid = "contener";
+
+        this.loader = new CLISIDE_LOADER(cliside_BASEIDENT + 8);
+
+        this.cr = new CLISIDE_BNEWSDOM(cliside_BASEIDENT + param["create"]);
+        this.ld = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param["load"]);
+
+    }
+
+    loadtop(contener, file) {
+        this.loader.localgetfile(contener, file, this.srcid,"headercard",
+            () => {
+                contener.getElementById("titlepart").appendChild(contener.createTextNode("News Part"))
+            }
+        );
+
+    }
+
+    /// @brief loading function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    loadbody(contener, file) {
+        const local = this;
+
+        /*
+        this.loader.localgetfile(contener, file, this.srcid,"gridnews",
+            () => {
+                data_BNEWSmap.forEach((entry, index) => {
+                    local.loadmapitem(contener, entry);
+                });
+            }
+        );
+        */
+        /*
+        */
+        data_BNEWSmap.forEach((entry, index) => {
+            local.loadmapitem(contener, entry);
+        });
+
+    }
+
+    loadbottom(contener, file) {
+        this.loader.localgetfile(contener, file[0], this.srcid,"footer");
+        this.loader.localgetfile(contener, file[1], this.srcid,"aboutcard");
+
+    }
+
+    loadmapitem(contener, entry){
         if(true === entry["loaded"]){
             return;
         }
 
-        cliside_BLOGNEWSldr.remotegetentry(contener,
-            cliside_BLOGNEWScr,
-            entry["desc"],
-            entry["content"],
-            entry["progress"],
+        this.ld.remotegetentry(contener, this.cr, entry["desc"], entry["content"], entry["progress"],
             (cr, desc, content) => {
                 const loadedweight = cr.fillentry(contener, desc, content);
                 if(0 < loadedweight) {
@@ -75,92 +167,230 @@ function cliside_BLOGNEWSlazyload(contener) {
         );
     };
 
-    cliside_BLOGNEWSloader.localgetfile(contener,
-        "./clientside/cards/BLOGgridNEWS.html",
-        cliside_BLOGsrcid,
-        "gridnews",
-        () => {
-            data_BNEWSmap.forEach((entry, index) => {
-                loadmapitem(entry);
-            });
-
-        }
-    );
-
-}
-
-/*************************************************************************************
- * IMPLEMENTATION: NEWS SIDE
- *************************************************************************************/
-/// @brief maiin entry function
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_BLOGNEWSpageload(contener, param) {
-    cliside_BLOGNEWSloader = new CLISIDE_LOADER(cliside_BASEIDENT + 8);
-    cliside_BLOGNEWScr = new CLISIDE_BNEWSDOM(cliside_BASEIDENT + param["create"]);
-    cliside_BLOGNEWSldr = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param["load"]);
-
-    cliside_BLOGNEWSloader.localgetfile(contener,
-        "./clientside/cards/cardheader.html",
-        cliside_BLOGsrcid,
-        "headercard",
-        () => {
-            contener.getElementById("titlepart").appendChild(contener.createTextNode("News Part"))
-        }
-    );
-
-    //-----------------------------------------------------
-    cliside_BLOGNEWSlazyload(contener);
-    //-----------------------------------------------------------
-
-    cliside_BLOGNEWSloader.localgetfile(contener,
-        "./clientside/cards/cardfooter.html",
-        cliside_BLOGsrcid,
-        "footer"
-    );
-
-    cliside_BLOGNEWSloader.localgetfile(contener,
-        "./clientside/cards/cardabout.html",
-        cliside_BLOGsrcid,
-        "aboutcard"
-    );
-
-}
-
-/// @brief leaving the BLOG TECH page
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_BLOGNEWSpageunload(contener, param) {
-    //...
-}
-
-/// @brief scroll function
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_BLOGNEWSpagescroll(contener, param) {
-    /*
-    cliside_BLOGNEWSlazyload(contener);
-    cliside_pagescroll(contener, param);
-    */
 }
 
 /*************************************************************************************
  * IMPLEMENTATION: TECH UTILS
  *************************************************************************************/
-/// @brief filling the BLOG TECH page
-/// @param contener is the target DOM
-function cliside_BLOGTECHlazyload(contener) {
-    const loadmapitem = (entry) => {
+/*************************************************************************************
+ * IMPLEMENTATION: NEWS UTILS
+ *************************************************************************************/
+export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
+
+    /*************************************************************************************
+     * IMPLEMENTATION: TECH SIDE
+     *************************************************************************************/
+    /// @brief filling the BLOG TECH page
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pageload(contener, param) {
+        //-----------------------------------------------------------
+        // INITIALISATION COMPLETION:
+        // wire specific tests callback
+        const local = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param["create"] + 10);
+        window.BLOGdomlocal = local; //for testPHP1 & angular(temp)
+        (data_BTECHmap1[2]["data"])[2] = () => {
+            local.testCODEBOX(contener, "./clientside/game/js/lib/instances.js", cliside_BLOGTECHpage.loader, "codebox1");
+        };
+        (data_BTECHmap1[3]["data"])[2] = () => {
+            local.testCANVAS(contener, "canvas0");
+        };
+        /*
+        (data_BTECHmap2[0]["data"])[2] = () => {
+            // OK, it's still hard-coded in html page, I still don't know why when loaded from outside it doesn't functionate
+            local.testANGULAR1("testapp", "testctrl");
+        };
+        */
+//      TODO: NOT OK THERE. still dont't know why...
+//      local.testANGULAR1("testapp", "testctrl");
+
+        const remote = new CLISIDE_BTECHREMOTE(cliside_BASEIDENT + param["create"] + 11);
+        window.BLOGdomremote = remote; //for testPHP1
+        (data_BTECHmap1[0]["data"])[2] = () => {
+            remote.testPHP8();
+        };
+        (data_BTECHmap1[4]["data"])[2] = () => {
+            remote.testPHP67(contener, null, "htreedemo");
+        };
+        (data_BTECHmap1[6]["data"])[2] = () => {
+            contener.getElementById("blog_entry8").innerHTML = local.testDYN(
+                // HEADER:
+                null,
+                'blog_entry8',
+                'images/gears-686316_640.jpg',
+                'Today\'s sandbox',
+                'August 25, 2018',
+                'Dynamic test',
+                // CONTENU:
+                '<ul>\n' +
+                '    <li>dynamic blog entry: generating html with javascript\n' +
+                '        <ul>\n' +
+                '            <li>sub item 1</li>\n' +
+                '            <li>sub item 2</li>\n' +
+                '        </ul>\n' +
+                '    </li>\n' +
+                '</ul>\n'
+            );
+        };
+        (data_BTECHmap2[1]["data"])[2] = () => {
+            local.testHELLO(contener, "hello_area");
+            local.testCOUNT(contener, "count_area");
+            remote.testPHP2(contener, null, "bdResult");
+            remote.testPHP3(contener, null, "params_area1");
+            remote.testPHP4(contener, null, "params_area2");
+            remote.testPHP5(contener, null, "params_area3");
+        };
+
+        //-----------------------------------------------------
+        // PAGE CONSTRUCTION
+        cliside_BLOGTECHpage = new CLISIDE_IBLOGTECH(param);
+
+        window.BLOGreactloader = cliside_BLOGTECHpage.loader;
+        window.BLOGmouseentercard = CLISIDE_IBLOGTECH.mouseentercard;
+        window.BLOGmouseleavecard = CLISIDE_IBLOGTECH.mouseleavecard;
+
+        //-----------------------------------------------------------
+        cliside_BLOGTECHpage.loadtop(contener,
+            "./clientside/cards/cardheader.html"
+        );
+        cliside_BLOGTECHpage.loadbody(contener, [
+            "./clientside/cards/BLOGgridTECH1.html",
+            "./clientside/cards/BLOGgridTECH2.html"
+        ]);
+        cliside_BLOGTECHpage.loadbottom(contener, [
+            "./clientside/cards/cardfooter.html",
+            "./clientside/cards/cardabout.html"
+        ]);
+
+        //-----------------------------------------------------------
+        contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
+
+    }
+
+    /// @brief leave function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pageunload(contener, param) {
+        const core = Multiple.get(Core.IDENT(), param["create"] + 10);
+        core.isPageOver = true;
+    }
+
+    /// @brief scroll function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pagescroll(contener, param) {
+        /*
+        cliside_BLOGTECHlazyload(contener);
+        CLISIDE_PAGE.pagescroll(contener, param);
+        */
+
+        /*
+        mousepos.x = window.scrollX;
+        mousepos.y = window.scrollY;
+        mousecurrent = contener.elementFromPoint(50, mousepos.y);
+        contener.getElementById("detailsname").innerHTML = "CURRENT " + mousecurrent;
+        */
+
+    }
+
+    /// @brief print function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pageprint(contener, param) {
+//        alert("notyetimplemented")
+    }
+
+    /*************************************************************************************
+     * IMPLEMENTATION: TECH SIDE SPECIFIC ENTRYPOINTS
+     *************************************************************************************/
+    /// @brief scroll function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static mouseentercard(contener, param) {
+        cliside_BLOGTECHmousecur = param.getAttribute("id");
+//    contener.getElementById("detailsname").innerHTML = "Implementation details for " + mousecurrent + ": ...";
+        contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
+    }
+
+    /// @brief scroll function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static mouseleavecard(contener, param) {
+        cliside_BLOGTECHmousecur = param.getAttribute("id");
+        contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
+    }
+
+    /*************************************************************************************
+     * IMPLEMENTATION: INTERNAL
+     *************************************************************************************/
+    /// ctor
+    /// @param id
+    constructor(param) {
+        super(-1);
+
+        this.srcid = "contener";
+
+        this.loader = new CLISIDE_LOADER(cliside_BASEIDENT + param["load"] + 9);
+
+        this.cr = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param["create"]);
+        this.ld = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param["load"]);
+
+    }
+
+    loadtop(contener, file) {
+        this.loader.localgetfile(contener, file, this.srcid,"headercard",
+            () => {
+                contener.getElementById("titlepart").appendChild(contener.createTextNode("Technical Part"))
+            }
+        );
+
+    }
+
+    /// @brief filling the BLOG TECH page
+    /// @param contener is the target DOM
+    loadbody(contener, file) {
+        const local = this;
+
+        /*
+        */
+        this.loader.localgetfile(document, file[0], this.srcid,"gridtech1",
+            () => {
+                data_BTECHmap1.forEach((entry, index) => {
+                    local.loadmapitem(contener, entry);
+                });
+            }
+        );
+        this.loader.localgetfile(document, file[1], this.srcid,"gridtech2",
+            () => {
+                data_BTECHmap2.forEach((entry, index) => {
+                    local.loadmapitem(contener, entry);
+                });
+            }
+        );
+        /*
+        data_BTECHmap1.forEach((entry, index) => {
+            local.loadmapitem(contener, entry);
+        });
+        data_BTECHmap2.forEach((entry, index) => {
+            local.loadmapitem(contener, entry);
+        });
+        */
+
+    }
+
+    loadbottom(contener, file) {
+        this.loader.localgetfile(contener, file[0], this.srcid,"footer");
+        this.loader.localgetfile(contener, file[1], this.srcid,"aboutcard");
+
+    }
+
+    loadmapitem(contener, entry){
         if(true === entry["loaded"]){
             return;
         }
 
         if(null !== entry["desc"]) {
-            cliside_BLOGTECHldr.remotegetentry(contener,
-                cliside_BLOGTECHcr,
-                entry["desc"],
-                entry["content"],
-                entry["progress"],
+            this.ld.remotegetentry(contener, this.cr, entry["desc"], entry["content"], entry["progress"],
                 (cr, desc, content) => {
                     cr.filldesc(contener, desc);
                     entry["loaded"] = true;
@@ -169,185 +399,7 @@ function cliside_BLOGTECHlazyload(contener) {
 
         }
 
-        cliside_BLOGTECHloader.localgetfile(contener,
-            entry["data"][0],
-            cliside_BLOGsrcid,
-            entry["data"][1],
-            entry["data"][2]
-        );
+        this.loader.localgetfile(contener, entry["data"][0], this.srcid, entry["data"][1], entry["data"][2]);
     };
 
-    cliside_BLOGTECHloader.localgetfile(document,
-        "./clientside/cards/BLOGgridTECH1.html",
-        cliside_BLOGsrcid,
-        "gridtech1",
-        () => {
-            data_BTECHmap1.forEach((entry, index) => {
-                loadmapitem(entry);
-            });
-        }
-    );
-    cliside_BLOGTECHloader.localgetfile(document,
-        "./clientside/cards/BLOGgridTECH2.html",
-        cliside_BLOGsrcid,
-        "gridtech2",
-        () => {
-            data_BTECHmap2.forEach((entry, index) => {
-                loadmapitem(entry);
-            });
-        }
-    );
-
-}
-
-/*************************************************************************************
- * IMPLEMENTATION: TECH SIDE
- *************************************************************************************/
-/// @brief filling the BLOG TECH page
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_BLOGTECHpageload(contener, param) {
-    //-----------------------------------------------------------
-    // INITIALISATION COMPLETION:
-    // wire specific tests callback
-    const local = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param["create"] + 10);
-    window.BLOGdomlocal = local; //for testPHP1 & angular(temp)
-    (data_BTECHmap1[2]["data"])[2] = () => {
-        local.testCODEBOX(contener, "./clientside/game/js/lib/instances.js", cliside_BLOGTECHloader, "codebox1");
-    };
-    (data_BTECHmap1[3]["data"])[2] = () => {
-        local.testCANVAS(contener, "canvas0");
-    };
-    /*
-    (data_BTECHmap2[0]["data"])[2] = () => {
-        // OK, it's still hard-coded in html page, I still don't know why when loaded from outside it doesn't functionate
-        local.testANGULAR1("testapp", "testctrl");
-    };
-    */
-
-    const remote = new CLISIDE_BTECHREMOTE(cliside_BASEIDENT + param["create"] + 11);
-    window.BLOGdomremote = remote; //for testPHP1
-
-    (data_BTECHmap1[0]["data"])[2] = () => {
-        remote.testPHP8();
-    };
-    (data_BTECHmap2[1]["data"])[2] = () => {
-        local.testHELLO(contener, "hello_area");
-        local.testCOUNT(contener, "count_area");
-        remote.testPHP2(contener, null, "bdResult");
-        remote.testPHP3(contener, null, "params_area1");
-        remote.testPHP4(contener, null, "params_area2");
-        remote.testPHP5(contener, null, "params_area3");
-        remote.testPHP6(contener, null, "htreedemo");
-        remote.testPHP7();
-    };
-
-    //--------------------
-    (data_BTECHmap1[6]["data"])[2] = () => {
-        contener.getElementById("blog_entry8").innerHTML = local.testDYN(
-            // HEADER:
-            null,
-            'blog_entry8',
-            'images/gears-686316_640.jpg',
-            'Today\'s sandbox',
-            'August 25, 2018',
-            'Dynamic test',
-            // CONTENU:
-            '<ul>\n' +
-            '    <li>dynamic blog entry: generating html with javascript\n' +
-            '        <ul>\n' +
-            '            <li>sub item 1</li>\n' +
-            '            <li>sub item 2</li>\n' +
-            '        </ul>\n' +
-            '    </li>\n' +
-            '</ul>\n'
-        );
-    };
-
-    //-----------------------------------------------------
-//      TODO: NOT OK THERE. still dont't know why...
-//      local.testANGULAR1("testapp", "testctrl");
-
-    //-----------------------------------------------------
-    // PAGE CONSTRUCTION
-    cliside_BLOGTECHloader = new CLISIDE_LOADER(cliside_BASEIDENT + param["load"] + 9);
-    cliside_BLOGTECHcr = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param["create"]);
-    cliside_BLOGTECHldr = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param["load"]);
-
-    window.BLOGreactloader = cliside_BLOGTECHloader;
-    window.BLOGmouseentercard = cliside_BLOGTECHmouseentercard;
-    window.BLOGmouseleavecard = cliside_BLOGTECHmouseleavecard;
-
-    cliside_BLOGTECHloader.localgetfile(contener,
-        "./clientside/cards/cardheader.html",
-        cliside_BLOGsrcid,
-        "headercard",
-        () => {
-            contener.getElementById("titlepart").appendChild(contener.createTextNode("Technical Part"))
-        }
-    );
-
-    //-----------------------------------------------------------
-    cliside_BLOGTECHlazyload(contener);
-    //-----------------------------------------------------------
-
-    cliside_BLOGTECHloader.localgetfile(contener,
-        "./clientside/cards/cardfooter.html",
-        cliside_BLOGsrcid,
-        "footer"
-    );
-    cliside_BLOGTECHloader.localgetfile(contener,
-        "./clientside/cards/cardabout.html",
-        cliside_BLOGsrcid,
-        "aboutcard"
-    );
-
-    contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
-
-}
-
-/// @brief leave function
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_BLOGTECHpageunload(contener, param) {
-    const core = Multiple.get(Core.IDENT(), param);
-    core.isPageOver = true;
-}
-
-let mousecurrent = null;
-let mousepos = { x: 0, y: 0 };
-
-/// @brief scroll function
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_BLOGTECHpagescroll(contener, param) {
-    /*
-    cliside_BLOGTECHlazyload(contener);
-    cliside_pagescroll(contener, param);
-    */
-
-    /*
-    mousepos.x = window.scrollX;
-    mousepos.y = window.scrollY;
-    mousecurrent = contener.elementFromPoint(50, mousepos.y);
-    contener.getElementById("detailsname").innerHTML = "CURRENT " + mousecurrent;
-    */
-
-}
-
-/// @brief scroll function
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_BLOGTECHmouseentercard(contener, param) {
-    mousecurrent = param.getAttribute("id");
-//    contener.getElementById("detailsname").innerHTML = "Implementation details for " + mousecurrent + ": ...";
-    contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
-}
-
-/// @brief scroll function
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_BLOGTECHmouseleavecard(contener, param) {
-    mousecurrent = param.getAttribute("id");
-    contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
 }

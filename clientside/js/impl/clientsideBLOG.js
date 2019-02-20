@@ -6,8 +6,7 @@
 import {
     CLISIDE_BASE,
     CLISIDE_DOM,
-    CLISIDE_LOADER,
-    clientside_decorator
+    CLISIDE_LOADER
 } from "../lib/clientside.js";
 
 //import * as angular from "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js";
@@ -48,19 +47,23 @@ export class CLISIDE_BLOGDOM extends CLISIDE_DOM {
     /// @brief fills a blog entry descriptor (with title and date)
     /// @param contener is the target DOM
     /// @param data is a BLOGdata.js::data_BLOGdescXX formatted as follow
+    ///     "blog_entryXXPHOTO": "...",
     ///     "blog_entryXXTITLE": "...",
     ///     "blog_entryXXDATE": [ "..." ]
     filldesc(contener, data) {
         let key;
 
         //-------------------
-        //"blog_entryXXTITLE"
+        //"blog_entryXXPHOTO"
         key = Object.keys(data)[0];
+        this.updateimage(contener, key, data[key]);
+        //-------------------
+        //"blog_entryXXTITLE"
+        key = Object.keys(data)[1];
         this.addtext(contener, key, data[key], true);
-
         //-------------------
         //"blog_entryXXDATE"
-        key = Object.keys(data)[1];
+        key = Object.keys(data)[2];
         const date = contener.getElementById(key);
         const span = date.appendChild(contener.createElement("span"));
         span.setAttribute("class", "w3-opacity");
@@ -479,16 +482,6 @@ export class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
         });
     }
 
-    /// @brief calls serverside with cliside_BLOGphptest4 selector then updates ...
-    testPHP7() {
-        const params = [this.cmdselect + 7, ""];
-
-        const local = this;
-        this.getdataraw(params, (result) => {
-            local.islinux = /Linux/.test(result);
-        });
-    }
-
     /// @brief prepraring push test
     /// TODO: need a form
     testPHP8() {
@@ -540,13 +533,19 @@ export class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     /// @param contener is the target DOM
     /// @param data contains the parameter waited by cliside_BLOGphptest4 selector
     /// @param fieldid is the field which receives the result
-    testPHP6(contener, data, fieldid) {
-        const params = [this.cmdselect + 6, ""];
+    testPHP67(contener, data, fieldid) {
+        const params = [this.cmdselect + 7, ""];
 
         const local = this;
-        this.getdatajson(params, (result) => {
-            local.filltree(contener, fieldid, result, this.islinux);
+        this.getdataraw(params, (result) => {
+            local.islinux = /Linux/.test(result);
+
+            const params = [local.cmdselect + 6, ""];
+
+            local.getdatajson(params, (result) => {
+                local.filltree(contener, fieldid, result, local.islinux);
 //            console.log(local.getFuncName() + "OK");
+            });
         });
     }
 

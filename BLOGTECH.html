@@ -21,7 +21,7 @@
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- EXTERNAL RESSOURCES -->
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" title="cssw3" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
@@ -191,15 +191,15 @@
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- JS IMPLEMENTATION: STANDARD -->
         <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
+        </script -->
         <script type="module">
             /*************************************************************************************
              * INCLUDES CODE
              *************************************************************************************/
-            import {
-                cliside_BLOGTECHpageload,
-                cliside_BLOGTECHpageunload,
-                cliside_BLOGTECHpagescroll
-            } from "./clientside/js/clientsideIBLOG.js";
+            import { CLISIDE_IBLOGTECH } from "./clientside/js/clientsideIBLOG.js";
 
             /*************************************************************************************
              * INCLUDES DATA
@@ -208,16 +208,30 @@
              * IMPLEMENTATION
              *************************************************************************************/
             try {
-                window.onload = function() {
-                    //page initialsation happends there
-                    cliside_BLOGTECHpageload(document, { create: 4, load: 5 })
-                };
-                window.onunload = function() {
-                    cliside_BLOGTECHpageunload(document, null)
-                };
-                window.onscroll = function() {
-                    cliside_BLOGTECHpagescroll(document, "entry_navbar")
-                };
+                //page initialsation happends there
+                /*
+                */
+                window.onload = function() { CLISIDE_IBLOGTECH.pageload(document, { create: 4, load: 5 }) };
+                window.onunload = function() { CLISIDE_IBLOGTECH.pageunload(document, { create: 4, load: 5 }) };
+                window.onscroll = function() { CLISIDE_IBLOGTECH.pagescroll(document, null) };
+                /*
+                window.onload_ = function() { CLISIDE_IBLOGTECH.pageload(document, { create: 4, load: 5 }) };
+                window.onunload_ = function() { CLISIDE_IBLOGTECH.pageunload(document, { create: 4, load: 5 }) };
+                window.onscroll_ = function() { CLISIDE_IBLOGTECH.pagescroll(document, null) };
+                window.content1_ = [
+                    { id: 19 },
+                    { id: 18 },
+                    { id: 16 },
+                    { id: 15 },
+                    { id: 13 },
+                    { id: 11 },
+                    { id: 8 },
+                ]
+                window.content2_ = [
+                    { id: 7 },
+                    { id: 5 },
+                ]
+                */
             }
             catch (e) {
                 console.log(e.toString())
@@ -229,50 +243,7 @@
         </script>
 
         <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- JS IMPLEMENTATION: SPECIFIC -->
-        <!-- -------------------------------------------------------------------------------------------------------------->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
-        </script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js">
-        </script>
-        <script type="module">
-            /*************************************************************************************
-             * INCLUDES CODE
-             *************************************************************************************/
-            import {
-                CLISIDE_BTECHLOCAL
-            } from "./clientside/js/impl/clientsideBLOG.js";
-
-            /*************************************************************************************
-             * INCLUDES DATA
-             *************************************************************************************/
-            /*************************************************************************************
-             * IMPLEMENTATION
-             *************************************************************************************/
-            try {
-                // OK, it's still hard-coded in html page, I still don't know why when loaded from outside it doesn't functionate
-                const local = new CLISIDE_BTECHLOCAL();
-                local.testANGULAR1(
-                    document,
-                    "angutest1",
-                    "Firstname", "Lastname", ["Item 1", "Item 2", "Item 3"]
-                );
-                local.testANGULAR2(
-                    document,
-                    "angutest2"
-                );
-            }
-            catch (e) {
-                console.log(e.toString())
-            }
-            finally {
-                //...
-            }
-
-        </script>
-
-        <!-- -------------------------------------------------------------------------------------------------------------->
-        <!-- JS IMPLEMENTATION: SPECIFIC -->
+        <!-- JS IMPLEMENTATION: REACT SPECIFIC -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <script src="https://unpkg.com/react@16/umd/react.production.min.js">
         </script>
@@ -293,15 +264,49 @@
              * IMPLEMENTATION
              *************************************************************************************/
             try {
-                window.BLOGreactloader.localgetfile(document,
-                    "./clientside/cards/BLOGentryT11.html",
-                    "contener",
-                    "blog_entry11CONTENT",
+//                reactexecuteBLOG('#gridtech1', window.content1_);
+//                reactexecuteBLOG('#gridtech2', window.content2_);
+
+                window.BLOGreactloader.localgetfile(document, "./clientside/cards/BLOGentryT11.html", "contener", "blog_entry11CONTENT",
                     () => {
-                        reactexecute();
+                        reactexecuteTECH('#reacttestjsx');
                     }
                 );
 
+            }
+            catch (e) {
+                console.log(e.toString())
+            }
+            finally {
+                //...
+            }
+
+        </script>
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- JS IMPLEMENTATION: ANGULAR SPECIFIC -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js">
+        </script>
+        <script type="module">
+            /*************************************************************************************
+             * INCLUDES CODE
+             *************************************************************************************/
+            import { CLISIDE_BTECHLOCAL } from "./clientside/js/impl/clientsideBLOG.js";
+
+            /*************************************************************************************
+             * INCLUDES DATA
+             *************************************************************************************/
+            /*************************************************************************************
+             * IMPLEMENTATION
+             *************************************************************************************/
+            try {
+                // OK, it's still hard-coded in html page, I still don't know why when loaded from outside it doesn't functionate
+                const local = new CLISIDE_BTECHLOCAL();
+                local.testANGULAR1(document, "angutest1", "Firstname", "Lastname", ["Item 1", "Item 2", "Item 3"]);
+                local.testANGULAR2(document, "angutest2");
             }
             catch (e) {
                 console.log(e.toString())

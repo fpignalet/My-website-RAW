@@ -15,6 +15,11 @@ class SRVSIDE_BLOG {
     /// @brief global result array
     public $BLOGresultA = array();
 
+    /// @brief ...
+    public $fcbk = "callbackparse";
+    public $fdir = '..';
+    public $ffile = "../listfile.txt";
+
     /// @brief ctor
     public function __construct() {
         //...
@@ -150,11 +155,11 @@ class SRVSIDE_BLOG {
 
     }
 
-    public function BTtest6($cbk, $dir, $file){
+    public function BTtest6(){
         $files = array();
 
         $filters = [ ".js", ".php" ];
-        foreach($this->reposcan($dir) as $line){
+        foreach($this->reposcan($this->fdir) as $line){
             foreach($filters as $filter){
                 if(FALSE != strpos($line, $filter)){
                     $files[$filter][] = $line;
@@ -162,18 +167,20 @@ class SRVSIDE_BLOG {
             }
         }
 
-        if(null != $file) {
-            $stream = fopen($file, "w");
+        /*
+        if(null != $this->ffile) {
+            $stream = fopen($this->ffile, "w");
 
             foreach($files[$filters[0]] as $item){
-                call_user_func_array(array($this, $cbk), array([ "JAVASCRIPT: ", $stream, $item ]));
+                call_user_func_array(array($this, $this->fcbk), array([ "JAVASCRIPT: ", $stream, $item ]));
             }
             foreach($files[$filters[1]] as $item){
-                call_user_func_array(array($this, $cbk), array([ "PHP: ", $stream, $item ]));
+                call_user_func_array(array($this, $this->fcbk), array([ "PHP: ", $stream, $item ]));
             }
 
             fclose($stream);
         }
+        */
 
         return $files;
     }

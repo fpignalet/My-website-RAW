@@ -116,6 +116,14 @@ export class CLISIDE_DOM extends CLISIDE_BASE {
         contener.getElementById(id).innerHTML = str;
     }
 
+    /// @brief html single element update
+    /// @param contener is the target DOM
+    /// @param id is the ID attribute of the element to be updated
+    /// @param name contains the value to be used
+    updateimage(contener, id, str) {
+        contener.getElementById(id).setAttribute("src", str);
+    }
+
     /// @brief add text inside the "id" element
     /// @param contener is the target DOM
     /// @param id is the ID attribute of the element which receives text
@@ -149,7 +157,7 @@ export class CLISIDE_DOM extends CLISIDE_BASE {
     /// @param contener is the target DOM
     /// @param id is the ID attribute of the element which receives text
     /// @param value contains the path to the photo to add
-    addphoto(contener, id, value) {
+    addimage(contener, id, value) {
         const it = contener.getElementById(id);
         it.setAttribute("src", value);
     }
@@ -390,7 +398,7 @@ export class CLISIDE_DOM extends CLISIDE_BASE {
     progressshow(contener, progress) {
         const barid = progress[2];
         if(null != this.progressbars[barid]) {
-            //there is no progress bar?
+            //there is already a progress bar?
             return;
         }
 
@@ -399,7 +407,12 @@ export class CLISIDE_DOM extends CLISIDE_BASE {
         this.progressvals[barid] = 0;
         this.progressitvs[barid] = setInterval((inst) => {
             inst.progressvals[barid] += 1;
-            inst.progressbars[barid].style.width = inst.progressvals[barid] + '%';
+            if(false == inst.progressbars[barid].className.includes("reactentry")) {
+                inst.progressbars[barid].style.width = inst.progressvals[barid] + '%';
+            }
+            else {
+                inst.progressbars[barid].style.width = inst.progressvals[barid] + '%';
+            }
         }, this.progressincr, this);
 
     }
@@ -441,14 +454,14 @@ export class CLISIDE_DOM extends CLISIDE_BASE {
         contndst.getElementById("modalimg").src = idsrc.src;
 
         //SRC side --------------------
-        const idtitle = Object.keys(datasrc)[0];
-        const itsrc = domsrc.getElementById(idtitle);
-
+        const idtitle = Object.keys(datasrc)[1];
         const datatitle = datasrc[idtitle];
-        const iddate = Object.keys(datasrc)[1];
+
+        const iddate = Object.keys(datasrc)[2];
         const datadate1 = datasrc[iddate][0];
         const datadate2 = datasrc[iddate][1];
 
+        const itsrc = domsrc.getElementById(idtitle);
         itsrc.innerHTML = datatitle + ": " +
             datadate1 + " / " + datadate2;
 
@@ -779,155 +792,173 @@ export class CLISIDE_LOADER extends CLISIDE_DOM {
 }
 
 /*************************************************************************************
- * IMPLEMENTATION: PAGE UTILS
+ * IMPLEMENTATION: PAGE STRUCTURE HANDLER
  *************************************************************************************/
-/// @brief Used to toggle the menu on small screens when clicking on the menu button
-/// @param contener is the target DOM
-export function clientside_navtoggle(contener, navid) {
-    try {
-        const x = contener.getElementById(navid);
-        if (x.className.indexOf("w3-show") === -1) {
-            x.className += " w3-show";
-        }
-        else {
-            x.className = x.className.replace(
-                " w3-show", ""
-            );
-        }
-    }
-    catch (e) {
-        console.log(e.name)
-    }
-    finally {
-        //...
-    }
-}
+export class CLISIDE_PAGE extends CLISIDE_BASE {
 
-/// @brief print function
-/// @param contener
-export function cliside_disctoggle(contener) {
-    try {
-        const disclosable = contener.getElementsByClassName("w3-hide w3-container");
-        var temp = [];
-        [].push.apply(temp, disclosable);
+    /*************************************************************************************
+     * IMPLEMENTATION: PAGE UTILS
+     *************************************************************************************/
+    /// @brief Used to toggle the menu on small screens when clicking on the menu button
+    /// @param contener is the target DOM
+    static navtoggle(contener, navid) {
+        try {
+            const x = contener.getElementById(navid);
+            if (x.className.indexOf("w3-show") === -1) {
+                x.className += " w3-show";
+            }
+            else {
+                x.className = x.className.replace(
+                    " w3-show", ""
+                );
+            }
+        }
+        catch (e) {
+            console.log(e.name)
+        }
+        finally {
+            //...
+        }
+    }
+
+    /// @brief print function
+    /// @param contener
+    static disctoggle(contener) {
+        try {
+            const disclosable = contener.getElementsByClassName("w3-hide w3-container");
+            var temp = [];
+            [].push.apply(temp, disclosable);
 //        it seems that the following notation doesn't anyway functionate in VERDAMMT MICROSOFT EDGE
 //        [...disclosable].forEach((item, index) => {
-        temp.forEach((item, index) => {
-            CLISIDE_DOM.cbkdisclose(contener, item.getAttribute("id"));
-        });
+            temp.forEach((item, index) => {
+                CLISIDE_DOM.cbkdisclose(contener, item.getAttribute("id"));
+            });
 
-        if(false === cliside_disctoggled ) {
-            cliside_disctoggled = true;
-        }
-        else {
-            cliside_disctoggled = false;
-        }
+            if(false === cliside_disctoggled ) {
+                cliside_disctoggled = true;
+            }
+            else {
+                cliside_disctoggled = false;
+            }
 
 //        console.log(this.getFuncName() + "OK");
+        }
+        catch (e) {
+            console.log(e.name)
+        }
+        finally {
+            //...
+        }
     }
-    catch (e) {
-        console.log(e.name)
-    }
-    finally {
-        //...
-    }
-}
 
-window.scrollrect = null;
+    /// @brief scroll function
+    /// @param contener is the target DOM
+    /// @param param maybe anything
+    static pagescroll(contener, param) {
+        window.scrollrect = null;
 
-/// @brief scroll function
-/// @param contener is the target DOM
-/// @param param maybe anything
-export function cliside_pagescroll(contener, param) {
-    function getOffset(el) {
-        const rect = el.getBoundingClientRect();
-        return {
+        function getOffset(el) {
+            const rect = el.getBoundingClientRect();
+            return {
 //            left: (rect.right + window.scrollX ) +'px',
 //            top: (rect.top + window.scrollY ) +'px'
-            left: rect.right,
-            top: rect.top
+                left: rect.right,
+                top: rect.top
+            }
+        }
+
+        const itemabout = contener.getElementById("aboutcard");
+        const itemdetails = contener.getElementById("detailscard");
+        if (contener.body.scrollTop > 50 || contener.documentElement.scrollTop > 50) {
+            itemabout.style.transform = "scale(0.5, 0.5)";
+
+            itemdetails.style.transform = "";
+            itemdetails.style.position = "relative";
+            itemdetails.style.top = '-230px';
+            itemdetails.style.bottom = '+230px';
+            /*
+            if(null != window.scrollrect){
+                var xPosition = window.scrollrect.left - contener.getBoundingClientRect().left - (item.clientWidth / 2);
+                var yPosition = window.scrollrect.top - contener.getBoundingClientRect().top - (item.clientHeight / 2);
+                // in case of a wide border, the boarder-width needs to be considered in the formula above
+                item.style.left = xPosition + "px";
+                item.style.top = yPosition + "px";
+            }
+            */
+        }
+        else {
+            itemabout.style.transform = "";
+
+            itemdetails.style.transform = "";
+            itemdetails.style.position = "relative";
+            itemdetails.style.top = '-10px';
+
+            /*
+            if(null == window.scrollrect){
+                window.BLOGscrollrect = getOffset(item);
+            }
+            */
         }
     }
 
-    const itemabout = contener.getElementById("aboutcard");
-    const itemdetails = contener.getElementById("detailscard");
-    if (contener.body.scrollTop > 50 || contener.documentElement.scrollTop > 50) {
-        itemabout.style.transform = "scale(0.5, 0.5)";
+    /*************************************************************************************
+     * IMPLEMENTATION: GOOGLE MAPS INTEGRATION
+     *************************************************************************************/
+    /// @brief ...
+    /// @param contener is the target DOM
+    /// @param mapid ...
+    static gmapshow(contener, mapid/*"googleMap"*/) {
+        try {
+            const clientside_latlon = [
+                41.878114,
+                -87.629798
+            ];
 
-        itemdetails.style.transform = "";
-        itemdetails.style.position = "relative";
-        itemdetails.style.top = '-230px';
-        itemdetails.style.bottom = '+230px';
-        /*
-        if(null != window.scrollrect){
-            var xPosition = window.scrollrect.left - contener.getBoundingClientRect().left - (item.clientWidth / 2);
-            var yPosition = window.scrollrect.top - contener.getBoundingClientRect().top - (item.clientHeight / 2);
-            // in case of a wide border, the boarder-width needs to be considered in the formula above
-            item.style.left = xPosition + "px";
-            item.style.top = yPosition + "px";
+            // --------------------------------------
+            //1.1: construct location
+            const where = new google.maps.LatLng(clientside_latlon[0], clientside_latlon[1]);
+            //1.2: construct parameters using location
+            const options = {
+                center: where,
+                zoom: 12,
+                scrollwheel: false,
+                draggable: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            //1.3: construct map using parameters
+            const map = new google.maps.Map(contener.getElementById(mapid), options);
+
+            // --------------------------------------
+            //2.1: construct marker using location
+            const marker = new google.maps.Marker({position: where});
+            //2.2: assigns marker to map
+            marker.setMap(map);
         }
-        */
-    }
-    else {
-        itemabout.style.transform = "";
-
-        itemdetails.style.transform = "";
-        itemdetails.style.position = "relative";
-        itemdetails.style.top = '-10px';
-
-        /*
-        if(null == window.scrollrect){
-            window.BLOGscrollrect = getOffset(item);
+        catch (e) {
+            console.log(e.name)
         }
-        */
+        finally {
+            //...
+        }
     }
-}
 
-/*************************************************************************************
- * IMPLEMENTATION: GOOGLE MAPS INTEGRATION
- *************************************************************************************/
-const clientside_latlon = [
-    41.878114,
-    -87.629798
-];
+    /*************************************************************************************
+     * IMPLEMENTATION: INTERNALE
+     *************************************************************************************/
+    /// ctor
+    /// @param id
+    constructor(id) {
+        // from stackoverlow:
+        // https://stackoverflow.com/questions/29480569/does-ecmascript-6-have-a-convention-for-abstract-classes
+        if (new.target === CLISIDE_PAGE) {
+            throw new TypeError("Cannot construct CLISIDE_PAGE instance directly");
+        }
 
-/// @brief ...
-/// @param contener is the target DOM
-/// @param mapid ...
-export function clientside_gmapshow(contener, mapid/*"googleMap"*/) {
-    try {
+        super(id);
 
-        // --------------------------------------
-        //1.1: construct location
-        const where = new google.maps.LatLng(clientside_latlon[0], clientside_latlon[1]);
-        //1.2: construct parameters using location
-        const options = {
-            center: where,
-            zoom: 12,
-            scrollwheel: false,
-            draggable: false,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        //1.3: construct map using parameters
-        const map = new google.maps.Map(contener.getElementById(mapid), options);
-
-        // --------------------------------------
-        //2.1: construct marker using location
-        const marker = new google.maps.Marker({position: where});
-        //2.2: assigns marker to map
-        marker.setMap(map);
     }
-    catch (e) {
-        console.log(e.name)
-    }
-    finally {
-        //...
-    }
-}
 
-/*************************************************************************************
- * IMPLEMENTATION: DECORATORS
- *************************************************************************************/
-export function clientside_decorator(target) {
-    target.decotest = true;
+    loadtop(contener, file) {}
+    loadbody(contener, file) {}
+    loadbottom(contener, file) {}
 }

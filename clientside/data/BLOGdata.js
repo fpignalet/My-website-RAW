@@ -70,7 +70,7 @@ export const data_BNEWSmap = [
         side: null,
         data: null,
         desc: "data_BNdesc9",
-        content: [ "data_BNcontent91" ],
+        content: [ "data_BNcontent9" ],
         boite: null,
         boulots: null,
         progress: ["blog_entry9wait", "blog_entry9progress", "blog_entry9bar"],
@@ -136,8 +136,8 @@ export const data_BNEWSmap = [
 //-----------------------------------------------------------------------------------------------------------
 /// @brief maps are there to fetch remote data. see serverside/data/BLOGdata.php
 export const data_BTECHlasts = [
-    "blog_entry7PHOTO",
-    "blog_entry11PHOTO"
+    "blog_entry11PHOTO",
+    "blog_entry19PHOTO"
 ];
 
 /// @brief maps are there to fetch remote data. see serverside/data/BLOGdata.php

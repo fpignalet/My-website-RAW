@@ -87,11 +87,8 @@
             /*************************************************************************************
              * INCLUDES CODE
              *************************************************************************************/
-            import {
-                cliside_BLOGNEWSpageload,
-                cliside_BLOGNEWSpageunload,
-                cliside_BLOGNEWSpagescroll
-            } from "./clientside/js/clientsideIBLOG.js";
+            import { CLISIDE_IBLOGNEWS } from "./clientside/js/clientsideIBLOG.js";
+            import { data_BNEWSmap } from "./clientside/data/BLOGdata.js";
 
             /*************************************************************************************
              * INCLUDES DATA
@@ -100,17 +97,64 @@
              * IMPLEMENTATION
              *************************************************************************************/
             try {
-                window.onload = function() {
-                    //page initialsation happends there
-                    cliside_BLOGNEWSpageload(document, { create: 2, load: 3 })
-                };
-                window.onunload = function() {
-                    cliside_BLOGNEWSpageunload(document, null)
-                };
-                window.onscroll = function() {
-                    cliside_BLOGNEWSpagescroll(document, "entry_navbar")
-                };
+                //page initialsation happends there
+                /*
+                */
+                window.onload_ = function() { CLISIDE_IBLOGNEWS.pageload(document, { create: 2, load: 3 }) };
+                window.onunload_ = function() { CLISIDE_IBLOGNEWS.pageunload(document, { create: 4, load: 5 }) };
+                window.onscroll_ = function() { CLISIDE_IBLOGNEWS.pagescroll(document, null) };
+                window.content_ = [
+                    { id: 20 },
+                    { id: 17 },
+                    { id: 14 },
+                    { id: 12 },
+                    { id: 10 },
+                    { id: 9 },
+                    { id: 6 },
+                    { id: 4 },
+                    { id: 3 },
+                    { id: 2 },
+                    { id: 1 }
+                ];
+                /*
+                window.onload = function() { CLISIDE_IBLOGNEWS.pageload(document, { create: 2, load: 3 }) };
+                window.onunload = function() { CLISIDE_IBLOGNEWS.pageunload(document, { create: 4, load: 5 }) };
+                window.onscroll = function() { CLISIDE_IBLOGNEWS.pagescroll(document, null) };
+                */
 
+            }
+            catch (e) {
+                console.log(e.toString())
+            }
+            finally {
+                //...
+            }
+
+        </script>
+
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <!-- JS IMPLEMENTATION: SPECIFIC -->
+        <!-- -------------------------------------------------------------------------------------------------------------->
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js">
+        </script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js">
+        </script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js">
+        </script>
+        <script type="text/babel" src="clientside/js/impl/clientsideREACT.js">
+        </script>
+        <script type="text/babel">
+            /*************************************************************************************
+             * INCLUDES CODE
+             *************************************************************************************/
+            /*************************************************************************************
+             * INCLUDES DATA
+             *************************************************************************************/
+            /*************************************************************************************
+             * IMPLEMENTATION
+             *************************************************************************************/
+            try {
+                reactexecuteBLOG('#gridnews', window.content_);
             }
             catch (e) {
                 console.log(e.toString())
