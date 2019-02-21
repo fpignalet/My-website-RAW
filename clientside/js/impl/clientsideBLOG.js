@@ -405,8 +405,7 @@ export class CLISIDE_BTECHLOCAL extends CLISIDE_BLOGDOM {
     }
 
     /// @brief code test:
-    static testANY(contener, route) {
-    }
+    static testANY(contener, route) { }
 
 }
 
@@ -421,6 +420,11 @@ export class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
      * CONSTANTS
      ****************************************/
     static CMD() { return "cliside_BLOGphptest" };
+
+    static WSURL() { return 'ws://localhost:1414'; }
+    static WSPCOL() { return ['soap', 'xmpp']; }
+    static WSSENDSTR() { return "TESTTOTOTESTTOTO"; }
+    static WSRECVSTR() { return 'OKOKOKOK'; }
 
     /****************************************
      * PUBLIC IMPLEMENTATION
@@ -493,7 +497,7 @@ export class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
                 local.createwsocket();
             }
 
-            local.wsocket.send('TESTTOTOTESTTOTO'); //sending message to server.
+            local.wsocket.send(CLISIDE_BTECHREMOTE.WSSENDSTR()); //sending message to server.
         });
     }
 
@@ -557,18 +561,18 @@ export class CLISIDE_BTECHREMOTE extends CLISIDE_LOADER {
     createwsocket() {
         const local = this;
 
-        this.wsocket = new WebSocket('ws://localhost:1414', ['soap', 'xmpp']);
+        this.wsocket = new WebSocket(CLISIDE_BTECHREMOTE.WSURL(), CLISIDE_BTECHREMOTE.WSPCOL());
 //        this.wsocket = new WebSocket('ws://localhost', ['echo-protocol']);
 
         // connection open event
         this.wsocket.onopen = function () {
             console.log('WebSocket Opened ');
-            local.wsocket.send('TESTTOTOTESTTOTO'); //sending message to server.
+            local.wsocket.send(CLISIDE_BTECHREMOTE.WSSENDSTR()); //sending message to server.
         };
 
         // update received from server event
         this.wsocket.onmessage = function (e) {
-            if('OKOKOKOK' === e.data) {
+            if(CLISIDE_BTECHREMOTE.WSRECVSTR() === e.data) {
                 console.log('WebSocket Server answered: ' + e.data);
             }
             else {

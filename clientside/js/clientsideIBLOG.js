@@ -53,6 +53,36 @@ let cliside_BLOGTECHmousepos = { x: 0, y: 0 };
 export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
 
     /*************************************************************************************
+     * CONSTANTS: GRAMMAR
+     *************************************************************************************/
+    static CREATE() { return "create"; }
+    static LOAD() { return "load"; }
+
+    static DATA() { return "data"; }
+    static DESC() { return "desc"; }
+    static CONTENT() { return "content"; }
+    static PROGRESS() { return "progress"; }
+
+    /*************************************************************************************
+     * CONSTANTS: ITEMS
+     *************************************************************************************/
+    static CONTENER() { return "contener"; }
+
+    static IDTITLEPART() { return "titlepart"; }
+
+    static IDHEADER() { return "headercard"; }
+    static IDFOOTER() { return "footer"; }
+    static IDABOUT() { return "aboutcard"; }
+
+    /*************************************************************************************
+     * CONSTANTS: CARDS
+     *************************************************************************************/
+    static CARDHEADER() { return "./clientside/cards/cardheader.html"; }
+    static CARDGRIDNEWS() { return "./clientside/cards/BLOGgridNEWS.html"; }
+    static CARDFOOTER() { return "./clientside/cards/cardfooter.html"; }
+    static CARDABOUT() { return "./clientside/cards/cardabout.html"; }
+
+    /*************************************************************************************
      * IMPLEMENTATION: NEWS SIDE
      *************************************************************************************/
     /// @brief maiin entry function
@@ -61,14 +91,14 @@ export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
     static pageload(contener, param) {
         cliside_BLOGNEWSpage = new CLISIDE_IBLOGNEWS(param);
         cliside_BLOGNEWSpage.loadtop(contener,
-            "./clientside/cards/cardheader.html"
+            CLISIDE_IBLOGNEWS.CARDHEADER()
         );
         cliside_BLOGNEWSpage.loadbody(contener,
-            "./clientside/cards/BLOGgridNEWS.html"
+            CLISIDE_IBLOGNEWS.CARDGRIDNEWS()
         );
         cliside_BLOGNEWSpage.loadbottom(contener, [
-            "./clientside/cards/cardfooter.html",
-            "./clientside/cards/cardabout.html"
+            CLISIDE_IBLOGNEWS.CARDFOOTER(),
+            CLISIDE_IBLOGNEWS.CARDABOUT()
         ]);
 
     }
@@ -98,26 +128,24 @@ export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
     }
 
     /*************************************************************************************
-     * IMPLEMENTATION: NEWS SIDE
+     * IMPLEMENTATION: INTERNALE
      *************************************************************************************/
     /// ctor
     /// @param id
     constructor(param) {
         super(-1);
 
-        this.srcid = "contener";
-
         this.loader = new CLISIDE_LOADER(cliside_BASEIDENT + 8);
 
-        this.cr = new CLISIDE_BNEWSDOM(cliside_BASEIDENT + param["create"]);
-        this.ld = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param["load"]);
+        this.cr = new CLISIDE_BNEWSDOM(cliside_BASEIDENT + param[CLISIDE_IBLOGNEWS.CREATE()]);
+        this.ld = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param[CLISIDE_IBLOGNEWS.LOAD()]);
 
     }
 
     loadtop(contener, file) {
-        this.loader.localgetfile(contener, file, this.srcid,"headercard",
+        this.loader.localgetfile(contener, file, CLISIDE_IBLOGNEWS.CONTENER(), CLISIDE_IBLOGNEWS.IDHEADER(),
             () => {
-                contener.getElementById("titlepart").appendChild(contener.createTextNode("News Part"))
+                contener.getElementById(CLISIDE_IBLOGNEWS.IDTITLEPART()).appendChild(contener.createTextNode("News Part"))
             }
         );
 
@@ -130,7 +158,8 @@ export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
         const local = this;
 
         /*
-        this.loader.localgetfile(contener, file, this.srcid,"gridnews",
+        Comment when React
+        this.loader.localgetfile(contener, file, CLISIDE_IBLOGNEWS.CONTENER(),"gridnews",
             () => {
                 data_BNEWSmap.forEach((entry, index) => {
                     local.loadmapitem(contener, entry);
@@ -139,6 +168,7 @@ export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
         );
         */
         /*
+        Uncomment when React
         */
         data_BNEWSmap.forEach((entry, index) => {
             local.loadmapitem(contener, entry);
@@ -147,8 +177,8 @@ export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
     }
 
     loadbottom(contener, file) {
-        this.loader.localgetfile(contener, file[0], this.srcid,"footer");
-        this.loader.localgetfile(contener, file[1], this.srcid,"aboutcard");
+        this.loader.localgetfile(contener, file[0], CLISIDE_IBLOGNEWS.CONTENER(), CLISIDE_IBLOGNEWS.IDFOOTER());
+        this.loader.localgetfile(contener, file[1], CLISIDE_IBLOGNEWS.CONTENER(), CLISIDE_IBLOGNEWS.IDABOUT());
 
     }
 
@@ -157,7 +187,7 @@ export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
             return;
         }
 
-        this.ld.remotegetentry(contener, this.cr, entry["desc"], entry["content"], entry["progress"],
+        this.ld.remotegetentry(contener, this.cr, entry[CLISIDE_IBLOGNEWS.DESC()], entry[CLISIDE_IBLOGNEWS.CONTENT()], entry[CLISIDE_IBLOGNEWS.PROGRESS()],
             (cr, desc, content) => {
                 const loadedweight = cr.fillentry(contener, desc, content);
                 if(0 < loadedweight) {
@@ -178,6 +208,44 @@ export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
 export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
 
     /*************************************************************************************
+     * CONSTANTS: GRAMMAR
+     *************************************************************************************/
+    static CREATE() { return "create"; }
+    static LOAD() { return "load"; }
+
+    static DATA() { return "data"; }
+    static DESC() { return "desc"; }
+    static CONTENT() { return "content"; }
+    static PROGRESS() { return "progress"; }
+
+    /*************************************************************************************
+     * CONSTANTS: ITEMS
+     *************************************************************************************/
+    static CONTENER() { return "contener"; }
+
+    static IDCODEBOX() { return "codebox1"; }
+    static IDTREEDEMO() { return "htreedemo"; }
+    static IDTITLEPART() { return "titlepart"; }
+    static IDDETAILSNAME() { return "detailsname"; }
+
+    static IDHEADER() { return "headercard"; }
+    static IDGRIDTECH1() { return "gridtech1"; }
+    static IDGRIDTECH2() { return "gridtech2"; }
+    static IDFOOTER() { return "footer"; }
+    static IDABOUT() { return "aboutcard"; }
+
+    /*************************************************************************************
+     * CONSTANTS: CARDS
+     *************************************************************************************/
+    static CARDHEADER() { return "./clientside/cards/cardheader.html"; }
+    static CARDGRIDTECH1() { return "./clientside/cards/BLOGgridTECH1.html"; }
+    static CARDGRIDTECH2() { return "./clientside/cards/BLOGgridTECH2.html"; }
+    static CARDFOOTER() { return "./clientside/cards/cardfooter.html"; }
+    static CARDABOUT() { return "./clientside/cards/cardabout.html"; }
+
+    static SCRINST() { return "./clientside/game/js/lib/instances.js"; }
+
+    /*************************************************************************************
      * IMPLEMENTATION: TECH SIDE
      *************************************************************************************/
     /// @brief filling the BLOG TECH page
@@ -185,18 +253,18 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
     /// @param param maybe anything
     static pageload(contener, param) {
         //-----------------------------------------------------------
-        // INITIALISATION COMPLETION:
+        // INITIALISATION LOCAL TESTS:
         // wire specific tests callback
-        const local = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param["create"] + 10);
+        const local = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.CREATE()] + 10);
         window.BLOGdomlocal = local; //for testPHP1 & angular(temp)
-        (data_BTECHmap1[2]["data"])[2] = () => {
-            local.testCODEBOX(contener, "./clientside/game/js/lib/instances.js", cliside_BLOGTECHpage.loader, "codebox1");
+        (data_BTECHmap1[2][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
+            local.testCODEBOX(contener, CLISIDE_IBLOGTECH.SCRINST(), cliside_BLOGTECHpage.loader, CLISIDE_IBLOGTECH.IDCODEBOX());
         };
-        (data_BTECHmap1[3]["data"])[2] = () => {
+        (data_BTECHmap1[3][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
             local.testCANVAS(contener, "canvas0");
         };
         /*
-        (data_BTECHmap2[0]["data"])[2] = () => {
+        (data_BTECHmap2[0][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
             // OK, it's still hard-coded in html page, I still don't know why when loaded from outside it doesn't functionate
             local.testANGULAR1("testapp", "testctrl");
         };
@@ -204,15 +272,18 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
 //      TODO: NOT OK THERE. still dont't know why...
 //      local.testANGULAR1("testapp", "testctrl");
 
-        const remote = new CLISIDE_BTECHREMOTE(cliside_BASEIDENT + param["create"] + 11);
+        //-----------------------------------------------------------
+        // INITIALISATION REMOTE TESTS:
+        // wire specific tests callback
+        const remote = new CLISIDE_BTECHREMOTE(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.CREATE()] + 11);
         window.BLOGdomremote = remote; //for testPHP1
-        (data_BTECHmap1[0]["data"])[2] = () => {
+        (data_BTECHmap1[0][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
             remote.testPHP8();
         };
-        (data_BTECHmap1[4]["data"])[2] = () => {
-            remote.testPHP67(contener, null, "htreedemo");
+        (data_BTECHmap1[4][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
+            remote.testPHP67(contener, null, CLISIDE_IBLOGTECH.IDTREEDEMO());
         };
-        (data_BTECHmap1[6]["data"])[2] = () => {
+        (data_BTECHmap1[6][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
             contener.getElementById("blog_entry8").innerHTML = local.testDYN(
                 // HEADER:
                 null,
@@ -232,7 +303,7 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
                 '</ul>\n'
             );
         };
-        (data_BTECHmap2[1]["data"])[2] = () => {
+        (data_BTECHmap2[1][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
             local.testHELLO(contener, "hello_area");
             local.testCOUNT(contener, "count_area");
             remote.testPHP2(contener, null, "bdResult");
@@ -251,19 +322,19 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
 
         //-----------------------------------------------------------
         cliside_BLOGTECHpage.loadtop(contener,
-            "./clientside/cards/cardheader.html"
+            CLISIDE_IBLOGTECH.CARDHEADER()
         );
         cliside_BLOGTECHpage.loadbody(contener, [
-            "./clientside/cards/BLOGgridTECH1.html",
-            "./clientside/cards/BLOGgridTECH2.html"
+            CLISIDE_IBLOGTECH.CARDGRIDTECH1(),
+            CLISIDE_IBLOGTECH.CARDGRIDTECH2()
         ]);
         cliside_BLOGTECHpage.loadbottom(contener, [
-            "./clientside/cards/cardfooter.html",
-            "./clientside/cards/cardabout.html"
+            CLISIDE_IBLOGTECH.CARDFOOTER(),
+            CLISIDE_IBLOGTECH.CARDABOUT()
         ]);
 
         //-----------------------------------------------------------
-        contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
+        contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "Tech notes (coming soon)...";
 
     }
 
@@ -271,7 +342,7 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
     /// @param contener is the target DOM
     /// @param param maybe anything
     static pageunload(contener, param) {
-        const core = Multiple.get(Core.IDENT(), param["create"] + 10);
+        const core = Multiple.get(Core.IDENT(), param[CLISIDE_IBLOGTECH.CREATE()] + 10);
         core.isPageOver = true;
     }
 
@@ -288,7 +359,7 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
         mousepos.x = window.scrollX;
         mousepos.y = window.scrollY;
         mousecurrent = contener.elementFromPoint(50, mousepos.y);
-        contener.getElementById("detailsname").innerHTML = "CURRENT " + mousecurrent;
+        contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "CURRENT " + mousecurrent;
         */
 
     }
@@ -308,8 +379,8 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
     /// @param param maybe anything
     static mouseentercard(contener, param) {
         cliside_BLOGTECHmousecur = param.getAttribute("id");
-//    contener.getElementById("detailsname").innerHTML = "Implementation details for " + mousecurrent + ": ...";
-        contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
+//    contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "Implementation details for " + mousecurrent + ": ...";
+        contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "Tech notes (coming soon)...";
     }
 
     /// @brief scroll function
@@ -317,30 +388,28 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
     /// @param param maybe anything
     static mouseleavecard(contener, param) {
         cliside_BLOGTECHmousecur = param.getAttribute("id");
-        contener.getElementById("detailsname").innerHTML = "Tech notes (coming soon)...";
+        contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "Tech notes (coming soon)...";
     }
 
     /*************************************************************************************
-     * IMPLEMENTATION: INTERNAL
+     * IMPLEMENTATION: INTERNALE
      *************************************************************************************/
     /// ctor
     /// @param id
     constructor(param) {
         super(-1);
 
-        this.srcid = "contener";
+        this.loader = new CLISIDE_LOADER(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.LOAD()] + 9);
 
-        this.loader = new CLISIDE_LOADER(cliside_BASEIDENT + param["load"] + 9);
-
-        this.cr = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param["create"]);
-        this.ld = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param["load"]);
+        this.cr = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.CREATE()]);
+        this.ld = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.LOAD()]);
 
     }
 
     loadtop(contener, file) {
-        this.loader.localgetfile(contener, file, this.srcid,"headercard",
+        this.loader.localgetfile(contener, file, CLISIDE_IBLOGTECH.CONTENER(), CLISIDE_IBLOGTECH.IDHEADER(),
             () => {
-                contener.getElementById("titlepart").appendChild(contener.createTextNode("Technical Part"))
+                contener.getElementById(CLISIDE_IBLOGTECH.IDTITLEPART()).appendChild(contener.createTextNode("Technical Part"))
             }
         );
 
@@ -352,15 +421,16 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
         const local = this;
 
         /*
+        Comment when React
         */
-        this.loader.localgetfile(document, file[0], this.srcid,"gridtech1",
+        this.loader.localgetfile(document, file[0], CLISIDE_IBLOGTECH.CONTENER(), CLISIDE_IBLOGTECH.IDGRIDTECH1(),
             () => {
                 data_BTECHmap1.forEach((entry, index) => {
                     local.loadmapitem(contener, entry);
                 });
             }
         );
-        this.loader.localgetfile(document, file[1], this.srcid,"gridtech2",
+        this.loader.localgetfile(document, file[1], CLISIDE_IBLOGTECH.CONTENER(), CLISIDE_IBLOGTECH.IDGRIDTECH2(),
             () => {
                 data_BTECHmap2.forEach((entry, index) => {
                     local.loadmapitem(contener, entry);
@@ -368,6 +438,7 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
             }
         );
         /*
+        Uncomment when React
         data_BTECHmap1.forEach((entry, index) => {
             local.loadmapitem(contener, entry);
         });
@@ -379,8 +450,8 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
     }
 
     loadbottom(contener, file) {
-        this.loader.localgetfile(contener, file[0], this.srcid,"footer");
-        this.loader.localgetfile(contener, file[1], this.srcid,"aboutcard");
+        this.loader.localgetfile(contener, file[0], CLISIDE_IBLOGTECH.CONTENER(), CLISIDE_IBLOGTECH.IDFOOTER());
+        this.loader.localgetfile(contener, file[1], CLISIDE_IBLOGTECH.CONTENER(), CLISIDE_IBLOGTECH.IDABOUT());
 
     }
 
@@ -389,8 +460,8 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
             return;
         }
 
-        if(null !== entry["desc"]) {
-            this.ld.remotegetentry(contener, this.cr, entry["desc"], entry["content"], entry["progress"],
+        if(null !== entry[CLISIDE_IBLOGNEWS.DESC()]) {
+            this.ld.remotegetentry(contener, this.cr, entry[CLISIDE_IBLOGTECH.DESC()], entry[CLISIDE_IBLOGTECH.CONTENT()], entry[CLISIDE_IBLOGTECH.PROGRESS()],
                 (cr, desc, content) => {
                     cr.filldesc(contener, desc);
                     entry["loaded"] = true;
@@ -399,7 +470,7 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
 
         }
 
-        this.loader.localgetfile(contener, entry["data"][0], this.srcid, entry["data"][1], entry["data"][2]);
+        this.loader.localgetfile(contener, entry[CLISIDE_IBLOGTECH.DATA()][0], CLISIDE_IBLOGTECH.CONTENER(), entry[CLISIDE_IBLOGTECH.DATA()][1], entry[CLISIDE_IBLOGTECH.DATA()][2]);
     };
 
 }

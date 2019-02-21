@@ -39,6 +39,40 @@ let cliside_INDEXpage = null;
 export class CLISIDE_IINDEX extends CLISIDE_PAGE {
 
     /*************************************************************************************
+     * CONSTANTS: GRAMMAR
+     *************************************************************************************/
+    static LOAD() { return "load"; }
+
+    static DESC() { return "desc"; }
+
+    /*************************************************************************************
+     * CONSTANTS: ITEMS
+     *************************************************************************************/
+    static CONTENER() { return "contener"; }
+
+    static IDGRIDNEWS() { return "gridnews"; }
+    static IDGRIDTECH() { return "gridtech1"; }
+    static IDNAVI() { return "navi"; }
+    static IDFOOTER() { return "footer"; }
+    static IDFEEDBACK() { return "feedbackcard"; }
+    static IDMODALUTIL() { return "modalutil"; }
+
+    /*************************************************************************************
+     * CONSTANTS: CARDS
+     *************************************************************************************/
+    static CARDPARALLAX1STRIPE() { return "./clientside/cards/cardparallax1stripe.html"; }
+    static CARDPARALLAX1ABOUT() { return "./clientside/cards/cardparallax1about.html"; }
+    static CARDPARALLAX2() { return "./clientside/cards/cardparallax2.html"; }
+    static CARDPARALLAX3() { return "./clientside/cards/cardparallax3.html"; }
+    static CARDNAVI() { return "./clientside/cards/cardnavi.html"; }
+    static CARDPRES() { return "./clientside/cards/CVcardpres.html"; }
+    static CARDGRIDNEWS() { return "./clientside/cards/BLOGgridNEWS.html"; }
+    static CARDGRIDTECH() { return "./clientside/cards/BLOGgridTECH1.html"; }
+    static CARDFOOTER() { return "./clientside/cards/cardfooter.html"; }
+    static CARDMODAL() { return "./clientside/cards/cardmodal.html"; }
+    static CARDFEEDBACK() { return "./clientside/cards/cardfeedback.html"; }
+
+    /*************************************************************************************
      * IMPLEMENTATION: PAGE ENTRYPOINTs
      *************************************************************************************/
     /// @brief fills the page with required data
@@ -56,17 +90,17 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
         //-----------------------------------------------------------
         cliside_INDEXpage = new CLISIDE_IINDEX(param);
         cliside_INDEXpage.loadtop(contener,
-            "./clientside/cards/cardnavi.html"
+            CLISIDE_IINDEX.CARDNAVI()
         );
         cliside_INDEXpage.loadbody(contener, [
-            "./clientside/cards/CVcardpres.html",
-            "./clientside/cards/BLOGgridNEWS.html",
-            "./clientside/cards/BLOGgridTECH1.html"
+            CLISIDE_IINDEX.CARDPRES(),
+            CLISIDE_IINDEX.CARDGRIDNEWS(),
+            CLISIDE_IINDEX.CARDGRIDTECH()
         ]);
         cliside_INDEXpage.loadbottom(contener, [
-            "./clientside/cards/cardfooter.html",
-            "./clientside/cards/cardmodal.html",
-            "./clientside/cards/cardfeedback.html"
+            CLISIDE_IINDEX.CARDFOOTER(),
+            CLISIDE_IINDEX.CARDMODAL(),
+            CLISIDE_IINDEX.CARDFEEDBACK()
         ]);
 
     }
@@ -115,7 +149,7 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
     /// @param param selects the data_BNEWSmap item
     static modalnews(contener, inst, param) {
         try {
-            cliside_INDEXpage.loader.showMODAL(contener, cliside_INDEXpage.cr, inst, data_INDEXfiles[1],"./clientside/cards/BLOGgridNEWS.html","gridnews", data_BNEWSmap[param]["desc"]);
+            cliside_INDEXpage.loader.showMODAL(contener, cliside_INDEXpage.cr, inst, data_INDEXfiles[1], CLISIDE_IINDEX.CARDGRIDNEWS(), CLISIDE_IINDEX.IDGRIDNEWS(), data_BNEWSmap[param][CLISIDE_IINDEX.DESC()]);
 
         }
         catch (e) {
@@ -132,7 +166,7 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
     /// @param index selects the data_BTECHmap item
     static modaltech(contener, inst, param) {
         try {
-            cliside_INDEXpage.loader.showMODAL(contener, cliside_INDEXpage.cr, inst, data_INDEXfiles[2],"./clientside/cards/BLOGgridTECH1.html","gridtech1", param["desc"]);
+            cliside_INDEXpage.loader.showMODAL(contener, cliside_INDEXpage.cr, inst, data_INDEXfiles[2], CLISIDE_IINDEX.CARDGRIDTECH(), CLISIDE_IINDEX.IDGRIDTECH(), param[CLISIDE_IINDEX.DESC()]);
 
         }
         catch (e) {
@@ -149,7 +183,7 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
     static pagefbk(contener, param) {
         try {
             const basename = "cliside_ENTRYphpmail";
-            const loader = new CLISIDE_LOADER(basename, cliside_BASEIDENT + param["load"]);
+            const loader = new CLISIDE_LOADER(basename, cliside_BASEIDENT + param[CLISIDE_IINDEX.LOAD()]);
 
             const params = [
                 basename,
@@ -176,16 +210,14 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
     }
 
     /*************************************************************************************
-     * IMPLEMENTATION: INTERNALE
+     * IMPLEMENTATION: INTERNALS
      *************************************************************************************/
     /// ctor
     /// @param id
     constructor(param) {
         super(-1);
 
-        this.srcid = "contener";
-
-        this.loader = new CLISIDE_INDEXLOADER(cliside_BASEIDENT + param["load"]);
+        this.loader = new CLISIDE_INDEXLOADER(cliside_BASEIDENT + param[CLISIDE_IINDEX.LOAD()]);
         this.cr = new CLISIDE_INDEXCREATE(cliside_BASEIDENT + param["create"]);
 
     }
@@ -193,7 +225,7 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
     loadtop(contener, file) {
         const local = this;
 
-        this.loader.localgetfile(contener, file, this.srcid,"navi",
+        this.loader.localgetfile(contener, file, CLISIDE_IINDEX.CONTENER(), CLISIDE_IINDEX.IDNAVI(),
             () => {
                 local.cr.displayNAVBARS(contener)
             }
@@ -214,10 +246,9 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
     }
 
     loadbottom(contener, file) {
-        this.loader.localgetfile(contener, file[0], this.srcid,"footer");
-        this.loader.localgetfile(contener, file[1], this.srcid,"modalutil");
-
-        this.loader.localgetfile(contener, file[2], this.srcid,"feedbackcard");
+        this.loader.localgetfile(contener, file[0], CLISIDE_IINDEX.CONTENER(), CLISIDE_IINDEX.IDFOOTER());
+        this.loader.localgetfile(contener, file[1], CLISIDE_IINDEX.CONTENER(), CLISIDE_IINDEX.IDMODALUTIL());
+        this.loader.localgetfile(contener, file[2], CLISIDE_IINDEX.CONTENER(), CLISIDE_IINDEX.IDFEEDBACK());
 
     }
 

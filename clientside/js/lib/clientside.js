@@ -17,6 +17,11 @@ export let cliside_disctoggled = false;
  *************************************************************************************/
 export class CLISIDE_BASE extends Multiple {
 
+    static FIREFOX() { return "Firefox"; }
+    static REACTENTRY() { return "reactentry"; }
+    static MODALDIV() { return "modaldiv"; }
+    static MODALIMG() { return "modalimg"; }
+
     /// ctor
     /// @param id
     constructor(id) {
@@ -33,7 +38,7 @@ export class CLISIDE_BASE extends Multiple {
 
     /// @brief ...
     static getFuncName() {
-        if(true === CLISIDE_BASE.checkbrowser("Firefox")) {
+        if(true === CLISIDE_BASE.checkbrowser(CLISIDE_BASE.FIREFOX())) {
             return "";
         }
 
@@ -89,7 +94,7 @@ export class CLISIDE_BASE extends Multiple {
 /*************************************************************************************
  * IMPLEMENTATION: BASIC PAGE CREATION UTILITIES
  *************************************************************************************/
-/// @brief class to make items adding easy
+/// @brief class to make items adding/handling easy
 export class CLISIDE_DOM extends CLISIDE_BASE {
 
     /// ctor
@@ -407,7 +412,7 @@ export class CLISIDE_DOM extends CLISIDE_BASE {
         this.progressvals[barid] = 0;
         this.progressitvs[barid] = setInterval((inst) => {
             inst.progressvals[barid] += 1;
-            if(false == inst.progressbars[barid].className.includes("reactentry")) {
+            if(false == inst.progressbars[barid].className.includes(CLISIDE_DOM.REACTENTRY())) {
                 inst.progressbars[barid].style.width = inst.progressvals[barid] + '%';
             }
             else {
@@ -450,8 +455,8 @@ export class CLISIDE_DOM extends CLISIDE_BASE {
     /// @param idsrc desc
     /// @param iddst desc
     displaymodal (domsrc, datasrc, contndst, idsrc, iddst){
-        contndst.getElementById("modaldiv").style.display = "block";
-        contndst.getElementById("modalimg").src = idsrc.src;
+        contndst.getElementById(CLISIDE_BASE.MODALDIV()).style.display = "block";
+        contndst.getElementById(CLISIDE_BASE.MODALIMG()).src = idsrc.src;
 
         //SRC side --------------------
         const idtitle = Object.keys(datasrc)[1];
@@ -481,7 +486,7 @@ export class CLISIDE_DOM extends CLISIDE_BASE {
 /*************************************************************************************
  * IMPLEMENTATION: COMMUNICATION WITH SERVER
  *************************************************************************************/
-/// @brief local or remote data access
+/// @brief local or remote data/file access
 export class CLISIDE_LOADER extends CLISIDE_DOM {
 
     /// @brief ctor
@@ -796,6 +801,8 @@ export class CLISIDE_LOADER extends CLISIDE_DOM {
  *************************************************************************************/
 export class CLISIDE_PAGE extends CLISIDE_BASE {
 
+    static LATLON() { return [ 41.878114, -87.629798 ] };
+
     /*************************************************************************************
      * IMPLEMENTATION: PAGE UTILS
      *************************************************************************************/
@@ -854,7 +861,7 @@ export class CLISIDE_PAGE extends CLISIDE_BASE {
     /// @brief scroll function
     /// @param contener is the target DOM
     /// @param param maybe anything
-    static pagescroll(contener, param) {
+    static pagescrolllazy(contener, param) {
         window.scrollrect = null;
 
         function getOffset(el) {
@@ -909,14 +916,9 @@ export class CLISIDE_PAGE extends CLISIDE_BASE {
     /// @param mapid ...
     static gmapshow(contener, mapid/*"googleMap"*/) {
         try {
-            const clientside_latlon = [
-                41.878114,
-                -87.629798
-            ];
-
             // --------------------------------------
             //1.1: construct location
-            const where = new google.maps.LatLng(clientside_latlon[0], clientside_latlon[1]);
+            const where = new google.maps.LatLng(CLISIDE_PAGE.LATLON()[0], CLISIDE_PAGE.LATLON()[1]);
             //1.2: construct parameters using location
             const options = {
                 center: where,

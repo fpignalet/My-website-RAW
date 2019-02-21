@@ -4,3 +4,4 @@ clientside/game/*
 clientside/node_modules/*
 *.zip
 BD*.php
+tests/*

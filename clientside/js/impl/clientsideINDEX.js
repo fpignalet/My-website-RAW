@@ -41,9 +41,10 @@ import {
 
 import {
     data_BTECHlasts,
-    data_BNEWSlasts
+    data_BNEWSlasts,
+    data_BNEWSmap,
+    data_BTECHmap1
 } from "../../data/BLOGdata.js";
-import {data_BNEWSmap, data_BTECHmap1} from "../../data/BLOGdata";
 
 /*************************************************************************************
  * IMPLEMENTATION: ENTRY PAGE ITEMS CREATION
@@ -196,6 +197,8 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
      * CONSTANTS
      ****************************************/
     static CMD() { return "" /*will use variable target attribute*/ };
+    static IDPRES() { return "prescard"; }
+    static MODALCAPTION() { return "modalcaption"; }
 
     /****************************************
      * PUBLIC IMPLEMENTATION
@@ -216,7 +219,7 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
     /*******************************************
      * Loading layer WITH PRELOAD
      *******************************************/
-    /// @brief loading presentation data
+    /// @brief loading presentation data as an extract from CV page
     /// @param contener is the destination DOM
     /// @param creator
     /// @param file
@@ -238,7 +241,7 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
                 local.displayitemsfrom(contener, data_INDEXfiles[0], dataremote, data_INDEXpresitems[2], data_INDEXpresitems[3],
                     (dom, datasrc, contener, idsrc, itdst) => {
                         // 3rd - then complete the reference page with the needed card
-                        local.localgetfile(dom, file,"contener","prescard",
+                        local.localgetfile(dom, file,"contener",CLISIDE_INDEXLOADER.IDPRES(),
                             () => {
                                 // 4rd - then fill ref page with data and transfer items to current page
                                 cr.updatePRESENTATION(dom, datasrc, contener, idsrc, itdst);
@@ -269,7 +272,7 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
                 //------------------
                 // POSTLOAD:
                 // 2nd - then load reference page
-                local.displayitemsfrom(contener, file, dataremote, null,"modalcaption",
+                local.displayitemsfrom(contener, file, dataremote, null,CLISIDE_INDEXLOADER.MODALCAPTION(),
                     (dom, datasrc, contener, idsrc, itdst) => {
                         // 3rd - then complete the reference page with the needed card
                         local.localgetfile(dom, card,"contener", grid,
@@ -287,7 +290,7 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
     /*******************************************
      * Loading layer
      *******************************************/
-    /// @brief loading blog news data
+    /// @brief loading blog news data as an extract from BLOG page
     /// @param contener is the destination DOM
     /// @param creator desc...
     /// @param file desc...
@@ -321,7 +324,7 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
         );
     }
 
-    /// @brief loading blog tech data
+    /// @brief loading blog tech data as an extract from BLOG page
     /// @param contener is the destination DOM
     /// @param creator
     /// @param file

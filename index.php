@@ -7,7 +7,7 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="fpignaletmainpage">
+        <meta name="description" content="entrypage">
         <meta http-equiv="Content-Type" content="text/html">
         <meta http-equiv="pragma" content="no-cache" />
         <!-- meta http-equiv="Content-Security-Policy"
@@ -77,49 +77,51 @@
         </div>
         <!-- About stripe -->
         <div class="w3-row w3-center w3-dark-grey w3-padding-16">
-            <div id="aboutyearstext" class="w3-quarter w3-section">
-                <span id="aboutyearsnum" class="w3-xlarge"></span><br>
-            </div>
-            <div id="aboutprojectstext" class="w3-quarter w3-section">
-                <span id="aboutprojectsnum" class="w3-xlarge"></span><br>
-            </div>
-            <div id="aboutboitestext" class="w3-quarter w3-section">
-                <span id="aboutboitesnum" class="w3-xlarge"></span><br>
-            </div>
-            <div id="abouthourstext" class="w3-quarter w3-section">
-                <span id="abouthoursnum" class="w3-xlarge"></span><br>
+            <div id="parallax1stripe">
+                <div id="aboutyearstext" class="w3-quarter w3-section">
+                    <span id="aboutyearsnum" class="w3-xlarge"></span><br>
+                </div>
+                <div id="aboutprojectstext" class="w3-quarter w3-section">
+                    <span id="aboutprojectsnum" class="w3-xlarge"></span><br>
+                </div>
+                <div id="aboutboitestext" class="w3-quarter w3-section">
+                    <span id="aboutboitesnum" class="w3-xlarge"></span><br>
+                </div>
+                <div id="abouthourstext" class="w3-quarter w3-section">
+                    <span id="abouthoursnum" class="w3-xlarge"></span><br>
+                </div>
             </div>
         </div>
         <!-- About Section -->
         <div class="w3-content w3-container w3-padding-64" id="about">
-            <h3 class="w3-center">
-                ABOUT ME
-            </h3>
-            <div class="w3-row">
-                <div class="w3-col m6 w3-center w3-padding-large">
-                    <p>
+            <div id="parallax1about">
+                <h3 class="w3-center">
+                    ABOUT ME
+                </h3>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-center w3-padding-large">
+                        <p>
                         <h3 id="entryname" class="w3-center">
                             <i class="fa fa-user w3-margin-right"></i>
                         </h3>
-                    </p>
-                    <br>
-                    <img id="entryphoto" class="w3-round w3-image" alt="Photo of Me">
-                </div>
-                <div class="w3-col m6 w3-padding-large">
-                    <div id="entrypresentation">
+                        </p>
+                        <br>
+                        <img id="entryphoto" class="w3-round w3-image" alt="Photo of Me">
                     </div>
+                    <div class="w3-col m6 w3-padding-large">
+                        <div id="entrypresentation">
+                        </div>
 
-                    <hr/>
-                    <form><button id="entrycvbutton"></button></form>
-                    <hr/>
-                    <form><button id="entryofferbutton"></button></form>
+                        <hr/>
+                        <form><button id="entrycvbutton"></button></form>
+                        <hr/>
+                        <form><button id="entryofferbutton"></button></form>
+                    </div>
                 </div>
-
             </div>
-
         </div>
 
-        <!-- -------------------------------------------------------------------------------------------------------------->
+    <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- SECOND Parallax Image with BLOG Text -->
         <!-- -------------------------------------------------------------------------------------------------------------->
@@ -133,37 +135,38 @@
         </div>
         <!-- Container (BLOG Section) -->
         <div class="w3-content w3-container w3-padding-64" id="portfolio2">
-            <h3 id="pf2title" class="w3-center">
-            </h3>
-            <p class="w3-center">
-                <em id="pf2text"></em>
-            </p>
-            <br>
-            <!-- Responsive Grid. Four columns on tablets, laptops and desktops.
-            Will stack on mobile devices/small screens (100% width) -->
-            <div class="w3-card w3-margin">
-                <div class="w3-row-padding w3-center">
-                    <div class="w3-col m6">
-                        <img id="pf2img1" style="width:100%" class="w3-hover-opacity" alt="BLOGNEWS entry 0"
-                             onclick="window.INDEXmodalnews(document, this, 0)">
-                    </div>
+            <div id="parallax2">
+                <h3 id="pf2title" class="w3-center">
+                </h3>
+                <p class="w3-center">
+                    <em id="pf2text"></em>
+                </p>
+                <br>
+                <!-- Responsive Grid. Four columns on tablets, laptops and desktops.
+                Will stack on mobile devices/small screens (100% width) -->
+                <div class="w3-card w3-margin">
+                    <div class="w3-row-padding w3-center">
+                        <div class="w3-col m6">
+                            <img id="pf2img1" style="width:100%" class="w3-hover-opacity" alt="BLOGNEWS entry 0"
+                                 onclick="window.INDEXmodalnews(document, this, 0)">
+                        </div>
+                        <div class="w3-col m6">
+                            <img id="pf2img2" style="width:100%" class="w3-hover-opacity" alt="BLOGNEWS entry 1"
+                                 onclick="window.INDEXmodalnews(document, this, 1)">
+                        </div>
 
-                    <div class="w3-col m6">
-                        <img id="pf2img2" style="width:100%" class="w3-hover-opacity" alt="BLOGNEWS entry 1"
-                             onclick="window.INDEXmodalnews(document, this, 1)">
                     </div>
-
                 </div>
-            </div>
-            <hr>
-            <div class="w3-row-padding w3-center">
-                <form>
-                    <button id="pf2button"></button>
-                </form>
+                <hr>
+                <div class="w3-row-padding w3-center">
+                    <form>
+                        <button id="pf2button"></button>
+                    </form>
+                </div>
+
             </div>
 
         </div>
-
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- THIRD Parallax Image with BLOG Text -->
@@ -178,46 +181,47 @@
         </div>
         <!-- Container (BLOG Section) -->
         <div class="w3-content w3-container w3-padding-64" id="portfolio1">
-            <h3 id="pf1title" class="w3-center">
-            </h3>
-            <p class="w3-center">
-                <em id="pf1text"></em>
-            </p>
-            <br>
-            <!-- Responsive Grid. Four columns on tablets, laptops and desktops.
-            Will stack on mobile devices/small screens (100% width) -->
-            <div class="w3-card w3-margin">
-                <div class="w3-row-padding w3-center">
-                    <div class="w3-col m6">
-                        <script type="module">
-                            import { data_BTECHmap2 } from "./clientside/data/BLOGdata.js";
-                            window.modaltarget1 = data_BTECHmap2[0];
-                        </script>
-                        <img id="pf1img1" style="width:100%" class="w3-hover-opacity" alt="BLOGTECH entry 0"
-                             onclick="window.INDEXmodaltech(document, this, window.modaltarget1)">
-                    </div>
+            <div id="parallax3">
+                <h3 id="pf1title" class="w3-center">
+                </h3>
+                <p class="w3-center">
+                    <em id="pf1text"></em>
+                </p>
+                <br>
+                <!-- Responsive Grid. Four columns on tablets, laptops and desktops.
+                Will stack on mobile devices/small screens (100% width) -->
+                <div class="w3-card w3-margin">
+                    <div class="w3-row-padding w3-center">
+                        <div class="w3-col m6">
+                            <script type="module">
+                                import { data_BTECHmap2 } from "./clientside/data/BLOGdata.js";
+                                window.modaltarget1 = data_BTECHmap2[0];
+                            </script>
+                            <img id="pf1img1" style="width:100%" class="w3-hover-opacity" alt="BLOGTECH entry 0"
+                                 onclick="window.INDEXmodaltech(document, this, window.modaltarget1)">
+                        </div>
+                        <div class="w3-col m6">
+                            <script type="module">
+                                import { data_BTECHmap1 } from "./clientside/data/BLOGdata.js";
+                                window.modaltarget2 = data_BTECHmap1[5];
+                            </script>
+                            <img id="pf1img2" style="width:100%" class="w3-hover-opacity" alt="BLOGTECH entry 1"
+                                 onclick="window.INDEXmodaltech(document, this, window.modaltarget2)">
+                        </div>
 
-                    <div class="w3-col m6">
-                        <script type="module">
-                            import { data_BTECHmap1 } from "./clientside/data/BLOGdata.js";
-                            window.modaltarget2 = data_BTECHmap1[5];
-                        </script>
-                        <img id="pf1img2" style="width:100%" class="w3-hover-opacity" alt="BLOGTECH entry 1"
-                             onclick="window.INDEXmodaltech(document, this, window.modaltarget2)">
                     </div>
 
                 </div>
+                <hr>
+                <div class="w3-row-padding w3-center">
+                    <form>
+                        <button id="pf1button"></button>
+                    </form>
+                </div>
 
-            </div>
-            <hr>
-            <div class="w3-row-padding w3-center">
-                <form>
-                    <button id="pf1button"></button>
-                </form>
             </div>
 
         </div>
-
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <!-- FOURTH Parallax Image with feedback formular -->
@@ -273,9 +277,16 @@
         <!-- JS IMPLEMENTATION: STANDARD -->
         <!-- -------------------------------------------------------------------------------------------------------------->
         <script type="module">
+            /*************************************************************************************
+             * INCLUDES CODE
+             *************************************************************************************/
             import { CLISIDE_IINDEX } from "./clientside/js/clientsideIINDEX.js";
-
-            //-----------------------------------------------------------
+            /*************************************************************************************
+             * INCLUDES DATA
+             *************************************************************************************/
+            /*************************************************************************************
+             * IMPLEMENTATION
+             *************************************************************************************/
             try {
                 //page initialsation happends there
                 window.onload = function() { CLISIDE_IINDEX.pageload(document, { create: 0, load: 1 }) };
