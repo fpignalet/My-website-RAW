@@ -1,7 +1,7 @@
 'use strict';
 
 //-----------------------------------------------------------------------------------------------------------
-/// @brief maps are there to fetch remote data. see serverside/data/CVdata.php
+/// @brief maps are there to fetch remote data. see serverside/data/CVdataEN.php
 export const data_CVmap1 = [
     //LEFT SIDE ---------------------------------------
     {
@@ -82,7 +82,7 @@ export const data_CVmap1 = [
         desc: null,
         content: null,
         boite: "data_CVboulot0",
-        boulots: ["data_CVboulot01"],
+        boulots: ["data_CVboulot01", "data_CVboulot02"],
         progress: ["boulotentry0wait", "boulotentry0progress", "boulotentry0bar"],
         // for left side callback function is implemented in CLISIDE_CVCREATE
         cbk: null
@@ -173,7 +173,7 @@ export const data_CVmap1 = [
     }
 ];
 
-/// @brief maps are there to fetch remote data. see serverside/data/CVdata.php
+/// @brief maps are there to fetch remote data. see serverside/data/CVdataEN.php
 export const data_CVmap2 = [
     //RIGHT SIDE ---------------------------------------
     {
@@ -190,7 +190,7 @@ export const data_CVmap2 = [
     }
 ];
 
-/// @brief maps are there to fetch remote data. see serverside/data/CVdata.php
+/// @brief maps are there to fetch remote data. see serverside/data/CVdataEN.php
 export const data_CVmap3 = [
     //RIGHT SIDE ---------------------------------------
     {
