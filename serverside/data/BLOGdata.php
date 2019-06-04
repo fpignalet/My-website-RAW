@@ -12,6 +12,37 @@ $data_BNloadsleep = 100000;
 
 //-----------------------------------------------------------------------------------------------------------
 /// @brief
+$data_BNdesc21 = [
+
+    "blog_entry21PHOTO" =>
+        "images/WP_20180821_17_57_49_Pro.jpg",
+
+    "blog_entry21TITLE" =>
+        "And now?",
+
+    "blog_entry21DATE" =>
+        [
+            "June 04, 2019",
+            "Still alive, but busy..."
+        ]
+
+];
+
+/// @brief
+$data_BNcontent21 = [
+
+    "blog_entry21CONTENT" => [
+        [ "p",
+            [
+                "Working on many different things. Porting this website to Spring Boot, for example..."
+            ]
+        ],
+    ]
+
+];
+
+//-----------------------------------------------------------------------------------------------------------
+/// @brief
 $data_BNdesc20 = [
 
     "blog_entry20PHOTO" =>
