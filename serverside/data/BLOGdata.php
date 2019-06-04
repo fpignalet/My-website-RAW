@@ -924,6 +924,8 @@ $data_BTtestarray =
 /// @brief
 $data_BLOGmap = [
 
+    "data_BNdesc21" => $data_BNdesc21,
+    "data_BNcontent21" => $data_BNcontent21,
     "data_BNdesc20" => $data_BNdesc20,
     "data_BNcontent20" => $data_BNcontent20,
     "data_BNdesc17" => $data_BNdesc17,
