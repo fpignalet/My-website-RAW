@@ -1,6 +1,8 @@
 'use strict';
 
 //-----------------------------------------------------------------------------------------------------------
+//TRYIN DESPERATELY TO MAKE EVERYTHING UP TO DATE IN THIS F*****G GITHUB REPO
+//-----------------------------------------------------------------------------------------------------------
 /// @brief lasts are used for sprite previews
 export const data_BNEWSlasts = [
     "blog_entry21PHOTO",
