@@ -1,0 +1,359 @@
+Francois Pignalet
+Software-Architektur, Entwicklung und Integration mit mehr als 25 Jahren Erfahrung
+Curd-Jürgens-Str 18, 81739 München
+mailto:francois.pignalet@gmail.com,
+francois.pignalet@gmail.com
+00491704868403
+06/07/1967
+
+Fachgebiete
+    Full-Stack Entwickler
+    Agile Software Entwicklung,
+    Wartungsfähiges und dokumentiertes Code-Schreiben... Clean Code!,
+    Anwendungsarchitektur (objektorientiert und prozedural) ab Spezifikation,
+    Spezialist für Heavily threaded Architekturen,
+    Komplexes Refactoring und Debugging
+
+Hauptkompetenzen
+    BESTÄTIGT
+    Java,  Javascript,  REST, JUnit, XML, JSON, Ant, C,  CUnit, Eclipse, AGILE, JIRA, SVN, SW Architekture, OOP, V Cycle
+
+    DURCHSCHNITTLICH
+    React,  Spring,  jQuery,  SQL,  Linux,  C++,  MFC,  STL,  Win32,  Asm 68K,  Github, Continuous Integration,  Rational Unified Process,  Design Patterns
+
+    NIEDRIG
+    C# / .NET,  J2EE,  Python,  Php,  Angular,  OSGi,  CORBA,  Asm x86/ARM,  Jenkins,  DOORS
+
+    BEKANNT
+    WebLogic,  Android,  Django,  Asm PowerPC
+
+Sprachen
+    Französisch,
+    100% (MUTTERSPRACHE)
+
+    Englisch,
+    C1
+
+    Deutsch,
+    B2~C1
+
+2018/11 - bis jetzt,
+http://www.pignalet.de,
+Freelance
+
+    Project: Website pro (Bis jetzt)
+    Full-Stack Entwickler
+        Beschreibung
+            NJDev company website,
+            Diese website: http://www.njdevpro.fr
+            Quellcode: https://github.com/fpignalet/my-website-nj
+        Umgebung
+            Entwicklung auf Windows 10 und Linux Debian 9 mit JetBrains (PhpStorm, Datagrid),
+            Frontend (responsive) entwickelt mit React, Backend entwickelt mit Php, dann Spring Boot.
+            App-Server: WAMP-Server, Tomcat.
+            Datenbanken: MySQL.
+            Organisation: Jira, Github,
+        Schlüsselpunkte
+            Java, Javascript, Php, Spring Boot, SQL,
+        Methodologie
+            AGILE software Entwicklung,
+            Extreme programming
+
+    Open Source project: Website pro (2 Monate & 2 Wochen)
+    Full-Stack Entwickler
+        Beschreibung
+            Web Entwicklung,
+            Diese website: http://www.pignalet.de
+            Quellcode: https://github.com/fpignalet/my-website-raw
+        Umgebung
+            Entwicklung auf Windows 10 und Linux Debian 9 mit JetBrains (IntelliJIDEA, PhpStorm, PyCharm, Datagrid).
+            Frontend (responsive) mit Vanilla Javascript entwickelt, Backend mit Php, dann Spring Boot.
+            Technologiebeobachtung: React, Angular, Django, Microservices.
+            App-Server: Apache2, WAMP-Server, Tomcat.
+            Datenbanken: MySQL, MariaDB.
+            Organisation: Jira, Jenkins, Github,
+        Schlüsselpunkte
+            Java, Javascript, Php, Spring Boot, SQL,
+        Methodologie
+            AGILE software development,
+            continuous integration,
+            Extreme programming
+
+2015/10 - 2018/10,
+https://www.hensoldt.net/solutions/sea/identification-iff/,
+HENSOLDT GMBH Ottobrunn (ehemals Airbus Defence)
+
+    Produkt / team: IFF (bis zum Ende)
+    Software engineer / Full-Stack Entwickler
+        Beschreibung Frontend, Backend und Embedded-Software für auf IFF-Interrogatoren / Transpondern verwandte Werkzeuge, basierend auf diesen Produkten,
+            https://www.hensoldt.net/solutions/sea/identification-iff/military-mode-5-and-mode-s-interrogator-mssr-2000-i/, MSSR,
+            https://www.hensoldt.net/solutions/sea/identification-iff/ltr-400-mode-siff-lightweight-transponder/, LTR
+        Umgebung
+            Entwicklung auf Windows 7 und Linux Debian 9 mit Eclipse.
+            C Embedded IoT-Software, Java Rich-Client mit Swing-GUI, XML-Daten und Ant-Bereitstellung.
+            Unit-Tests mit CUnit, JUnit.
+            Frontend (responsive) Entwicklung mit Javascript (AJAX), jQuery, React, Node, JSON.
+            Backend-Entwicklung mit Php.
+            C Microservices mit GNU Autotools, Docker, JIRA, Jenkins, SVN, SW-Anforderungen in DOORS.
+            Verschiedene Com-Links und spezielle HW:,
+                UDP/TCP IP, RS-XXX, CAN bus,
+                ADS-B: https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast
+                REST API for Network Controller: https://de.moxa.com/product/Ethernet_Remote_IO.htm
+                [Moxa] Embedded computer for military applications: https://de.moxa.com/product/IC_specialized_by_market.htm
+                [Aitech] Embedded computer for military applications: http://www.rugged.com/a172-rugged-compact-pc
+        Schlüsselpunkte
+            C, C++, Java, Javascript, Php, Asm x86,
+        Methodologie
+            AGILE software Entwicklung,
+            continuous integration
+
+2000/06 - 2015/09,
+https://www.hensoldt.net/solutions/sea/identification-iff/,
+Airbus Defence (ehemals Cassidian / EADS Defence & Security),
+[Mission für ALTEN until 2002/02]
+
+    Produkt / team: IFF (bis zum Ende)
+    Software engineer,
+        Beschreibung Frontend und Embedded Software für folgende Produkte (IFF Interrogators und Transponder-Tools),
+            MSR1000: https://www.hensoldt.net/solutions/sea/identification-iff/short-range-identification-friend-foe-interrogator-shorad-iff-msr-1000/
+            SRPM: https://www.hensoldt.net/solutions/sea/identification-iff/iff-mode-4mode-5-crypto-test-bench-srpm-ng/
+            and other projects related with: https://www.hensoldt.net/solutions/sea/identification-iff/military-mode-5-and-mode-s-interrogator-mssr-2000-i/
+        Umgebung
+            Entwicklung auf Windows 7 und Linux Debian 8 mit Eclipse.
+            C Embedded-Software, Java Rich-Client mit Swing-GUI, XML-Daten und Ant-Bereitstellung. Unit-Tests mit JUnit.
+            Technologieumfrage: Javascript (AJAX), jQuery, React, Node, JSON.
+            Organisation: JIRA, SVN, SW-Anforderungen in DOORS. Verschiedene Com-Links und spezielle HW:,
+                UDP/TCP IP,
+                RS-XXX,
+                https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast, ADS-B,
+                https://www.kontron.de/industries/defense, [Kontron] Embedded computer for military applications
+        Schlüsselpunkte
+            C, Java, Javascript, JSON, XML, Asm x86, Asm ARM STR7,
+        Methodologie
+            AGILE software Entwicklung
+
+    Project: CLA2000 (1 year + 3 Monate)
+    Software engineer,
+        Beschreibung Komponentenentwicklung für ein militärisches Luftsteuerungssystem (SCCOA-Programm),
+            https://www.nao.org.uk/defencevfm/wp-content/uploads/sites/16/2013/03/france_sccoa_mar_2004_1.pdf, SCCOA,
+        Umgebung
+            Entwicklung auf Windows 7 und Linux Debian 8 mit Eclipse. POJO mit Hibernate. Einsatz mit Ant. SW-Anforderungen in DOORS,
+        Schlüsselpunkte
+            Java, XML,
+        Methodologie
+            company internal process (~V cycle)
+
+    Project: LMT / GCTAM (2 Jahre + 4 Monate)
+    Software engineer,
+        Beschreibung
+            Versorgungsflussbehandlung in einem militärischen System,
+            Neue Funktionen und Bugfixes in einem Pure Java Rich Client basierend auf einer 3-Tier-Multithreading-Architektur, die auf Windows ausgeführt wurde
+        Umgebung
+            Windows 7, Eclipse, Swing, Java Beans, Ant,
+        Schlüsselpunkte
+            Java,
+        Methodologie
+            Company internal process (~V cycle)
+
+    Project: MOIE Sic Terre (2 Jahre + 7 Monate)
+    Software Architekt / Gruppenleiter (~6 Entwicklers)
+        Beschreibung
+            Nachrichtenbehandlung in einer militärischen Waffensystem-Kommunikationsinfrastruktur,
+            Riesiges Team ~ 100 Personen (70 SW-Entwickler)
+        Umgebung
+            Windows XP, Entreprise Architect, Eclipse, Swt, OSGI, J2EE, EJB, POJO, JAXB, Spring, SVN,
+        Schlüsselpunkte
+            Java, Python, Ant, XML, XSLT,
+        Methodologie
+            MDA Approach, Design Patterns
+
+    Project: Euromale (7 Monate)
+    Software Architekt / Gruppenleiter (~3 Entwicklers)
+        Beschreibung
+            Drohnen-Videodaten Echtzeiterfassung und behandlung,
+            Design und Implementierung eines mehrstufigen 3-Tier-Architektur-Frontends mit umfassender Verwendung von Entwurfsmustern:
+            Creational (Abstract Factory / Builder / Factory method / Object pool / Singleton), Structural (Bridge / Facade), Behavioral (Command / Iterator / State), Concurrency (Scheduler).
+            Entwurf und Implementierung eines WebLogic-Backends mit PostgreSQL + geografischem Plugin
+        Umgebung
+            Windows XP, Eclipse, Web Services, BEA WebLogic, PostgreSQL, SVN,
+        Schlüsselpunkte
+            Java, C++, .NET (C# / J#), SQL,
+        Methodologie
+            MDA Approach, Design Patterns
+
+    Project: Helios 2 (4 Jahre + 5 Monate),
+    [Mission für ALTEN/EADS FLEXIMAGE]
+    Software Architekt / Gruppenleiter (~6 Entwicklers)
+        Beschreibung
+            Entwicklung der Middleware / Business-Logik für eine Geoinformationsanwendung (2D- und 3D-Bildverwaltung für Missionsvorbereitung und Intelligenz),
+            Stark dreistufige Multithreading-Architektur (spezifische Ebene für parallele Verarbeitungsebene / Fehlerverwaltung),
+            Software-Integration,
+            Spezifische Implementierungsplattform (zunächst auf DOS- / Batch-Tools, dann Emac / Lisp-Tools)
+        Umgebung
+            Windows NT, Unix/CDE, Microsoft MFC, CORBA, ActiveX components, ORACLE DB, Rational suite (ClearCase), Bounds Checker,
+        Schlüsselpunkte
+            C++, SQL,
+        Methodologie Rational Unified Process, Design Patterns
+    Trainer in ALTEN Learning School (~15 attendees),
+        Beschreibung
+            Sessions about coding and unit testing best practises (~3 hours)
+
+1999/10 - 2000/05,
+https://www.thalesgroup.com/fr/global/activities/transportation/urban-mobility/billettique-et-systemes-de-paiements,
+//https://www.thalesgroup.com/sites/default/files/database/d7/asset/document/transcity_ds400_bd_en.pdf
+THALES group (ehemals ALCATEL CGA Transport),
+[Mission für ALTEN]
+
+    Project: Wayfarer (7 Monate)
+    Software Architekt / Gruppenleiter (~4 Entwicklers),
+        Beschreibung
+            Architektur und Entwicklung einer eingebetteten Echtzeit-Software innerhalb der Bus-Ticketing-Konsole,
+            Entwicklung einer virtuellen Maschine für die 386EX-Mikrocontroller-Emulation
+        Umgebung
+            Windows NT, Visual Studio, Microsoft MFC, Wayfarer BUS Ticketing Machine, 386EX microcontroller,
+        Schlüsselpunkte
+            C, C++, Asm x86,
+        Methodologie [
+            V-Model,
+            static & dynamic modeling (UML Diagrams),
+
+    Project: GART (1 Monate)
+    Software Entwickler
+        Beschreibung
+            Kontaktlose Smartcard-Demonstrationsanwendung,
+        Umgebung
+            Windows NT, Visual Studio, Microsoft MFC, Serial RS-232 communication, Contactless smartcard antenna,
+        Schlüsselpunkte
+            C++
+
+1998/07 - 1999/09
+https://www.zodiacaerospace.com/en/products-services/aerosystems/data-systems/telemetry-ground-segment/equipment,
+ZODIAC (ehemals INTERTECHNIQUE IN-SNEC),
+[Mission für ALTEN]
+
+    Project: EUMETSAT (1 year + 3 Monate)
+    Software Entwickler
+        Beschreibung
+            Regulierung und Übertragung für Meteosat-Satelliten, der zweiten Generation,
+            Starker Multithreading-Datenfluss,
+            Echtzeitdatenverarbeitung,
+            Datenkodierung (Reed-Solomon, Pseudo-Randomisierung, Faltung)
+        Umgebung
+            Windows NT, Microsoft MFC, Windows DDK, DSP 56301, OOP, Design Patterns,
+        Schlüsselpunkte
+            C++, C, Asm DSP 56301,
+        Methodologie [
+            V-Model,
+            static & dynamic modeling (UML Diagrams),
+
+1996/01 - 1998/06,
+ATELIER (Groupe Ka)
+
+    Project: EDU (9 Monate)
+    Software Entwickler
+        Beschreibung
+            Essential Disk Utilities: VFAT-Festplattentools für Psion Organizer (Serien 3 und 5): ,
+            Defragmentation / Scandisk / Smart Format / Disk Editor
+        Umgebung
+            Windows NT, Psion EPOC(16/32), OOP,
+        Schlüsselpunkte
+            C, C++,
+        Methodologie
+            Static model, Booch diagrams
+
+    Project: PsiTools (1 year)
+    Software Entwickler
+        Beschreibung
+            Dienstprogramme für Psion Organizer (Serien 3 und 5) speichern und wiederherstellen,
+        Umgebung
+            Mac OS (6/7), Psion EPOC(16/32), Visual C++, Metrowerks CodeWarrior, OOP, Design Patterns,
+        Schlüsselpunkte
+            C, C++
+
+    Project: Velvet (9 Monate)
+    Software Entwickler
+        Beschreibung
+            Faxsoftware (Klasse 1 und 2),
+            Dateiübertragung von Gerät zu Gerät (X-, Y- und Z-Modem),
+            Asynchrone Teile unter Interrupt (kein echtes Multitasking verfügbar)
+        Umgebung
+            Mac OS (6/7),
+        Schlüsselpunkte
+            C, C++
+
+1992/04 - 1995/12,
+https://de.4d.com/,
+4D - France & USA (ehemals ACI)
+
+    Produkt: 4th Dimension (1 year, with 6 Monate in USA)
+    Software Entwickler
+        Beschreibung
+            Werkzeuge für die 4th dimension (RDBMS IDE):,
+                Platform Independant Extension Kit: Tools und API zum Schreiben von 4D-Plugins,
+                4D plugins. Zum Beispiel: Smartcard-Handling,
+                4D Server connection API: Beispiele und Testanwendungen zum Schreiben von nativen 4D-Clients
+        Umgebung
+            Windows (3.11/WG/NT), Mac OS (6/7), MPW, Think C, Think Pascal, STL, MacAPP, OOP, MacsBug,
+        Schlüsselpunkte
+            C, C++, Pascal, Object Pascal, Asm 68K, Asm x86
+
+    Produkt: 4th Dimension / Object Master (2 Jahre + 8 Monate)
+    IT Technician / Software Entwickler
+        Beschreibung
+            4th dimension (RDBMS IDE) hotline,
+            Object Master (C/C++/Pascal/Modula2 IDE) hotline,
+                Entwicklungsprobleme beim Umgang,
+                Beispiele und Werkzeuge schreiben
+        Umgebung
+            Windows (3.11/WG/NT), Mac OS (6/7), MPW, MacsBug,
+        Schlüsselpunkte
+            4th Dimension, C, C++, Pascal, Modula2
+
+1986/10 - 1992/03,
+Centre d’Essai des Propulseurs de Saclay (DGA), GEET, LTC...
+
+    Allgemein (5 Jahre + 5 Monate)
+        Software Entwickler
+            Beschreibung
+                Database Entwicklung. EDM
+            Umgebung
+                Dbase2, MS-DOS, Mac OS (6)
+            Schlüsselpunkte
+                4th Dimension, DOS cmds
+
+in den letzten Jahren
+    2017
+        Ausbildung: Luftfahrtsysteme SW Entwicklung
+        DO-278 Software Standards: https://en.wikipedia.org/wiki/DO-178C, Wikipedia...
+    2004
+        Ausbildung: application server
+        BEA WebLogic Integration Zyklus: https://docs.oracle.com/cd/E13222_01/wls/docs90/index.php, BEA WebLogic
+    1985
+        Diplom-Abschluss
+        Luftfahrttechnisches Schulungszertifikat: https://www.aerocampus-aquitaine.com/en/home/, Aerocampus
+
+Aktivität
+    Sport
+        Kampfkunst
+            Aikido, Boxing
+        Laufen
+            2018/10/09 München marathon: https://www.abavent.de/anmeldeservice/muenchenmarathon2018/ergebnisse#1_CF28C6
+            2018: B2Run
+            2017: B2Run
+            2016: München Stadtlauf, Marathon, B2Run
+            2004 - 2006: Paris Halbmarathon & Marathon, 5K / 10K / 12K Rennen
+        Triathlon
+            2018/08/05 Regensburg, Olympische Distanz: https://www.regensburger-triathlon.de/triathlon
+            Ergebnisse: https://www.zeitgemaess.info/results.php?accesscode=201808051&konkurrenz=900002
+            2018/07/01 Tegernsee, Olympische Distanz: http://www.tegernsee-triathlon.de/
+            Ergebnisse: https://my1.raceresult.com/91482/results?lang=de#1_0FC775
+    Musik
+        Gitarre, Klassik & Metall
+        Bassgitarre, \DFE\ (Studien Zyklus beenden) 1.Preis in 2011: http://www.darizmusic.com/, Francis Darizcuren Schule
+Interessen
+    Verschiedene
+        Reisen
+        Gastronomische Restaurants
+        Klassische Musik und Metal
+        Brettspiele und Rollenspiele (oldschool way)
+        Fortsetzung folgt...

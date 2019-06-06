@@ -8,29 +8,32 @@
 
 /// --------------------------------------------------------
 /// @brief stupid temp connection info stowage
-$srvside_BDconnect = use-your-credentials"login:password:bdname:";
-$srvside_BDsrvname = use-your-credentials"localhost";
+$srvside_BDconnect = "aaaaaaaaaaaaaaaaaaaaaaargh";
+$srvside_BDsrvname = "localhost";
 
 /// --------------------------------------------------------
 /// @brief
-$srvside_BDtables = [
-    "fpi_testtable1"
-];
+$srvside_BDtables =
+    [
+        "fpi_testtable1"
+    ];
 
 /// @brief
-$srvside_BDfields = [
-    "testtable1field1",
-    "testtable1field2",
-    "testtable1field3",
-    NULL
-];
+$srvside_BDfields =
+    [
+        "testtable1field1",
+        "testtable1field2",
+        "testtable1field3",
+        NULL
+    ];
 
 /// @brief
-$srvside_BDtestvalues = [
-    21,
-    22,
-    'toto23',
-    NULL
-];
+$srvside_BDtestvalues =
+    [
+        21,
+        22,
+        'toto23',
+        NULL
+    ];
 
 

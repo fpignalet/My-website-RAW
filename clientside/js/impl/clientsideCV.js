@@ -485,4 +485,17 @@ export class CLISIDE_CVLOADER extends CLISIDE_LOADER {
         super(CLISIDE_CVLOADER.CMD(), id);
     }
 
+    //-----------------------------------------------
+    // UTILS
+    //-----------------------------------------------
+    /// @brief create an http text request line to serverside.php
+    /// @param name params is an array which may contain up to 2 parameters
+    /// @returns the formatted GET request
+    createGETstr(params) {
+        let cmd = super.createGETstr(params);
+//        cmd = cmd + "&p3=DE";
+        cmd = cmd + "&p3=EN";
+        return cmd;
+    }
+
 }

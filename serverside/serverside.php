@@ -20,6 +20,7 @@ class SERVERSIDE {
     /// @brief get the parameters from URL
     public $param = [];
 
+    /// @brief
     public $triggers = [
         /*0*/"cliside_ENTRYphpmail",
 
@@ -105,10 +106,12 @@ class SERVERSIDE {
                 //----------------------------------
                 // SEND CV JSON CONTENT
                 case $this->triggers[6]:
+                    $this->param[] = $_REQUEST["p3"];
+
                     $debug = false;
 
                     $CV = new SRVSIDE_CV;
-                    $data = $CV->CVsend($this->param[1], $debug);
+                    $data = $CV->CVsend($this->param[1], $this->param[2], $debug);
                     // Output encoded data
                     echo json_encode($data);
                     break;

@@ -6,7 +6,8 @@
  * Time: 17:25
  */
 
-include 'data/CVdata.php';
+include 'data/CVdataEN.php';
+include 'data/CVdataDE.php';
 
 class SRVSIDE_CV {
 
@@ -21,14 +22,20 @@ class SRVSIDE_CV {
     /// @param param
     /// @param debug
     /// @returns 1 desc
-    public function CVsend($param, $debug) {
-        global $data_CVmap, $data_CVloadsleep;
+    public function CVsend($param, $lang, $debug) {
+        global $data_CVmapEN, $data_CVmapDE, $data_CVloadsleep;
 
         if(true == $debug) {
             usleep($data_CVloadsleep);
         }
 
-        return $data_CVmap[$param];
+        switch($lang) {
+            default:
+            case "EN":
+                return $data_CVmapEN[$param];
+            case "DE":
+                return $data_CVmapDE[$param];
+        }
     }
 
     /// @brief sends back CV data
@@ -36,17 +43,17 @@ class SRVSIDE_CV {
     /// @param debug
     /// @returns 1 desc
     public function CVconvert($param, $debug){
-        global $data_CVmap;
+        global $data_CVmapEN;
 
         if(true == file_exists($this->cvdatafile)){
             return;
         }
 
         $test = "{";
-        foreach (array_keys($data_CVmap) as $item) {
+        foreach (array_keys($data_CVmapEN) as $item) {
             $debug = false;
 
-            $data = $this->CVsend($data_CVmap[$item], $debug);
+            $data = $this->CVsend($data_CVmapEN[$item], "EN", $debug);
             $test = $test . json_encode($data, JSON_PRETTY_PRINT);
         }
 
