@@ -20,6 +20,7 @@ class SERVERSIDE {
     /// @brief get the parameters from URL
     public $param = [];
 
+    /// @brief 
     public $triggers = [
         /*0*/"cliside_ENTRYphpmail",
 
