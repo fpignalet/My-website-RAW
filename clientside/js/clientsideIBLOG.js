@@ -437,15 +437,19 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
                 });
             }
         );
-        /*
+/*
         Uncomment when React
-        data_BTECHmap1.forEach((entry, index) => {
-            local.loadmapitem(contener, entry);
-        });
-        data_BTECHmap2.forEach((entry, index) => {
-            local.loadmapitem(contener, entry);
-        });
-        */
+        this.loader.localgetfile(document, "./clientside/cards/BLOGentryT11.html", "contener", "blog_entry11CONTENT",
+            () => {
+                data_BTECHmap1.forEach((entry, index) => {
+                    local.loadmapitem(contener, entry);
+                });
+                data_BTECHmap2.forEach((entry, index) => {
+                    local.loadmapitem(contener, entry);
+                });
+            }
+        );
+*/
 
     }
 

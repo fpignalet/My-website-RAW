@@ -15,14 +15,14 @@ $data_BNloadsleep = 100000;
 $data_BNdesc21 = [
 
     "blog_entry21PHOTO" =>
-        "images/WP_20180821_17_57_49_Pro.jpg",
+        "images/WP_20180822_12_41_47_Pro.jpg",
 
     "blog_entry21TITLE" =>
         "And now?",
 
     "blog_entry21DATE" =>
         [
-            "June 04, 2019",
+            "June 06, 2019",
             "Still alive, but busy..."
         ]
 

@@ -3,13 +3,24 @@
 //-----------------------------------------------------------------------------------------------------------
 /// @brief lasts are used for sprite previews
 export const data_BNEWSlasts = [
-    "blog_entry20PHOTO",
-    "blog_entry17PHOTO"
+    "blog_entry21PHOTO",
+    "blog_entry20PHOTO"
 ];
 
 /// @brief maps are there to fetch remote data. see serverside/data/BLOGdata.php
 export const data_BNEWSmap = [
     //---------------------------------------
+    {
+        loaded: false,
+        side: null,
+        data: null,
+        desc: "data_BNdesc21",
+        content: [ "data_BNcontent21" ],
+        boite: null,
+        boulots: null,
+        progress: ["blog_entry21wait", "blog_entry21progress", "blog_entry21bar"],
+        cbk: null
+    },
     {
         loaded: false,
         side: null,
