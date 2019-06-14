@@ -27,9 +27,8 @@ import Core from "../game/js/impl/core.js";
  *************************************************************************************/
 import {
     data_BNEWSmap,
-    data_BTECHmap1,
-    data_BTECHmap2
-} from "../data/BLOGdata.js";
+    data_BTECHmap
+} from "../data/BLOGmap.js";
 
 /*************************************************************************************
  * GLOBAL VARIABLES
@@ -157,19 +156,6 @@ export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
     loadbody(contener, file) {
         const local = this;
 
-        /*
-        Comment when React
-        this.loader.localgetfile(contener, file, CLISIDE_IBLOGNEWS.CONTENER(),"gridnews",
-            () => {
-                data_BNEWSmap.forEach((entry, index) => {
-                    local.loadmapitem(contener, entry);
-                });
-            }
-        );
-        */
-        /*
-        Uncomment when React
-        */
         data_BNEWSmap.forEach((entry, index) => {
             local.loadmapitem(contener, entry);
         });
@@ -186,8 +172,13 @@ export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
         if(true === entry["loaded"]){
             return;
         }
+        if(null == entry[CLISIDE_IBLOGNEWS.DESC()]) {
+            return;
+        }
 
-        this.ld.remotegetentry(contener, this.cr, entry[CLISIDE_IBLOGNEWS.DESC()], entry[CLISIDE_IBLOGNEWS.CONTENT()], entry[CLISIDE_IBLOGNEWS.PROGRESS()],
+        this.ld.remotegetentry(contener,
+            this.cr,
+            entry[CLISIDE_IBLOGNEWS.DESC()], entry[CLISIDE_IBLOGNEWS.CONTENT()], entry[CLISIDE_IBLOGNEWS.PROGRESS()],
             (cr, desc, content) => {
                 const loadedweight = cr.fillentry(contener, desc, content);
                 if(0 < loadedweight) {
@@ -229,8 +220,7 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
     static IDDETAILSNAME() { return "detailsname"; }
 
     static IDHEADER() { return "headercard"; }
-    static IDGRIDTECH1() { return "gridtech1"; }
-    static IDGRIDTECH2() { return "gridtech2"; }
+    static IDGRIDTECH1() { return "gridtech"; }
     static IDFOOTER() { return "footer"; }
     static IDABOUT() { return "aboutcard"; }
 
@@ -239,7 +229,6 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
      *************************************************************************************/
     static CARDHEADER() { return "./clientside/cards/cardheader.html"; }
     static CARDGRIDTECH1() { return "./clientside/cards/BLOGgridTECH1.html"; }
-    static CARDGRIDTECH2() { return "./clientside/cards/BLOGgridTECH2.html"; }
     static CARDFOOTER() { return "./clientside/cards/cardfooter.html"; }
     static CARDABOUT() { return "./clientside/cards/cardabout.html"; }
 
@@ -257,60 +246,16 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
         // wire specific tests callback
         const local = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.CREATE()] + 10);
         window.BLOGdomlocal = local; //for testPHP1 & angular(temp)
-        (data_BTECHmap1[2][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
-            local.testCODEBOX(contener, CLISIDE_IBLOGTECH.SCRINST(), cliside_BLOGTECHpage.loader, CLISIDE_IBLOGTECH.IDCODEBOX());
-        };
-        (data_BTECHmap1[3][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
+        (data_BTECHmap[0][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
             local.testCANVAS(contener, "canvas0");
         };
-        /*
-        (data_BTECHmap2[0][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
-            // OK, it's still hard-coded in html page, I still don't know why when loaded from outside it doesn't functionate
-            local.testANGULAR1("testapp", "testctrl");
-        };
-        */
 //      TODO: NOT OK THERE. still dont't know why...
-//      local.testANGULAR1("testapp", "testctrl");
 
         //-----------------------------------------------------------
         // INITIALISATION REMOTE TESTS:
         // wire specific tests callback
         const remote = new CLISIDE_BTECHREMOTE(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.CREATE()] + 11);
         window.BLOGdomremote = remote; //for testPHP1
-        (data_BTECHmap1[0][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
-            remote.testPHP8();
-        };
-        (data_BTECHmap1[4][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
-            remote.testPHP67(contener, null, CLISIDE_IBLOGTECH.IDTREEDEMO());
-        };
-        (data_BTECHmap1[6][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
-            contener.getElementById("blog_entry8").innerHTML = local.testDYN(
-                // HEADER:
-                null,
-                'blog_entry8',
-                'images/gears-686316_640.jpg',
-                'Today\'s sandbox',
-                'August 25, 2018',
-                'Dynamic test',
-                // CONTENU:
-                '<ul>\n' +
-                '    <li>dynamic blog entry: generating html with javascript\n' +
-                '        <ul>\n' +
-                '            <li>sub item 1</li>\n' +
-                '            <li>sub item 2</li>\n' +
-                '        </ul>\n' +
-                '    </li>\n' +
-                '</ul>\n'
-            );
-        };
-        (data_BTECHmap2[1][CLISIDE_IBLOGNEWS.DATA()])[2] = () => {
-            local.testHELLO(contener, "hello_area");
-            local.testCOUNT(contener, "count_area");
-            remote.testPHP2(contener, null, "bdResult");
-            remote.testPHP3(contener, null, "params_area1");
-            remote.testPHP4(contener, null, "params_area2");
-            remote.testPHP5(contener, null, "params_area3");
-        };
 
         //-----------------------------------------------------
         // PAGE CONSTRUCTION
@@ -325,8 +270,7 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
             CLISIDE_IBLOGTECH.CARDHEADER()
         );
         cliside_BLOGTECHpage.loadbody(contener, [
-            CLISIDE_IBLOGTECH.CARDGRIDTECH1(),
-            CLISIDE_IBLOGTECH.CARDGRIDTECH2()
+            CLISIDE_IBLOGTECH.CARDGRIDTECH1()
         ]);
         cliside_BLOGTECHpage.loadbottom(contener, [
             CLISIDE_IBLOGTECH.CARDFOOTER(),
@@ -334,7 +278,7 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
         ]);
 
         //-----------------------------------------------------------
-        contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "Tech notes (coming soon)...";
+        // contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "Tech notes (coming soon)...";
 
     }
 
@@ -380,7 +324,7 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
     static mouseentercard(contener, param) {
         cliside_BLOGTECHmousecur = param.getAttribute("id");
 //    contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "Implementation details for " + mousecurrent + ": ...";
-        contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "Tech notes (coming soon)...";
+//    contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "Tech notes (coming soon)...";
     }
 
     /// @brief scroll function
@@ -388,7 +332,7 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
     /// @param param maybe anything
     static mouseleavecard(contener, param) {
         cliside_BLOGTECHmousecur = param.getAttribute("id");
-        contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "Tech notes (coming soon)...";
+//      contener.getElementById(CLISIDE_IBLOGTECH.IDDETAILSNAME()).innerHTML = "Tech notes (coming soon)...";
     }
 
     /*************************************************************************************
@@ -420,37 +364,13 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
     loadbody(contener, file) {
         const local = this;
 
-        /*
-        Comment when React
-        */
         this.loader.localgetfile(document, file[0], CLISIDE_IBLOGTECH.CONTENER(), CLISIDE_IBLOGTECH.IDGRIDTECH1(),
             () => {
-                data_BTECHmap1.forEach((entry, index) => {
+                data_BTECHmap.forEach((entry, index) => {
                     local.loadmapitem(contener, entry);
                 });
             }
         );
-        this.loader.localgetfile(document, file[1], CLISIDE_IBLOGTECH.CONTENER(), CLISIDE_IBLOGTECH.IDGRIDTECH2(),
-            () => {
-                data_BTECHmap2.forEach((entry, index) => {
-                    local.loadmapitem(contener, entry);
-                });
-            }
-        );
-/*
-        Uncomment when React
-        this.loader.localgetfile(document, "./clientside/cards/BLOGentryT11.html", "contener", "blog_entry11CONTENT",
-            () => {
-                data_BTECHmap1.forEach((entry, index) => {
-                    local.loadmapitem(contener, entry);
-                });
-                data_BTECHmap2.forEach((entry, index) => {
-                    local.loadmapitem(contener, entry);
-                });
-            }
-        );
-*/
-
     }
 
     loadbottom(contener, file) {
@@ -463,18 +383,21 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
         if(true === entry["loaded"]){
             return;
         }
-
-        if(null !== entry[CLISIDE_IBLOGNEWS.DESC()]) {
-            this.ld.remotegetentry(contener, this.cr, entry[CLISIDE_IBLOGTECH.DESC()], entry[CLISIDE_IBLOGTECH.CONTENT()], entry[CLISIDE_IBLOGTECH.PROGRESS()],
-                (cr, desc, content) => {
-                    cr.filldesc(contener, desc);
-                    entry["loaded"] = true;
-                }
-            );
-
+        if(null == entry[CLISIDE_IBLOGTECH.DESC()]) {
+            return;
         }
 
-        this.loader.localgetfile(contener, entry[CLISIDE_IBLOGTECH.DATA()][0], CLISIDE_IBLOGTECH.CONTENER(), entry[CLISIDE_IBLOGTECH.DATA()][1], entry[CLISIDE_IBLOGTECH.DATA()][2]);
+        this.ld.remotegetentry(contener,
+            this.cr,
+            entry[CLISIDE_IBLOGTECH.DESC()], entry[CLISIDE_IBLOGTECH.CONTENT()], entry[CLISIDE_IBLOGTECH.PROGRESS()],
+            (cr, desc, content) => {
+                cr.filldesc(contener, desc);
+                entry["loaded"] = true;
+            }
+        );
+
+        this.loader.localgetfile(contener,
+            entry[CLISIDE_IBLOGTECH.DATA()][0], CLISIDE_IBLOGTECH.CONTENER(), entry[CLISIDE_IBLOGTECH.DATA()][1], entry[CLISIDE_IBLOGTECH.DATA()][2]);
     };
 
 }

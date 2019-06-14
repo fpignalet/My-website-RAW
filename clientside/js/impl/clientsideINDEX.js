@@ -33,18 +33,18 @@ import {
     data_INDEXtitleitems,
     data_INDEXmenubars,
     data_INDEXtitledata
-} from "../../data/INDEXdata.js";
+} from "../../data/INDEXmap.js";
 
 import {
     data_CVmap1
-} from "../../data/CVdata.js";
+} from "../../data/CVmap.js";
 
 import {
     data_BTECHlasts,
     data_BNEWSlasts,
     data_BNEWSmap,
-    data_BTECHmap1
-} from "../../data/BLOGdata.js";
+    data_BTECHmap
+} from "../../data/BLOGmap.js";
 
 /*************************************************************************************
  * IMPLEMENTATION: ENTRY PAGE ITEMS CREATION
@@ -309,7 +309,11 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
                 //------------------
                 // POSTLOAD:
                 // 2nd - then load reference page
-                local.displayitemsfrom(contener, data_INDEXfiles[1],[ dataremote[0][data_BNEWSlasts[0]], dataremote[1][data_BNEWSlasts[1]] ],null,[ data_INDEXnewsitems[2], data_INDEXnewsitems[3] ],
+                local.displayitemsfrom(contener,
+                    data_INDEXfiles[1],
+                    [ dataremote[0][data_BNEWSlasts[0]], dataremote[1][data_BNEWSlasts[1]] ],
+                    null,
+                    [ data_INDEXnewsitems[2], data_INDEXnewsitems[3] ],
                     (dom, datasrc, contener, idsrc, itdst) => {
                         // 3rd - then complete the reference page with the needed card
                         local.localgetfile(dom, file, "contener", "gridnews",
@@ -338,15 +342,19 @@ export class CLISIDE_INDEXLOADER extends CLISIDE_LOADER {
         // the goal consists in loading the page which contains the data we need,
         // but it'll be empty, so we need to load the data too.
         // 1st - load remote data
-        this.BLOGpreloader.remotegetbatch(contener, creator,[ data_BTECHmap1[5]["desc"], data_BTECHmap1[0]["desc"] ],null,
+        this.BLOGpreloader.remotegetbatch(contener, creator,[ data_BTECHmap[0]["desc"], data_BTECHmap[0]["desc"] ],null,
             (cr, dataremote) => {
                 //------------------
                 // POSTLOAD:
                 // 2nd - then load reference page
-                local.displayitemsfrom(contener, data_INDEXfiles[2],[ dataremote[0][data_BTECHlasts[0]], dataremote[1][data_BTECHlasts[1]] ],null,[ data_INDEXtechitems[2], data_INDEXtechitems[3] ],
+                local.displayitemsfrom(contener,
+                    data_INDEXfiles[2],
+                    [ dataremote[0][data_BTECHlasts[0]], dataremote[0][data_BTECHlasts[1]] ],
+                    null,
+                    [ data_INDEXtechitems[2], data_INDEXtechitems[3] ],
                     (dom, datasrc, contener, idsrc, itdst) => {
                         // 3rd - then complete the reference page with the needed card
-                        local.localgetfile(dom, file,"contener", "gridtech1",
+                        local.localgetfile(dom, file,"contener", "gridtech",
                             () => {
                                 // 4th - then fill ref page with data and transfer items to current page
                                 creator.updateSPRITE(dom, datasrc, contener, idsrc, itdst);

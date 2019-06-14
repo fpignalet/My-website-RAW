@@ -46,7 +46,7 @@ export class CLISIDE_BLOGDOM extends CLISIDE_DOM {
 
     /// @brief fills a blog entry descriptor (with title and date)
     /// @param contener is the target DOM
-    /// @param data is a BLOGdata.js::data_BLOGdescXX formatted as follow
+    /// @param data is a BLOGmap.js::data_BLOGdescXX formatted as follow
     ///     "blog_entryXXPHOTO": "...",
     ///     "blog_entryXXTITLE": "...",
     ///     "blog_entryXXDATE": [ "..." ]
@@ -134,7 +134,7 @@ export class CLISIDE_BNEWSDOM extends CLISIDE_BLOGDOM {
 
     /// @brief fills a blog entry content (with entry data)
     /// @param contener is the target DOM
-    /// @param data is a BLOGdata.js::data_BLOGcontentXX formatted as follow
+    /// @param data is a BLOGmap.js::data_BLOGcontentXX formatted as follow
     ///     "blog_entryXXCONTENT": [ "fieldtype", [ "..." ] ]
     fillcontent(contener, data) {
         //---------------------------------

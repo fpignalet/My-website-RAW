@@ -22,7 +22,7 @@ import {
     data_CVmap1,
     data_CVmap2,
     data_CVmap3
-} from "../data/CVdata.js";
+} from "../data/CVmap.js";
 
 /*************************************************************************************
  * GLOBAL VARIABLES

@@ -91,7 +91,7 @@
              * INCLUDES CODE
              *************************************************************************************/
             import { CLISIDE_IBLOGNEWS } from "./clientside/js/clientsideIBLOG.js";
-            import { data_BNEWSmap } from "./clientside/data/BLOGdata.js";
+            import { data_BNEWSmap } from "./clientside/data/BLOGmap.js";
             /*************************************************************************************
              * INCLUDES DATA
              *************************************************************************************/
@@ -100,33 +100,14 @@
              *************************************************************************************/
             try {
                 //page initialsation happends there
-                /*
-                Comment the following when not React
-                */
                 window.onload_ = function() { CLISIDE_IBLOGNEWS.pageload(document, { create: 2, load: 3 }) };
                 window.onunload_ = function() { CLISIDE_IBLOGNEWS.pageunload(document, { create: 4, load: 5 }) };
                 window.onscroll_ = function() { CLISIDE_IBLOGNEWS.pagescroll(document, null) };
                 window.content_ = [
-                    { id: 21 },
-                    { id: 20 },
-                    { id: 17 },
-                    { id: 14 },
-                    { id: 12 },
-                    { id: 10 },
-                    { id: 9 },
-                    { id: 6 },
-                    { id: 4 },
-                    { id: 3 },
-                    { id: 2 },
-                    { id: 1 }
+                    { id: 21 }, { id: 20 },
+                    { id: 17 }, { id: 14 }, { id: 12 }, { id: 10 },
+                    { id: 9 }, { id: 6 }, { id: 4 }, { id: 3 }, { id: 2 }, { id: 1 }
                 ];
-                /*
-                Uncomment the following when not React
-                window.onload = function() { CLISIDE_IBLOGNEWS.pageload(document, { create: 2, load: 3 }) };
-                window.onunload = function() { CLISIDE_IBLOGNEWS.pageunload(document, { create: 4, load: 5 }) };
-                window.onscroll = function() { CLISIDE_IBLOGNEWS.pagescroll(document, null) };
-                */
-
             }
             catch (e) {
                 console.log(e.toString())
@@ -159,9 +140,6 @@
              * IMPLEMENTATION
              *************************************************************************************/
             try {
-                /*
-                Comment the following when not React
-                */
                 reactexecuteBLOG('#gridnews', window.content_);
             }
             catch (e) {

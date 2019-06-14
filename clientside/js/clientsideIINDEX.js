@@ -20,13 +20,12 @@ import {
 import {
     data_INDEXfiles,
     data_INDEXmailitems
-} from "../data/INDEXdata.js";
+} from "../data/INDEXmap.js";
 
 import {
     data_BNEWSmap,
-    data_BTECHmap1,
-    data_BTECHmap2
-} from "../data/BLOGdata.js";
+    data_BTECHmap,
+} from "../data/BLOGmap.js";
 
 /*************************************************************************************
  * GLOBAL VARIABLES
@@ -51,7 +50,7 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
     static CONTENER() { return "contener"; }
 
     static IDGRIDNEWS() { return "gridnews"; }
-    static IDGRIDTECH() { return "gridtech1"; }
+    static IDGRIDTECH() { return "gridtech"; }
     static IDNAVI() { return "navi"; }
     static IDFOOTER() { return "footer"; }
     static IDFEEDBACK() { return "feedbackcard"; }
