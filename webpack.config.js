@@ -4,6 +4,7 @@ module.exports = {
 	devtool: 'sourcemaps',
 	cache: true,
 	mode: 'development',
+	watch: true,
 
 	entry: [
 		'./clientside/js/impl/clientsideREACT.js'
