@@ -163,8 +163,8 @@ export class CLISIDE_ICV extends CLISIDE_PAGE {
 
         this.loader = new CLISIDE_LOADER(cliside_BASEIDENT + param[CLISIDE_ICV.LOAD()] + 12);
 
-        this.cr = new CLISIDE_CVCREATE(cliside_BASEIDENT + param[CLISIDE_ICV.CREATE()]);
-        this.ld = new CLISIDE_CVLOADER(cliside_BASEIDENT + param[CLISIDE_ICV.LOAD()]);
+        this.creator = new CLISIDE_CVCREATE(cliside_BASEIDENT + param[CLISIDE_ICV.CREATE()]);
+        this.subloader = new CLISIDE_CVLOADER(cliside_BASEIDENT + param[CLISIDE_ICV.LOAD()]);
 
     }
 
@@ -224,7 +224,7 @@ export class CLISIDE_ICV extends CLISIDE_PAGE {
                 //  entry["data"],
                 //  entry["cbk"],
                 //-----------------------------------------------------
-                this.ld.remotegetbatch(contener, this.cr, entry[CLISIDE_ICV.DATA()], null,
+                this.subloader.remotegetbatch(contener, this.creator, entry[CLISIDE_ICV.DATA()], null,
                     (cr, data) => {
                         entry[CLISIDE_ICV.CBK()](contener, cr, data);
                         entry[CLISIDE_ICV.LOADED()] = true;
@@ -241,7 +241,7 @@ export class CLISIDE_ICV extends CLISIDE_PAGE {
                 //  entry["boulots"],
                 //  entry["progress"],
                 //-----------------------------------------------------
-                this.ld.remotegetentry(contener, this.cr, entry[CLISIDE_ICV.BOITE()], entry[CLISIDE_ICV.BOULOTS()], entry[CLISIDE_ICV.PROGRESS()],
+                this.subloader.remotegetentry(contener, this.creator, entry[CLISIDE_ICV.BOITE()], entry[CLISIDE_ICV.BOULOTS()], entry[CLISIDE_ICV.PROGRESS()],
                     (cr, desc, content) => {
                         cr.fillrightside(contener, desc, content);
                         entry[CLISIDE_ICV.LOADED()] = true;

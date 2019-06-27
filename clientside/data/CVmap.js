@@ -82,7 +82,7 @@ export const data_CVmap1 = [
         desc: null,
         content: null,
         boite: "data_CVboulot0",
-        boulots: ["data_CVboulot01", "data_CVboulot02"],
+        boulots: ["data_CVboulot01", "data_CVboulot02", "data_CVboulot03"],
         progress: ["boulotentry0wait", "boulotentry0progress", "boulotentry0bar"],
         // for left side callback function is implemented in CLISIDE_CVCREATE
         cbk: null

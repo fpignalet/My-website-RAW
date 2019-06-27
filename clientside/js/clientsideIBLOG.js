@@ -136,8 +136,8 @@ export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
 
         this.loader = new CLISIDE_LOADER(cliside_BASEIDENT + 8);
 
-        this.cr = new CLISIDE_BNEWSDOM(cliside_BASEIDENT + param[CLISIDE_IBLOGNEWS.CREATE()]);
-        this.ld = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param[CLISIDE_IBLOGNEWS.LOAD()]);
+        this.creator = new CLISIDE_BNEWSDOM(cliside_BASEIDENT + param[CLISIDE_IBLOGNEWS.CREATE()]);
+        this.subloader = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param[CLISIDE_IBLOGNEWS.LOAD()]);
 
     }
 
@@ -176,8 +176,8 @@ export class CLISIDE_IBLOGNEWS extends CLISIDE_PAGE {
             return;
         }
 
-        this.ld.remotegetentry(contener,
-            this.cr,
+        this.subloader.remotegetentry(contener,
+            this.creator,
             entry[CLISIDE_IBLOGNEWS.DESC()], entry[CLISIDE_IBLOGNEWS.CONTENT()], entry[CLISIDE_IBLOGNEWS.PROGRESS()],
             (cr, desc, content) => {
                 const loadedweight = cr.fillentry(contener, desc, content);
@@ -345,8 +345,8 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
 
         this.loader = new CLISIDE_LOADER(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.LOAD()] + 9);
 
-        this.cr = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.CREATE()]);
-        this.ld = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.LOAD()]);
+        this.creator = new CLISIDE_BTECHLOCAL(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.CREATE()]);
+        this.subloader = new CLISIDE_BLOGLOADER(cliside_BASEIDENT + param[CLISIDE_IBLOGTECH.LOAD()]);
 
     }
 
@@ -387,8 +387,8 @@ export class CLISIDE_IBLOGTECH extends CLISIDE_PAGE {
             return;
         }
 
-        this.ld.remotegetentry(contener,
-            this.cr,
+        this.subloader.remotegetentry(contener,
+            this.creator,
             entry[CLISIDE_IBLOGTECH.DESC()], entry[CLISIDE_IBLOGTECH.CONTENT()], entry[CLISIDE_IBLOGTECH.PROGRESS()],
             (cr, desc, content) => {
                 cr.filldesc(contener, desc);

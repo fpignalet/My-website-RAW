@@ -165,12 +165,43 @@ $data_CVboulot01 =
     "boulotentry01item" =>
         [
             "Project:",
-            "Website pro",
-            "(until now)"
+            "Database migration",
+            "(6 weeks)"
         ],
     "boulotentry01title" =>
-        [ "Full-Stack developer" ],
+        [ "Java backend developer" ],
     "boulotentry01content" =>
+        [
+            [ "Description", "Java development",
+                [
+                    [ "https://www.klingel.de", "Klingel group" ]
+                ]
+            ],
+            [ "Environment",
+                "Development on Windows 10, with JetBrains (IntelliJIDEA),
+                Database migration" ],
+            [ "Keypoints",
+                "Java, SQL" ],
+            [ "Methodology",
+                [
+                    "AGILE software development"
+                ]
+            ]
+        ]
+];
+/// @brief fills clientside/cards/CVgridhist.html
+/// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
+$data_CVboulot02 =
+[
+    "boulotentry02item" =>
+        [
+            "Project:",
+            "Website pro",
+            "(2 months & 2 weeks, still running as a background project for the next 2 months)"
+        ],
+    "boulotentry02title" =>
+        [ "Full-Stack developer" ],
+    "boulotentry02content" =>
         [
             [ "Description", "Web development",
                 [
@@ -196,17 +227,17 @@ $data_CVboulot01 =
 ];
 /// @brief fills clientside/cards/CVgridhist.html
 /// @brief handled by CLISIDE_CVCREATE::addHISTORYSUBENTRY
-$data_CVboulot02 =
+$data_CVboulot03 =
 [
-    "boulotentry02item" =>
+    "boulotentry03item" =>
         [
             "Open Source project:",
             "Website pro",
             "(2 months & 2 weeks)"
         ],
-    "boulotentry02title" =>
+    "boulotentry03title" =>
         [ "Full-Stack developer" ],
-    "boulotentry02content" =>
+    "boulotentry03content" =>
         [
             [ "Description", "Web development",
                 [
@@ -1009,6 +1040,7 @@ $data_CVmapEN =
     "data_CVboulot0" => $data_CVboulot0,
     "data_CVboulot01" => $data_CVboulot01,
     "data_CVboulot02" => $data_CVboulot02,
+    "data_CVboulot03" => $data_CVboulot03,
 
     "data_CVboulot1" => $data_CVboulot1,
     "data_CVboulot11" => $data_CVboulot11,

@@ -148,7 +148,7 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
     /// @param param selects the data_BNEWSmap item
     static modalnews(contener, inst, param) {
         try {
-            cliside_INDEXpage.loader.showMODAL(contener, cliside_INDEXpage.cr, inst, data_INDEXfiles[1], CLISIDE_IINDEX.CARDGRIDNEWS(), CLISIDE_IINDEX.IDGRIDNEWS(), data_BNEWSmap[param][CLISIDE_IINDEX.DESC()]);
+            cliside_INDEXpage.loader.showMODAL(contener, cliside_INDEXpage.creator, inst, data_INDEXfiles[1], CLISIDE_IINDEX.CARDGRIDNEWS(), CLISIDE_IINDEX.IDGRIDNEWS(), data_BNEWSmap[param][CLISIDE_IINDEX.DESC()]);
 
         }
         catch (e) {
@@ -165,7 +165,7 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
     /// @param index selects the data_BTECHmap item
     static modaltech(contener, inst, param) {
         try {
-            cliside_INDEXpage.loader.showMODAL(contener, cliside_INDEXpage.cr, inst, data_INDEXfiles[2], CLISIDE_IINDEX.CARDGRIDTECH(), CLISIDE_IINDEX.IDGRIDTECH(), param[CLISIDE_IINDEX.DESC()]);
+            cliside_INDEXpage.loader.showMODAL(contener, cliside_INDEXpage.creator, inst, data_INDEXfiles[2], CLISIDE_IINDEX.CARDGRIDTECH(), CLISIDE_IINDEX.IDGRIDTECH(), param[CLISIDE_IINDEX.DESC()]);
 
         }
         catch (e) {
@@ -217,7 +217,7 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
         super(-1);
 
         this.loader = new CLISIDE_INDEXLOADER(cliside_BASEIDENT + param[CLISIDE_IINDEX.LOAD()]);
-        this.cr = new CLISIDE_INDEXCREATE(cliside_BASEIDENT + param["create"]);
+        this.creator = new CLISIDE_INDEXCREATE(cliside_BASEIDENT + param["create"]);
 
     }
 
@@ -226,21 +226,21 @@ export class CLISIDE_IINDEX extends CLISIDE_PAGE {
 
         this.loader.localgetfile(contener, file, CLISIDE_IINDEX.CONTENER(), CLISIDE_IINDEX.IDNAVI(),
             () => {
-                local.cr.displayNAVBARS(contener)
+                local.creator.displayNAVBARS(contener)
             }
         );
 
-        this.cr.displayTITLE(contener);
-        this.cr.displayABOUT(contener);
+        this.creator.displayTITLE(contener);
+        this.creator.displayABOUT(contener);
 
     }
 
     /// @brief fills the page with required data
     /// @param contener is the target DOM
     loadbody(contener, file) {
-        this.loader.loadPRESENTATION(contener, this.cr, file[0]);
-        this.loader.loadNEWS(contener, this.cr, file[1]);
-        this.loader.loadTECH(contener, this.cr, file[2]);
+        this.loader.loadPRESENTATION(contener, this.creator, file[0]);
+        this.loader.loadNEWS(contener, this.creator, file[1]);
+        this.loader.loadTECH(contener, this.creator, file[2]);
 
     }
 
