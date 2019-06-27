@@ -661,90 +661,6 @@ $data_BNcontent1 = [
 
 //-----------------------------------------------------------------------------------------------------------
 /// @brief
-$data_BTdesc19 = [
-
-    "blog_entry19PHOTO" =>
-        "images/gears-686316_640.jpg",
-
-    "blog_entry19TITLE" =>
-        "CURRENT",
-
-    "blog_entry19DATE" =>
-        [
-            "December 19, 2018",
-            "UNDER CONSTRUCTION"
-        ]
-
-];
-
-/// @brief
-$data_BTcontent19 = [
-
-    "blog_entry19CONTENT" =>
-        [
-            //TECH BLOG, no dynamic content
-        ]
-
-];
-
-//-----------------------------------------------------------------------------------------------------------
-/// @brief
-$data_BTdesc18 = [
-
-    "blog_entry18PHOTO" =>
-        "images/gears-686316_640.jpg",
-
-    "blog_entry18TITLE" =>
-        "Today's sandbox",
-
-    "blog_entry18DATE" =>
-        [
-            "December 13, 2018",
-            "Some more tricks"
-        ]
-
-];
-
-/// @brief
-$data_BTcontent18 = [
-
-    "blog_entry18CONTENT" =>
-        [
-            //TECH BLOG, no dynamic content
-        ]
-
-];
-
-//-----------------------------------------------------------------------------------------------------------
-/// @brief
-$data_BTdesc16 = [
-
-    "blog_entry16PHOTO" =>
-        "images/macro-1452987_640.jpg",
-
-    "blog_entry16TITLE" =>
-        "Today's sandbox",
-
-    "blog_entry16DATE" =>
-        [
-            "December 5, 2018",
-            "Some tricks"
-        ]
-
-];
-
-/// @brief
-$data_BTcontent16 = [
-
-    "blog_entry16CONTENT" =>
-        [
-            //TECH BLOG, no dynamic content
-        ]
-
-];
-
-//-----------------------------------------------------------------------------------------------------------
-/// @brief
 $data_BTdesc15 = [
 
     "blog_entry15PHOTO" =>
@@ -755,7 +671,7 @@ $data_BTdesc15 = [
 
     "blog_entry15DATE" =>
         [
-            "December 3, 2018",
+            "June 27, 2019",
             "\"A little break\""
         ]
 
@@ -770,159 +686,6 @@ $data_BTcontent15 = [
         ]
 
 ];
-
-//-----------------------------------------------------------------------------------------------------------
-/// @brief
-$data_BTdesc13 = [
-
-    "blog_entry13PHOTO" =>
-        "images/screw-1924173_640.jpg",
-
-    "blog_entry13TITLE" =>
-        "Today's sandbox",
-
-    "blog_entry13DATE" =>
-        [
-            "November 28, 2018",
-            "Foolin' around with Treeviews"
-        ]
-
-];
-
-/// @brief
-$data_BTcontent13 = [
-
-    "blog_entry13CONTENT" =>
-        [
-            //TECH BLOG, no dynamic content
-        ]
-
-];
-
-//-----------------------------------------------------------------------------------------------------------
-/// @brief
-$data_BTdesc11 = [
-
-    "blog_entry11PHOTO" =>
-        "images/gears-1059756_640.png",
-
-    "blog_entry11TITLE" =>
-        "[--UPDATED --] Some React",
-
-    "blog_entry11DATE" =>
-        [
-            "January 09, 2019",
-            "Tests with React"
-        ]
-
-];
-
-/// @brief
-$data_BTcontent11 = [
-
-    "blog_entry11CONTENT" =>
-        [
-            //TECH BLOG, no dynamic content
-        ]
-
-];
-
-//-----------------------------------------------------------------------------------------------------------
-/// @brief
-$data_BTdesc8 = [
-    "blog_entry8PHOTO" =>
-        "images/gears-686316_640.jpg",
-    "blog_entry8TITLE" => "",
-    "blog_entry8DATE" => []
-];
-
-/// @brief
-$data_BTcontent8 = [
-    "blog_entry8CONTENT" =>
-        [
-            //TECH BLOG, no dynamic content
-        ]
-];
-
-//-----------------------------------------------------------------------------------------------------------
-/// @brief
-$data_BTdesc7 = [
-
-    "blog_entry7PHOTO" =>
-        "images/macro-1452987_640.jpg",
-
-    "blog_entry7TITLE" =>
-        "[-- UPDATED --] Today's sandbox",
-
-    "blog_entry7DATE" =>
-        [
-            "January 09, 2019",
-            "Trying different things with angular.js"
-        ]
-
-];
-
-/// @brief
-$data_BTcontent7 = [
-    "blog_entry7CONTENT" =>
-        [
-            //TECH BLOG, no dynamic content
-        ]
-
-];
-
-//-----------------------------------------------------------------------------------------------------------
-/// @brief
-$data_BTdesc5 = [
-
-    "blog_entry5PHOTO" =>
-        "images/gears-1236578_640.jpg",
-
-    "blog_entry5TITLE" =>
-        "Today's sandbox",
-
-    "blog_entry5DATE" =>
-        [
-            "May 05, 2018",
-            "Trying different things with jscript / php to find a CLEAN implementation"
-        ]
-
-];
-/// @brief
-$data_BTcontent5 = [
-    "blog_entry5CONTENT" =>
-        [
-            //TECH BLOG, no dynamic content
-        ]
-
-];
-
-//-----------------------------------------------------------------------------------------------------------
-/// @brief
-$data_BTtestarray =
-    [
-        "Anna", "Amanda",
-        "Brittany",
-        "Cinderella", "Cindy",
-        "Diana", "Doris",
-        "Eva", "Eve", "Evita", "Elizabeth", "Ellen",
-        "Fiona",
-        "Gunda",
-        "Hege", "Helga", "Hildegard",
-        "Inga",
-        "Johanna", "Jenny",
-        "Kitty", "Katherin",
-        "Linda", "Liza",
-        "Nina",
-        "Ophelia",
-        "Petunia",
-        "Raquel",
-        "Sunniva",
-        "Tove",
-        "Unni",
-        "Violet", "Vicky",
-        "Wenche"
-    ];
 
 //-----------------------------------------------------------------------------------------------------------
 /// @brief
@@ -953,23 +716,7 @@ $data_BLOGmap = [
     "data_BNdesc1" => $data_BNdesc1,
     "data_BNcontent1" => $data_BNcontent1,
 
-    "data_BTdesc19" => $data_BTdesc19,
-    "data_BTcontent19" => $data_BTcontent19,
-    "data_BTdesc18" => $data_BTdesc18,
-    "data_BTcontent18" => $data_BTcontent18,
-    "data_BTdesc16" => $data_BTdesc16,
-    "data_BTcontent16" => $data_BTcontent16,
     "data_BTdesc15" => $data_BTdesc15,
-    "data_BTcontent15" => $data_BTcontent15,
-    "data_BTdesc13" => $data_BTdesc13,
-    "data_BTcontent13" => $data_BTcontent13,
-    "data_BTdesc11" => $data_BTdesc11,
-    "data_BTcontent11" => $data_BTcontent11,
-    "data_BTdesc8" => $data_BTdesc8,
-    "data_BTcontent8" => $data_BTcontent8,
-    "data_BTdesc7" => $data_BTdesc7,
-    "data_BTcontent7" => $data_BTcontent7,
-    "data_BTdesc5" => $data_BTdesc5,
-    "data_BTcontent5" => $data_BTcontent5,
+    "data_BTcontent15" => $data_BTcontent15
 
 ];
