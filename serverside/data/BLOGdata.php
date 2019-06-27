@@ -22,7 +22,7 @@ $data_BNdesc21 = [
 
     "blog_entry21DATE" =>
         [
-            "June 06, 2019",
+            "June 27, 2019",
             "Still alive, but busy..."
         ]
 
@@ -34,7 +34,11 @@ $data_BNcontent21 = [
     "blog_entry21CONTENT" => [
         [ "p",
             [
-                "Working on many different things. Porting this website to Spring Boot, for example..."
+                "Working on many different things. First: I cleaned up everything but the game sample in the TECH part.
+                Then I'm going to port this website backend to Spring Boot, and re-write frontend with React for example...
+                I tried to implement this website as a showcase, to say: OK, I can do this. And this. And this... 
+                It seems like it's absolutely useless, anyway... 
+                Allright, then I have time to finish writing my first Sci-Fi roman :) "
             ]
         ],
     ]
